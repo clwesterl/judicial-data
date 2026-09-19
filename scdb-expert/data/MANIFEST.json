@@ -1,0 +1,96 @@
+{
+  "built": "2026-09-19",
+  "builder": "scripts/build_combined.py",
+  "note": "Legacy (1791-1945) + Modern (1946-) SCDB, organized by citation. Schema identical to the official releases; see references/data_notes.md.",
+  "case": {
+    "file": "case_citation.csv.gz",
+    "rows": 29270,
+    "columns": 53,
+    "cases": 29270,
+    "terms": [
+      1791,
+      2025
+    ],
+    "sources": [
+      {
+        "path": "SCDB_Legacy_07_caseCentered_Citation.csv",
+        "release": "Legacy_07",
+        "encoding": "cp1252",
+        "rows": 19861,
+        "terms": [
+          1791,
+          1945
+        ],
+        "sha256": "79d66b06b45a2546614ccba60e8ac790cc044b7d826f602a33eb7775abd8b699"
+      },
+      {
+        "path": "SCDB_2026_01_caseCentered_Citation.csv",
+        "release": "2026_01",
+        "encoding": "utf-8",
+        "rows": 9409,
+        "terms": [
+          1946,
+          2025
+        ],
+        "sha256": "b3cc84bd73a7a0325856cca52ae6fc5bd6a39433113f83fef248556ad4488528"
+      }
+    ],
+    "harmonization": [
+      {
+        "file": "legacy",
+        "NULL->blank": {
+          "lawMinor": 16106
+        }
+      }
+    ],
+    "sha256": "775390c49df4deeb5fbe97f3dbd7f524c9dd62a3bc2c0c514421b82a3ab0cf01"
+  },
+  "justice": {
+    "file": "justice_citation.csv.gz",
+    "rows": 256469,
+    "columns": 61,
+    "cases": 29295,
+    "terms": [
+      1791,
+      2025
+    ],
+    "sources": [
+      {
+        "path": "SCDB_Legacy_07_justiceCentered_Citation.csv",
+        "release": "Legacy_07",
+        "encoding": "cp1252",
+        "rows": 172213,
+        "terms": [
+          1791,
+          1945
+        ],
+        "sha256": "99af4d7c4423468e1f8eb3e966780ec3488b239d7d36a16b175eae528d07d29b"
+      },
+      {
+        "path": "SCDB_2026_01_justiceCentered_Citation.csv",
+        "release": "2026_01",
+        "encoding": "utf-8",
+        "rows": 84256,
+        "terms": [
+          1946,
+          2025
+        ],
+        "sha256": "fc8c5b9e986867c4b7fe377aa2885e66aa25b5669670eab6bffc2cbf13001ee3"
+      }
+    ],
+    "harmonization": [
+      {
+        "file": "legacy",
+        "NULL->blank": {
+          "voteId": 25,
+          "lawMinor": 139818
+        }
+      }
+    ],
+    "sha256": "1c7a6f93c0fab5faf07f3a07dd39cef60d3b6ecee05167a83148c3ef3c5c9123"
+  },
+  "releases": [
+    "2026_01",
+    "Legacy_07"
+  ]
+}

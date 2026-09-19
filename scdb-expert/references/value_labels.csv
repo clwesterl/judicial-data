@@ -1,0 +1,2815 @@
+variable,code,label,table
+adminAction,1,Army and Air Force Exchange Service,varAdminAction
+adminAction,2,Atomic Energy Commission,varAdminAction
+adminAction,3,Secretary or administrative unit or personnel of the U.S. Air Force,varAdminAction
+adminAction,4,Department or Secretary of Agriculture,varAdminAction
+adminAction,5,Alien Property Custodian,varAdminAction
+adminAction,6,Secretary or administrative unit or personnel of the U.S. Army,varAdminAction
+adminAction,7,Board of Immigration Appeals,varAdminAction
+adminAction,8,Bureau of Indian Affairs,varAdminAction
+adminAction,9,Bureau of Prisons,varAdminAction
+adminAction,10,Bonneville Power Administration,varAdminAction
+adminAction,11,Benefits Review Board,varAdminAction
+adminAction,12,Civil Aeronautics Board,varAdminAction
+adminAction,13,Bureau of the Census,varAdminAction
+adminAction,14,Central Intelligence Agency,varAdminAction
+adminAction,15,Commodity Futures Trading Commission,varAdminAction
+adminAction,16,Department or Secretary of Commerce,varAdminAction
+adminAction,17,Comptroller of Currency,varAdminAction
+adminAction,18,Consumer Product Safety Commission,varAdminAction
+adminAction,19,Civil Rights Commission,varAdminAction
+adminAction,20,"Civil Service Commission, U.S.",varAdminAction
+adminAction,21,Customs Service or Commissioner or Collector of Customs,varAdminAction
+adminAction,22,Defense Base Closure and REalignment Commission,varAdminAction
+adminAction,23,Drug Enforcement Agency,varAdminAction
+adminAction,24,Department or Secretary of Defense (and Department or Secretary of War),varAdminAction
+adminAction,25,Department or Secretary of Energy,varAdminAction
+adminAction,26,Department or Secretary of the Interior,varAdminAction
+adminAction,27,Department of Justice or Attorney General,varAdminAction
+adminAction,28,Department or Secretary of State,varAdminAction
+adminAction,29,Department or Secretary of Transportation,varAdminAction
+adminAction,30,Department or Secretary of Education,varAdminAction
+adminAction,31,"U.S. Employees' Compensation Commission, or Commissioner",varAdminAction
+adminAction,32,Equal Employment Opportunity Commission,varAdminAction
+adminAction,33,Environmental Protection Agency or Administrator,varAdminAction
+adminAction,34,Federal Aviation Agency or Administration,varAdminAction
+adminAction,35,Federal Bureau of Investigation or Director,varAdminAction
+adminAction,36,Federal Bureau of Prisons,varAdminAction
+adminAction,37,Farm Credit Administration,varAdminAction
+adminAction,38,"Federal Communications Commission (including a predecessor, Federal Radio Commission)",varAdminAction
+adminAction,39,Federal Credit Union Administration,varAdminAction
+adminAction,40,Food and Drug Administration,varAdminAction
+adminAction,41,Federal Deposit Insurance Corporation,varAdminAction
+adminAction,42,Federal Energy Administration,varAdminAction
+adminAction,43,Federal Election Commission,varAdminAction
+adminAction,44,Federal Energy Regulatory Commission,varAdminAction
+adminAction,45,Federal Housing Administration,varAdminAction
+adminAction,46,Federal Home Loan Bank Board,varAdminAction
+adminAction,47,Federal Labor Relations Authority,varAdminAction
+adminAction,48,Federal Maritime Board,varAdminAction
+adminAction,49,Federal Maritime Commission,varAdminAction
+adminAction,50,Farmers Home Administration,varAdminAction
+adminAction,51,Federal Parole Board,varAdminAction
+adminAction,52,Federal Power Commission,varAdminAction
+adminAction,53,Federal Railroad Administration,varAdminAction
+adminAction,54,Federal Reserve Board of Governors,varAdminAction
+adminAction,55,Federal Reserve System,varAdminAction
+adminAction,56,Federal Savings and Loan Insurance Corporation,varAdminAction
+adminAction,57,Federal Trade Commission,varAdminAction
+adminAction,58,"Federal Works Administration, or Administrator",varAdminAction
+adminAction,59,General Accounting Office,varAdminAction
+adminAction,60,Comptroller General,varAdminAction
+adminAction,61,General Services Administration,varAdminAction
+adminAction,62,"Department or Secretary of Health, Education and Welfare",varAdminAction
+adminAction,63,Department or Secretary of Health and Human Services,varAdminAction
+adminAction,64,Department or Secretary of Housing and Urban Development,varAdminAction
+adminAction,65,Administrative agency established under an interstate compact (except for the MTC),varAdminAction
+adminAction,66,Interstate Commerce Commission,varAdminAction
+adminAction,67,Indian Claims Commission,varAdminAction
+adminAction,68,"Immigration and Naturalization Service, or Director of, or District Director of, or Immigration and Naturalization Enforcement",varAdminAction
+adminAction,69,"Internal Revenue Service, Collector, Commissioner, or District Director of",varAdminAction
+adminAction,70,Information Security Oversight Office,varAdminAction
+adminAction,71,Department or Secretary of Labor,varAdminAction
+adminAction,72,Loyalty Review Board,varAdminAction
+adminAction,73,Legal Services Corporation,varAdminAction
+adminAction,74,Merit Systems Protection Board,varAdminAction
+adminAction,75,Multistate Tax Commission,varAdminAction
+adminAction,76,National Aeronautics and Space Administration,varAdminAction
+adminAction,77,Secretary or administrative unit or personnel of the U.S. Navy,varAdminAction
+adminAction,78,National Credit Union Administration,varAdminAction
+adminAction,79,National Endowment for the Arts,varAdminAction
+adminAction,80,National Enforcement Commission,varAdminAction
+adminAction,81,National Highway Traffic Safety Administration,varAdminAction
+adminAction,82,"National Labor Relations Board, or regional office or officer",varAdminAction
+adminAction,83,National Mediation Board,varAdminAction
+adminAction,84,National Railroad Adjustment Board,varAdminAction
+adminAction,85,Nuclear Regulatory Commission,varAdminAction
+adminAction,86,National Security Agency,varAdminAction
+adminAction,87,Office of Economic Opportunity,varAdminAction
+adminAction,88,Office of Management and Budget,varAdminAction
+adminAction,89,"Office of Price Administration, or Price Administrator",varAdminAction
+adminAction,90,Office of Personnel Management,varAdminAction
+adminAction,91,Occupational Safety and Health Administration,varAdminAction
+adminAction,92,Occupational Safety and Health Review Commission,varAdminAction
+adminAction,93,Office of Workers' Compensation Programs,varAdminAction
+adminAction,94,"Patent Office, or Commissioner of, or Board of Appeals of",varAdminAction
+adminAction,95,Pay Board (established under the Economic Stabilization Act of 1970),varAdminAction
+adminAction,96,Pension Benefit Guaranty Corporation,varAdminAction
+adminAction,97,U.S. Public Health Service,varAdminAction
+adminAction,98,Postal Rate Commission,varAdminAction
+adminAction,99,Provider Reimbursement Review Board,varAdminAction
+adminAction,100,Renegotiation Board,varAdminAction
+adminAction,101,Railroad Adjustment Board,varAdminAction
+adminAction,102,Railroad Retirement Board,varAdminAction
+adminAction,103,Subversive Activities Control Board,varAdminAction
+adminAction,104,Small Business Administration,varAdminAction
+adminAction,105,Securities and Exchange Commission,varAdminAction
+adminAction,106,Social Security Administration or Commissioner,varAdminAction
+adminAction,107,Selective Service System,varAdminAction
+adminAction,108,Department or Secretary of the Treasury,varAdminAction
+adminAction,109,Tennessee Valley Authority,varAdminAction
+adminAction,110,United States Forest Service,varAdminAction
+adminAction,111,United States Parole Commission,varAdminAction
+adminAction,112,"Postal Service and Post Office, or Postmaster General, or Postmaster",varAdminAction
+adminAction,113,United States Sentencing Commission,varAdminAction
+adminAction,114,Veterans' Administration or Board of Veterans' Appeals,varAdminAction
+adminAction,115,War Production Board,varAdminAction
+adminAction,116,Wage Stabilization Board,varAdminAction
+adminAction,117,State Agency,varAdminAction
+adminAction,118,Unidentifiable,varAdminAction
+adminAction,119,Office of Thrift Supervision,varAdminAction
+adminAction,120,Department of Homeland Security,varAdminAction
+adminAction,121,Board of General Appraisers,varAdminAction
+adminAction,122,Board of Tax Appeals,varAdminAction
+adminAction,123,General Land Office or Commissioners,varAdminAction
+adminAction,124,NO Admin Action,varAdminAction
+adminAction,125,Processing Tax Board of Review,varAdminAction
+authorityDecision1,1,judicial review (national level),varAuthorityDecision
+authorityDecision1,2,judicial review (state level),varAuthorityDecision
+authorityDecision1,3,Supreme Court supervision of lower federal or state courts or original jurisdiction,varAuthorityDecision
+authorityDecision1,4,statutory construction,varAuthorityDecision
+authorityDecision1,5,"interpretation of administrative regulation or rule, or executive order",varAuthorityDecision
+authorityDecision1,6,diversity jurisdiction,varAuthorityDecision
+authorityDecision1,7,federal common law,varAuthorityDecision
+authorityDecision2,1,judicial review (national level),varAuthorityDecision
+authorityDecision2,2,judicial review (state level),varAuthorityDecision
+authorityDecision2,3,Supreme Court supervision of lower federal or state courts or original jurisdiction,varAuthorityDecision
+authorityDecision2,4,statutory construction,varAuthorityDecision
+authorityDecision2,5,"interpretation of administrative regulation or rule, or executive order",varAuthorityDecision
+authorityDecision2,6,diversity jurisdiction,varAuthorityDecision
+authorityDecision2,7,federal common law,varAuthorityDecision
+lcDisposition,1,"stay, petition, or motion granted",varCaseDispositionLc
+lcDisposition,2,affirmed,varCaseDispositionLc
+lcDisposition,3,reversed,varCaseDispositionLc
+lcDisposition,4,reversed and remanded,varCaseDispositionLc
+lcDisposition,5,vacated and remanded,varCaseDispositionLc
+lcDisposition,6,affirmed and reversed (or vacated) in part,varCaseDispositionLc
+lcDisposition,7,affirmed and reversed (or vacated) in part and remanded,varCaseDispositionLc
+lcDisposition,8,vacated,varCaseDispositionLc
+lcDisposition,9,petition denied or appeal dismissed,varCaseDispositionLc
+lcDisposition,10,modify,varCaseDispositionLc
+lcDisposition,11,remand,varCaseDispositionLc
+lcDisposition,12,unusual disposition,varCaseDispositionLc
+caseDisposition,1,"stay, petition, or motion granted",varCaseDispositionSc
+caseDisposition,2,affirmed (includes modified),varCaseDispositionSc
+caseDisposition,3,reversed,varCaseDispositionSc
+caseDisposition,4,reversed and remanded,varCaseDispositionSc
+caseDisposition,5,vacated and remanded,varCaseDispositionSc
+caseDisposition,6,affirmed and reversed (or vacated) in part,varCaseDispositionSc
+caseDisposition,7,affirmed and reversed (or vacated) in part and remanded,varCaseDispositionSc
+caseDisposition,8,vacated,varCaseDispositionSc
+caseDisposition,9,petition denied or appeal dismissed,varCaseDispositionSc
+caseDisposition,10,certification to or from a lower court,varCaseDispositionSc
+caseDisposition,11,no disposition,varCaseDispositionSc
+caseDispositionUnusual,0,no unusual disposition specified,varCaseDispositionUnusual
+caseDispositionUnusual,1,unusual disposition,varCaseDispositionUnusual
+caseOrigin,1,U.S. Court of Customs and Patent Appeals,varCaseSources
+caseOrigin,2,U.S. Court of International Trade,varCaseSources
+caseOrigin,3,"U.S. Court of Claims, Court of Federal Claims",varCaseSources
+caseOrigin,4,"U.S. Court of Military Appeals, renamed as Court of Appeals for the Armed Forces",varCaseSources
+caseOrigin,5,U.S. Court of Military Review,varCaseSources
+caseOrigin,6,U.S. Court of Veterans Appeals,varCaseSources
+caseOrigin,7,U.S. Customs Court,varCaseSources
+caseOrigin,8,"U.S. Court of Appeals, Federal Circuit",varCaseSources
+caseOrigin,9,U.S. Tax Court,varCaseSources
+caseOrigin,10,Temporary Emergency U.S. Court of Appeals,varCaseSources
+caseOrigin,12,U.S. Court for China,varCaseSources
+caseOrigin,13,U.S. Consular Courts,varCaseSources
+caseOrigin,14,U.S. Commerce Court,varCaseSources
+caseOrigin,15,Territorial Supreme Court,varCaseSources
+caseOrigin,16,Territorial Appellate Court,varCaseSources
+caseOrigin,17,Territorial Trial Court,varCaseSources
+caseOrigin,18,Emergency Court of Appeals,varCaseSources
+caseOrigin,19,Supreme Court of the District of Columbia,varCaseSources
+caseOrigin,20,Bankruptcy Court,varCaseSources
+caseOrigin,21,"U.S. Court of Appeals, First Circuit",varCaseSources
+caseOrigin,22,"U.S. Court of Appeals, Second Circuit",varCaseSources
+caseOrigin,23,"U.S. Court of Appeals, Third Circuit",varCaseSources
+caseOrigin,24,"U.S. Court of Appeals, Fourth Circuit",varCaseSources
+caseOrigin,25,"U.S. Court of Appeals, Fifth Circuit",varCaseSources
+caseOrigin,26,"U.S. Court of Appeals, Sixth Circuit",varCaseSources
+caseOrigin,27,"U.S. Court of Appeals, Seventh Circuit",varCaseSources
+caseOrigin,28,"U.S. Court of Appeals, Eighth Circuit",varCaseSources
+caseOrigin,29,"U.S. Court of Appeals, Ninth Circuit",varCaseSources
+caseOrigin,30,"U.S. Court of Appeals, Tenth Circuit",varCaseSources
+caseOrigin,31,"U.S. Court of Appeals, Eleventh Circuit",varCaseSources
+caseOrigin,32,"U.S. Court of Appeals, District of Columbia Circuit (includes the Court of Appeals for the District of Columbia but not the District of Columbia Court of Appeals, which has local jurisdiction)",varCaseSources
+caseOrigin,41,Alabama Middle U.S. District Court,varCaseSources
+caseOrigin,42,Alabama Northern U.S. District Court,varCaseSources
+caseOrigin,43,Alabama Southern U.S. District Court,varCaseSources
+caseOrigin,44,Alaska U.S. District Court,varCaseSources
+caseOrigin,45,Arizona U.S. District Court,varCaseSources
+caseOrigin,46,Arkansas Eastern U.S. District Court,varCaseSources
+caseOrigin,47,Arkansas Western U.S. District Court,varCaseSources
+caseOrigin,48,California Central U.S. District Court,varCaseSources
+caseOrigin,49,California Eastern U.S. District Court,varCaseSources
+caseOrigin,50,California Northern U.S. District Court,varCaseSources
+caseOrigin,51,California Southern U.S. District Court,varCaseSources
+caseOrigin,52,Colorado U.S. District Court,varCaseSources
+caseOrigin,53,Connecticut U.S. District Court,varCaseSources
+caseOrigin,54,Delaware U.S. District Court,varCaseSources
+caseOrigin,55,District Of Columbia U.S. District Court,varCaseSources
+caseOrigin,56,Florida Middle U.S. District Court,varCaseSources
+caseOrigin,57,Florida Northern U.S. District Court,varCaseSources
+caseOrigin,58,Florida Southern U.S. District Court,varCaseSources
+caseOrigin,59,Georgia Middle U.S. District Court,varCaseSources
+caseOrigin,60,Georgia Northern U.S. District Court,varCaseSources
+caseOrigin,61,Georgia Southern U.S. District Court,varCaseSources
+caseOrigin,62,Guam U.S. District Court,varCaseSources
+caseOrigin,63,Hawaii U.S. District Court,varCaseSources
+caseOrigin,64,Idaho U.S. District Court,varCaseSources
+caseOrigin,65,Illinois Central U.S. District Court,varCaseSources
+caseOrigin,66,Illinois Northern U.S. District Court,varCaseSources
+caseOrigin,67,Illinois Southern U.S. District Court,varCaseSources
+caseOrigin,68,Indiana Northern U.S. District Court,varCaseSources
+caseOrigin,69,Indiana Southern U.S. District Court,varCaseSources
+caseOrigin,70,Iowa Northern U.S. District Court,varCaseSources
+caseOrigin,71,Iowa Southern U.S. District Court,varCaseSources
+caseOrigin,72,Kansas U.S. District Court,varCaseSources
+caseOrigin,73,Kentucky Eastern U.S. District Court,varCaseSources
+caseOrigin,74,Kentucky Western U.S. District Court,varCaseSources
+caseOrigin,75,Louisiana Eastern U.S. District Court,varCaseSources
+caseOrigin,76,Louisiana Middle U.S. District Court,varCaseSources
+caseOrigin,77,Louisiana Western U.S. District Court,varCaseSources
+caseOrigin,78,Maine U.S. District Court,varCaseSources
+caseOrigin,79,Maryland U.S. District Court,varCaseSources
+caseOrigin,80,Massachusetts U.S. District Court,varCaseSources
+caseOrigin,81,Michigan Eastern U.S. District Court,varCaseSources
+caseOrigin,82,Michigan Western U.S. District Court,varCaseSources
+caseOrigin,83,Minnesota U.S. District Court,varCaseSources
+caseOrigin,84,Mississippi Northern U.S. District Court,varCaseSources
+caseOrigin,85,Mississippi Southern U.S. District Court,varCaseSources
+caseOrigin,86,Missouri Eastern U.S. District Court,varCaseSources
+caseOrigin,87,Missouri Western U.S. District Court,varCaseSources
+caseOrigin,88,Montana U.S. District Court,varCaseSources
+caseOrigin,89,Nebraska U.S. District Court,varCaseSources
+caseOrigin,90,Nevada U.S. District Court,varCaseSources
+caseOrigin,91,New Hampshire U.S. District Court,varCaseSources
+caseOrigin,92,New Jersey U.S. District Court,varCaseSources
+caseOrigin,93,New Mexico U.S. District Court,varCaseSources
+caseOrigin,94,New York Eastern U.S. District Court,varCaseSources
+caseOrigin,95,New York Northern U.S. District Court,varCaseSources
+caseOrigin,96,New York Southern U.S. District Court,varCaseSources
+caseOrigin,97,New York Western U.S. District Court,varCaseSources
+caseOrigin,98,North Carolina Eastern U.S. District Court,varCaseSources
+caseOrigin,99,North Carolina Middle U.S. District Court,varCaseSources
+caseOrigin,100,North Carolina Western U.S. District Court,varCaseSources
+caseOrigin,101,North Dakota U.S. District Court,varCaseSources
+caseOrigin,102,Northern Mariana Islands U.S. District Court,varCaseSources
+caseOrigin,103,Ohio Northern U.S. District Court,varCaseSources
+caseOrigin,104,Ohio Southern U.S. District Court,varCaseSources
+caseOrigin,105,Oklahoma Eastern U.S. District Court,varCaseSources
+caseOrigin,106,Oklahoma Northern U.S. District Court,varCaseSources
+caseOrigin,107,Oklahoma Western U.S. District Court,varCaseSources
+caseOrigin,108,Oregon U.S. District Court,varCaseSources
+caseOrigin,109,Pennsylvania Eastern U.S. District Court,varCaseSources
+caseOrigin,110,Pennsylvania Middle U.S. District Court,varCaseSources
+caseOrigin,111,Pennsylvania Western U.S. District Court,varCaseSources
+caseOrigin,112,Puerto Rico U.S. District Court,varCaseSources
+caseOrigin,113,Rhode Island U.S. District Court,varCaseSources
+caseOrigin,114,South Carolina U.S. District Court,varCaseSources
+caseOrigin,115,South Dakota U.S. District Court,varCaseSources
+caseOrigin,116,Tennessee Eastern U.S. District Court,varCaseSources
+caseOrigin,117,Tennessee Middle U.S. District Court,varCaseSources
+caseOrigin,118,Tennessee Western U.S. District Court,varCaseSources
+caseOrigin,119,Texas Eastern U.S. District Court,varCaseSources
+caseOrigin,120,Texas Northern U.S. District Court,varCaseSources
+caseOrigin,121,Texas Southern U.S. District Court,varCaseSources
+caseOrigin,122,Texas Western U.S. District Court,varCaseSources
+caseOrigin,123,Utah U.S. District Court,varCaseSources
+caseOrigin,124,Vermont U.S. District Court,varCaseSources
+caseOrigin,125,Virgin Islands U.S. District Court,varCaseSources
+caseOrigin,126,Virginia Eastern U.S. District Court,varCaseSources
+caseOrigin,127,Virginia Western U.S. District Court,varCaseSources
+caseOrigin,128,Washington Eastern U.S. District Court,varCaseSources
+caseOrigin,129,Washington Western U.S. District Court,varCaseSources
+caseOrigin,130,West Virginia Northern U.S. District Court,varCaseSources
+caseOrigin,131,West Virginia Southern U.S. District Court,varCaseSources
+caseOrigin,132,Wisconsin Eastern U.S. District Court,varCaseSources
+caseOrigin,133,Wisconsin Western U.S. District Court,varCaseSources
+caseOrigin,134,Wyoming U.S. District Court,varCaseSources
+caseOrigin,150,Louisiana U.S. District Court,varCaseSources
+caseOrigin,151,Washington U.S. District Court,varCaseSources
+caseOrigin,152,West Virginia U.S. District Court,varCaseSources
+caseOrigin,153,Illinois Eastern U.S. District Court,varCaseSources
+caseOrigin,155,South Carolina Eastern U.S. District Court,varCaseSources
+caseOrigin,160,South Carolina Western U.S. District Court,varCaseSources
+caseOrigin,162,Alabama U.S. District Court,varCaseSources
+caseOrigin,163,U.S. District Court for the Canal Zone,varCaseSources
+caseOrigin,164,Georgia U.S. District Court,varCaseSources
+caseOrigin,165,Illinois U.S. District Court,varCaseSources
+caseOrigin,166,Indiana U.S. District Court,varCaseSources
+caseOrigin,167,Iowa U.S. District Court,varCaseSources
+caseOrigin,168,Michigan U.S. District Court,varCaseSources
+caseOrigin,169,Mississippi U.S. District Court,varCaseSources
+caseOrigin,170,Missouri U.S. District Court,varCaseSources
+caseOrigin,171,New Jersey Eastern U.S. District Court (East Jersey U.S. District Court),varCaseSources
+caseOrigin,172,New Jersey Western U.S. District Court (West Jersey U.S. District Court),varCaseSources
+caseOrigin,173,New York U.S. District Court,varCaseSources
+caseOrigin,174,North Carolina U.S. District Court,varCaseSources
+caseOrigin,175,Ohio U.S. District Court,varCaseSources
+caseOrigin,176,Pennsylvania U.S. District Court,varCaseSources
+caseOrigin,177,Tennessee U.S. District Court,varCaseSources
+caseOrigin,178,Texas U.S. District Court,varCaseSources
+caseOrigin,179,Virginia U.S. District Court,varCaseSources
+caseOrigin,180,Norfolk U.S. District Court,varCaseSources
+caseOrigin,181,Wisconsin U.S. District Court,varCaseSources
+caseOrigin,182,Kentucky U.S. Distrcrict Court,varCaseSources
+caseOrigin,183,New Jersey U.S. District Court,varCaseSources
+caseOrigin,184,California U.S. District Court,varCaseSources
+caseOrigin,185,Florida U.S. District Court,varCaseSources
+caseOrigin,186,Arkansas U.S. District Court,varCaseSources
+caseOrigin,187,District of Orleans U.S. District Court,varCaseSources
+caseOrigin,300,State Supreme Court,varCaseSources
+caseOrigin,301,State Appellate Court,varCaseSources
+caseOrigin,302,State Trial Court,varCaseSources
+caseOrigin,400,Eastern Circuit (of the United States),varCaseSources
+caseOrigin,401,Middle Circuit (of the United States),varCaseSources
+caseOrigin,402,Southern Circuit (of the United States),varCaseSources
+caseOrigin,403,Alabama U.S. Circuit Court for (all) District(s) of Alabama,varCaseSources
+caseOrigin,404,Arkansas U.S. Circuit Court for (all) District(s) of Arkansas,varCaseSources
+caseOrigin,405,California U.S. Circuit for (all) District(s) of California,varCaseSources
+caseOrigin,406,Connecticut U.S. Circuit for the District of Connecticut,varCaseSources
+caseOrigin,407,Delaware U.S. Circuit for the District of Delaware,varCaseSources
+caseOrigin,408,Florida U.S. Circuit for (all) District(s) of Florida,varCaseSources
+caseOrigin,409,Georgia U.S. Circuit for (all) District(s) of Georgia,varCaseSources
+caseOrigin,410,Illinois U.S. Circuit for (all) District(s) of Illinois,varCaseSources
+caseOrigin,411,Indiana U.S. Circuit for (all) District(s) of Indiana,varCaseSources
+caseOrigin,412,Iowa U.S. Circuit for (all) District(s) of Iowa,varCaseSources
+caseOrigin,413,Kansas U.S. Circuit for the District of Kansas,varCaseSources
+caseOrigin,414,Kentucky U.S. Circuit for (all) District(s) of Kentucky,varCaseSources
+caseOrigin,415,Louisiana U.S. Circuit for (all) District(s) of Louisiana,varCaseSources
+caseOrigin,416,Maine U.S. Circuit for the District of Maine,varCaseSources
+caseOrigin,417,Maryland U.S. Circuit for the District of Maryland,varCaseSources
+caseOrigin,418,Massachusetts U.S. Circuit for the District of Massachusetts,varCaseSources
+caseOrigin,419,Michigan U.S. Circuit for (all) District(s) of Michigan,varCaseSources
+caseOrigin,420,Minnesota U.S. Circuit for the District of Minnesota,varCaseSources
+caseOrigin,421,Mississippi U.S. Circuit for (all) District(s) of Mississippi,varCaseSources
+caseOrigin,422,Missouri U.S. Circuit for (all) District(s) of Missouri,varCaseSources
+caseOrigin,423,Nevada U.S. Circuit for the District of Nevada,varCaseSources
+caseOrigin,424,New Hampshire U.S. Circuit for the District of New Hampshire,varCaseSources
+caseOrigin,425,New Jersey U.S. Circuit for (all) District(s) of New Jersey,varCaseSources
+caseOrigin,426,New York U.S. Circuit for (all) District(s) of New York,varCaseSources
+caseOrigin,427,North Carolina U.S. Circuit for (all) District(s) of North Carolina,varCaseSources
+caseOrigin,428,Ohio U.S. Circuit for (all) District(s) of Ohio,varCaseSources
+caseOrigin,429,Oregon U.S. Circuit for the District of Oregon,varCaseSources
+caseOrigin,430,Pennsylvania U.S. Circuit for (all) District(s) of Pennsylvania,varCaseSources
+caseOrigin,431,Rhode Island U.S. Circuit for the District of Rhode Island,varCaseSources
+caseOrigin,432,South Carolina U.S. Circuit for the District of South Carolina,varCaseSources
+caseOrigin,433,Tennessee U.S. Circuit for (all) District(s) of Tennessee,varCaseSources
+caseOrigin,434,Texas U.S. Circuit for (all) District(s) of Texas,varCaseSources
+caseOrigin,435,Vermont U.S. Circuit for the District of Vermont,varCaseSources
+caseOrigin,436,Virginia U.S. Circuit for (all) District(s) of Virginia,varCaseSources
+caseOrigin,437,West Virginia U.S. Circuit for (all) District(s) of West Virginia,varCaseSources
+caseOrigin,438,Wisconsin U.S. Circuit for (all) District(s) of Wisconsin,varCaseSources
+caseOrigin,439,Wyoming U.S. Circuit for the District of Wyoming,varCaseSources
+caseOrigin,440,Circuit Court of the District of Columbia,varCaseSources
+caseOrigin,441,Nebraska U.S. Circuit for the District of Nebraska,varCaseSources
+caseOrigin,442,Colorado U.S. Circuit for the District of Colorado,varCaseSources
+caseOrigin,443,Washington U.S. Circuit for (all) District(s) of Washington,varCaseSources
+caseOrigin,444,Idaho U.S. Circuit Court for (all) District(s) of Idaho,varCaseSources
+caseOrigin,445,Montana U.S. Circuit Court for (all) District(s) of Montana,varCaseSources
+caseOrigin,446,Utah U.S. Circuit Court for (all) District(s) of Utah,varCaseSources
+caseOrigin,447,South Dakota U.S. Circuit Court for (all) District(s) of South Dakota,varCaseSources
+caseOrigin,448,North Dakota U.S. Circuit Court for (all) District(s) of North Dakota,varCaseSources
+caseOrigin,449,Oklahoma U.S. Circuit Court for (all) District(s) of Oklahoma,varCaseSources
+caseOrigin,601,Court of Private Land Claims,varCaseSources
+caseSource,1,U.S. Court of Customs and Patent Appeals,varCaseSources
+caseSource,2,U.S. Court of International Trade,varCaseSources
+caseSource,3,"U.S. Court of Claims, Court of Federal Claims",varCaseSources
+caseSource,4,"U.S. Court of Military Appeals, renamed as Court of Appeals for the Armed Forces",varCaseSources
+caseSource,5,U.S. Court of Military Review,varCaseSources
+caseSource,6,U.S. Court of Veterans Appeals,varCaseSources
+caseSource,7,U.S. Customs Court,varCaseSources
+caseSource,8,"U.S. Court of Appeals, Federal Circuit",varCaseSources
+caseSource,9,U.S. Tax Court,varCaseSources
+caseSource,10,Temporary Emergency U.S. Court of Appeals,varCaseSources
+caseSource,12,U.S. Court for China,varCaseSources
+caseSource,13,U.S. Consular Courts,varCaseSources
+caseSource,14,U.S. Commerce Court,varCaseSources
+caseSource,15,Territorial Supreme Court,varCaseSources
+caseSource,16,Territorial Appellate Court,varCaseSources
+caseSource,17,Territorial Trial Court,varCaseSources
+caseSource,18,Emergency Court of Appeals,varCaseSources
+caseSource,19,Supreme Court of the District of Columbia,varCaseSources
+caseSource,20,Bankruptcy Court,varCaseSources
+caseSource,21,"U.S. Court of Appeals, First Circuit",varCaseSources
+caseSource,22,"U.S. Court of Appeals, Second Circuit",varCaseSources
+caseSource,23,"U.S. Court of Appeals, Third Circuit",varCaseSources
+caseSource,24,"U.S. Court of Appeals, Fourth Circuit",varCaseSources
+caseSource,25,"U.S. Court of Appeals, Fifth Circuit",varCaseSources
+caseSource,26,"U.S. Court of Appeals, Sixth Circuit",varCaseSources
+caseSource,27,"U.S. Court of Appeals, Seventh Circuit",varCaseSources
+caseSource,28,"U.S. Court of Appeals, Eighth Circuit",varCaseSources
+caseSource,29,"U.S. Court of Appeals, Ninth Circuit",varCaseSources
+caseSource,30,"U.S. Court of Appeals, Tenth Circuit",varCaseSources
+caseSource,31,"U.S. Court of Appeals, Eleventh Circuit",varCaseSources
+caseSource,32,"U.S. Court of Appeals, District of Columbia Circuit (includes the Court of Appeals for the District of Columbia but not the District of Columbia Court of Appeals, which has local jurisdiction)",varCaseSources
+caseSource,41,Alabama Middle U.S. District Court,varCaseSources
+caseSource,42,Alabama Northern U.S. District Court,varCaseSources
+caseSource,43,Alabama Southern U.S. District Court,varCaseSources
+caseSource,44,Alaska U.S. District Court,varCaseSources
+caseSource,45,Arizona U.S. District Court,varCaseSources
+caseSource,46,Arkansas Eastern U.S. District Court,varCaseSources
+caseSource,47,Arkansas Western U.S. District Court,varCaseSources
+caseSource,48,California Central U.S. District Court,varCaseSources
+caseSource,49,California Eastern U.S. District Court,varCaseSources
+caseSource,50,California Northern U.S. District Court,varCaseSources
+caseSource,51,California Southern U.S. District Court,varCaseSources
+caseSource,52,Colorado U.S. District Court,varCaseSources
+caseSource,53,Connecticut U.S. District Court,varCaseSources
+caseSource,54,Delaware U.S. District Court,varCaseSources
+caseSource,55,District Of Columbia U.S. District Court,varCaseSources
+caseSource,56,Florida Middle U.S. District Court,varCaseSources
+caseSource,57,Florida Northern U.S. District Court,varCaseSources
+caseSource,58,Florida Southern U.S. District Court,varCaseSources
+caseSource,59,Georgia Middle U.S. District Court,varCaseSources
+caseSource,60,Georgia Northern U.S. District Court,varCaseSources
+caseSource,61,Georgia Southern U.S. District Court,varCaseSources
+caseSource,62,Guam U.S. District Court,varCaseSources
+caseSource,63,Hawaii U.S. District Court,varCaseSources
+caseSource,64,Idaho U.S. District Court,varCaseSources
+caseSource,65,Illinois Central U.S. District Court,varCaseSources
+caseSource,66,Illinois Northern U.S. District Court,varCaseSources
+caseSource,67,Illinois Southern U.S. District Court,varCaseSources
+caseSource,68,Indiana Northern U.S. District Court,varCaseSources
+caseSource,69,Indiana Southern U.S. District Court,varCaseSources
+caseSource,70,Iowa Northern U.S. District Court,varCaseSources
+caseSource,71,Iowa Southern U.S. District Court,varCaseSources
+caseSource,72,Kansas U.S. District Court,varCaseSources
+caseSource,73,Kentucky Eastern U.S. District Court,varCaseSources
+caseSource,74,Kentucky Western U.S. District Court,varCaseSources
+caseSource,75,Louisiana Eastern U.S. District Court,varCaseSources
+caseSource,76,Louisiana Middle U.S. District Court,varCaseSources
+caseSource,77,Louisiana Western U.S. District Court,varCaseSources
+caseSource,78,Maine U.S. District Court,varCaseSources
+caseSource,79,Maryland U.S. District Court,varCaseSources
+caseSource,80,Massachusetts U.S. District Court,varCaseSources
+caseSource,81,Michigan Eastern U.S. District Court,varCaseSources
+caseSource,82,Michigan Western U.S. District Court,varCaseSources
+caseSource,83,Minnesota U.S. District Court,varCaseSources
+caseSource,84,Mississippi Northern U.S. District Court,varCaseSources
+caseSource,85,Mississippi Southern U.S. District Court,varCaseSources
+caseSource,86,Missouri Eastern U.S. District Court,varCaseSources
+caseSource,87,Missouri Western U.S. District Court,varCaseSources
+caseSource,88,Montana U.S. District Court,varCaseSources
+caseSource,89,Nebraska U.S. District Court,varCaseSources
+caseSource,90,Nevada U.S. District Court,varCaseSources
+caseSource,91,New Hampshire U.S. District Court,varCaseSources
+caseSource,92,New Jersey U.S. District Court,varCaseSources
+caseSource,93,New Mexico U.S. District Court,varCaseSources
+caseSource,94,New York Eastern U.S. District Court,varCaseSources
+caseSource,95,New York Northern U.S. District Court,varCaseSources
+caseSource,96,New York Southern U.S. District Court,varCaseSources
+caseSource,97,New York Western U.S. District Court,varCaseSources
+caseSource,98,North Carolina Eastern U.S. District Court,varCaseSources
+caseSource,99,North Carolina Middle U.S. District Court,varCaseSources
+caseSource,100,North Carolina Western U.S. District Court,varCaseSources
+caseSource,101,North Dakota U.S. District Court,varCaseSources
+caseSource,102,Northern Mariana Islands U.S. District Court,varCaseSources
+caseSource,103,Ohio Northern U.S. District Court,varCaseSources
+caseSource,104,Ohio Southern U.S. District Court,varCaseSources
+caseSource,105,Oklahoma Eastern U.S. District Court,varCaseSources
+caseSource,106,Oklahoma Northern U.S. District Court,varCaseSources
+caseSource,107,Oklahoma Western U.S. District Court,varCaseSources
+caseSource,108,Oregon U.S. District Court,varCaseSources
+caseSource,109,Pennsylvania Eastern U.S. District Court,varCaseSources
+caseSource,110,Pennsylvania Middle U.S. District Court,varCaseSources
+caseSource,111,Pennsylvania Western U.S. District Court,varCaseSources
+caseSource,112,Puerto Rico U.S. District Court,varCaseSources
+caseSource,113,Rhode Island U.S. District Court,varCaseSources
+caseSource,114,South Carolina U.S. District Court,varCaseSources
+caseSource,115,South Dakota U.S. District Court,varCaseSources
+caseSource,116,Tennessee Eastern U.S. District Court,varCaseSources
+caseSource,117,Tennessee Middle U.S. District Court,varCaseSources
+caseSource,118,Tennessee Western U.S. District Court,varCaseSources
+caseSource,119,Texas Eastern U.S. District Court,varCaseSources
+caseSource,120,Texas Northern U.S. District Court,varCaseSources
+caseSource,121,Texas Southern U.S. District Court,varCaseSources
+caseSource,122,Texas Western U.S. District Court,varCaseSources
+caseSource,123,Utah U.S. District Court,varCaseSources
+caseSource,124,Vermont U.S. District Court,varCaseSources
+caseSource,125,Virgin Islands U.S. District Court,varCaseSources
+caseSource,126,Virginia Eastern U.S. District Court,varCaseSources
+caseSource,127,Virginia Western U.S. District Court,varCaseSources
+caseSource,128,Washington Eastern U.S. District Court,varCaseSources
+caseSource,129,Washington Western U.S. District Court,varCaseSources
+caseSource,130,West Virginia Northern U.S. District Court,varCaseSources
+caseSource,131,West Virginia Southern U.S. District Court,varCaseSources
+caseSource,132,Wisconsin Eastern U.S. District Court,varCaseSources
+caseSource,133,Wisconsin Western U.S. District Court,varCaseSources
+caseSource,134,Wyoming U.S. District Court,varCaseSources
+caseSource,150,Louisiana U.S. District Court,varCaseSources
+caseSource,151,Washington U.S. District Court,varCaseSources
+caseSource,152,West Virginia U.S. District Court,varCaseSources
+caseSource,153,Illinois Eastern U.S. District Court,varCaseSources
+caseSource,155,South Carolina Eastern U.S. District Court,varCaseSources
+caseSource,160,South Carolina Western U.S. District Court,varCaseSources
+caseSource,162,Alabama U.S. District Court,varCaseSources
+caseSource,163,U.S. District Court for the Canal Zone,varCaseSources
+caseSource,164,Georgia U.S. District Court,varCaseSources
+caseSource,165,Illinois U.S. District Court,varCaseSources
+caseSource,166,Indiana U.S. District Court,varCaseSources
+caseSource,167,Iowa U.S. District Court,varCaseSources
+caseSource,168,Michigan U.S. District Court,varCaseSources
+caseSource,169,Mississippi U.S. District Court,varCaseSources
+caseSource,170,Missouri U.S. District Court,varCaseSources
+caseSource,171,New Jersey Eastern U.S. District Court (East Jersey U.S. District Court),varCaseSources
+caseSource,172,New Jersey Western U.S. District Court (West Jersey U.S. District Court),varCaseSources
+caseSource,173,New York U.S. District Court,varCaseSources
+caseSource,174,North Carolina U.S. District Court,varCaseSources
+caseSource,175,Ohio U.S. District Court,varCaseSources
+caseSource,176,Pennsylvania U.S. District Court,varCaseSources
+caseSource,177,Tennessee U.S. District Court,varCaseSources
+caseSource,178,Texas U.S. District Court,varCaseSources
+caseSource,179,Virginia U.S. District Court,varCaseSources
+caseSource,180,Norfolk U.S. District Court,varCaseSources
+caseSource,181,Wisconsin U.S. District Court,varCaseSources
+caseSource,182,Kentucky U.S. Distrcrict Court,varCaseSources
+caseSource,183,New Jersey U.S. District Court,varCaseSources
+caseSource,184,California U.S. District Court,varCaseSources
+caseSource,185,Florida U.S. District Court,varCaseSources
+caseSource,186,Arkansas U.S. District Court,varCaseSources
+caseSource,187,District of Orleans U.S. District Court,varCaseSources
+caseSource,300,State Supreme Court,varCaseSources
+caseSource,301,State Appellate Court,varCaseSources
+caseSource,302,State Trial Court,varCaseSources
+caseSource,400,Eastern Circuit (of the United States),varCaseSources
+caseSource,401,Middle Circuit (of the United States),varCaseSources
+caseSource,402,Southern Circuit (of the United States),varCaseSources
+caseSource,403,Alabama U.S. Circuit Court for (all) District(s) of Alabama,varCaseSources
+caseSource,404,Arkansas U.S. Circuit Court for (all) District(s) of Arkansas,varCaseSources
+caseSource,405,California U.S. Circuit for (all) District(s) of California,varCaseSources
+caseSource,406,Connecticut U.S. Circuit for the District of Connecticut,varCaseSources
+caseSource,407,Delaware U.S. Circuit for the District of Delaware,varCaseSources
+caseSource,408,Florida U.S. Circuit for (all) District(s) of Florida,varCaseSources
+caseSource,409,Georgia U.S. Circuit for (all) District(s) of Georgia,varCaseSources
+caseSource,410,Illinois U.S. Circuit for (all) District(s) of Illinois,varCaseSources
+caseSource,411,Indiana U.S. Circuit for (all) District(s) of Indiana,varCaseSources
+caseSource,412,Iowa U.S. Circuit for (all) District(s) of Iowa,varCaseSources
+caseSource,413,Kansas U.S. Circuit for the District of Kansas,varCaseSources
+caseSource,414,Kentucky U.S. Circuit for (all) District(s) of Kentucky,varCaseSources
+caseSource,415,Louisiana U.S. Circuit for (all) District(s) of Louisiana,varCaseSources
+caseSource,416,Maine U.S. Circuit for the District of Maine,varCaseSources
+caseSource,417,Maryland U.S. Circuit for the District of Maryland,varCaseSources
+caseSource,418,Massachusetts U.S. Circuit for the District of Massachusetts,varCaseSources
+caseSource,419,Michigan U.S. Circuit for (all) District(s) of Michigan,varCaseSources
+caseSource,420,Minnesota U.S. Circuit for the District of Minnesota,varCaseSources
+caseSource,421,Mississippi U.S. Circuit for (all) District(s) of Mississippi,varCaseSources
+caseSource,422,Missouri U.S. Circuit for (all) District(s) of Missouri,varCaseSources
+caseSource,423,Nevada U.S. Circuit for the District of Nevada,varCaseSources
+caseSource,424,New Hampshire U.S. Circuit for the District of New Hampshire,varCaseSources
+caseSource,425,New Jersey U.S. Circuit for (all) District(s) of New Jersey,varCaseSources
+caseSource,426,New York U.S. Circuit for (all) District(s) of New York,varCaseSources
+caseSource,427,North Carolina U.S. Circuit for (all) District(s) of North Carolina,varCaseSources
+caseSource,428,Ohio U.S. Circuit for (all) District(s) of Ohio,varCaseSources
+caseSource,429,Oregon U.S. Circuit for the District of Oregon,varCaseSources
+caseSource,430,Pennsylvania U.S. Circuit for (all) District(s) of Pennsylvania,varCaseSources
+caseSource,431,Rhode Island U.S. Circuit for the District of Rhode Island,varCaseSources
+caseSource,432,South Carolina U.S. Circuit for the District of South Carolina,varCaseSources
+caseSource,433,Tennessee U.S. Circuit for (all) District(s) of Tennessee,varCaseSources
+caseSource,434,Texas U.S. Circuit for (all) District(s) of Texas,varCaseSources
+caseSource,435,Vermont U.S. Circuit for the District of Vermont,varCaseSources
+caseSource,436,Virginia U.S. Circuit for (all) District(s) of Virginia,varCaseSources
+caseSource,437,West Virginia U.S. Circuit for (all) District(s) of West Virginia,varCaseSources
+caseSource,438,Wisconsin U.S. Circuit for (all) District(s) of Wisconsin,varCaseSources
+caseSource,439,Wyoming U.S. Circuit for the District of Wyoming,varCaseSources
+caseSource,440,Circuit Court of the District of Columbia,varCaseSources
+caseSource,441,Nebraska U.S. Circuit for the District of Nebraska,varCaseSources
+caseSource,442,Colorado U.S. Circuit for the District of Colorado,varCaseSources
+caseSource,443,Washington U.S. Circuit for (all) District(s) of Washington,varCaseSources
+caseSource,444,Idaho U.S. Circuit Court for (all) District(s) of Idaho,varCaseSources
+caseSource,445,Montana U.S. Circuit Court for (all) District(s) of Montana,varCaseSources
+caseSource,446,Utah U.S. Circuit Court for (all) District(s) of Utah,varCaseSources
+caseSource,447,South Dakota U.S. Circuit Court for (all) District(s) of South Dakota,varCaseSources
+caseSource,448,North Dakota U.S. Circuit Court for (all) District(s) of North Dakota,varCaseSources
+caseSource,449,Oklahoma U.S. Circuit Court for (all) District(s) of Oklahoma,varCaseSources
+caseSource,601,Court of Private Land Claims,varCaseSources
+certReason,1,case did not arise on cert or cert not granted,varCertReason
+certReason,2,federal court conflict,varCertReason
+certReason,3,federal court conflict and to resolve important or significant question,varCertReason
+certReason,4,putative conflict,varCertReason
+certReason,5,conflict between federal court and state court,varCertReason
+certReason,6,state court conflict,varCertReason
+certReason,7,federal court confusion or uncertainty,varCertReason
+certReason,8,state court confusion or uncertainty,varCertReason
+certReason,9,federal court and state court confusion or uncertainty,varCertReason
+certReason,10,to resolve important or significant question,varCertReason
+certReason,11,to resolve question presented,varCertReason
+certReason,12,no reason given,varCertReason
+certReason,13,other reason,varCertReason
+lcDispositionDirection,1,conservative,varDecisionDirection
+lcDispositionDirection,2,liberal,varDecisionDirection
+lcDispositionDirection,3,unspecifiable,varDecisionDirection
+decisionDirection,1,conservative,varDecisionDirection
+decisionDirection,2,liberal,varDecisionDirection
+decisionDirection,3,unspecifiable,varDecisionDirection
+decisionDirectionDissent,0,dissent in opposite direction,varDecisionDirectionDissent
+decisionDirectionDissent,1,majority and dissent in same direction,varDecisionDirectionDissent
+decisionType,1,opinion of the court (orally argued),varDecisionTypes
+decisionType,2,per curiam (no oral argument),varDecisionTypes
+decisionType,4,decrees,varDecisionTypes
+decisionType,5,equally divided vote,varDecisionTypes
+decisionType,6,per curiam (orally argued),varDecisionTypes
+decisionType,7,judgment of the Court (orally argued),varDecisionTypes
+decisionType,8,seriatim,varDecisionTypes
+declarationUncon,1,no declaration of unconstitutionality,varDeclarationUncon
+declarationUncon,2,act of congress declared unconstitutional,varDeclarationUncon
+declarationUncon,3,"state or territorial law, reg, or const provision unconstitutional",varDeclarationUncon
+declarationUncon,4,municipal or other local ordinance unconstitutional,varDeclarationUncon
+issue,10010,involuntary confession,varIssues
+issue,10020,habeas corpus,varIssues
+issue,10030,plea bargaining: the constitutionality of and/or the circumstances of its exercise,varIssues
+issue,10040,retroactivity (of newly announced or newly enacted constitutional or statutory rights),varIssues
+issue,10050,search and seizure (other than as pertains to vehicles or Crime Control Act),varIssues
+issue,10060,"search and seizure, vehicles",varIssues
+issue,10070,"search and seizure, Crime Control Act",varIssues
+issue,10080,contempt of court or congress,varIssues
+issue,10090,self-incrimination (other than as pertains to Miranda or immunity from prosecution),varIssues
+issue,10100,Miranda warnings,varIssues
+issue,10110,"self-incrimination, immunity from prosecution",varIssues
+issue,10120,right to counsel (cf. indigents appointment of counsel or inadequate representation),varIssues
+issue,10130,"cruel and unusual punishment, death penalty (cf. extra legal jury influence, death penalty)",varIssues
+issue,10140,"cruel and unusual punishment, non-death penalty (cf. liability, civil rights acts)",varIssues
+issue,10150,line-up,varIssues
+issue,10160,"discovery and inspection (in the context of criminal litigation only, otherwise Freedom of Information Act and related federal or state statutes or regulations)",varIssues
+issue,10170,double jeopardy,varIssues
+issue,10180,ex post facto (state),varIssues
+issue,10190,extra-legal jury influences: miscellaneous,varIssues
+issue,10200,extra-legal jury influences: prejudicial statements or evidence,varIssues
+issue,10210,extra-legal jury influences: contact with jurors outside courtroom,varIssues
+issue,10220,extra-legal jury influences: jury instructions (not necessarily in criminal cases),varIssues
+issue,10230,extra-legal jury influences: voir dire (not necessarily a criminal case),varIssues
+issue,10240,extra-legal jury influences: prison garb or appearance,varIssues
+issue,10250,extra-legal jury influences: jurors and death penalty (cf. cruel and unusual punishment),varIssues
+issue,10260,extra-legal jury influences: pretrial publicity,varIssues
+issue,10270,"confrontation (right to confront accuser, call and cross-examine witnesses)",varIssues
+issue,10280,subconstitutional fair procedure: confession of error,varIssues
+issue,10290,subconstitutional fair procedure: conspiracy (cf. Federal Rules of Criminal Procedure: conspiracy),varIssues
+issue,10300,subconstitutional fair procedure: entrapment,varIssues
+issue,10310,subconstitutional fair procedure: exhaustion of remedies,varIssues
+issue,10320,subconstitutional fair procedure: fugitive from justice,varIssues
+issue,10330,"subconstitutional fair procedure: presentation, admissibility, or sufficiency of evidence (not necessarily a criminal case)",varIssues
+issue,10340,subconstitutional fair procedure: stay of execution,varIssues
+issue,10350,subconstitutional fair procedure: timeliness,varIssues
+issue,10360,subconstitutional fair procedure: miscellaneous,varIssues
+issue,10370,Federal Rules of Criminal Procedure,varIssues
+issue,10380,statutory construction of criminal laws: assault,varIssues
+issue,10390,statutory construction of criminal laws: bank robbery,varIssues
+issue,10400,statutory construction of criminal laws: conspiracy (cf. subconstitutional fair procedure: conspiracy),varIssues
+issue,10410,statutory construction of criminal laws: escape from custody,varIssues
+issue,10420,statutory construction of criminal laws: false statements (cf. statutory construction of criminal laws: perjury),varIssues
+issue,10430,statutory construction of criminal laws: financial (other than in fraud or internal revenue),varIssues
+issue,10440,statutory construction of criminal laws: firearms,varIssues
+issue,10450,statutory construction of criminal laws: fraud,varIssues
+issue,10460,statutory construction of criminal laws: gambling,varIssues
+issue,10470,"statutory construction of criminal laws: Hobbs Act; i.e., 18 USC 1951",varIssues
+issue,10480,statutory construction of criminal laws: immigration (cf. immigration and naturalization),varIssues
+issue,10490,statutory construction of criminal laws: internal revenue (cf. Federal Taxation),varIssues
+issue,10500,statutory construction of criminal laws: Mann Act and related statutes,varIssues
+issue,10510,statutory construction of criminal laws: narcotics includes regulation and prohibition of alcohol,varIssues
+issue,10520,statutory construction of criminal laws: obstruction of justice,varIssues
+issue,10530,statutory construction of criminal laws: perjury (other than as pertains to statutory construction of criminal laws: false statements),varIssues
+issue,10540,"statutory construction of criminal laws: Travel Act, 18 USC 1952",varIssues
+issue,10550,statutory construction of criminal laws: war crimes,varIssues
+issue,10560,statutory construction of criminal laws: sentencing guidelines,varIssues
+issue,10570,statutory construction of criminal laws: miscellaneous,varIssues
+issue,10580,"jury trial (right to, as distinct from extra-legal jury influences)",varIssues
+issue,10590,speedy trial,varIssues
+issue,10600,"miscellaneous criminal procedure (cf. due process, prisoners' rights, comity: criminal procedure)",varIssues
+issue,20010,voting,varIssues
+issue,20020,"Voting Rights Act of 1965, plus amendments",varIssues
+issue,20030,ballot access (of candidates and political parties),varIssues
+issue,20040,"desegregation (other than as pertains to school desegregation, employment discrimination, and affirmative action)",varIssues
+issue,20050,"desegregation, schools",varIssues
+issue,20060,"employment discrimination: on basis of race, age, religion, illegitimacy, national origin, or working conditions.",varIssues
+issue,20070,affirmative action,varIssues
+issue,20075,slavery or indenture,varIssues
+issue,20080,sit-in demonstrations (protests against racial discrimination in places of public accommodation),varIssues
+issue,20090,reapportionment: other than plans governed by the Voting Rights Act,varIssues
+issue,20100,debtors' rights,varIssues
+issue,20110,deportation (cf. immigration and naturalization),varIssues
+issue,20120,employability of aliens (cf. immigration and naturalization),varIssues
+issue,20130,sex discrimination (excluding sex discrimination in employment),varIssues
+issue,20140,sex discrimination in employment (cf. sex discrimination),varIssues
+issue,20150,Indians (other than pertains to state jurisdiction over),varIssues
+issue,20160,"Indians, state jurisdiction over",varIssues
+issue,20170,juveniles (cf. rights of illegitimates),varIssues
+issue,20180,"poverty law, constitutional",varIssues
+issue,20190,"poverty law, statutory: welfare benefits, typically under some Social Security Act provision.",varIssues
+issue,20200,"illegitimates, rights of (cf. juveniles): typically inheritance and survivor's benefits, and paternity suits",varIssues
+issue,20210,"handicapped, rights of: under Rehabilitation, Americans with Disabilities Act, and related statutes",varIssues
+issue,20220,"residency requirements: durational, plus discrimination against nonresidents",varIssues
+issue,20230,"military: draftee, or person subject to induction",varIssues
+issue,20240,military: active duty,varIssues
+issue,20250,military: veteran,varIssues
+issue,20260,immigration and naturalization: permanent residence,varIssues
+issue,20270,immigration and naturalization: citizenship,varIssues
+issue,20280,"immigration and naturalization: loss of citizenship, denaturalization",varIssues
+issue,20290,immigration and naturalization: access to public education,varIssues
+issue,20300,immigration and naturalization: welfare benefits,varIssues
+issue,20310,immigration and naturalization: miscellaneous,varIssues
+issue,20320,indigents: appointment of counsel (cf. right to counsel),varIssues
+issue,20330,indigents: inadequate representation by counsel (cf. right to counsel),varIssues
+issue,20340,indigents: payment of fine,varIssues
+issue,20350,indigents: costs or filing fees,varIssues
+issue,20360,indigents: U.S. Supreme Court docketing fee,varIssues
+issue,20370,indigents: transcript,varIssues
+issue,20380,indigents: assistance of psychiatrist,varIssues
+issue,20390,indigents: miscellaneous,varIssues
+issue,20400,"liability, civil rights acts (cf. liability, governmental and liability, nongovernmental; cruel and unusual punishment, non-death penalty)",varIssues
+issue,20410,miscellaneous civil rights (cf. comity: civil rights),varIssues
+issue,30010,"First Amendment, miscellaneous (cf. comity: First Amendment)",varIssues
+issue,30020,"commercial speech, excluding attorneys",varIssues
+issue,30030,"libel, defamation: defamation of public officials and public and private persons",varIssues
+issue,30040,"libel, privacy: true and false light invasions of privacy",varIssues
+issue,30050,legislative investigations: concerning internal security only,varIssues
+issue,30060,"federal or state internal security legislation: Smith, Internal Security, and related federal statutes",varIssues
+issue,30070,"loyalty oath or non-Communist affidavit (other than bar applicants, government employees, political party, or teacher)",varIssues
+issue,30080,"loyalty oath: bar applicants (cf. admission to bar, state or federal or U.S. Supreme Court)",varIssues
+issue,30090,loyalty oath: government employees,varIssues
+issue,30100,loyalty oath: political party,varIssues
+issue,30110,loyalty oath: teachers,varIssues
+issue,30120,security risks: denial of benefits or dismissal of employees for reasons other than failure to meet loyalty oath requirements,varIssues
+issue,30130,conscientious objectors (cf. military draftee or military active duty) to military service,varIssues
+issue,30140,campaign spending (cf. governmental corruption):,varIssues
+issue,30150,protest demonstrations (other than as pertains to sit-in demonstrations): demonstrations and other forms of protest based on First Amendment guarantees,varIssues
+issue,30160,free exercise of religion,varIssues
+issue,30170,establishment of religion (other than as pertains to parochiaid:),varIssues
+issue,30180,"parochiaid: government aid to religious schools, or religious requirements in public schools",varIssues
+issue,30190,"obscenity, state (cf. comity: privacy): including the regulation of sexually explicit material under the 21st Amendment",varIssues
+issue,30200,"obscenity, federal",varIssues
+issue,40010,"due process: miscellaneous (cf. loyalty oath), the residual code",varIssues
+issue,40020,due process: hearing or notice (other than as pertains to government employees or prisoners' rights),varIssues
+issue,40030,"due process: hearing, government employees",varIssues
+issue,40040,due process: prisoners' rights and defendants' rights,varIssues
+issue,40050,due process: impartial decision maker,varIssues
+issue,40060,due process: jurisdiction (jurisdiction over non-resident litigants),varIssues
+issue,40070,"due process: takings clause, or other non-constitutional governmental taking of property",varIssues
+issue,50010,"privacy (cf. libel, comity: privacy)",varIssues
+issue,50020,abortion: including contraceptives,varIssues
+issue,50030,right to die,varIssues
+issue,50040,Freedom of Information Act and related federal or state statutes or regulations,varIssues
+issue,60010,attorneys' and governmental employees' or officials' fees or compensation or licenses,varIssues
+issue,60020,"commercial speech, attorneys (cf. commercial speech)",varIssues
+issue,60030,"admission to a state or federal bar, disbarment, and attorney discipline (cf. loyalty oath: bar applicants)",varIssues
+issue,60040,"admission to, or disbarment from, Bar of the U.S. Supreme Court",varIssues
+issue,70010,arbitration (in the context of labor-management or employer-employee relations) (cf. arbitration),varIssues
+issue,70020,union antitrust: legality of anticompetitive union activity,varIssues
+issue,70030,union or closed shop: includes agency shop litigation,varIssues
+issue,70040,Fair Labor Standards Act,varIssues
+issue,70050,Occupational Safety and Health Act,varIssues
+issue,70060,union-union member dispute (except as pertains to union or closed shop),varIssues
+issue,70070,labor-management disputes: bargaining,varIssues
+issue,70080,labor-management disputes: employee discharge,varIssues
+issue,70090,labor-management disputes: distribution of union literature,varIssues
+issue,70100,labor-management disputes: representative election,varIssues
+issue,70110,labor-management disputes: antistrike injunction,varIssues
+issue,70120,labor-management disputes: jurisdictional dispute,varIssues
+issue,70130,labor-management disputes: right to organize,varIssues
+issue,70140,labor-management disputes: picketing,varIssues
+issue,70150,labor-management disputes: secondary activity,varIssues
+issue,70160,labor-management disputes: no-strike clause,varIssues
+issue,70170,labor-management disputes: union representatives,varIssues
+issue,70180,labor-management disputes: union trust funds (cf. ERISA),varIssues
+issue,70190,labor-management disputes: working conditions,varIssues
+issue,70200,labor-management disputes: miscellaneous dispute,varIssues
+issue,70210,miscellaneous union,varIssues
+issue,80010,antitrust (except in the context of mergers and union antitrust),varIssues
+issue,80020,mergers,varIssues
+issue,80030,bankruptcy (except in the context of priority of federal fiscal claims),varIssues
+issue,80040,sufficiency of evidence: typically in the context of a jury's determination of compensation for injury or death,varIssues
+issue,80050,election of remedies: legal remedies available to injured persons or things,varIssues
+issue,80060,"liability, governmental: tort or contract actions by or against government or governmental officials other than defense of criminal actions brought under a civil rights action.",varIssues
+issue,80070,"liability, other than as in sufficiency of evidence, election of remedies, punitive damages",varIssues
+issue,80080,"liability, punitive damages",varIssues
+issue,80090,Employee Retirement Income Security Act (cf. union trust funds),varIssues
+issue,80100,state or local government tax,varIssues
+issue,80105,state and territorial land claims,varIssues
+issue,80110,"state or local government regulation, especially of business (cf. federal pre-emption of state court jurisdiction, federal pre-emption of state legislation or regulation)",varIssues
+issue,80120,federal or state regulation of securities,varIssues
+issue,80130,"natural resources - environmental protection (cf. national supremacy: natural resources, national supremacy: pollution)",varIssues
+issue,80140,"corruption, governmental or governmental regulation of other than as in campaign spending",varIssues
+issue,80150,"zoning: constitutionality of such ordinances, or restrictions on owners' or lessors' use of real property",varIssues
+issue,80160,arbitration (other than as pertains to labor-management or employer-employee relations (cf. union arbitration),varIssues
+issue,80170,"federal or state consumer protection: typically under the Truth in Lending; Food, Drug and Cosmetic; and Consumer Protection Credit Acts",varIssues
+issue,80180,patents and copyrights: patent,varIssues
+issue,80190,patents and copyrights: copyright,varIssues
+issue,80200,patents and copyrights: trademark,varIssues
+issue,80210,patents and copyrights: patentability of computer processes,varIssues
+issue,80220,federal or state regulation of transportation regulation: railroad,varIssues
+issue,80230,federal and some few state regulations of transportation regulation: boat,varIssues
+issue,80240,"federal and some few state regulation of transportation regulation:truck, or motor carrier",varIssues
+issue,80250,federal and some few state regulation of transportation regulation: pipeline (cf. federal public utilities regulation: gas pipeline),varIssues
+issue,80260,federal and some few state regulation of transportation regulation: airline,varIssues
+issue,80270,federal and some few state regulation of public utilities regulation: electric power,varIssues
+issue,80280,federal and some few state regulation of public utilities regulation: nuclear power,varIssues
+issue,80290,federal and some few state regulation of public utilities regulation: oil producer,varIssues
+issue,80300,federal and some few state regulation of public utilities regulation: gas producer,varIssues
+issue,80310,federal and some few state regulation of public utilities regulation: gas pipeline (cf. federal transportation regulation: pipeline),varIssues
+issue,80320,federal and some few state regulation of public utilities regulation: radio and television (cf. cable television),varIssues
+issue,80330,federal and some few state regulation of public utilities regulation: cable television (cf. radio and television),varIssues
+issue,80340,federal and some few state regulations of public utilities regulation: telephone or telegraph company,varIssues
+issue,80350,miscellaneous economic regulation,varIssues
+issue,90010,comity: civil rights,varIssues
+issue,90020,comity: criminal procedure,varIssues
+issue,90030,comity: First Amendment,varIssues
+issue,90040,comity: habeas corpus,varIssues
+issue,90050,comity: military,varIssues
+issue,90060,comity: obscenity,varIssues
+issue,90070,comity: privacy,varIssues
+issue,90080,comity: miscellaneous,varIssues
+issue,90090,"comity primarily removal cases, civil procedure (cf. comity, criminal and First Amendment); deference to foreign judicial tribunals",varIssues
+issue,90100,assessment of costs or damages: as part of a court order,varIssues
+issue,90110,"Federal Rules of Civil Procedure including Supreme Court Rules, application of the Federal Rules of Evidence, Federal Rules of Appellate Procedure in civil litigation, Circuit Court Rules, and state rules and admiralty rules",varIssues
+issue,90120,judicial review of administrative agency's or administrative official's actions and procedures,varIssues
+issue,90130,mootness (cf. standing to sue: live dispute),varIssues
+issue,90140,venue,varIssues
+issue,90150,no merits: writ improvidently granted,varIssues
+issue,90160,"no merits: dismissed or affirmed for want of a substantial or properly presented federal question, or a nonsuit",varIssues
+issue,90170,no merits: dismissed or affirmed for want of jurisdiction (cf. judicial administration: Supreme Court jurisdiction or authority on appeal from federal district courts or courts of appeals),varIssues
+issue,90180,no merits: adequate non-federal grounds for decision,varIssues
+issue,90190,no merits: remand to determine basis of state or federal court decision (cf. judicial administration: state law),varIssues
+issue,90200,no merits: miscellaneous,varIssues
+issue,90210,standing to sue: adversary parties,varIssues
+issue,90220,standing to sue: direct injury,varIssues
+issue,90230,standing to sue: legal injury,varIssues
+issue,90240,standing to sue: personal injury,varIssues
+issue,90250,standing to sue: justiciable question,varIssues
+issue,90260,standing to sue: live dispute,varIssues
+issue,90270,standing to sue: parens patriae standing,varIssues
+issue,90280,standing to sue: statutory standing,varIssues
+issue,90290,standing to sue: private or implied cause of action,varIssues
+issue,90300,standing to sue: taxpayer's suit,varIssues
+issue,90310,standing to sue: miscellaneous,varIssues
+issue,90320,judicial administration: jurisdiction or authority of federal district courts or territorial courts,varIssues
+issue,90330,judicial administration: jurisdiction or authority of federal courts of appeals,varIssues
+issue,90340,"judicial administration: Supreme Court jurisdiction or authority on appeal or writ of error, from federal district courts or courts of appeals (cf. 753)",varIssues
+issue,90350,"judicial administration: Supreme Court jurisdiction or authority on appeal or writ of error, from highest state court",varIssues
+issue,90360,judicial administration: jurisdiction or authority of the Court of Claims,varIssues
+issue,90370,judicial administration: Supreme Court's original jurisdiction,varIssues
+issue,90380,judicial administration: review of non-final order,varIssues
+issue,90390,judicial administration: change in state law (cf. no merits: remand to determine basis of state court decision),varIssues
+issue,90400,judicial administration: federal question (cf. no merits: dismissed for want of a substantial or properly presented federal question),varIssues
+issue,90410,judicial administration: ancillary or pendent jurisdiction,varIssues
+issue,90420,"judicial administration: extraordinary relief (e.g., mandamus, injunction)",varIssues
+issue,90430,judicial administration: certification (cf. objection to reason for denial of certiorari or appeal),varIssues
+issue,90440,"judicial administration: resolution of circuit conflict, or conflict between or among other courts",varIssues
+issue,90450,judicial administration: objection to reason for denial of certiorari or appeal,varIssues
+issue,90460,judicial administration: collateral estoppel or res judicata,varIssues
+issue,90470,judicial administration: interpleader,varIssues
+issue,90480,judicial administration: untimely filing,varIssues
+issue,90490,judicial administration: Act of State doctrine,varIssues
+issue,90500,judicial administration: miscellaneous,varIssues
+issue,90510,"Supreme Court's certiorari, writ of error, or appeals jurisdiction",varIssues
+issue,90520,"miscellaneous judicial power, especially diversity jurisdiction",varIssues
+issue,100010,federal-state ownership dispute (cf. Submerged Lands Act),varIssues
+issue,100020,federal pre-emption of state court jurisdiction,varIssues
+issue,100030,federal pre-emption of state legislation or regulation. cf. state regulation of business. rarely involves union activity. Does not involve constitutional interpretation unless the Court says it does.,varIssues
+issue,100040,Submerged Lands Act (cf. federal-state ownership dispute),varIssues
+issue,100050,national supremacy: commodities,varIssues
+issue,100060,national supremacy: intergovernmental tax immunity,varIssues
+issue,100070,"national supremacy: marital and family relationships and property, including obligation of child support",varIssues
+issue,100080,national supremacy: natural resources (cf. natural resources - environmental protection),varIssues
+issue,100090,"national supremacy: pollution, air or water (cf. natural resources - environmental protection)",varIssues
+issue,100100,national supremacy: public utilities (cf. federal public utilities regulation),varIssues
+issue,100110,national supremacy: state tax (cf. state tax),varIssues
+issue,100120,national supremacy: miscellaneous,varIssues
+issue,100130,miscellaneous federalism,varIssues
+issue,110010,boundary dispute between states,varIssues
+issue,110020,non-real property dispute between states,varIssues
+issue,110030,miscellaneous interstate relations conflict,varIssues
+issue,110033,incorporation of foreign territories,varIssues
+issue,120010,"federal taxation, typically under provisions of the Internal Revenue Code",varIssues
+issue,120020,"federal taxation of gifts, personal, business, or professional expenses",varIssues
+issue,120030,priority of federal fiscal claims: over those of the states or private entities,varIssues
+issue,120040,miscellaneous federal taxation (cf. national supremacy: state tax),varIssues
+issue,130010,legislative veto,varIssues
+issue,130015,executive authority vis-a-vis congress or the states,varIssues
+issue,130020,miscellaneous,varIssues
+issue,140010,real property,varIssues
+issue,140020,personal property,varIssues
+issue,140030,contracts,varIssues
+issue,140040,evidence,varIssues
+issue,140050,civil procedure,varIssues
+issue,140060,torts,varIssues
+issue,140070,wills and trusts,varIssues
+issue,140080,commercial transactions,varIssues
+issueArea,1,Criminal Procedure,varIssuesAreas
+issueArea,2,Civil Rights,varIssuesAreas
+issueArea,3,First Amendment,varIssuesAreas
+issueArea,4,Due Process,varIssuesAreas
+issueArea,5,Privacy,varIssuesAreas
+issueArea,6,Attorneys,varIssuesAreas
+issueArea,7,Unions,varIssuesAreas
+issueArea,8,Economic Activity,varIssuesAreas
+issueArea,9,Judicial Power,varIssuesAreas
+issueArea,10,Federalism,varIssuesAreas
+issueArea,11,Interstate Relations,varIssuesAreas
+issueArea,12,Federal Taxation,varIssuesAreas
+issueArea,13,Miscellaneous,varIssuesAreas
+issueArea,14,Private Action,varIssuesAreas
+jurisdiction,1,cert,varJurisdiction
+jurisdiction,2,appeal,varJurisdiction
+jurisdiction,3,bail,varJurisdiction
+jurisdiction,4,certification,varJurisdiction
+jurisdiction,5,docketing fee,varJurisdiction
+jurisdiction,6,rehearing or restored to calendar for reargument,varJurisdiction
+jurisdiction,7,injunction,varJurisdiction
+jurisdiction,8,mandamus,varJurisdiction
+jurisdiction,9,original,varJurisdiction
+jurisdiction,10,prohibition,varJurisdiction
+jurisdiction,12,stay,varJurisdiction
+jurisdiction,13,writ of error,varJurisdiction
+jurisdiction,14,writ of habeas corpus,varJurisdiction
+jurisdiction,15,"unspecified, other",varJurisdiction
+direction,1,conservative,varJusticeDirection
+direction,2,liberal,varJusticeDirection
+majority,1,dissent,varJusticeMajority
+majority,2,majority,varJusticeMajority
+opinion,1,justice wrote no opinion,varJusticeOpinion
+opinion,2,justice wrote an opinion,varJusticeOpinion
+opinion,3,justice co-authored an opinion,varJusticeOpinion
+majOpinWriter,1,JJay,varJustices
+majOpinWriter,2,JRutledge1,varJustices
+majOpinWriter,3,WCushing,varJustices
+majOpinWriter,4,JWilson,varJustices
+majOpinWriter,5,JBlair,varJustices
+majOpinWriter,6,JIredell,varJustices
+majOpinWriter,7,TJohnson,varJustices
+majOpinWriter,8,WPaterson,varJustices
+majOpinWriter,9,JRutledge2,varJustices
+majOpinWriter,10,SChase,varJustices
+majOpinWriter,11,OEllsworth,varJustices
+majOpinWriter,12,BWashington,varJustices
+majOpinWriter,13,AMoore,varJustices
+majOpinWriter,14,JMarshall,varJustices
+majOpinWriter,15,WJohnson,varJustices
+majOpinWriter,16,HBLivingston,varJustices
+majOpinWriter,17,TTodd,varJustices
+majOpinWriter,18,GDuvall,varJustices
+majOpinWriter,19,JStory,varJustices
+majOpinWriter,20,SThompson,varJustices
+majOpinWriter,21,RTrimble,varJustices
+majOpinWriter,22,JMcLean,varJustices
+majOpinWriter,23,HBaldwin,varJustices
+majOpinWriter,24,JMWayne,varJustices
+majOpinWriter,25,RBTaney,varJustices
+majOpinWriter,26,PPBarbour,varJustices
+majOpinWriter,27,JCatron,varJustices
+majOpinWriter,28,JMcKinley,varJustices
+majOpinWriter,29,PVDaniel,varJustices
+majOpinWriter,30,SNelson,varJustices
+majOpinWriter,31,LWoodbury,varJustices
+majOpinWriter,32,RCGrier,varJustices
+majOpinWriter,33,BRCurtis,varJustices
+majOpinWriter,34,JACampbell,varJustices
+majOpinWriter,35,NClifford,varJustices
+majOpinWriter,36,NHSwayne,varJustices
+majOpinWriter,37,SFMiller,varJustices
+majOpinWriter,38,DDavis,varJustices
+majOpinWriter,39,SJField,varJustices
+majOpinWriter,40,SPChase,varJustices
+majOpinWriter,41,WStrong,varJustices
+majOpinWriter,42,JPBradley,varJustices
+majOpinWriter,43,WHunt,varJustices
+majOpinWriter,44,MRWaite,varJustices
+majOpinWriter,45,JHarlan1,varJustices
+majOpinWriter,46,WBWoods,varJustices
+majOpinWriter,47,SMatthews,varJustices
+majOpinWriter,48,HGray,varJustices
+majOpinWriter,49,SBlatchford,varJustices
+majOpinWriter,50,LQLamar,varJustices
+majOpinWriter,51,MWFuller,varJustices
+majOpinWriter,52,DJBrewer,varJustices
+majOpinWriter,53,HBBrown,varJustices
+majOpinWriter,54,GShiras,varJustices
+majOpinWriter,55,HEJackson,varJustices
+majOpinWriter,56,EDEWhite,varJustices
+majOpinWriter,57,RWPeckham,varJustices
+majOpinWriter,58,JMcKenna,varJustices
+majOpinWriter,59,OWHolmes,varJustices
+majOpinWriter,60,WRDay,varJustices
+majOpinWriter,61,WHMoody,varJustices
+majOpinWriter,62,HHLurton,varJustices
+majOpinWriter,63,CEHughes1,varJustices
+majOpinWriter,64,WVanDevanter,varJustices
+majOpinWriter,65,JRLamar,varJustices
+majOpinWriter,66,MPitney,varJustices
+majOpinWriter,67,JCMcReynolds,varJustices
+majOpinWriter,68,LDBrandeis,varJustices
+majOpinWriter,69,JHClarke,varJustices
+majOpinWriter,70,WHTaft,varJustices
+majOpinWriter,71,GSutherland,varJustices
+majOpinWriter,72,PButler,varJustices
+majOpinWriter,73,ETSanford,varJustices
+majOpinWriter,74,HFStone,varJustices
+majOpinWriter,75,CEHughes2,varJustices
+majOpinWriter,76,OJRoberts,varJustices
+majOpinWriter,77,BNCardozo,varJustices
+majOpinWriter,78,HLBlack,varJustices
+majOpinWriter,79,SFReed,varJustices
+majOpinWriter,80,FFrankfurter,varJustices
+majOpinWriter,81,WODouglas,varJustices
+majOpinWriter,82,FMurphy,varJustices
+majOpinWriter,83,JFByrnes,varJustices
+majOpinWriter,84,RHJackson,varJustices
+majOpinWriter,85,WBRutledge,varJustices
+majOpinWriter,86,HHBurton,varJustices
+majOpinWriter,87,FMVinson,varJustices
+majOpinWriter,88,TCClark,varJustices
+majOpinWriter,89,SMinton,varJustices
+majOpinWriter,90,EWarren,varJustices
+majOpinWriter,91,JHarlan2,varJustices
+majOpinWriter,92,WJBrennan,varJustices
+majOpinWriter,93,CEWhittaker,varJustices
+majOpinWriter,94,PStewart,varJustices
+majOpinWriter,95,BRWhite,varJustices
+majOpinWriter,96,AJGoldberg,varJustices
+majOpinWriter,97,AFortas,varJustices
+majOpinWriter,98,TMarshall,varJustices
+majOpinWriter,99,WEBurger,varJustices
+majOpinWriter,100,HABlackmun,varJustices
+majOpinWriter,101,LFPowell,varJustices
+majOpinWriter,102,WHRehnquist,varJustices
+majOpinWriter,103,JPStevens,varJustices
+majOpinWriter,104,SDOConnor,varJustices
+majOpinWriter,105,AScalia,varJustices
+majOpinWriter,106,AMKennedy,varJustices
+majOpinWriter,107,DHSouter,varJustices
+majOpinWriter,108,CThomas,varJustices
+majOpinWriter,109,RBGinsburg,varJustices
+majOpinWriter,110,SGBreyer,varJustices
+majOpinWriter,111,JGRoberts,varJustices
+majOpinWriter,112,SAAlito,varJustices
+majOpinWriter,113,SSotomayor,varJustices
+majOpinWriter,114,EKagan,varJustices
+majOpinWriter,115,NMGorsuch,varJustices
+majOpinWriter,116,BMKavanaugh,varJustices
+majOpinWriter,117,ACBarrett,varJustices
+majOpinWriter,118,KBJackson,varJustices
+majOpinAssigner,1,JJay,varJustices
+majOpinAssigner,2,JRutledge1,varJustices
+majOpinAssigner,3,WCushing,varJustices
+majOpinAssigner,4,JWilson,varJustices
+majOpinAssigner,5,JBlair,varJustices
+majOpinAssigner,6,JIredell,varJustices
+majOpinAssigner,7,TJohnson,varJustices
+majOpinAssigner,8,WPaterson,varJustices
+majOpinAssigner,9,JRutledge2,varJustices
+majOpinAssigner,10,SChase,varJustices
+majOpinAssigner,11,OEllsworth,varJustices
+majOpinAssigner,12,BWashington,varJustices
+majOpinAssigner,13,AMoore,varJustices
+majOpinAssigner,14,JMarshall,varJustices
+majOpinAssigner,15,WJohnson,varJustices
+majOpinAssigner,16,HBLivingston,varJustices
+majOpinAssigner,17,TTodd,varJustices
+majOpinAssigner,18,GDuvall,varJustices
+majOpinAssigner,19,JStory,varJustices
+majOpinAssigner,20,SThompson,varJustices
+majOpinAssigner,21,RTrimble,varJustices
+majOpinAssigner,22,JMcLean,varJustices
+majOpinAssigner,23,HBaldwin,varJustices
+majOpinAssigner,24,JMWayne,varJustices
+majOpinAssigner,25,RBTaney,varJustices
+majOpinAssigner,26,PPBarbour,varJustices
+majOpinAssigner,27,JCatron,varJustices
+majOpinAssigner,28,JMcKinley,varJustices
+majOpinAssigner,29,PVDaniel,varJustices
+majOpinAssigner,30,SNelson,varJustices
+majOpinAssigner,31,LWoodbury,varJustices
+majOpinAssigner,32,RCGrier,varJustices
+majOpinAssigner,33,BRCurtis,varJustices
+majOpinAssigner,34,JACampbell,varJustices
+majOpinAssigner,35,NClifford,varJustices
+majOpinAssigner,36,NHSwayne,varJustices
+majOpinAssigner,37,SFMiller,varJustices
+majOpinAssigner,38,DDavis,varJustices
+majOpinAssigner,39,SJField,varJustices
+majOpinAssigner,40,SPChase,varJustices
+majOpinAssigner,41,WStrong,varJustices
+majOpinAssigner,42,JPBradley,varJustices
+majOpinAssigner,43,WHunt,varJustices
+majOpinAssigner,44,MRWaite,varJustices
+majOpinAssigner,45,JHarlan1,varJustices
+majOpinAssigner,46,WBWoods,varJustices
+majOpinAssigner,47,SMatthews,varJustices
+majOpinAssigner,48,HGray,varJustices
+majOpinAssigner,49,SBlatchford,varJustices
+majOpinAssigner,50,LQLamar,varJustices
+majOpinAssigner,51,MWFuller,varJustices
+majOpinAssigner,52,DJBrewer,varJustices
+majOpinAssigner,53,HBBrown,varJustices
+majOpinAssigner,54,GShiras,varJustices
+majOpinAssigner,55,HEJackson,varJustices
+majOpinAssigner,56,EDEWhite,varJustices
+majOpinAssigner,57,RWPeckham,varJustices
+majOpinAssigner,58,JMcKenna,varJustices
+majOpinAssigner,59,OWHolmes,varJustices
+majOpinAssigner,60,WRDay,varJustices
+majOpinAssigner,61,WHMoody,varJustices
+majOpinAssigner,62,HHLurton,varJustices
+majOpinAssigner,63,CEHughes1,varJustices
+majOpinAssigner,64,WVanDevanter,varJustices
+majOpinAssigner,65,JRLamar,varJustices
+majOpinAssigner,66,MPitney,varJustices
+majOpinAssigner,67,JCMcReynolds,varJustices
+majOpinAssigner,68,LDBrandeis,varJustices
+majOpinAssigner,69,JHClarke,varJustices
+majOpinAssigner,70,WHTaft,varJustices
+majOpinAssigner,71,GSutherland,varJustices
+majOpinAssigner,72,PButler,varJustices
+majOpinAssigner,73,ETSanford,varJustices
+majOpinAssigner,74,HFStone,varJustices
+majOpinAssigner,75,CEHughes2,varJustices
+majOpinAssigner,76,OJRoberts,varJustices
+majOpinAssigner,77,BNCardozo,varJustices
+majOpinAssigner,78,HLBlack,varJustices
+majOpinAssigner,79,SFReed,varJustices
+majOpinAssigner,80,FFrankfurter,varJustices
+majOpinAssigner,81,WODouglas,varJustices
+majOpinAssigner,82,FMurphy,varJustices
+majOpinAssigner,83,JFByrnes,varJustices
+majOpinAssigner,84,RHJackson,varJustices
+majOpinAssigner,85,WBRutledge,varJustices
+majOpinAssigner,86,HHBurton,varJustices
+majOpinAssigner,87,FMVinson,varJustices
+majOpinAssigner,88,TCClark,varJustices
+majOpinAssigner,89,SMinton,varJustices
+majOpinAssigner,90,EWarren,varJustices
+majOpinAssigner,91,JHarlan2,varJustices
+majOpinAssigner,92,WJBrennan,varJustices
+majOpinAssigner,93,CEWhittaker,varJustices
+majOpinAssigner,94,PStewart,varJustices
+majOpinAssigner,95,BRWhite,varJustices
+majOpinAssigner,96,AJGoldberg,varJustices
+majOpinAssigner,97,AFortas,varJustices
+majOpinAssigner,98,TMarshall,varJustices
+majOpinAssigner,99,WEBurger,varJustices
+majOpinAssigner,100,HABlackmun,varJustices
+majOpinAssigner,101,LFPowell,varJustices
+majOpinAssigner,102,WHRehnquist,varJustices
+majOpinAssigner,103,JPStevens,varJustices
+majOpinAssigner,104,SDOConnor,varJustices
+majOpinAssigner,105,AScalia,varJustices
+majOpinAssigner,106,AMKennedy,varJustices
+majOpinAssigner,107,DHSouter,varJustices
+majOpinAssigner,108,CThomas,varJustices
+majOpinAssigner,109,RBGinsburg,varJustices
+majOpinAssigner,110,SGBreyer,varJustices
+majOpinAssigner,111,JGRoberts,varJustices
+majOpinAssigner,112,SAAlito,varJustices
+majOpinAssigner,113,SSotomayor,varJustices
+majOpinAssigner,114,EKagan,varJustices
+majOpinAssigner,115,NMGorsuch,varJustices
+majOpinAssigner,116,BMKavanaugh,varJustices
+majOpinAssigner,117,ACBarrett,varJustices
+majOpinAssigner,118,KBJackson,varJustices
+justice,1,JJay,varJustices
+justice,2,JRutledge1,varJustices
+justice,3,WCushing,varJustices
+justice,4,JWilson,varJustices
+justice,5,JBlair,varJustices
+justice,6,JIredell,varJustices
+justice,7,TJohnson,varJustices
+justice,8,WPaterson,varJustices
+justice,9,JRutledge2,varJustices
+justice,10,SChase,varJustices
+justice,11,OEllsworth,varJustices
+justice,12,BWashington,varJustices
+justice,13,AMoore,varJustices
+justice,14,JMarshall,varJustices
+justice,15,WJohnson,varJustices
+justice,16,HBLivingston,varJustices
+justice,17,TTodd,varJustices
+justice,18,GDuvall,varJustices
+justice,19,JStory,varJustices
+justice,20,SThompson,varJustices
+justice,21,RTrimble,varJustices
+justice,22,JMcLean,varJustices
+justice,23,HBaldwin,varJustices
+justice,24,JMWayne,varJustices
+justice,25,RBTaney,varJustices
+justice,26,PPBarbour,varJustices
+justice,27,JCatron,varJustices
+justice,28,JMcKinley,varJustices
+justice,29,PVDaniel,varJustices
+justice,30,SNelson,varJustices
+justice,31,LWoodbury,varJustices
+justice,32,RCGrier,varJustices
+justice,33,BRCurtis,varJustices
+justice,34,JACampbell,varJustices
+justice,35,NClifford,varJustices
+justice,36,NHSwayne,varJustices
+justice,37,SFMiller,varJustices
+justice,38,DDavis,varJustices
+justice,39,SJField,varJustices
+justice,40,SPChase,varJustices
+justice,41,WStrong,varJustices
+justice,42,JPBradley,varJustices
+justice,43,WHunt,varJustices
+justice,44,MRWaite,varJustices
+justice,45,JHarlan1,varJustices
+justice,46,WBWoods,varJustices
+justice,47,SMatthews,varJustices
+justice,48,HGray,varJustices
+justice,49,SBlatchford,varJustices
+justice,50,LQLamar,varJustices
+justice,51,MWFuller,varJustices
+justice,52,DJBrewer,varJustices
+justice,53,HBBrown,varJustices
+justice,54,GShiras,varJustices
+justice,55,HEJackson,varJustices
+justice,56,EDEWhite,varJustices
+justice,57,RWPeckham,varJustices
+justice,58,JMcKenna,varJustices
+justice,59,OWHolmes,varJustices
+justice,60,WRDay,varJustices
+justice,61,WHMoody,varJustices
+justice,62,HHLurton,varJustices
+justice,63,CEHughes1,varJustices
+justice,64,WVanDevanter,varJustices
+justice,65,JRLamar,varJustices
+justice,66,MPitney,varJustices
+justice,67,JCMcReynolds,varJustices
+justice,68,LDBrandeis,varJustices
+justice,69,JHClarke,varJustices
+justice,70,WHTaft,varJustices
+justice,71,GSutherland,varJustices
+justice,72,PButler,varJustices
+justice,73,ETSanford,varJustices
+justice,74,HFStone,varJustices
+justice,75,CEHughes2,varJustices
+justice,76,OJRoberts,varJustices
+justice,77,BNCardozo,varJustices
+justice,78,HLBlack,varJustices
+justice,79,SFReed,varJustices
+justice,80,FFrankfurter,varJustices
+justice,81,WODouglas,varJustices
+justice,82,FMurphy,varJustices
+justice,83,JFByrnes,varJustices
+justice,84,RHJackson,varJustices
+justice,85,WBRutledge,varJustices
+justice,86,HHBurton,varJustices
+justice,87,FMVinson,varJustices
+justice,88,TCClark,varJustices
+justice,89,SMinton,varJustices
+justice,90,EWarren,varJustices
+justice,91,JHarlan2,varJustices
+justice,92,WJBrennan,varJustices
+justice,93,CEWhittaker,varJustices
+justice,94,PStewart,varJustices
+justice,95,BRWhite,varJustices
+justice,96,AJGoldberg,varJustices
+justice,97,AFortas,varJustices
+justice,98,TMarshall,varJustices
+justice,99,WEBurger,varJustices
+justice,100,HABlackmun,varJustices
+justice,101,LFPowell,varJustices
+justice,102,WHRehnquist,varJustices
+justice,103,JPStevens,varJustices
+justice,104,SDOConnor,varJustices
+justice,105,AScalia,varJustices
+justice,106,AMKennedy,varJustices
+justice,107,DHSouter,varJustices
+justice,108,CThomas,varJustices
+justice,109,RBGinsburg,varJustices
+justice,110,SGBreyer,varJustices
+justice,111,JGRoberts,varJustices
+justice,112,SAAlito,varJustices
+justice,113,SSotomayor,varJustices
+justice,114,EKagan,varJustices
+justice,115,NMGorsuch,varJustices
+justice,116,BMKavanaugh,varJustices
+justice,117,ACBarrett,varJustices
+justice,118,KBJackson,varJustices
+firstAgreement,1,JJay,varJustices
+firstAgreement,2,JRutledge1,varJustices
+firstAgreement,3,WCushing,varJustices
+firstAgreement,4,JWilson,varJustices
+firstAgreement,5,JBlair,varJustices
+firstAgreement,6,JIredell,varJustices
+firstAgreement,7,TJohnson,varJustices
+firstAgreement,8,WPaterson,varJustices
+firstAgreement,9,JRutledge2,varJustices
+firstAgreement,10,SChase,varJustices
+firstAgreement,11,OEllsworth,varJustices
+firstAgreement,12,BWashington,varJustices
+firstAgreement,13,AMoore,varJustices
+firstAgreement,14,JMarshall,varJustices
+firstAgreement,15,WJohnson,varJustices
+firstAgreement,16,HBLivingston,varJustices
+firstAgreement,17,TTodd,varJustices
+firstAgreement,18,GDuvall,varJustices
+firstAgreement,19,JStory,varJustices
+firstAgreement,20,SThompson,varJustices
+firstAgreement,21,RTrimble,varJustices
+firstAgreement,22,JMcLean,varJustices
+firstAgreement,23,HBaldwin,varJustices
+firstAgreement,24,JMWayne,varJustices
+firstAgreement,25,RBTaney,varJustices
+firstAgreement,26,PPBarbour,varJustices
+firstAgreement,27,JCatron,varJustices
+firstAgreement,28,JMcKinley,varJustices
+firstAgreement,29,PVDaniel,varJustices
+firstAgreement,30,SNelson,varJustices
+firstAgreement,31,LWoodbury,varJustices
+firstAgreement,32,RCGrier,varJustices
+firstAgreement,33,BRCurtis,varJustices
+firstAgreement,34,JACampbell,varJustices
+firstAgreement,35,NClifford,varJustices
+firstAgreement,36,NHSwayne,varJustices
+firstAgreement,37,SFMiller,varJustices
+firstAgreement,38,DDavis,varJustices
+firstAgreement,39,SJField,varJustices
+firstAgreement,40,SPChase,varJustices
+firstAgreement,41,WStrong,varJustices
+firstAgreement,42,JPBradley,varJustices
+firstAgreement,43,WHunt,varJustices
+firstAgreement,44,MRWaite,varJustices
+firstAgreement,45,JHarlan1,varJustices
+firstAgreement,46,WBWoods,varJustices
+firstAgreement,47,SMatthews,varJustices
+firstAgreement,48,HGray,varJustices
+firstAgreement,49,SBlatchford,varJustices
+firstAgreement,50,LQLamar,varJustices
+firstAgreement,51,MWFuller,varJustices
+firstAgreement,52,DJBrewer,varJustices
+firstAgreement,53,HBBrown,varJustices
+firstAgreement,54,GShiras,varJustices
+firstAgreement,55,HEJackson,varJustices
+firstAgreement,56,EDEWhite,varJustices
+firstAgreement,57,RWPeckham,varJustices
+firstAgreement,58,JMcKenna,varJustices
+firstAgreement,59,OWHolmes,varJustices
+firstAgreement,60,WRDay,varJustices
+firstAgreement,61,WHMoody,varJustices
+firstAgreement,62,HHLurton,varJustices
+firstAgreement,63,CEHughes1,varJustices
+firstAgreement,64,WVanDevanter,varJustices
+firstAgreement,65,JRLamar,varJustices
+firstAgreement,66,MPitney,varJustices
+firstAgreement,67,JCMcReynolds,varJustices
+firstAgreement,68,LDBrandeis,varJustices
+firstAgreement,69,JHClarke,varJustices
+firstAgreement,70,WHTaft,varJustices
+firstAgreement,71,GSutherland,varJustices
+firstAgreement,72,PButler,varJustices
+firstAgreement,73,ETSanford,varJustices
+firstAgreement,74,HFStone,varJustices
+firstAgreement,75,CEHughes2,varJustices
+firstAgreement,76,OJRoberts,varJustices
+firstAgreement,77,BNCardozo,varJustices
+firstAgreement,78,HLBlack,varJustices
+firstAgreement,79,SFReed,varJustices
+firstAgreement,80,FFrankfurter,varJustices
+firstAgreement,81,WODouglas,varJustices
+firstAgreement,82,FMurphy,varJustices
+firstAgreement,83,JFByrnes,varJustices
+firstAgreement,84,RHJackson,varJustices
+firstAgreement,85,WBRutledge,varJustices
+firstAgreement,86,HHBurton,varJustices
+firstAgreement,87,FMVinson,varJustices
+firstAgreement,88,TCClark,varJustices
+firstAgreement,89,SMinton,varJustices
+firstAgreement,90,EWarren,varJustices
+firstAgreement,91,JHarlan2,varJustices
+firstAgreement,92,WJBrennan,varJustices
+firstAgreement,93,CEWhittaker,varJustices
+firstAgreement,94,PStewart,varJustices
+firstAgreement,95,BRWhite,varJustices
+firstAgreement,96,AJGoldberg,varJustices
+firstAgreement,97,AFortas,varJustices
+firstAgreement,98,TMarshall,varJustices
+firstAgreement,99,WEBurger,varJustices
+firstAgreement,100,HABlackmun,varJustices
+firstAgreement,101,LFPowell,varJustices
+firstAgreement,102,WHRehnquist,varJustices
+firstAgreement,103,JPStevens,varJustices
+firstAgreement,104,SDOConnor,varJustices
+firstAgreement,105,AScalia,varJustices
+firstAgreement,106,AMKennedy,varJustices
+firstAgreement,107,DHSouter,varJustices
+firstAgreement,108,CThomas,varJustices
+firstAgreement,109,RBGinsburg,varJustices
+firstAgreement,110,SGBreyer,varJustices
+firstAgreement,111,JGRoberts,varJustices
+firstAgreement,112,SAAlito,varJustices
+firstAgreement,113,SSotomayor,varJustices
+firstAgreement,114,EKagan,varJustices
+firstAgreement,115,NMGorsuch,varJustices
+firstAgreement,116,BMKavanaugh,varJustices
+firstAgreement,117,ACBarrett,varJustices
+firstAgreement,118,KBJackson,varJustices
+secondAgreement,1,JJay,varJustices
+secondAgreement,2,JRutledge1,varJustices
+secondAgreement,3,WCushing,varJustices
+secondAgreement,4,JWilson,varJustices
+secondAgreement,5,JBlair,varJustices
+secondAgreement,6,JIredell,varJustices
+secondAgreement,7,TJohnson,varJustices
+secondAgreement,8,WPaterson,varJustices
+secondAgreement,9,JRutledge2,varJustices
+secondAgreement,10,SChase,varJustices
+secondAgreement,11,OEllsworth,varJustices
+secondAgreement,12,BWashington,varJustices
+secondAgreement,13,AMoore,varJustices
+secondAgreement,14,JMarshall,varJustices
+secondAgreement,15,WJohnson,varJustices
+secondAgreement,16,HBLivingston,varJustices
+secondAgreement,17,TTodd,varJustices
+secondAgreement,18,GDuvall,varJustices
+secondAgreement,19,JStory,varJustices
+secondAgreement,20,SThompson,varJustices
+secondAgreement,21,RTrimble,varJustices
+secondAgreement,22,JMcLean,varJustices
+secondAgreement,23,HBaldwin,varJustices
+secondAgreement,24,JMWayne,varJustices
+secondAgreement,25,RBTaney,varJustices
+secondAgreement,26,PPBarbour,varJustices
+secondAgreement,27,JCatron,varJustices
+secondAgreement,28,JMcKinley,varJustices
+secondAgreement,29,PVDaniel,varJustices
+secondAgreement,30,SNelson,varJustices
+secondAgreement,31,LWoodbury,varJustices
+secondAgreement,32,RCGrier,varJustices
+secondAgreement,33,BRCurtis,varJustices
+secondAgreement,34,JACampbell,varJustices
+secondAgreement,35,NClifford,varJustices
+secondAgreement,36,NHSwayne,varJustices
+secondAgreement,37,SFMiller,varJustices
+secondAgreement,38,DDavis,varJustices
+secondAgreement,39,SJField,varJustices
+secondAgreement,40,SPChase,varJustices
+secondAgreement,41,WStrong,varJustices
+secondAgreement,42,JPBradley,varJustices
+secondAgreement,43,WHunt,varJustices
+secondAgreement,44,MRWaite,varJustices
+secondAgreement,45,JHarlan1,varJustices
+secondAgreement,46,WBWoods,varJustices
+secondAgreement,47,SMatthews,varJustices
+secondAgreement,48,HGray,varJustices
+secondAgreement,49,SBlatchford,varJustices
+secondAgreement,50,LQLamar,varJustices
+secondAgreement,51,MWFuller,varJustices
+secondAgreement,52,DJBrewer,varJustices
+secondAgreement,53,HBBrown,varJustices
+secondAgreement,54,GShiras,varJustices
+secondAgreement,55,HEJackson,varJustices
+secondAgreement,56,EDEWhite,varJustices
+secondAgreement,57,RWPeckham,varJustices
+secondAgreement,58,JMcKenna,varJustices
+secondAgreement,59,OWHolmes,varJustices
+secondAgreement,60,WRDay,varJustices
+secondAgreement,61,WHMoody,varJustices
+secondAgreement,62,HHLurton,varJustices
+secondAgreement,63,CEHughes1,varJustices
+secondAgreement,64,WVanDevanter,varJustices
+secondAgreement,65,JRLamar,varJustices
+secondAgreement,66,MPitney,varJustices
+secondAgreement,67,JCMcReynolds,varJustices
+secondAgreement,68,LDBrandeis,varJustices
+secondAgreement,69,JHClarke,varJustices
+secondAgreement,70,WHTaft,varJustices
+secondAgreement,71,GSutherland,varJustices
+secondAgreement,72,PButler,varJustices
+secondAgreement,73,ETSanford,varJustices
+secondAgreement,74,HFStone,varJustices
+secondAgreement,75,CEHughes2,varJustices
+secondAgreement,76,OJRoberts,varJustices
+secondAgreement,77,BNCardozo,varJustices
+secondAgreement,78,HLBlack,varJustices
+secondAgreement,79,SFReed,varJustices
+secondAgreement,80,FFrankfurter,varJustices
+secondAgreement,81,WODouglas,varJustices
+secondAgreement,82,FMurphy,varJustices
+secondAgreement,83,JFByrnes,varJustices
+secondAgreement,84,RHJackson,varJustices
+secondAgreement,85,WBRutledge,varJustices
+secondAgreement,86,HHBurton,varJustices
+secondAgreement,87,FMVinson,varJustices
+secondAgreement,88,TCClark,varJustices
+secondAgreement,89,SMinton,varJustices
+secondAgreement,90,EWarren,varJustices
+secondAgreement,91,JHarlan2,varJustices
+secondAgreement,92,WJBrennan,varJustices
+secondAgreement,93,CEWhittaker,varJustices
+secondAgreement,94,PStewart,varJustices
+secondAgreement,95,BRWhite,varJustices
+secondAgreement,96,AJGoldberg,varJustices
+secondAgreement,97,AFortas,varJustices
+secondAgreement,98,TMarshall,varJustices
+secondAgreement,99,WEBurger,varJustices
+secondAgreement,100,HABlackmun,varJustices
+secondAgreement,101,LFPowell,varJustices
+secondAgreement,102,WHRehnquist,varJustices
+secondAgreement,103,JPStevens,varJustices
+secondAgreement,104,SDOConnor,varJustices
+secondAgreement,105,AScalia,varJustices
+secondAgreement,106,AMKennedy,varJustices
+secondAgreement,107,DHSouter,varJustices
+secondAgreement,108,CThomas,varJustices
+secondAgreement,109,RBGinsburg,varJustices
+secondAgreement,110,SGBreyer,varJustices
+secondAgreement,111,JGRoberts,varJustices
+secondAgreement,112,SAAlito,varJustices
+secondAgreement,113,SSotomayor,varJustices
+secondAgreement,114,EKagan,varJustices
+secondAgreement,115,NMGorsuch,varJustices
+secondAgreement,116,BMKavanaugh,varJustices
+secondAgreement,117,ACBarrett,varJustices
+secondAgreement,118,KBJackson,varJustices
+lawType,1,Constitution,varLawArea
+lawType,2,Constitutional Amendment,varLawArea
+lawType,3,Federal Statute,varLawArea
+lawType,4,Court Rules,varLawArea
+lawType,5,Other,varLawArea
+lawType,6,Infrequently litigated statutes,varLawArea
+lawType,8,State or local law or regulation,varLawArea
+lawType,9,No Legal Provision,varLawArea
+lcDisagreement,0,no mention that dissent occurred,varLcDisagreement
+lcDisagreement,1,dissent in ct whose dec the sct reviewed,varLcDisagreement
+lawSupp,100,"Article I, Section 1 (delegation of powers)",varLegalProvisions
+lawSupp,101,"Article I, Section 10 (state bill of attainder, ex post facto law, or bills of credit)",varLegalProvisions
+lawSupp,102,"Article I, Section 2, Paragraph 1 (composition of the House of Representatives)",varLegalProvisions
+lawSupp,103,"Article I, Section 2, Paragraph 3 (apportionment of Representatives)",varLegalProvisions
+lawSupp,104,"Article I, Section 4, Paragraph 1 (elections clause)",varLegalProvisions
+lawSupp,105,"Article I, Section 5, Paragraph 1 (congressional qualifications)",varLegalProvisions
+lawSupp,106,"Article I, Section 6, Paragraph 1 (speech or debate clause)",varLegalProvisions
+lawSupp,107,"Article I, Section 6, Paragraph 2 (civil appointments)",varLegalProvisions
+lawSupp,108,"Article I, Section 7, Paragraph 1 (origination clause)",varLegalProvisions
+lawSupp,109,"Article I, Section 7, Paragraph 2 (separation of powers)",varLegalProvisions
+lawSupp,110,"Article I, Section 8, Paragraph 1 (taxing, spending, general welfare, or uniformity clause)",varLegalProvisions
+lawSupp,111,"Article I, Section 8, Paragraph 3 (interstate commerce clause)",varLegalProvisions
+lawSupp,112,"Article I, Section 8, Paragraph 4 (bankruptcy clause)",varLegalProvisions
+lawSupp,113,"Article I, Section 8, Paragraph 7 (postal power)",varLegalProvisions
+lawSupp,114,"Article I, Section 8, Paragraph 8 (patent and copyright clause)",varLegalProvisions
+lawSupp,115,"Article I, Section 8, Paragraph 11 (war power)",varLegalProvisions
+lawSupp,116,"Article I, Section 8, Paragraph 14 (governance of the armed forces)",varLegalProvisions
+lawSupp,117,"Article I, Section 8, Paragraph 15 (call-up of militia)",varLegalProvisions
+lawSupp,118,"Article I, Section 8, Paragraph 16 (organizing the militia)",varLegalProvisions
+lawSupp,119,"Article I, Section 8, Paragraph 17 (governance of the District of Columbia and lands purchased from the states)",varLegalProvisions
+lawSupp,120,"Article I, Section 8, Paragraph 18 (necessary and proper clause)",varLegalProvisions
+lawSupp,121,"Article I, Section 9, Paragraph 2 (suspension of the writ of habeas corpus)",varLegalProvisions
+lawSupp,122,"Article I, Section 9, Paragraph 3 (bill of attainder or ex post facto law)",varLegalProvisions
+lawSupp,123,"Article I, Section 9, Paragraph 4 (direct tax)",varLegalProvisions
+lawSupp,124,"Article I, Section 9, Paragraph 5 (export clause)",varLegalProvisions
+lawSupp,125,"Article I, Section 9, Paragraph 6 (preference to ports)",varLegalProvisions
+lawSupp,126,"Article I, Section 9, Paragraph 7 (appropriations clause)",varLegalProvisions
+lawSupp,127,"Article I, Section 10 (state bill of attainder or ex post facto law)",varLegalProvisions
+lawSupp,128,"Article I, Section 10, Paragraph 1 (contract clause)",varLegalProvisions
+lawSupp,129,"Article I, Section 10, Paragraph 2 (export-import clause)",varLegalProvisions
+lawSupp,130,"Article I, Section 10, Paragraph 3 (compact clause)",varLegalProvisions
+lawSupp,131,"Article II, Section 1 (executive power)",varLegalProvisions
+lawSupp,132,"Article II, Section 1, Paragraph 8 (oath provision)",varLegalProvisions
+lawSupp,133,"Article II, Section 2 (commander-in-chief)",varLegalProvisions
+lawSupp,134,"Article II, Section 2, Paragraph 1 (presidential pardoning power)",varLegalProvisions
+lawSupp,135,"Article II, Section 2, Paragraph 2 (appointments clause)",varLegalProvisions
+lawSupp,136,"Article III, Section 1, Paragraph 1 (judicial power)",varLegalProvisions
+lawSupp,137,"Article III, Section 1, Paragraph 2 (good behavior and compensation clause of federal judges)",varLegalProvisions
+lawSupp,138,"Article III, Section 2 (extent of judicial power)",varLegalProvisions
+lawSupp,139,"Article III, Section 2, Paragraph 1 (case or controversy requirement)",varLegalProvisions
+lawSupp,140,"Article III, Section 2, Paragraph 2 (original jurisdiction)",varLegalProvisions
+lawSupp,141,"Article III, Section 2, Paragraph 3 (vicinage requirement)",varLegalProvisions
+lawSupp,142,"Article III, Section 3 (treason clause)",varLegalProvisions
+lawSupp,143,"Article IV, Section 1 (full faith and credit clause)",varLegalProvisions
+lawSupp,144,"Article IV, Section 2, Paragraph 1 (privileges and immunities clause)",varLegalProvisions
+lawSupp,145,"Article IV, Section 2, Paragraph 2 (extradition clause)",varLegalProvisions
+lawSupp,146,"Article IV, Section 3, Paragraph 2 (property clause)",varLegalProvisions
+lawSupp,147,"Article IV, Section 4 (guarantee clause)",varLegalProvisions
+lawSupp,148,"Article VI, Section 2 (supremacy clause)",varLegalProvisions
+lawSupp,149,"Article VI, Section 3 (oath provision)",varLegalProvisions
+lawSupp,150,Amendment Clause,varLegalProvisions
+lawSupp,151,"Article V, Section 1 (courts)",varLegalProvisions
+lawSupp,152,'contract clause' (No Article to be added),varLegalProvisions
+lawSupp,153,"'freedom of contract' (Again, no article)",varLegalProvisions
+lawSupp,200,"First Amendment (speech, press, and assembly)",varLegalProvisions
+lawSupp,201,First Amendment (association),varLegalProvisions
+lawSupp,202,First Amendment (free exercise of religion),varLegalProvisions
+lawSupp,203,First Amendment (establishment of religion),varLegalProvisions
+lawSupp,204,First Amendment (petition clause),varLegalProvisions
+lawSupp,205,Fourth Amendment,varLegalProvisions
+lawSupp,206,Fifth Amendment (double jeopardy),varLegalProvisions
+lawSupp,207,Fifth Amendment (due process),varLegalProvisions
+lawSupp,208,Fifth Amendment (grand jury),varLegalProvisions
+lawSupp,209,Fifth Amendment (Miranda warnings),varLegalProvisions
+lawSupp,210,Fifth Amendment (self-incrimination),varLegalProvisions
+lawSupp,211,Fifth Amendment (takings clause),varLegalProvisions
+lawSupp,212,Fifth Amendment (equal protection),varLegalProvisions
+lawSupp,213,"Sixth Amendment (right to confront and cross-examine, compulsory process)",varLegalProvisions
+lawSupp,214,Sixth Amendment (right to counsel),varLegalProvisions
+lawSupp,215,Sixth Amendment (right to trial by jury),varLegalProvisions
+lawSupp,216,Sixth Amendment (speedy trial),varLegalProvisions
+lawSupp,217,Sixth Amendment (other provisions),varLegalProvisions
+lawSupp,218,Seventh Amendment,varLegalProvisions
+lawSupp,219,Eighth Amendment (prohibition of excessive bail),varLegalProvisions
+lawSupp,220,Eighth Amendment (prohibition of excessive fines),varLegalProvisions
+lawSupp,221,Eighth Amendment (cruel and unusual punishment),varLegalProvisions
+lawSupp,222,Ninth Amendment,varLegalProvisions
+lawSupp,223,Tenth Amendment,varLegalProvisions
+lawSupp,224,Eleventh Amendment,varLegalProvisions
+lawSupp,225,Twelfth Amendment,varLegalProvisions
+lawSupp,226,Thirteenth Amendment (both sections 1 and 2),varLegalProvisions
+lawSupp,227,Fourteenth Amendment (privileges and immunities clause),varLegalProvisions
+lawSupp,228,Fourteenth Amendment (reduction in representation clause),varLegalProvisions
+lawSupp,229,Fourteenth Amendment (citizenship clause),varLegalProvisions
+lawSupp,230,Fourteenth Amendment (due process),varLegalProvisions
+lawSupp,231,Fourteenth Amendment (equal protection),varLegalProvisions
+lawSupp,232,Fourteenth Amendment (enforcement clause),varLegalProvisions
+lawSupp,233,Fifteenth Amendment (other provisions),varLegalProvisions
+lawSupp,234,Fifteenth Amendment (enforcement clause),varLegalProvisions
+lawSupp,235,Sixteenth Amendment,varLegalProvisions
+lawSupp,236,Seventeenth Amendment,varLegalProvisions
+lawSupp,237,Twenty-First Amendment,varLegalProvisions
+lawSupp,238,Twenty-Fourth Amendment,varLegalProvisions
+lawSupp,239,Second Amendment,varLegalProvisions
+lawSupp,240,Fourteenth Amendment (due process and equal protection),varLegalProvisions
+lawSupp,241,Fourteenth Amendment (takings clause),varLegalProvisions
+lawSupp,300,Americans with Disabilities Act,varLegalProvisions
+lawSupp,302,Age Discrimination in Employment,varLegalProvisions
+lawSupp,303,"Aid to Families with Dependent Children provisions of the Social Security Act, plus amendments",varLegalProvisions
+lawSupp,304,"Clean Air, plus amendments",varLegalProvisions
+lawSupp,305,"Administrative Procedure, or Administrative Orders Review",varLegalProvisions
+lawSupp,306,Atomic Energy,varLegalProvisions
+lawSupp,307,"Bankruptcy Code, Bankruptcy Act or Rules, or Bankruptcy Reform Act of 1978",varLegalProvisions
+lawSupp,308,Medicaid provisions of the Social Security Act,varLegalProvisions
+lawSupp,309,Medicare provisions of the Social Security Act,varLegalProvisions
+lawSupp,310,Clayton,varLegalProvisions
+lawSupp,311,Reconstruction Civil Rights Acts (42 U.S.C. § 1978),varLegalProvisions
+lawSupp,312,Reconstruction Civil Rights Acts (42 U.S.C. § 1981),varLegalProvisions
+lawSupp,313,Reconstruction Civil Rights Acts (42 U.S.C. § 1982),varLegalProvisions
+lawSupp,314,Reconstruction Civil Rights Acts (42 U.S.C. § 1983),varLegalProvisions
+lawSupp,315,Reconstruction Civil Rights Acts (42 U.S.C. § 1985),varLegalProvisions
+lawSupp,316,Reconstruction Civil Rights Acts (42 U.S.C. § 1986),varLegalProvisions
+lawSupp,317,Civil Rights Act of 1964 (public accommodations),varLegalProvisions
+lawSupp,318,Civil Rights Act of 1957,varLegalProvisions
+lawSupp,319,Civil Rights Act of 1991,varLegalProvisions
+lawSupp,320,Statutory provisions of the District of Columbia,varLegalProvisions
+lawSupp,321,Equal Access to Justice,varLegalProvisions
+lawSupp,322,Education Amendments of 1972,varLegalProvisions
+lawSupp,323,"Employee Retirement Income Security, as amended",varLegalProvisions
+lawSupp,324,Elementary and Secondary Education,varLegalProvisions
+lawSupp,325,Federal False Claims,varLegalProvisions
+lawSupp,326,"Communication Act of 1934, as amended",varLegalProvisions
+lawSupp,327,Federal Employees' Compensation,varLegalProvisions
+lawSupp,328,Civil Rights Attorney's Fees Awards,varLegalProvisions
+lawSupp,329,"Federal Employers' Liability, as amended",varLegalProvisions
+lawSupp,330,Federal Election Campaign,varLegalProvisions
+lawSupp,331,Family Educational Rights and Privacy (Buckley Amendment),varLegalProvisions
+lawSupp,332,"Federal Food, Drug, and Cosmetic, and related statutes",varLegalProvisions
+lawSupp,333,"Federal Insecticide, Fungicide, and Rodenticide",varLegalProvisions
+lawSupp,334,Fair Labor Standards,varLegalProvisions
+lawSupp,335,"Freedom of Information, Sunshine, or Privacy Act",varLegalProvisions
+lawSupp,336,Federal Power,varLegalProvisions
+lawSupp,337,Federal Trade Commission,varLegalProvisions
+lawSupp,338,"Federal Water Pollution Control (Clean Water), plus amendments",varLegalProvisions
+lawSupp,339,"Omnibus Crime Control and Safe Streets, National Firearms, Organized Crime Control, Comprehensive Crime Control, or Gun Control Acts",varLegalProvisions
+lawSupp,340,"Education of the Handicapped, Education for All Handicapped Children, or Individuals with Disabilities Education Acts, or related statutes, as amended",varLegalProvisions
+lawSupp,341,28 U.S.C. § 2241-2255 (habeas corpus),varLegalProvisions
+lawSupp,342,Fair Housing,varLegalProvisions
+lawSupp,343,"Interstate Commerce, as amended",varLegalProvisions
+lawSupp,344,"Immigration and Naturalization, Immigration, Nationality, or Illegal Immigration Reform and Immigrant Responsibility Acts, as amended",varLegalProvisions
+lawSupp,345,Internal Revenue Code and pre-IRC revenue acts,varLegalProvisions
+lawSupp,346,Internal Security (also see 369),varLegalProvisions
+lawSupp,347,Jencks,varLegalProvisions
+lawSupp,348,"Jones, or Death on the High Seas",varLegalProvisions
+lawSupp,349,Longshoremen and Harbor Workers' Compensation,varLegalProvisions
+lawSupp,350,Labor-Management Relations,varLegalProvisions
+lawSupp,351,Labor-Management Reporting and Disclosure,varLegalProvisions
+lawSupp,352,Motor Carrier,varLegalProvisions
+lawSupp,353,Miller,varLegalProvisions
+lawSupp,354,National Environmental Policy,varLegalProvisions
+lawSupp,355,"Natural Gas, or Natural Gas Policy Acts",varLegalProvisions
+lawSupp,356,"National Labor Relations, as amended",varLegalProvisions
+lawSupp,357,Norris-LaGuardia,varLegalProvisions
+lawSupp,358,Occupational Safety and Health,varLegalProvisions
+lawSupp,359,Public Utility Regulatory Policy,varLegalProvisions
+lawSupp,360,Rehabilitation,varLegalProvisions
+lawSupp,361,Religious Freedom Restoration,varLegalProvisions
+lawSupp,362,Racketeer Influenced and Corrupt Organizations,varLegalProvisions
+lawSupp,363,Railway Labor,varLegalProvisions
+lawSupp,364,Robinson-Patman,varLegalProvisions
+lawSupp,365,"Securities Act of 1933, the Securities and Exchange Act of 1934, or the Williams Act",varLegalProvisions
+lawSupp,366,"Selective Service, Military Selective Service, or Universal Military Service and Training Acts",varLegalProvisions
+lawSupp,367,Sherman,varLegalProvisions
+lawSupp,368,Submerged Lands Acts,varLegalProvisions
+lawSupp,369,"Smith, Subversive Activities Control, Communist Control, or other similar federal legislation (also see 346)",varLegalProvisions
+lawSupp,370,"Social Security, as amended, including Social Security Disability Benefits Reform Act",varLegalProvisions
+lawSupp,371,Supplemental Security Income,varLegalProvisions
+lawSupp,372,State Law,varLegalProvisions
+lawSupp,373,Truth in Lending,varLegalProvisions
+lawSupp,374,"Federal Tort Claims, or Alien Tort Statute",varLegalProvisions
+lawSupp,375,Tucker,varLegalProvisions
+lawSupp,376,"Trading with the Enemy Act, as amended",varLegalProvisions
+lawSupp,377,Universal Code of Military Justice,varLegalProvisions
+lawSupp,378,"Voting Rights Act of 1965, plus amendments",varLegalProvisions
+lawSupp,379,Reconstruction Civil Rights Acts (42 U.S.C. § 1971),varLegalProvisions
+lawSupp,380,Reconstruction Civil Rights Acts (42 U.S.C. § 1999),varLegalProvisions
+lawSupp,381,Civil Rights Act of 1964 (Title II),varLegalProvisions
+lawSupp,382,Civil Rights Act of 1964 (Title IV),varLegalProvisions
+lawSupp,383,Civil Rights Act of 1964 (other),varLegalProvisions
+lawSupp,384,Civil Rights Act of 1964 (Title VII),varLegalProvisions
+lawSupp,385,Civil Rights Act of 1964 (Title IX),varLegalProvisions
+lawSupp,387,Civil Rights Act of 1964 (Title VI),varLegalProvisions
+lawSupp,388,Federal Arbitration Act,varLegalProvisions
+lawSupp,389,Judiciary Act of 1789,varLegalProvisions
+lawSupp,400,"Federal Rules of Civil Procedure, including Appellate Procedure, or relevant rules of a circuit court Judicial Code, and admiralty rules",varLegalProvisions
+lawSupp,401,"Federal Rules of Criminal Procedure, or relevant rules of a circuit court",varLegalProvisions
+lawSupp,402,Federal Rules of Evidence,varLegalProvisions
+lawSupp,403,Supreme Court Rules,varLegalProvisions
+lawSupp,500,Abstention Doctrine,varLegalProvisions
+lawSupp,501,Retroactive application of a constitutional right,varLegalProvisions
+lawSupp,502,Exclusionary Rule (Fourth Amendment),varLegalProvisions
+lawSupp,503,Exclusionary Rule (Right to Counsel),varLegalProvisions
+lawSupp,504,Exclusionary Rule (Miranda warnings),varLegalProvisions
+lawSupp,505,Harmless Error,varLegalProvisions
+lawSupp,506,Res Judicata,varLegalProvisions
+lawSupp,507,Estoppel,varLegalProvisions
+lawSupp,508,Writ Improvidently Granted,varLegalProvisions
+lawSupp,509,Treaty,varLegalProvisions
+lawSupp,510,Interstate Compact,varLegalProvisions
+lawSupp,511,Executive Order,varLegalProvisions
+lawSupp,512,Territory Statute,varLegalProvisions
+lawSupp,513,International Law,varLegalProvisions
+lawSupp,514,Emergency Price Control,varLegalProvisions
+lawSupp,600,Infrequently litigated statutes,varLegalProvisions
+lawSupp,800,State or Local Law Regulation,varLegalProvisions
+lawSupp,900,No Legal Provision,varLegalProvisions
+naturalCourt,101,Jay 1,varNaturalCourt
+naturalCourt,102,Jay 2,varNaturalCourt
+naturalCourt,103,Jay 3,varNaturalCourt
+naturalCourt,104,Jay 4,varNaturalCourt
+naturalCourt,201,Rutledge 1,varNaturalCourt
+naturalCourt,202,No Chief (Post-Rutledge),varNaturalCourt
+naturalCourt,301,Ellsworth 1,varNaturalCourt
+naturalCourt,302,Ellsworth 2,varNaturalCourt
+naturalCourt,303,Ellsworth 3,varNaturalCourt
+naturalCourt,401,Marshall 1,varNaturalCourt
+naturalCourt,402,Marshall 2,varNaturalCourt
+naturalCourt,403,Marshall 3,varNaturalCourt
+naturalCourt,404,Marshall 4,varNaturalCourt
+naturalCourt,405,Marshall 5,varNaturalCourt
+naturalCourt,406,Marshall 6,varNaturalCourt
+naturalCourt,407,Marshall 7,varNaturalCourt
+naturalCourt,408,Marshall 8,varNaturalCourt
+naturalCourt,409,Marshall 9,varNaturalCourt
+naturalCourt,410,Marshall 10,varNaturalCourt
+naturalCourt,501,Taney 1,varNaturalCourt
+naturalCourt,502,Taney 2,varNaturalCourt
+naturalCourt,503,Taney 3,varNaturalCourt
+naturalCourt,504,Taney 4,varNaturalCourt
+naturalCourt,505,Taney 5,varNaturalCourt
+naturalCourt,506,Taney 6,varNaturalCourt
+naturalCourt,507,Taney 7,varNaturalCourt
+naturalCourt,508,Taney 8,varNaturalCourt
+naturalCourt,509,Taney 9,varNaturalCourt
+naturalCourt,510,Taney 10,varNaturalCourt
+naturalCourt,511,Taney 11,varNaturalCourt
+naturalCourt,512,Taney 12,varNaturalCourt
+naturalCourt,513,Taney 13,varNaturalCourt
+naturalCourt,514,Taney 14,varNaturalCourt
+naturalCourt,515,Taney 15,varNaturalCourt
+naturalCourt,601,Chase 1,varNaturalCourt
+naturalCourt,602,Chase 2,varNaturalCourt
+naturalCourt,603,Chase 3,varNaturalCourt
+naturalCourt,701,Waite 1,varNaturalCourt
+naturalCourt,702,Waite 2,varNaturalCourt
+naturalCourt,703,Waite 3,varNaturalCourt
+naturalCourt,704,Waite 4,varNaturalCourt
+naturalCourt,705,Waite 5,varNaturalCourt
+naturalCourt,706,Waite 6,varNaturalCourt
+naturalCourt,707,Waite 7,varNaturalCourt
+naturalCourt,801,Fuller 1,varNaturalCourt
+naturalCourt,802,Fuller 2,varNaturalCourt
+naturalCourt,803,Fuller 3,varNaturalCourt
+naturalCourt,804,Fuller 4,varNaturalCourt
+naturalCourt,805,Fuller 5,varNaturalCourt
+naturalCourt,806,Fuller 6,varNaturalCourt
+naturalCourt,807,Fuller 7,varNaturalCourt
+naturalCourt,808,Fuller 8,varNaturalCourt
+naturalCourt,809,Fuller 9,varNaturalCourt
+naturalCourt,810,Fuller 10,varNaturalCourt
+naturalCourt,811,Fuller 11,varNaturalCourt
+naturalCourt,812,Fuller 12,varNaturalCourt
+naturalCourt,813,No Chief (Post-Fuller),varNaturalCourt
+naturalCourt,901,White 1,varNaturalCourt
+naturalCourt,902,White 2,varNaturalCourt
+naturalCourt,903,White 3,varNaturalCourt
+naturalCourt,904,White 4,varNaturalCourt
+naturalCourt,905,White 5,varNaturalCourt
+naturalCourt,1001,Taft 1,varNaturalCourt
+naturalCourt,1002,Taft 2,varNaturalCourt
+naturalCourt,1003,Taft 3,varNaturalCourt
+naturalCourt,1004,Taft 4,varNaturalCourt
+naturalCourt,1005,Taft 5,varNaturalCourt
+naturalCourt,1101,Hughes 1,varNaturalCourt
+naturalCourt,1102,Hughes 2,varNaturalCourt
+naturalCourt,1103,Hughes 3,varNaturalCourt
+naturalCourt,1104,Hughes 4,varNaturalCourt
+naturalCourt,1105,Hughes 5,varNaturalCourt
+naturalCourt,1106,Hughes 6,varNaturalCourt
+naturalCourt,1107,Hughes 7,varNaturalCourt
+naturalCourt,1108,Hughes 8,varNaturalCourt
+naturalCourt,1201,Stone 1,varNaturalCourt
+naturalCourt,1202,Stone 2,varNaturalCourt
+naturalCourt,1203,Stone 3,varNaturalCourt
+naturalCourt,1301,Vinson 1,varNaturalCourt
+naturalCourt,1302,Vinson 2,varNaturalCourt
+naturalCourt,1303,Vinson 3,varNaturalCourt
+naturalCourt,1401,Warren 1,varNaturalCourt
+naturalCourt,1402,Warren 2,varNaturalCourt
+naturalCourt,1403,Warren 3,varNaturalCourt
+naturalCourt,1404,Warren 4,varNaturalCourt
+naturalCourt,1405,Warren 5,varNaturalCourt
+naturalCourt,1406,Warren 6,varNaturalCourt
+naturalCourt,1407,Warren 7,varNaturalCourt
+naturalCourt,1408,Warren 8,varNaturalCourt
+naturalCourt,1409,Warren 9,varNaturalCourt
+naturalCourt,1410,Warren 10,varNaturalCourt
+naturalCourt,1411,Warren 11,varNaturalCourt
+naturalCourt,1501,Burger 1,varNaturalCourt
+naturalCourt,1502,Burger 2,varNaturalCourt
+naturalCourt,1503,Burger 3,varNaturalCourt
+naturalCourt,1504,Burger 4,varNaturalCourt
+naturalCourt,1505,Burger 5,varNaturalCourt
+naturalCourt,1506,Burger 6,varNaturalCourt
+naturalCourt,1507,Burger 7,varNaturalCourt
+naturalCourt,1601,Rehnquist 1,varNaturalCourt
+naturalCourt,1602,Rehnquist 2,varNaturalCourt
+naturalCourt,1603,Rehnquist 3,varNaturalCourt
+naturalCourt,1604,Rehnquist 4,varNaturalCourt
+naturalCourt,1605,Rehnquist 5,varNaturalCourt
+naturalCourt,1606,Rehnquist 6,varNaturalCourt
+naturalCourt,1607,Rehnquist 7,varNaturalCourt
+naturalCourt,1701,Roberts 1,varNaturalCourt
+naturalCourt,1702,Roberts 2,varNaturalCourt
+naturalCourt,1703,Roberts 3,varNaturalCourt
+naturalCourt,1704,Roberts 4,varNaturalCourt
+naturalCourt,1705,Roberts 5,varNaturalCourt
+naturalCourt,1706,Roberts 6,varNaturalCourt
+naturalCourt,1707,Roberts 7,varNaturalCourt
+naturalCourt,1708,Roberts 8,varNaturalCourt
+naturalCourt,1709,Roberts 9,varNaturalCourt
+naturalCourt,1710,Roberts 10,varNaturalCourt
+petitioner,1,"attorney general of the United States, or his office",varParties
+petitioner,2,specified state board or department of education,varParties
+petitioner,3,"city, town, township, village, or borough government or governmental unit",varParties
+petitioner,4,"state commission, board, committee, or authority",varParties
+petitioner,5,"county government or county governmental unit, except school district",varParties
+petitioner,6,court or judicial district,varParties
+petitioner,7,state department or agency,varParties
+petitioner,8,governmental employee or job applicant,varParties
+petitioner,9,female governmental employee or job applicant,varParties
+petitioner,10,minority governmental employee or job applicant,varParties
+petitioner,11,minority female governmental employee or job applicant,varParties
+petitioner,12,not listed among agencies in the first Administrative Action variable,varParties
+petitioner,13,retired or former governmental employee,varParties
+petitioner,14,U.S. House of Representatives,varParties
+petitioner,15,interstate compact,varParties
+petitioner,16,judge,varParties
+petitioner,17,"state legislature, house, or committee",varParties
+petitioner,18,"local governmental unit other than a county, city, town, township, village, or borough",varParties
+petitioner,19,"governmental official, or an official of an agency established under an interstate compact",varParties
+petitioner,20,state or U.S. supreme court,varParties
+petitioner,21,local school district or board of education,varParties
+petitioner,22,U.S. Senate,varParties
+petitioner,23,U.S. senator,varParties
+petitioner,24,foreign nation or instrumentality,varParties
+petitioner,25,"state or local governmental taxpayer, or executor of the estate of",varParties
+petitioner,26,state college or university,varParties
+petitioner,27,United States,varParties
+petitioner,28,State,varParties
+petitioner,100,"person accused, indicted, or suspected of crime",varParties
+petitioner,101,advertising business or agency,varParties
+petitioner,102,"agent, fiduciary, trustee, or executor",varParties
+petitioner,103,"airplane manufacturer, or manufacturer of parts of airplanes",varParties
+petitioner,104,airline,varParties
+petitioner,105,"distributor, importer, or exporter of alcoholic beverages",varParties
+petitioner,106,"alien, person subject to a denaturalization proceeding, or one whose citizenship is revoked",varParties
+petitioner,107,American Medical Association,varParties
+petitioner,108,National Railroad Passenger Corp.,varParties
+petitioner,109,"amusement establishment, or recreational facility",varParties
+petitioner,110,"arrested person, or pretrial detainee",varParties
+petitioner,111,"attorney, or person acting as such;includes bar applicant or law student, or law firm or bar association",varParties
+petitioner,112,"author, copyright holder",varParties
+petitioner,113,"bank, savings and loan, credit union, investment company",varParties
+petitioner,114,"bankrupt person or business, or business in reorganization",varParties
+petitioner,115,"establishment serving liquor by the glass, or package liquor store",varParties
+petitioner,116,"water transportation, stevedore",varParties
+petitioner,117,"bookstore, newsstand, printer, bindery, purveyor or distributor of books or magazines",varParties
+petitioner,118,"brewery, distillery",varParties
+petitioner,119,"broker, stock exchange, investment or securities firm",varParties
+petitioner,120,construction industry,varParties
+petitioner,121,bus or motorized passenger transportation vehicle,varParties
+petitioner,122,"business, corporation",varParties
+petitioner,123,"buyer, purchaser",varParties
+petitioner,124,cable TV,varParties
+petitioner,125,car dealer,varParties
+petitioner,126,person convicted of crime,varParties
+petitioner,127,"tangible property, other than real estate, including contraband",varParties
+petitioner,128,chemical company,varParties
+petitioner,129,"child, children, including adopted or illegitimate",varParties
+petitioner,130,"religious organization, institution, or person",varParties
+petitioner,131,private club or facility,varParties
+petitioner,132,coal company or coal mine operator,varParties
+petitioner,133,"computer business or manufacturer, hardware or software",varParties
+petitioner,134,"consumer, consumer organization",varParties
+petitioner,135,"creditor, including institution appearing as such; e.g., a finance company",varParties
+petitioner,136,person allegedly criminally insane or mentally incompetent to stand trial,varParties
+petitioner,137,defendant,varParties
+petitioner,138,debtor,varParties
+petitioner,139,real estate developer,varParties
+petitioner,140,disabled person or disability benefit claimant,varParties
+petitioner,141,distributor,varParties
+petitioner,142,"person subject to selective service, including conscientious objector",varParties
+petitioner,143,drug manufacturer,varParties
+petitioner,144,"druggist, pharmacist, pharmacy",varParties
+petitioner,145,"employee, or job applicant, including beneficiaries of",varParties
+petitioner,146,"employer-employee trust agreement, employee health and welfare fund, or multi- employer pension plan",varParties
+petitioner,147,electric equipment manufacturer,varParties
+petitioner,148,"electric or hydroelectric power utility, power cooperative, or gas and electric company",varParties
+petitioner,149,eleemosynary institution or person,varParties
+petitioner,150,environmental organization,varParties
+petitioner,151,"employer. If employer's relations with employees are governed by the nature of the employer's business (e.g., railroad, boat), rather than labor law generally, the more specific designation is used in place of Employer.",varParties
+petitioner,152,"farmer, farm worker, or farm organization",varParties
+petitioner,153,father,varParties
+petitioner,154,female employee or job applicant,varParties
+petitioner,155,female,varParties
+petitioner,156,"movie, play, pictorial representation, theatrical production, actor, or exhibitor or distributor of",varParties
+petitioner,157,fisherman or fishing company,varParties
+petitioner,158,"food, meat packing, or processing company, stockyard",varParties
+petitioner,159,foreign (non-American) nongovernmental entity,varParties
+petitioner,160,franchiser,varParties
+petitioner,161,franchisee,varParties
+petitioner,162,"lesbian, gay, bisexual, transexual person or organization",varParties
+petitioner,163,person who guarantees another's obligations,varParties
+petitioner,164,"handicapped individual, or organization of devoted to",varParties
+petitioner,165,"health organization or person, nursing home, medical clinic or laboratory, chiropractor",varParties
+petitioner,166,"heir, or beneficiary, or person so claiming to be",varParties
+petitioner,167,"hospital, medical center",varParties
+petitioner,168,"husband, or ex-husband",varParties
+petitioner,169,involuntarily committed mental patient,varParties
+petitioner,170,"Indian, including Indian tribe or nation",varParties
+petitioner,171,"insurance company, or surety",varParties
+petitioner,172,"inventor, patent assigner, trademark owner or holder",varParties
+petitioner,173,investor,varParties
+petitioner,174,"injured person or legal entity, nonphysically and non-employment related",varParties
+petitioner,175,juvenile,varParties
+petitioner,176,government contractor,varParties
+petitioner,177,"holder of a license or permit, or applicant therefor",varParties
+petitioner,178,magazine,varParties
+petitioner,179,male,varParties
+petitioner,180,medical or Medicaid claimant,varParties
+petitioner,181,medical supply or manufacturing co.,varParties
+petitioner,182,racial or ethnic minority employee or job applicant,varParties
+petitioner,183,minority female employee or job applicant,varParties
+petitioner,184,manufacturer,varParties
+petitioner,185,"management, executive officer, or director, of business entity",varParties
+petitioner,186,"military personnel, or dependent of, including reservist",varParties
+petitioner,187,"mining company or miner, excluding coal, oil, or pipeline company",varParties
+petitioner,188,mother,varParties
+petitioner,189,auto manufacturer,varParties
+petitioner,190,"newspaper, newsletter, journal of opinion, news service",varParties
+petitioner,191,"radio and television network, except cable tv",varParties
+petitioner,192,nonprofit organization or business,varParties
+petitioner,193,nonresident,varParties
+petitioner,194,nuclear power plant or facility,varParties
+petitioner,195,"owner, landlord, or claimant to ownership, fee interest, or possession of land as well as chattels",varParties
+petitioner,196,shareholders to whom a tender offer is made,varParties
+petitioner,197,tender offer,varParties
+petitioner,198,"oil company, or natural gas producer",varParties
+petitioner,199,"elderly person, or organization dedicated to the elderly",varParties
+petitioner,200,out of state noncriminal defendant,varParties
+petitioner,201,political action committee,varParties
+petitioner,202,parent or parents,varParties
+petitioner,203,parking lot or service,varParties
+petitioner,204,patient of a health professional,varParties
+petitioner,205,"telephone, telecommunications, or telegraph company",varParties
+petitioner,206,"physician, MD or DO, dentist, or medical society",varParties
+petitioner,207,public interest organization,varParties
+petitioner,208,"physically injured person, including wrongful death, who is not an employee",varParties
+petitioner,209,pipe line company,varParties
+petitioner,210,"package, luggage, container",varParties
+petitioner,211,"political candidate, activist, committee, party, party member, organization, or elected official",varParties
+petitioner,212,"indigent, needy, welfare recipient",varParties
+petitioner,213,indigent defendant,varParties
+petitioner,214,private person,varParties
+petitioner,215,"prisoner, inmate of penal institution",varParties
+petitioner,216,"professional organization, business, or person",varParties
+petitioner,217,"probationer, or parolee",varParties
+petitioner,218,"protester, demonstrator, picketer or pamphleteer (non-employment related), or non- indigent loiterer",varParties
+petitioner,219,public utility,varParties
+petitioner,220,"publisher, publishing company",varParties
+petitioner,221,radio station,varParties
+petitioner,222,racial or ethnic minority,varParties
+petitioner,223,person or organization protesting racial or ethnic segregation or discrimination,varParties
+petitioner,224,racial or ethnic minority student or applicant for admission to an educational institution,varParties
+petitioner,225,realtor,varParties
+petitioner,226,"journalist, columnist, member of the news media",varParties
+petitioner,227,resident,varParties
+petitioner,228,"restaurant, food vendor",varParties
+petitioner,229,"retarded person, or mental incompetent",varParties
+petitioner,230,retired or former employee,varParties
+petitioner,231,railroad,varParties
+petitioner,232,"private school, college, or university",varParties
+petitioner,233,seller or vendor,varParties
+petitioner,234,"shipper, including importer and exporter",varParties
+petitioner,235,"shopping center, mall",varParties
+petitioner,236,"spouse, or former spouse",varParties
+petitioner,237,"stockholder, shareholder, or bondholder",varParties
+petitioner,238,retail business or outlet,varParties
+petitioner,239,"student, or applicant for admission to an educational institution",varParties
+petitioner,240,"taxpayer or executor of taxpayer's estate, federal only",varParties
+petitioner,241,tenant or lessee,varParties
+petitioner,242,"theater, studio",varParties
+petitioner,243,"forest products, lumber, or logging company",varParties
+petitioner,244,"person traveling or wishing to travel abroad, or overseas travel agent",varParties
+petitioner,245,"trucking company, or motor carrier",varParties
+petitioner,246,television station,varParties
+petitioner,247,union member,varParties
+petitioner,248,unemployed person or unemployment compensation applicant or claimant,varParties
+petitioner,249,"union, labor organization, or official of",varParties
+petitioner,250,veteran,varParties
+petitioner,251,"voter, prospective voter, elector, or a nonelective official seeking reapportionment or redistricting of legislative districts (POL)",varParties
+petitioner,252,wholesale trade,varParties
+petitioner,253,"wife, or ex-wife",varParties
+petitioner,254,"witness, or person under subpoena",varParties
+petitioner,255,network,varParties
+petitioner,256,slave,varParties
+petitioner,257,slave-owner,varParties
+petitioner,258,bank of the united states,varParties
+petitioner,259,timber company,varParties
+petitioner,260,u.s. job applicants or employees,varParties
+petitioner,301,Army and Air Force Exchange Service,varParties
+petitioner,302,Atomic Energy Commission,varParties
+petitioner,303,Secretary or administrative unit or personnel of the U.S. Air Force,varParties
+petitioner,304,Department or Secretary of Agriculture,varParties
+petitioner,305,Alien Property Custodian,varParties
+petitioner,306,Secretary or administrative unit or personnel of the U.S. Army,varParties
+petitioner,307,Board of Immigration Appeals,varParties
+petitioner,308,Bureau of Indian Affairs,varParties
+petitioner,310,Bonneville Power Administration,varParties
+petitioner,311,Benefits Review Board,varParties
+petitioner,312,Civil Aeronautics Board,varParties
+petitioner,313,Bureau of the Census,varParties
+petitioner,314,Central Intelligence Agency,varParties
+petitioner,315,Commodity Futures Trading Commission,varParties
+petitioner,316,Department or Secretary of Commerce,varParties
+petitioner,317,Comptroller of Currency,varParties
+petitioner,318,Consumer Product Safety Commission,varParties
+petitioner,319,Civil Rights Commission,varParties
+petitioner,320,"Civil Service Commission, U.S.",varParties
+petitioner,321,Customs Service or Commissioner of Customs,varParties
+petitioner,322,Defense Base Closure and REalignment Commission,varParties
+petitioner,323,Drug Enforcement Agency,varParties
+petitioner,324,Department or Secretary of Defense (and Department or Secretary of War),varParties
+petitioner,325,Department or Secretary of Energy,varParties
+petitioner,326,Department or Secretary of the Interior,varParties
+petitioner,327,Department of Justice or Attorney General,varParties
+petitioner,328,Department or Secretary of State,varParties
+petitioner,329,Department or Secretary of Transportation,varParties
+petitioner,330,Department or Secretary of Education,varParties
+petitioner,331,"U.S. Employees' Compensation Commission, or Commissioner",varParties
+petitioner,332,Equal Employment Opportunity Commission,varParties
+petitioner,333,Environmental Protection Agency or Administrator,varParties
+petitioner,334,Federal Aviation Agency or Administration,varParties
+petitioner,335,Federal Bureau of Investigation or Director,varParties
+petitioner,336,Federal Bureau of Prisons,varParties
+petitioner,337,Farm Credit Administration,varParties
+petitioner,338,"Federal Communications Commission (including a predecessor, Federal Radio Commission)",varParties
+petitioner,339,Federal Credit Union Administration,varParties
+petitioner,340,Food and Drug Administration,varParties
+petitioner,341,Federal Deposit Insurance Corporation,varParties
+petitioner,342,Federal Energy Administration,varParties
+petitioner,343,Federal Election Commission,varParties
+petitioner,344,Federal Energy Regulatory Commission,varParties
+petitioner,345,Federal Housing Administration,varParties
+petitioner,346,Federal Home Loan Bank Board,varParties
+petitioner,347,Federal Labor Relations Authority,varParties
+petitioner,348,Federal Maritime Board,varParties
+petitioner,349,Federal Maritime Commission,varParties
+petitioner,350,Farmers Home Administration,varParties
+petitioner,351,Federal Parole Board,varParties
+petitioner,352,Federal Power Commission,varParties
+petitioner,353,Federal Railroad Administration,varParties
+petitioner,354,Federal Reserve Board of Governors,varParties
+petitioner,355,Federal Reserve System,varParties
+petitioner,356,Federal Savings and Loan Insurance Corporation,varParties
+petitioner,357,Federal Trade Commission,varParties
+petitioner,358,"Federal Works Administration, or Administrator",varParties
+petitioner,359,General Accounting Office,varParties
+petitioner,360,Comptroller General,varParties
+petitioner,361,General Services Administration,varParties
+petitioner,362,"Department or Secretary of Health, Education and Welfare",varParties
+petitioner,363,Department or Secretary of Health and Human Services,varParties
+petitioner,364,Department or Secretary of Housing and Urban Development,varParties
+petitioner,366,Interstate Commerce Commission,varParties
+petitioner,367,Indian Claims Commission,varParties
+petitioner,368,"Immigration and Naturalization Service, or Director of, or District Director of, or Immigration and Naturalization Enforcement",varParties
+petitioner,369,"Internal Revenue Service, Collector, Commissioner, or District Director of",varParties
+petitioner,370,Information Security Oversight Office,varParties
+petitioner,371,Department or Secretary of Labor,varParties
+petitioner,372,Loyalty Review Board,varParties
+petitioner,373,Legal Services Corporation,varParties
+petitioner,374,Merit Systems Protection Board,varParties
+petitioner,375,Multistate Tax Commission,varParties
+petitioner,376,National Aeronautics and Space Administration,varParties
+petitioner,377,Secretary or administrative unit of the U.S. Navy,varParties
+petitioner,378,National Credit Union Administration,varParties
+petitioner,379,National Endowment for the Arts,varParties
+petitioner,380,National Enforcement Commission,varParties
+petitioner,381,National Highway Traffic Safety Administration,varParties
+petitioner,382,"National Labor Relations Board, or regional office or officer",varParties
+petitioner,383,National Mediation Board,varParties
+petitioner,384,National Railroad Adjustment Board,varParties
+petitioner,385,Nuclear Regulatory Commission,varParties
+petitioner,386,National Security Agency,varParties
+petitioner,387,Office of Economic Opportunity,varParties
+petitioner,388,Office of Management and Budget,varParties
+petitioner,389,"Office of Price Administration, or Price Administrator",varParties
+petitioner,390,Office of Personnel Management,varParties
+petitioner,391,Occupational Safety and Health Administration,varParties
+petitioner,392,Occupational Safety and Health Review Commission,varParties
+petitioner,393,Office of Workers' Compensation Programs,varParties
+petitioner,394,"Patent Office, or Commissioner of, or Board of Appeals of",varParties
+petitioner,395,Pay Board (established under the Economic Stabilization Act of 1970),varParties
+petitioner,396,Pension Benefit Guaranty Corporation,varParties
+petitioner,397,U.S. Public Health Service,varParties
+petitioner,398,Postal Rate Commission,varParties
+petitioner,399,Provider Reimbursement Review Board,varParties
+petitioner,400,Renegotiation Board,varParties
+petitioner,401,Railroad Adjustment Board,varParties
+petitioner,402,Railroad Retirement Board,varParties
+petitioner,403,Subversive Activities Control Board,varParties
+petitioner,404,Small Business Administration,varParties
+petitioner,405,Securities and Exchange Commission,varParties
+petitioner,406,Social Security Administration or Commissioner,varParties
+petitioner,407,Selective Service System,varParties
+petitioner,408,Department or Secretary of the Treasury,varParties
+petitioner,409,Tennessee Valley Authority,varParties
+petitioner,410,United States Forest Service,varParties
+petitioner,411,United States Parole Commission,varParties
+petitioner,412,"Postal Service and Post Office, or Postmaster General, or Postmaster",varParties
+petitioner,413,United States Sentencing Commission,varParties
+petitioner,414,Veterans' Administration,varParties
+petitioner,415,War Production Board,varParties
+petitioner,416,Wage Stabilization Board,varParties
+petitioner,417,General Land Office of Commissioners,varParties
+petitioner,418,Transportation Security Administration,varParties
+petitioner,419,Surface Transportation Board,varParties
+petitioner,420,U.S. Shipping Board Emergency Fleet Corp.,varParties
+petitioner,421,Reconstruction Finance Corp.,varParties
+petitioner,422,Department or Secretary of Homeland Security,varParties
+petitioner,501,Unidentifiable,varParties
+petitioner,600,International Entity,varParties
+respondent,1,"attorney general of the United States, or his office",varParties
+respondent,2,specified state board or department of education,varParties
+respondent,3,"city, town, township, village, or borough government or governmental unit",varParties
+respondent,4,"state commission, board, committee, or authority",varParties
+respondent,5,"county government or county governmental unit, except school district",varParties
+respondent,6,court or judicial district,varParties
+respondent,7,state department or agency,varParties
+respondent,8,governmental employee or job applicant,varParties
+respondent,9,female governmental employee or job applicant,varParties
+respondent,10,minority governmental employee or job applicant,varParties
+respondent,11,minority female governmental employee or job applicant,varParties
+respondent,12,not listed among agencies in the first Administrative Action variable,varParties
+respondent,13,retired or former governmental employee,varParties
+respondent,14,U.S. House of Representatives,varParties
+respondent,15,interstate compact,varParties
+respondent,16,judge,varParties
+respondent,17,"state legislature, house, or committee",varParties
+respondent,18,"local governmental unit other than a county, city, town, township, village, or borough",varParties
+respondent,19,"governmental official, or an official of an agency established under an interstate compact",varParties
+respondent,20,state or U.S. supreme court,varParties
+respondent,21,local school district or board of education,varParties
+respondent,22,U.S. Senate,varParties
+respondent,23,U.S. senator,varParties
+respondent,24,foreign nation or instrumentality,varParties
+respondent,25,"state or local governmental taxpayer, or executor of the estate of",varParties
+respondent,26,state college or university,varParties
+respondent,27,United States,varParties
+respondent,28,State,varParties
+respondent,100,"person accused, indicted, or suspected of crime",varParties
+respondent,101,advertising business or agency,varParties
+respondent,102,"agent, fiduciary, trustee, or executor",varParties
+respondent,103,"airplane manufacturer, or manufacturer of parts of airplanes",varParties
+respondent,104,airline,varParties
+respondent,105,"distributor, importer, or exporter of alcoholic beverages",varParties
+respondent,106,"alien, person subject to a denaturalization proceeding, or one whose citizenship is revoked",varParties
+respondent,107,American Medical Association,varParties
+respondent,108,National Railroad Passenger Corp.,varParties
+respondent,109,"amusement establishment, or recreational facility",varParties
+respondent,110,"arrested person, or pretrial detainee",varParties
+respondent,111,"attorney, or person acting as such;includes bar applicant or law student, or law firm or bar association",varParties
+respondent,112,"author, copyright holder",varParties
+respondent,113,"bank, savings and loan, credit union, investment company",varParties
+respondent,114,"bankrupt person or business, or business in reorganization",varParties
+respondent,115,"establishment serving liquor by the glass, or package liquor store",varParties
+respondent,116,"water transportation, stevedore",varParties
+respondent,117,"bookstore, newsstand, printer, bindery, purveyor or distributor of books or magazines",varParties
+respondent,118,"brewery, distillery",varParties
+respondent,119,"broker, stock exchange, investment or securities firm",varParties
+respondent,120,construction industry,varParties
+respondent,121,bus or motorized passenger transportation vehicle,varParties
+respondent,122,"business, corporation",varParties
+respondent,123,"buyer, purchaser",varParties
+respondent,124,cable TV,varParties
+respondent,125,car dealer,varParties
+respondent,126,person convicted of crime,varParties
+respondent,127,"tangible property, other than real estate, including contraband",varParties
+respondent,128,chemical company,varParties
+respondent,129,"child, children, including adopted or illegitimate",varParties
+respondent,130,"religious organization, institution, or person",varParties
+respondent,131,private club or facility,varParties
+respondent,132,coal company or coal mine operator,varParties
+respondent,133,"computer business or manufacturer, hardware or software",varParties
+respondent,134,"consumer, consumer organization",varParties
+respondent,135,"creditor, including institution appearing as such; e.g., a finance company",varParties
+respondent,136,person allegedly criminally insane or mentally incompetent to stand trial,varParties
+respondent,137,defendant,varParties
+respondent,138,debtor,varParties
+respondent,139,real estate developer,varParties
+respondent,140,disabled person or disability benefit claimant,varParties
+respondent,141,distributor,varParties
+respondent,142,"person subject to selective service, including conscientious objector",varParties
+respondent,143,drug manufacturer,varParties
+respondent,144,"druggist, pharmacist, pharmacy",varParties
+respondent,145,"employee, or job applicant, including beneficiaries of",varParties
+respondent,146,"employer-employee trust agreement, employee health and welfare fund, or multi- employer pension plan",varParties
+respondent,147,electric equipment manufacturer,varParties
+respondent,148,"electric or hydroelectric power utility, power cooperative, or gas and electric company",varParties
+respondent,149,eleemosynary institution or person,varParties
+respondent,150,environmental organization,varParties
+respondent,151,"employer. If employer's relations with employees are governed by the nature of the employer's business (e.g., railroad, boat), rather than labor law generally, the more specific designation is used in place of Employer.",varParties
+respondent,152,"farmer, farm worker, or farm organization",varParties
+respondent,153,father,varParties
+respondent,154,female employee or job applicant,varParties
+respondent,155,female,varParties
+respondent,156,"movie, play, pictorial representation, theatrical production, actor, or exhibitor or distributor of",varParties
+respondent,157,fisherman or fishing company,varParties
+respondent,158,"food, meat packing, or processing company, stockyard",varParties
+respondent,159,foreign (non-American) nongovernmental entity,varParties
+respondent,160,franchiser,varParties
+respondent,161,franchisee,varParties
+respondent,162,"lesbian, gay, bisexual, transexual person or organization",varParties
+respondent,163,person who guarantees another's obligations,varParties
+respondent,164,"handicapped individual, or organization of devoted to",varParties
+respondent,165,"health organization or person, nursing home, medical clinic or laboratory, chiropractor",varParties
+respondent,166,"heir, or beneficiary, or person so claiming to be",varParties
+respondent,167,"hospital, medical center",varParties
+respondent,168,"husband, or ex-husband",varParties
+respondent,169,involuntarily committed mental patient,varParties
+respondent,170,"Indian, including Indian tribe or nation",varParties
+respondent,171,"insurance company, or surety",varParties
+respondent,172,"inventor, patent assigner, trademark owner or holder",varParties
+respondent,173,investor,varParties
+respondent,174,"injured person or legal entity, nonphysically and non-employment related",varParties
+respondent,175,juvenile,varParties
+respondent,176,government contractor,varParties
+respondent,177,"holder of a license or permit, or applicant therefor",varParties
+respondent,178,magazine,varParties
+respondent,179,male,varParties
+respondent,180,medical or Medicaid claimant,varParties
+respondent,181,medical supply or manufacturing co.,varParties
+respondent,182,racial or ethnic minority employee or job applicant,varParties
+respondent,183,minority female employee or job applicant,varParties
+respondent,184,manufacturer,varParties
+respondent,185,"management, executive officer, or director, of business entity",varParties
+respondent,186,"military personnel, or dependent of, including reservist",varParties
+respondent,187,"mining company or miner, excluding coal, oil, or pipeline company",varParties
+respondent,188,mother,varParties
+respondent,189,auto manufacturer,varParties
+respondent,190,"newspaper, newsletter, journal of opinion, news service",varParties
+respondent,191,"radio and television network, except cable tv",varParties
+respondent,192,nonprofit organization or business,varParties
+respondent,193,nonresident,varParties
+respondent,194,nuclear power plant or facility,varParties
+respondent,195,"owner, landlord, or claimant to ownership, fee interest, or possession of land as well as chattels",varParties
+respondent,196,shareholders to whom a tender offer is made,varParties
+respondent,197,tender offer,varParties
+respondent,198,"oil company, or natural gas producer",varParties
+respondent,199,"elderly person, or organization dedicated to the elderly",varParties
+respondent,200,out of state noncriminal defendant,varParties
+respondent,201,political action committee,varParties
+respondent,202,parent or parents,varParties
+respondent,203,parking lot or service,varParties
+respondent,204,patient of a health professional,varParties
+respondent,205,"telephone, telecommunications, or telegraph company",varParties
+respondent,206,"physician, MD or DO, dentist, or medical society",varParties
+respondent,207,public interest organization,varParties
+respondent,208,"physically injured person, including wrongful death, who is not an employee",varParties
+respondent,209,pipe line company,varParties
+respondent,210,"package, luggage, container",varParties
+respondent,211,"political candidate, activist, committee, party, party member, organization, or elected official",varParties
+respondent,212,"indigent, needy, welfare recipient",varParties
+respondent,213,indigent defendant,varParties
+respondent,214,private person,varParties
+respondent,215,"prisoner, inmate of penal institution",varParties
+respondent,216,"professional organization, business, or person",varParties
+respondent,217,"probationer, or parolee",varParties
+respondent,218,"protester, demonstrator, picketer or pamphleteer (non-employment related), or non- indigent loiterer",varParties
+respondent,219,public utility,varParties
+respondent,220,"publisher, publishing company",varParties
+respondent,221,radio station,varParties
+respondent,222,racial or ethnic minority,varParties
+respondent,223,person or organization protesting racial or ethnic segregation or discrimination,varParties
+respondent,224,racial or ethnic minority student or applicant for admission to an educational institution,varParties
+respondent,225,realtor,varParties
+respondent,226,"journalist, columnist, member of the news media",varParties
+respondent,227,resident,varParties
+respondent,228,"restaurant, food vendor",varParties
+respondent,229,"retarded person, or mental incompetent",varParties
+respondent,230,retired or former employee,varParties
+respondent,231,railroad,varParties
+respondent,232,"private school, college, or university",varParties
+respondent,233,seller or vendor,varParties
+respondent,234,"shipper, including importer and exporter",varParties
+respondent,235,"shopping center, mall",varParties
+respondent,236,"spouse, or former spouse",varParties
+respondent,237,"stockholder, shareholder, or bondholder",varParties
+respondent,238,retail business or outlet,varParties
+respondent,239,"student, or applicant for admission to an educational institution",varParties
+respondent,240,"taxpayer or executor of taxpayer's estate, federal only",varParties
+respondent,241,tenant or lessee,varParties
+respondent,242,"theater, studio",varParties
+respondent,243,"forest products, lumber, or logging company",varParties
+respondent,244,"person traveling or wishing to travel abroad, or overseas travel agent",varParties
+respondent,245,"trucking company, or motor carrier",varParties
+respondent,246,television station,varParties
+respondent,247,union member,varParties
+respondent,248,unemployed person or unemployment compensation applicant or claimant,varParties
+respondent,249,"union, labor organization, or official of",varParties
+respondent,250,veteran,varParties
+respondent,251,"voter, prospective voter, elector, or a nonelective official seeking reapportionment or redistricting of legislative districts (POL)",varParties
+respondent,252,wholesale trade,varParties
+respondent,253,"wife, or ex-wife",varParties
+respondent,254,"witness, or person under subpoena",varParties
+respondent,255,network,varParties
+respondent,256,slave,varParties
+respondent,257,slave-owner,varParties
+respondent,258,bank of the united states,varParties
+respondent,259,timber company,varParties
+respondent,260,u.s. job applicants or employees,varParties
+respondent,301,Army and Air Force Exchange Service,varParties
+respondent,302,Atomic Energy Commission,varParties
+respondent,303,Secretary or administrative unit or personnel of the U.S. Air Force,varParties
+respondent,304,Department or Secretary of Agriculture,varParties
+respondent,305,Alien Property Custodian,varParties
+respondent,306,Secretary or administrative unit or personnel of the U.S. Army,varParties
+respondent,307,Board of Immigration Appeals,varParties
+respondent,308,Bureau of Indian Affairs,varParties
+respondent,310,Bonneville Power Administration,varParties
+respondent,311,Benefits Review Board,varParties
+respondent,312,Civil Aeronautics Board,varParties
+respondent,313,Bureau of the Census,varParties
+respondent,314,Central Intelligence Agency,varParties
+respondent,315,Commodity Futures Trading Commission,varParties
+respondent,316,Department or Secretary of Commerce,varParties
+respondent,317,Comptroller of Currency,varParties
+respondent,318,Consumer Product Safety Commission,varParties
+respondent,319,Civil Rights Commission,varParties
+respondent,320,"Civil Service Commission, U.S.",varParties
+respondent,321,Customs Service or Commissioner of Customs,varParties
+respondent,322,Defense Base Closure and REalignment Commission,varParties
+respondent,323,Drug Enforcement Agency,varParties
+respondent,324,Department or Secretary of Defense (and Department or Secretary of War),varParties
+respondent,325,Department or Secretary of Energy,varParties
+respondent,326,Department or Secretary of the Interior,varParties
+respondent,327,Department of Justice or Attorney General,varParties
+respondent,328,Department or Secretary of State,varParties
+respondent,329,Department or Secretary of Transportation,varParties
+respondent,330,Department or Secretary of Education,varParties
+respondent,331,"U.S. Employees' Compensation Commission, or Commissioner",varParties
+respondent,332,Equal Employment Opportunity Commission,varParties
+respondent,333,Environmental Protection Agency or Administrator,varParties
+respondent,334,Federal Aviation Agency or Administration,varParties
+respondent,335,Federal Bureau of Investigation or Director,varParties
+respondent,336,Federal Bureau of Prisons,varParties
+respondent,337,Farm Credit Administration,varParties
+respondent,338,"Federal Communications Commission (including a predecessor, Federal Radio Commission)",varParties
+respondent,339,Federal Credit Union Administration,varParties
+respondent,340,Food and Drug Administration,varParties
+respondent,341,Federal Deposit Insurance Corporation,varParties
+respondent,342,Federal Energy Administration,varParties
+respondent,343,Federal Election Commission,varParties
+respondent,344,Federal Energy Regulatory Commission,varParties
+respondent,345,Federal Housing Administration,varParties
+respondent,346,Federal Home Loan Bank Board,varParties
+respondent,347,Federal Labor Relations Authority,varParties
+respondent,348,Federal Maritime Board,varParties
+respondent,349,Federal Maritime Commission,varParties
+respondent,350,Farmers Home Administration,varParties
+respondent,351,Federal Parole Board,varParties
+respondent,352,Federal Power Commission,varParties
+respondent,353,Federal Railroad Administration,varParties
+respondent,354,Federal Reserve Board of Governors,varParties
+respondent,355,Federal Reserve System,varParties
+respondent,356,Federal Savings and Loan Insurance Corporation,varParties
+respondent,357,Federal Trade Commission,varParties
+respondent,358,"Federal Works Administration, or Administrator",varParties
+respondent,359,General Accounting Office,varParties
+respondent,360,Comptroller General,varParties
+respondent,361,General Services Administration,varParties
+respondent,362,"Department or Secretary of Health, Education and Welfare",varParties
+respondent,363,Department or Secretary of Health and Human Services,varParties
+respondent,364,Department or Secretary of Housing and Urban Development,varParties
+respondent,366,Interstate Commerce Commission,varParties
+respondent,367,Indian Claims Commission,varParties
+respondent,368,"Immigration and Naturalization Service, or Director of, or District Director of, or Immigration and Naturalization Enforcement",varParties
+respondent,369,"Internal Revenue Service, Collector, Commissioner, or District Director of",varParties
+respondent,370,Information Security Oversight Office,varParties
+respondent,371,Department or Secretary of Labor,varParties
+respondent,372,Loyalty Review Board,varParties
+respondent,373,Legal Services Corporation,varParties
+respondent,374,Merit Systems Protection Board,varParties
+respondent,375,Multistate Tax Commission,varParties
+respondent,376,National Aeronautics and Space Administration,varParties
+respondent,377,Secretary or administrative unit of the U.S. Navy,varParties
+respondent,378,National Credit Union Administration,varParties
+respondent,379,National Endowment for the Arts,varParties
+respondent,380,National Enforcement Commission,varParties
+respondent,381,National Highway Traffic Safety Administration,varParties
+respondent,382,"National Labor Relations Board, or regional office or officer",varParties
+respondent,383,National Mediation Board,varParties
+respondent,384,National Railroad Adjustment Board,varParties
+respondent,385,Nuclear Regulatory Commission,varParties
+respondent,386,National Security Agency,varParties
+respondent,387,Office of Economic Opportunity,varParties
+respondent,388,Office of Management and Budget,varParties
+respondent,389,"Office of Price Administration, or Price Administrator",varParties
+respondent,390,Office of Personnel Management,varParties
+respondent,391,Occupational Safety and Health Administration,varParties
+respondent,392,Occupational Safety and Health Review Commission,varParties
+respondent,393,Office of Workers' Compensation Programs,varParties
+respondent,394,"Patent Office, or Commissioner of, or Board of Appeals of",varParties
+respondent,395,Pay Board (established under the Economic Stabilization Act of 1970),varParties
+respondent,396,Pension Benefit Guaranty Corporation,varParties
+respondent,397,U.S. Public Health Service,varParties
+respondent,398,Postal Rate Commission,varParties
+respondent,399,Provider Reimbursement Review Board,varParties
+respondent,400,Renegotiation Board,varParties
+respondent,401,Railroad Adjustment Board,varParties
+respondent,402,Railroad Retirement Board,varParties
+respondent,403,Subversive Activities Control Board,varParties
+respondent,404,Small Business Administration,varParties
+respondent,405,Securities and Exchange Commission,varParties
+respondent,406,Social Security Administration or Commissioner,varParties
+respondent,407,Selective Service System,varParties
+respondent,408,Department or Secretary of the Treasury,varParties
+respondent,409,Tennessee Valley Authority,varParties
+respondent,410,United States Forest Service,varParties
+respondent,411,United States Parole Commission,varParties
+respondent,412,"Postal Service and Post Office, or Postmaster General, or Postmaster",varParties
+respondent,413,United States Sentencing Commission,varParties
+respondent,414,Veterans' Administration,varParties
+respondent,415,War Production Board,varParties
+respondent,416,Wage Stabilization Board,varParties
+respondent,417,General Land Office of Commissioners,varParties
+respondent,418,Transportation Security Administration,varParties
+respondent,419,Surface Transportation Board,varParties
+respondent,420,U.S. Shipping Board Emergency Fleet Corp.,varParties
+respondent,421,Reconstruction Finance Corp.,varParties
+respondent,422,Department or Secretary of Homeland Security,varParties
+respondent,501,Unidentifiable,varParties
+respondent,600,International Entity,varParties
+partyWinning,0,no favorable disposition for petitioning party apparent,varPartyWinning
+partyWinning,1,petitioning party received a favorable disposition,varPartyWinning
+partyWinning,2,favorable disposition for petitioning party unclear,varPartyWinning
+precedentAlteration,0,no determinable alteration of precedent,varPrecedentAlteration
+precedentAlteration,1,precedent altered,varPrecedentAlteration
+splitVote,1,first vote on issue/legal provision,varSplitVote
+splitVote,2,second vote on issue/legal provision,varSplitVote
+petitionerState,1,Alabama,varStates
+petitionerState,2,Alaska,varStates
+petitionerState,3,American Samoa,varStates
+petitionerState,4,Arizona,varStates
+petitionerState,5,Arkansas,varStates
+petitionerState,6,California,varStates
+petitionerState,7,Colorado,varStates
+petitionerState,8,Connecticut,varStates
+petitionerState,9,Delaware,varStates
+petitionerState,10,District of Columbia,varStates
+petitionerState,11,Federated States of Micronesia,varStates
+petitionerState,12,Florida,varStates
+petitionerState,13,Georgia,varStates
+petitionerState,14,Guam,varStates
+petitionerState,15,Hawaii,varStates
+petitionerState,16,Idaho,varStates
+petitionerState,17,Illinois,varStates
+petitionerState,18,Indiana,varStates
+petitionerState,19,Iowa,varStates
+petitionerState,20,Kansas,varStates
+petitionerState,21,Kentucky,varStates
+petitionerState,22,Louisiana,varStates
+petitionerState,23,Maine,varStates
+petitionerState,24,Marshall Islands,varStates
+petitionerState,25,Maryland,varStates
+petitionerState,26,Massachusetts,varStates
+petitionerState,27,Michigan,varStates
+petitionerState,28,Minnesota,varStates
+petitionerState,29,Mississippi,varStates
+petitionerState,30,Missouri,varStates
+petitionerState,31,Montana,varStates
+petitionerState,32,Nebraska,varStates
+petitionerState,33,Nevada,varStates
+petitionerState,34,New Hampshire,varStates
+petitionerState,35,New Jersey,varStates
+petitionerState,36,New Mexico,varStates
+petitionerState,37,New York,varStates
+petitionerState,38,North Carolina,varStates
+petitionerState,39,North Dakota,varStates
+petitionerState,40,Northern Mariana Islands,varStates
+petitionerState,41,Ohio,varStates
+petitionerState,42,Oklahoma,varStates
+petitionerState,43,Oregon,varStates
+petitionerState,44,Palau,varStates
+petitionerState,45,Pennsylvania,varStates
+petitionerState,46,Puerto Rico,varStates
+petitionerState,47,Rhode Island,varStates
+petitionerState,48,South Carolina,varStates
+petitionerState,49,South Dakota,varStates
+petitionerState,50,Tennessee,varStates
+petitionerState,51,Texas,varStates
+petitionerState,52,Utah,varStates
+petitionerState,53,Vermont,varStates
+petitionerState,54,Virgin Islands,varStates
+petitionerState,55,Virginia,varStates
+petitionerState,56,Washington,varStates
+petitionerState,57,West Virginia,varStates
+petitionerState,58,Wisconsin,varStates
+petitionerState,59,Wyoming,varStates
+petitionerState,60,United States,varStates
+petitionerState,61,Interstate Compact,varStates
+petitionerState,62,Philippines,varStates
+petitionerState,63,Indian,varStates
+petitionerState,64,Dakota,varStates
+respondentState,1,Alabama,varStates
+respondentState,2,Alaska,varStates
+respondentState,3,American Samoa,varStates
+respondentState,4,Arizona,varStates
+respondentState,5,Arkansas,varStates
+respondentState,6,California,varStates
+respondentState,7,Colorado,varStates
+respondentState,8,Connecticut,varStates
+respondentState,9,Delaware,varStates
+respondentState,10,District of Columbia,varStates
+respondentState,11,Federated States of Micronesia,varStates
+respondentState,12,Florida,varStates
+respondentState,13,Georgia,varStates
+respondentState,14,Guam,varStates
+respondentState,15,Hawaii,varStates
+respondentState,16,Idaho,varStates
+respondentState,17,Illinois,varStates
+respondentState,18,Indiana,varStates
+respondentState,19,Iowa,varStates
+respondentState,20,Kansas,varStates
+respondentState,21,Kentucky,varStates
+respondentState,22,Louisiana,varStates
+respondentState,23,Maine,varStates
+respondentState,24,Marshall Islands,varStates
+respondentState,25,Maryland,varStates
+respondentState,26,Massachusetts,varStates
+respondentState,27,Michigan,varStates
+respondentState,28,Minnesota,varStates
+respondentState,29,Mississippi,varStates
+respondentState,30,Missouri,varStates
+respondentState,31,Montana,varStates
+respondentState,32,Nebraska,varStates
+respondentState,33,Nevada,varStates
+respondentState,34,New Hampshire,varStates
+respondentState,35,New Jersey,varStates
+respondentState,36,New Mexico,varStates
+respondentState,37,New York,varStates
+respondentState,38,North Carolina,varStates
+respondentState,39,North Dakota,varStates
+respondentState,40,Northern Mariana Islands,varStates
+respondentState,41,Ohio,varStates
+respondentState,42,Oklahoma,varStates
+respondentState,43,Oregon,varStates
+respondentState,44,Palau,varStates
+respondentState,45,Pennsylvania,varStates
+respondentState,46,Puerto Rico,varStates
+respondentState,47,Rhode Island,varStates
+respondentState,48,South Carolina,varStates
+respondentState,49,South Dakota,varStates
+respondentState,50,Tennessee,varStates
+respondentState,51,Texas,varStates
+respondentState,52,Utah,varStates
+respondentState,53,Vermont,varStates
+respondentState,54,Virgin Islands,varStates
+respondentState,55,Virginia,varStates
+respondentState,56,Washington,varStates
+respondentState,57,West Virginia,varStates
+respondentState,58,Wisconsin,varStates
+respondentState,59,Wyoming,varStates
+respondentState,60,United States,varStates
+respondentState,61,Interstate Compact,varStates
+respondentState,62,Philippines,varStates
+respondentState,63,Indian,varStates
+respondentState,64,Dakota,varStates
+adminActionState,1,Alabama,varStates
+adminActionState,2,Alaska,varStates
+adminActionState,3,American Samoa,varStates
+adminActionState,4,Arizona,varStates
+adminActionState,5,Arkansas,varStates
+adminActionState,6,California,varStates
+adminActionState,7,Colorado,varStates
+adminActionState,8,Connecticut,varStates
+adminActionState,9,Delaware,varStates
+adminActionState,10,District of Columbia,varStates
+adminActionState,11,Federated States of Micronesia,varStates
+adminActionState,12,Florida,varStates
+adminActionState,13,Georgia,varStates
+adminActionState,14,Guam,varStates
+adminActionState,15,Hawaii,varStates
+adminActionState,16,Idaho,varStates
+adminActionState,17,Illinois,varStates
+adminActionState,18,Indiana,varStates
+adminActionState,19,Iowa,varStates
+adminActionState,20,Kansas,varStates
+adminActionState,21,Kentucky,varStates
+adminActionState,22,Louisiana,varStates
+adminActionState,23,Maine,varStates
+adminActionState,24,Marshall Islands,varStates
+adminActionState,25,Maryland,varStates
+adminActionState,26,Massachusetts,varStates
+adminActionState,27,Michigan,varStates
+adminActionState,28,Minnesota,varStates
+adminActionState,29,Mississippi,varStates
+adminActionState,30,Missouri,varStates
+adminActionState,31,Montana,varStates
+adminActionState,32,Nebraska,varStates
+adminActionState,33,Nevada,varStates
+adminActionState,34,New Hampshire,varStates
+adminActionState,35,New Jersey,varStates
+adminActionState,36,New Mexico,varStates
+adminActionState,37,New York,varStates
+adminActionState,38,North Carolina,varStates
+adminActionState,39,North Dakota,varStates
+adminActionState,40,Northern Mariana Islands,varStates
+adminActionState,41,Ohio,varStates
+adminActionState,42,Oklahoma,varStates
+adminActionState,43,Oregon,varStates
+adminActionState,44,Palau,varStates
+adminActionState,45,Pennsylvania,varStates
+adminActionState,46,Puerto Rico,varStates
+adminActionState,47,Rhode Island,varStates
+adminActionState,48,South Carolina,varStates
+adminActionState,49,South Dakota,varStates
+adminActionState,50,Tennessee,varStates
+adminActionState,51,Texas,varStates
+adminActionState,52,Utah,varStates
+adminActionState,53,Vermont,varStates
+adminActionState,54,Virgin Islands,varStates
+adminActionState,55,Virginia,varStates
+adminActionState,56,Washington,varStates
+adminActionState,57,West Virginia,varStates
+adminActionState,58,Wisconsin,varStates
+adminActionState,59,Wyoming,varStates
+adminActionState,60,United States,varStates
+adminActionState,61,Interstate Compact,varStates
+adminActionState,62,Philippines,varStates
+adminActionState,63,Indian,varStates
+adminActionState,64,Dakota,varStates
+caseOriginState,1,Alabama,varStates
+caseOriginState,2,Alaska,varStates
+caseOriginState,3,American Samoa,varStates
+caseOriginState,4,Arizona,varStates
+caseOriginState,5,Arkansas,varStates
+caseOriginState,6,California,varStates
+caseOriginState,7,Colorado,varStates
+caseOriginState,8,Connecticut,varStates
+caseOriginState,9,Delaware,varStates
+caseOriginState,10,District of Columbia,varStates
+caseOriginState,11,Federated States of Micronesia,varStates
+caseOriginState,12,Florida,varStates
+caseOriginState,13,Georgia,varStates
+caseOriginState,14,Guam,varStates
+caseOriginState,15,Hawaii,varStates
+caseOriginState,16,Idaho,varStates
+caseOriginState,17,Illinois,varStates
+caseOriginState,18,Indiana,varStates
+caseOriginState,19,Iowa,varStates
+caseOriginState,20,Kansas,varStates
+caseOriginState,21,Kentucky,varStates
+caseOriginState,22,Louisiana,varStates
+caseOriginState,23,Maine,varStates
+caseOriginState,24,Marshall Islands,varStates
+caseOriginState,25,Maryland,varStates
+caseOriginState,26,Massachusetts,varStates
+caseOriginState,27,Michigan,varStates
+caseOriginState,28,Minnesota,varStates
+caseOriginState,29,Mississippi,varStates
+caseOriginState,30,Missouri,varStates
+caseOriginState,31,Montana,varStates
+caseOriginState,32,Nebraska,varStates
+caseOriginState,33,Nevada,varStates
+caseOriginState,34,New Hampshire,varStates
+caseOriginState,35,New Jersey,varStates
+caseOriginState,36,New Mexico,varStates
+caseOriginState,37,New York,varStates
+caseOriginState,38,North Carolina,varStates
+caseOriginState,39,North Dakota,varStates
+caseOriginState,40,Northern Mariana Islands,varStates
+caseOriginState,41,Ohio,varStates
+caseOriginState,42,Oklahoma,varStates
+caseOriginState,43,Oregon,varStates
+caseOriginState,44,Palau,varStates
+caseOriginState,45,Pennsylvania,varStates
+caseOriginState,46,Puerto Rico,varStates
+caseOriginState,47,Rhode Island,varStates
+caseOriginState,48,South Carolina,varStates
+caseOriginState,49,South Dakota,varStates
+caseOriginState,50,Tennessee,varStates
+caseOriginState,51,Texas,varStates
+caseOriginState,52,Utah,varStates
+caseOriginState,53,Vermont,varStates
+caseOriginState,54,Virgin Islands,varStates
+caseOriginState,55,Virginia,varStates
+caseOriginState,56,Washington,varStates
+caseOriginState,57,West Virginia,varStates
+caseOriginState,58,Wisconsin,varStates
+caseOriginState,59,Wyoming,varStates
+caseOriginState,60,United States,varStates
+caseOriginState,61,Interstate Compact,varStates
+caseOriginState,62,Philippines,varStates
+caseOriginState,63,Indian,varStates
+caseOriginState,64,Dakota,varStates
+caseSourceState,1,Alabama,varStates
+caseSourceState,2,Alaska,varStates
+caseSourceState,3,American Samoa,varStates
+caseSourceState,4,Arizona,varStates
+caseSourceState,5,Arkansas,varStates
+caseSourceState,6,California,varStates
+caseSourceState,7,Colorado,varStates
+caseSourceState,8,Connecticut,varStates
+caseSourceState,9,Delaware,varStates
+caseSourceState,10,District of Columbia,varStates
+caseSourceState,11,Federated States of Micronesia,varStates
+caseSourceState,12,Florida,varStates
+caseSourceState,13,Georgia,varStates
+caseSourceState,14,Guam,varStates
+caseSourceState,15,Hawaii,varStates
+caseSourceState,16,Idaho,varStates
+caseSourceState,17,Illinois,varStates
+caseSourceState,18,Indiana,varStates
+caseSourceState,19,Iowa,varStates
+caseSourceState,20,Kansas,varStates
+caseSourceState,21,Kentucky,varStates
+caseSourceState,22,Louisiana,varStates
+caseSourceState,23,Maine,varStates
+caseSourceState,24,Marshall Islands,varStates
+caseSourceState,25,Maryland,varStates
+caseSourceState,26,Massachusetts,varStates
+caseSourceState,27,Michigan,varStates
+caseSourceState,28,Minnesota,varStates
+caseSourceState,29,Mississippi,varStates
+caseSourceState,30,Missouri,varStates
+caseSourceState,31,Montana,varStates
+caseSourceState,32,Nebraska,varStates
+caseSourceState,33,Nevada,varStates
+caseSourceState,34,New Hampshire,varStates
+caseSourceState,35,New Jersey,varStates
+caseSourceState,36,New Mexico,varStates
+caseSourceState,37,New York,varStates
+caseSourceState,38,North Carolina,varStates
+caseSourceState,39,North Dakota,varStates
+caseSourceState,40,Northern Mariana Islands,varStates
+caseSourceState,41,Ohio,varStates
+caseSourceState,42,Oklahoma,varStates
+caseSourceState,43,Oregon,varStates
+caseSourceState,44,Palau,varStates
+caseSourceState,45,Pennsylvania,varStates
+caseSourceState,46,Puerto Rico,varStates
+caseSourceState,47,Rhode Island,varStates
+caseSourceState,48,South Carolina,varStates
+caseSourceState,49,South Dakota,varStates
+caseSourceState,50,Tennessee,varStates
+caseSourceState,51,Texas,varStates
+caseSourceState,52,Utah,varStates
+caseSourceState,53,Vermont,varStates
+caseSourceState,54,Virgin Islands,varStates
+caseSourceState,55,Virginia,varStates
+caseSourceState,56,Washington,varStates
+caseSourceState,57,West Virginia,varStates
+caseSourceState,58,Wisconsin,varStates
+caseSourceState,59,Wyoming,varStates
+caseSourceState,60,United States,varStates
+caseSourceState,61,Interstate Compact,varStates
+caseSourceState,62,Philippines,varStates
+caseSourceState,63,Indian,varStates
+caseSourceState,64,Dakota,varStates
+threeJudgeFdc,0,no mention that a 3-judge ct heard case,varThreeJudgeFdc
+threeJudgeFdc,1,3-judge district ct heard case,varThreeJudgeFdc
+vote,1,voted with majority or plurality,varVote
+vote,2,dissent,varVote
+vote,3,regular concurrence,varVote
+vote,4,special concurrence,varVote
+vote,5,judgment of the Court,varVote
+vote,6,"dissent from a denial or dismissal of certiorari , or dissent from summary affirmation of an appeal",varVote
+vote,7,jurisdictional dissent,varVote
+vote,8,justice participated in an equally divided vote,varVote
+voteUnclear,0,vote clearly specified,varVoteUnclear
+voteUnclear,1,the vote in the case not clear,varVoteUnclear
