@@ -148,12 +148,44 @@ one below SCDB's, and 9 and 0 wrap around:
 Use `coa_disposition_to_scdb()` / `scdb_coa_disposition()`. Merging without it
 silently shifts every disposition by one category.
 
-**Direction.** Every CCAD "direction" variable uses the **Songer** convention
-(0 = not ascertained, 1 = conservative, 2 = mixed, 3 = liberal), *not* SCDB's
-(1 = conservative, 2 = liberal, 3 = unspecifiable). Use
-`songer_direction_to_scdb()` / `scdb_songer_direction()`; mixed collapses into 3,
-which loses information, so for direction-sensitive work keep the Songer coding and
-say which convention you used.
+**Direction.** The CCAD codebook's front matter says *every* direction variable uses
+the Songer convention (0 = not ascertained, 1 = conservative, 2 = mixed,
+3 = liberal). **That is true only of the reproduced `songer_gt_*` fields.** The
+LLM-coded direction columns — `scdb_first_direction_oneshot`,
+`scdb_second_direction_mech`, `scdb_second_direction_supermech` — are already in
+**SCDB** coding: 1 = conservative, 2 = liberal, 3 = unspecifiable. They need no
+remap at all.
+
+Established two ways, both reproducible from the bundled data:
+
+- In criminal-procedure appeals brought by the accused (n = 102,923), the direction
+  is coded **1** when the conviction is affirmed (98.9%) and **2** when it is
+  reversed (82–96%). Under the Songer reading, 2 would mean "mixed", which would
+  make reversals overwhelmingly mixed — they are not.
+- Code **3** covers 100% of Private Action and 100% of Interstate Relations and
+  ~1% of everything else. Those are exactly the two issue areas SCDB hardcodes as
+  unspecifiable direction, and the codebook's own accuracy note mentions a
+  "precision-credit correction applied for codebook-hardcoded 'unspecifiable' SCDB
+  issue areas."
+
+The same cross-tab run on `songer_gt_direct1` behaves the opposite way (affirm → 1,
+reverse → **3**), confirming the Songer fields really do use the Songer convention.
+
+Consequences:
+
+- Do **not** apply `songer_direction_to_scdb()` to the LLM direction columns. It is
+  for `songer_gt_direct1` and its siblings only.
+- Reading the LLM columns as Songer-coded makes liberal decisions vanish into
+  "mixed": the Ninth Circuit comes out 7% liberal instead of 34–48% by decade.
+- Prefer **`scdb_second_direction_mech`** over `scdb_first_direction_oneshot`. It
+  derives direction mechanically from the second-pass focal party and whether that
+  party won, applying the SCDB issue-area rules, and the codebook reports 82.1%
+  accuracy against Songer `direct1` versus 80.4% for the one-shot. Both are bundled.
+- Direction is the weakest of the LLM-coded variables either way. Conditional on
+  both sources calling a case conservative-or-liberal, the mechanical variable
+  agrees with Songer hand coding 78.2% of the time (n = 12,186). Say which variable
+  you used, and treat direction-based findings as noisier than disposition-based
+  ones.
 
 ## Other CCAD cautions
 

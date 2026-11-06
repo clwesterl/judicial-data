@@ -187,10 +187,42 @@ scdb_coa_disposition <- function(x) {
   unname(m[as.character(x)])
 }
 
-# Every CCAD direction variable uses the Songer convention
-# (0 = not ascertained, 1 = conservative, 2 = mixed, 3 = liberal), not SCDB's
-# (1 = conservative, 2 = liberal, 3 = unspecifiable). Mixed collapses into 3.
+# For the reproduced songer_gt_* direction fields ONLY (0 = not ascertained,
+# 1 = conservative, 2 = mixed, 3 = liberal); mixed collapses into SCDB's 3.
+# The CCAD's own LLM-coded direction columns are ALREADY in SCDB coding
+# (1 = conservative, 2 = liberal, 3 = unspecifiable) and must not be remapped,
+# despite what the CCAD codebook's front matter says. See references/coa.md.
 scdb_songer_direction <- function(x) {
   m <- c(`0` = 3L, `1` = 1L, `2` = 3L, `3` = 2L)
   unname(m[as.character(x)])
+}
+
+# Code labels for CCAD variables, mirroring scdb_labels / scdb_label / scdb_factor.
+# scdb_first_broad_area and scdb_second_sub_area reuse the SCDB issueArea / issue
+# code lists exactly; the party-category, disposition and direction scales do NOT.
+scdb_coa_value_labels <- function(dir = scdb_dir()) {
+  utils::read.csv(file.path(dir, "references", "coa_value_labels.csv"),
+                  encoding = "UTF-8", stringsAsFactors = FALSE)
+}
+
+scdb_coa_labels <- function(variable, dir = scdb_dir()) {
+  v <- scdb_coa_value_labels(dir)
+  v <- v[v$variable == variable, ]
+  if (!nrow(v)) stop("no CCAD labels for '", variable, "'")
+  stats::setNames(v$label, v$code)
+}
+
+scdb_coa_label <- function(df, vars = NULL, dir = scdb_dir()) {
+  v <- scdb_coa_value_labels(dir)
+  if (is.null(vars)) vars <- unique(v$variable)
+  for (k in intersect(vars, intersect(unique(v$variable), names(df)))) {
+    m <- scdb_coa_labels(k, dir)
+    df[[paste0(k, "_label")]] <- unname(m[as.character(df[[k]])])
+  }
+  df
+}
+
+scdb_coa_factor <- function(x, variable, dir = scdb_dir()) {
+  m <- scdb_coa_labels(variable, dir)
+  factor(unname(m[as.character(x)]), levels = unname(m))
 }

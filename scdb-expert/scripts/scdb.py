@@ -283,16 +283,33 @@ COA_CITATIONS = [
 # The CCAD's disposition columns are described as using \"the SCDB scheme\", but the
 # numbering differs: codes 1-8 sit one below SCDB's, and 9/0 wrap around. Verified
 # against the code lists in both codebooks and against 6,582 tier-A linked pairs.
-COA_DISPOSITION_TO_SCDB = {1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 1, 10: 10, 0: 11}
-# Every CCAD \"direction\" variable uses the Songer convention, not SCDB's.
+# CCAD 11 (\"affirmed, vacated, and remanded\") has no SCDB equivalent; the CCAD
+# codebook says to treat it as its code 6, which is SCDB 7.
+COA_DISPOSITION_TO_SCDB = {1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 1,
+                           10: 10, 0: 11, 11: 7}
+# The CCAD codebook states that EVERY direction variable uses the Songer convention.
+# That holds only for the reproduced songer_gt_* fields. The LLM-coded direction
+# columns (scdb_first_direction_oneshot, scdb_second_direction_mech, ...) are already
+# in SCDB coding -- 1 conservative, 2 liberal, 3 unspecifiable -- and need no remap.
+# Established two ways: criminal appeals brought by the accused code 1 when the
+# conviction is affirmed (98.9%) and 2 when it is reversed (82-96%); and code 3 covers
+# 100% of Private Action and Interstate Relations, the two issue areas SCDB hardcodes
+# as unspecifiable. See references/coa.md.
 SONGER_DIRECTION_TO_SCDB = {1: 1, 3: 2, 0: 3, 2: 3}   # cons/lib/not-ascertained/mixed
 
 
 _COA_TEXT = {"caseid", "citation", "docket_number", "scdb_first_appellant_name",
              "scdb_first_respondent_name", "caseId", "caseName", "usCite",
-             "coa_caseid", "coa_citation", "confidence"}
+             "coa_caseid", "coa_citation", "confidence",
+             "author_name", "author_appointing_president", "dis1_name", "conc1_name",
+             "j1_name", "j1_appointing_president", "j2_name", "j3_name",
+             "enbanc_id", "enbanc_name"}
 _COA_DATES = {"decision_date", "coa_date", "scotus_date"}
-_COA_FLOAT = {"score", "name_score", "margin", "gap_z"}
+# Ideology (Giles-Hettinger-Peppers), ages and the panel aggregates are continuous.
+_COA_FLOAT = {"score", "name_score", "margin", "gap_z",
+              "author_ghp", "author_age", "author_tenure", "dis1_ghp", "conc1_ghp",
+              "j1_ghp", "j2_ghp", "j3_ghp",
+              "ghp_min", "ghp_max", "ghp_med", "ghp_mean", "age_med", "tenure_med"}
 
 
 def coa(which="cases", parse=True):
@@ -355,6 +372,39 @@ def add_scdb(d, confidence=("A",)):
     return d.merge(x, on="caseid", how="left", validate="one_to_one")
 
 
+def coa_labels(variable):
+    """Code -> label for a CCAD variable, mirroring labels() on the SCDB side.
+    `scdb_first_broad_area` and `scdb_second_sub_area` reuse the SCDB issueArea /
+    issue code lists exactly; the party-category, disposition and direction scales
+    do NOT -- see references/coa.md."""
+    out = {}
+    with open(os.path.join(REF, "coa_value_labels.csv"), encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if r["variable"] == variable:
+                out[int(r["code"])] = r["label"]
+    if not out:
+        raise KeyError(f"no CCAD labels for {variable!r}; try: "
+                       f"{sorted(coa_labelled_vars())}")
+    return out
+
+
+def coa_labelled_vars():
+    """CCAD variables that have a code table."""
+    with open(os.path.join(REF, "coa_value_labels.csv"), encoding="utf-8") as f:
+        return sorted({r["variable"] for r in csv.DictReader(f)})
+
+
+def label_coa(df, variables=None):
+    """Add a <var>_label column for each coded CCAD variable present (all of them
+    by default), mirroring label() on the SCDB side."""
+    have = set(coa_labelled_vars())
+    variables = [v for v in (variables or sorted(have)) if v in df.columns and v in have]
+    out = df.copy()
+    for v in variables:
+        out[f"{v}_label"] = out[v].map(coa_labels(v))
+    return out
+
+
 def coa_disposition_to_scdb(s):
     """Remap a CCAD disposition column to SCDB caseDisposition/lcDisposition codes."""
     return pd.Series(s).map(COA_DISPOSITION_TO_SCDB).astype("Int64")
@@ -362,7 +412,10 @@ def coa_disposition_to_scdb(s):
 
 def songer_direction_to_scdb(s):
     """Remap a Songer-convention direction (0 n/a, 1 cons, 2 mixed, 3 lib) to SCDB's
-    (1 conservative, 2 liberal, 3 unspecifiable). Mixed collapses into 3."""
+    (1 conservative, 2 liberal, 3 unspecifiable). Mixed collapses into 3.
+
+    Apply this to the reproduced `songer_gt_*` direction fields ONLY. The CCAD's own
+    LLM-coded direction columns are already in SCDB coding -- see references/coa.md."""
     return pd.Series(s).map(SONGER_DIRECTION_TO_SCDB).astype("Int64")
 
 

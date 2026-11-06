@@ -4,9 +4,9 @@
   "source_cols": 809,
   "coa_cases.csv.gz": {
     "rows": 512263,
-    "cols": 28,
-    "sha256": "d0a35aeba489cb5a28b69f76bbeb62d68b2bbec8fb1fa8bf52ed5df9eddfcac9",
-    "bytes": 21341508
+    "cols": 30,
+    "sha256": "cf35b25517710693fac4857983ba5cf14697ee8cb914e5b74a814cc7f36f6826",
+    "bytes": 21655634
   },
   "crosswalk.csv.gz": {
     "rows": 8265,

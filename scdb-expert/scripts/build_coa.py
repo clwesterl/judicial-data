@@ -287,10 +287,25 @@ CASE_COLS = ["caseid", "citation", "circuit", "year", "decision_date", "docket_n
              "n_concurrence", "n_dissent", "author", "all_judges_matched",
              "all_authors_matched", "scdb_first_appellant_name",
              "scdb_first_appellant_category", "scdb_first_respondent_name",
-             "scdb_first_respondent_category", "scdb_first_disposition",
+             "scdb_first_respondent_category", "scdb_first_appealed",
+             "scdb_first_disposition",
              "scdb_first_appellant_win", "scdb_first_broad_area", "scdb_second_sub_area",
-             "scdb_first_direction_oneshot", "songer_present", "songer_gt_supct",
+             "scdb_first_direction_oneshot", "scdb_second_direction_mech",
+             "songer_present", "songer_gt_supct",
              "idb_present"]
+# Bundled only when the slice carries them (coa_slice.R includes them by default).
+# Judge identity and ideology; author_ghp and the ghp_* aggregates are
+# Giles-Hettinger-Peppers scores, the same measure the JCS uses for appeals judges.
+JUDGE_COLS = ["author_id", "author_name", "author_dem", "author_appointing_president",
+              "author_ghp", "author_age", "author_tenure", "author_senior",
+              "author_fem", "author_nonwhite", "author_is_appellate",
+              "dis1_id", "dis1_name", "dis1_dem", "dis1_ghp",
+              "conc1_id", "conc1_name", "conc1_dem", "conc1_ghp",
+              "j1_id", "j1_name", "j1_dem", "j1_ghp", "j1_appointing_president",
+              "j2_id", "j2_name", "j2_dem", "j2_ghp",
+              "j3_id", "j3_name", "j3_dem", "j3_ghp", "enbanc_id", "enbanc_name",
+              "num_dems", "num_women", "num_nonwhite", "mixed_panel",
+              "ghp_min", "ghp_max", "ghp_med", "ghp_mean", "age_med", "tenure_med"]
 LINK_COLS = ["caseId", "caseName", "usCite", "term", "scotus_date", "circuit",
              "coa_caseid", "coa_citation", "coa_date", "gap_days", "gap_z", "score",
              "name_score", "margin", "mutual", "n_candidates", "confidence"]
@@ -318,8 +333,17 @@ def main():
     x, best, who = build_links(scdb_df, coa_df, w_pair=a.w_pair, gap_floor=a.gap_floor)
     x["confidence"] = assign_confidence(x)
 
+    head = pd.read_csv(a.coa, nrows=0).columns
+    missing = [c for c in CASE_COLS if c not in head]
+    if missing:
+        sys.exit(f"the slice is missing required columns: {', '.join(missing)}\n"
+                 f"rerun scripts/coa_slice.R against the full RData")
+    judge = [c for c in JUDGE_COLS if c in head]
+    cols = CASE_COLS + judge
+    print(f"bundling {len(cols)} columns ({len(judge)} judge/panel)"
+          if judge else f"bundling {len(cols)} columns (no judge columns in the slice)")
     raw = pd.read_csv(a.coa, dtype={"caseid": str}, low_memory=False,
-                      usecols=lambda c: c in CASE_COLS)[CASE_COLS]
+                      usecols=lambda c: c in set(cols))[cols]
     for c in raw.columns:
         if raw[c].dtype.kind == "f" and raw[c].dropna().mod(1).eq(0).all():
             raw[c] = raw[c].astype("Int64")
