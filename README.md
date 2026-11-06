@@ -12,9 +12,11 @@ cleaned, linked build:
 | **Judicial Common Space** (JCS) | justices OT1937–2022, 693 appeals judges, institutional medians 1924–2024 | judge-term |
 | **Comprehensive Court of Appeals Database** (CCAD) | 512,263 published opinions, 1880–2025 | case |
 
-The three are linked: JCS scores attach to SCDB justice-votes and to the circuit
-a case came from, and 8,265 courts of appeals cases are matched to the Supreme
-Court case that reviewed them.
+The three are linked. JCS scores attach to SCDB justice-votes and to the circuit a
+case came from. 8,265 courts of appeals cases are matched to the Supreme Court case
+that reviewed them. And because the CCAD's judge ideology scores are
+Giles–Hettinger–Peppers — the same measure behind the JCS appeals-judge scores —
+individual judges, three-judge panels and whole circuits sit on one common scale.
 
 ## Layout
 
@@ -53,7 +55,9 @@ cases  = scdb.load("case")          # 29,270 cases x 53 vars
 votes  = scdb.load("justice")       # 256,469 justice-votes x 61 vars
 votes  = scdb.add_jcs(votes)        # + each justice's JCS score that term
 cases  = scdb.add_coa(cases)        # + the courts of appeals case reviewed
-appeals = scdb.coa("cases")         # 512,263 CoA opinions
+appeals = scdb.coa("cases")         # 512,263 CoA opinions x 74 vars
+appeals = scdb.add_coa_circuit_medians(appeals)   # + that circuit's JCS median
+appeals = scdb.label_coa(appeals)   # adds <var>_label for 28 coded variables
 ```
 
 R:
@@ -63,13 +67,20 @@ source("scdb-expert/scripts/scdb.R")
 cases   <- scdb_load("case")
 votes   <- scdb_add_jcs(scdb_load("justice"))
 cases   <- scdb_add_coa(cases)
-appeals <- scdb_coa("cases")
+appeals <- scdb_coa_label(scdb_add_coa_circuit_medians(scdb_coa("cases")))
 ```
 
 Both APIs mirror each other. `scdb-expert/references/` documents every variable,
-the default sample definitions, and the gotchas — read `coa.md` before merging
-Supreme Court and courts of appeals data, because the two use different disposition
-and direction code schemes.
+the default sample definitions, and the gotchas.
+
+**Read `references/coa.md` before merging Supreme Court and courts of appeals
+data.** The CCAD's codebook and its data disagree in three places, each of which
+silently corrupts a merge: the disposition codes are a permutation of SCDB's rather
+than a copy; the LLM-coded direction columns are already in SCDB coding despite the
+codebook saying they use the Songer convention (remapping them makes liberal
+decisions vanish into "mixed"); and `songer_gt_supct == 0` does not mean the
+Supreme Court never reviewed the case. All three are documented with the evidence
+and with remap helpers.
 
 ## Interactive pages
 

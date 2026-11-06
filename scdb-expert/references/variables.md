@@ -4,6 +4,12 @@ Concise, analysis-oriented summary of every column in the combined files. For th
 codebook's own wording read `codebook_text.md` (section numbers given as §N); for
 code→label mappings use `value_labels.csv` (or `scdb.labels("<var>")`).
 
+**This file covers the Supreme Court variables only.** The Judicial Common Space
+columns are documented in `jcs.md`; the 74 courts-of-appeals columns in
+`coa.md`, with their codes in `coa_value_labels.csv` (or `scdb.coa_labels("<var>")`).
+Several CCAD columns share SCDB names but not SCDB codes — the disposition and
+direction scales especially — so read `coa.md` before carrying anything across.
+
 "Blank %" = share of rows with no value, Legacy (1791–1945) / Modern (1946–2025),
 case-centered file. High missingness is usually structural (the attribute does not
 apply), not a data error — the notes say which.
@@ -124,3 +130,16 @@ Each case has one row per sitting justice, **including non-participants** (vote 
 - *Agency cases?* adminAction non-blank; petitioner/respondent codes for federal agencies.
 - *Subject?* issueArea → issue → lawType/lawSupp/lawMinor, in increasing specificity.
 - *Who wrote/joined what?* majOpinWriter; opinion; firstAgreement/secondAgreement.
+
+Courts of appeals equivalents (see `coa.md`; CCAD codes differ from SCDB's):
+
+- *How many cases from a circuit?* circuit + year.
+- *Who wrote it?* author_id / author_name (`author` alone is a panel-slot index).
+- *Who else was on the panel?* j1_id–j3_id, j1_name–j3_name; enbanc_id for en banc.
+- *Panel composition?* num_dems, num_women, num_nonwhite, mixed_panel.
+- *Panel or judge ideology?* author_ghp, ghp_med (and ghp_min/max/mean); compare
+  with the circuit via `add_coa_circuit_medians()`.
+- *Outcome below?* scdb_first_disposition — remap with `coa_disposition_to_scdb()`.
+- *Liberal/conservative?* scdb_second_direction_mech, already in SCDB coding.
+- *Did the Supreme Court review it?* `add_scdb()`; songer_gt_supct is a
+  recall-only flag, not a reliable negative.

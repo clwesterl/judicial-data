@@ -191,8 +191,11 @@ appeals$disp_scdb <- scdb_coa_disposition(appeals$scdb_first_disposition)
     Giles–Hettinger–Peppers scores, the same measure behind the JCS appeals-judge
     scores, so panels and circuits sit on one scale; `add_coa_circuit_medians()`
     attaches the circuit's JCS median so `ghp_med - circuit_median` is how far a
-    panel sat from its circuit. `author_*` is <NA> for per curiam opinions and
-    unmatched authors (8.6% of cases).
+    panel sat from its circuit. For author-level work filter `is_percuriam != 1`
+    (16.1% of cases are per curiam); that alone makes `author_id`/`author_name`
+    complete. `all_authors_matched == 1` does **not** — it drops only 0.9% and
+    still leaves 18.6% of authors unnamed. `author_ghp` is missing for a further
+    3.1%, judges with no GHP score.
 
 ## When the user wants to update the data
 

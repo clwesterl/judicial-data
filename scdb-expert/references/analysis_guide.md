@@ -12,7 +12,8 @@ caveats.
 5. Counting common quantities correctly
 6. Measurement models (IRT / ideal points)
 7. Merging with other data
-8. Reporting checklist
+8. Courts of appeals work
+9. Reporting checklist
 
 ---
 
@@ -201,16 +202,82 @@ identifiers, but verify the join on a few names.
 - **Justices:** merge on `justice` (numeric id) — ids were renumbered in
   SCDB_2012_01, so older derived datasets may be off.
 - **Lower courts:** `caseSource`/`caseOrigin` codes identify circuits and state
-  courts; the U.S. Courts of Appeals Database is the usual complement for
-  circuit-level work.
+  courts. For circuit-level work the Comprehensive Court of Appeals Database is
+  bundled here — `add_coa()` attaches the reviewed CoA case directly. Note this is
+  a **derived fuzzy match**, not an official linkage; see §8 and references/coa.md.
 - **Agencies:** `adminAction` (125 agency codes) plus federal-agency party codes.
 - **Ideology:** Judicial Common Space tables join by justice + term, by term (Court,
   House, Senate, president medians), and by `caseSource` (circuit medians) — see
   references/jcs.md.
 
-## 8. Reporting checklist
+## 8. Courts of appeals work
+
+Read references/coa.md before doing any of this — it carries the code-scheme
+corrections and the validation figures. The essentials for analysis:
+
+**Sample definition.** The CCAD universe is *published* opinions, 512,263 of them,
+1880–2025. That is not the universe of appellate decisions: unpublished
+dispositions are excluded, and their share has grown enormously, so a series that
+runs to the present is measuring a shifting slice of the docket. Say so. The
+recommended clean-panel filter is
+
+```python
+p = d[(d.judge_count == 3) & (d.all_judges_matched == 1) & (d.all_authors_matched == 1)]
+```
+
+`judge_count == 3` already excludes en banc, so a separate `is_enbanc == 0` is
+redundant. One row is one published opinion-bearing case, so rehearings appear as
+separate rows for the same litigation.
+
+For **author-level** work add `is_percuriam != 1` rather than relying on
+`all_authors_matched`. 16.1% of cases are per curiam and carry no author; excluding
+them makes `author_id` and `author_name` complete, whereas
+`all_authors_matched == 1` drops only 0.9% and still leaves 18.6% of authors
+unnamed. `author_ghp` is missing for a further 3.1% (no GHP score).
+
+**Direction.** The weakest of the LLM-coded variables. Prefer
+`scdb_second_direction_mech` over `scdb_first_direction_oneshot` (82.1% vs 80.4%
+against Songer hand coding per the codebook). Conditional on both sources calling a
+case conservative-or-liberal, the mechanical variable agrees with Songer 78.2% of
+the time (n = 12,186) — fine for aggregates, shaky case by case. Drop code 3
+(unspecifiable) rather than treating it as a middle category; it is assigned by
+issue-area rule, covering 100% of Private Action and Interstate Relations. All the
+§3 critiques of SCDB direction coding apply here too, with LLM coding error on top.
+
+**Ideology.** `author_ghp` and the `ghp_*` panel aggregates are
+Giles–Hettinger–Peppers scores, the same measure behind the JCS appeals-judge
+scores, so judges, panels and circuits share one scale.
+`add_coa_circuit_medians()` attaches the deciding circuit's JCS median for the year,
+making `ghp_med - circuit_median` a panel's distance from its circuit. GHP is
+**appointment-based and fixed**, so it carries no within-judge variation over time —
+it cannot speak to whether a judge drifted, and individual-level direction
+relationships are correspondingly weak (mean `author_ghp` is 0.081 for
+conservative-coded decisions and 0.032 for liberal ones). The panel aggregates are
+the sturdier choice for inference.
+
+**Panel effects** replicate cleanly, which is a useful check that a merge is right.
+On 380,085 clean three-judge panels, the share coded liberal rises monotonically
+with Democratic appointees — 34.5 / 37.6 / 41.7 / 44.7% for 0/1/2/3, and more
+steeply from 1980 on (32.1 / 36.5 / 43.4 / 49.8%). If your filter does not
+reproduce something close to this, suspect the direction coding first.
+
+**Linking to the Supreme Court.** `add_coa()` and `add_scdb()` join through the
+derived crosswalk. Report the tier (A is ~0.9% false positives, covering 68% of
+SCDB circuit-origin cases) and describe it as a fuzzy match. Two biases to state:
+recall is capped near 75% for structural reasons — consolidation, officeholder
+substitution, dispositions that never became an SCDB case — and linkage is weakest
+in recent terms (53% in the 2020s) because of the published-opinion limitation. Both
+are plausibly correlated with case type, so do not treat the linked set as a random
+sample of reviewed cases. Selection runs the other way too: cases the Court reviews
+are not a random sample of circuit decisions, which is the whole point of most
+designs here but needs modelling rather than assuming.
+
+## 9. Reporting checklist
 
 State in any write-up: SCDB release(s) used (`python scripts/scdb.py cite`);
 citation-organized data; the decisionType filter; the time unit (term); how
 non-participation, equally divided cases, and unspecifiable direction were
-handled; whether Legacy and Modern eras were pooled.
+handled; whether Legacy and Modern eras were pooled. For courts of appeals work,
+add: that the CCAD covers published opinions only; which direction variable and how
+code 3 was handled; the clean-panel filter; and for anything linked to the SCDB, the
+crosswalk tier plus the recall and false-positive figures.

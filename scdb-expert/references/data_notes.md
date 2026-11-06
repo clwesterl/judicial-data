@@ -23,6 +23,29 @@ Judicial Common Space tables (`data/jcs/`) have their own provenance, checks, an
 quirks in `jcs.md` and `data/jcs/MANIFEST.json`; rebuild them with
 `python scripts/build_jcs.py --src <folder with the raw JCS CSVs>`.
 
+Courts of Appeals tables (`data/coa/`) come from the Comprehensive Court of Appeals
+Database (CCAD), Release 09-2026, by Sapiro-Gheiler and Kastellec (Princeton):
+
+| table | rows | columns | source |
+|---|---|---|---|
+| `coa_cases.csv.gz` | 512,263 | 74 of the CCAD's 809 | CCAD 09-2026 |
+| `crosswalk.csv.gz` | 8,265 | 17 | derived here, not in any source release |
+
+The CCAD ships as a 5.85 GB **uncompressed** RData file holding one data frame,
+`case_frame` — 512,263 rows × 809 columns, serialization version 2, XDR. It is too
+large to bundle and cannot be read without R, so `scripts/coa_slice.R` extracts a
+slice on a machine that has both, and `scripts/build_coa.py` turns that slice into
+the two tables above. Row counts, SHA-256 digests, and the matcher settings are in
+`data/coa/MANIFEST.json`.
+
+The crosswalk is **derived, not official** — neither database carries the other's
+citation. `coa.md` documents the matching design, the confidence tiers, both
+validations, and the coverage limits. It also documents three places where the CCAD
+codebook and the data disagree; those are the first thing to re-check on a new
+release. The CCAD redistributes the Songer Courts of Appeals Database and the FJC
+Integrated Database, so cite those separately when using `songer_gt_*` or `idb_*`
+fields.
+
 ## What the build changed (and didn't)
 
 The schema is identical to the official files (53 case columns; 61 justice
@@ -77,6 +100,29 @@ differ from common short names.
 
 **Ten-member Court.** Cases in the 1863–1864 terms can have 10 justice rows.
 
+**CCAD quirks.** Three places where the CCAD codebook and the data disagree, all
+established empirically and documented with the evidence in `coa.md`:
+
+1. The disposition columns are described as using "the SCDB scheme" but are a
+   *permutation* of it (codes 1-8 sit one below SCDB's; 9 and 0 wrap around).
+   `coa_disposition_to_scdb()` handles it. CCAD code 11 has no SCDB equivalent and
+   maps to SCDB 7 on the codebook's own recommendation.
+2. The front matter says *every* direction variable uses the Songer convention.
+   That holds only for the reproduced `songer_gt_*` fields; the LLM-coded direction
+   columns are already in SCDB coding (1 conservative, 2 liberal, 3 unspecifiable)
+   and must not be remapped. Remapping them makes liberal decisions vanish into
+   "mixed" and puts the Ninth Circuit at 7% liberal instead of 34-48%.
+3. `songer_gt_supct == 0` is presented as meaning the Supreme Court never reviewed
+   the case. It does not: *Service v. Dulles*, *Storer Broadcasting*,
+   *Massachusetts Bonding* and *FPC v. Memphis Light* are all flagged 0 despite
+   being reversed by the Court. Use the flag for recall, never as a negative.
+
+Also: `circuit` is missing for 59,266 cases, nearly all pre-1891 old-circuit-court
+rows; `author_*` is blank for per curiam opinions and unmatched authors (8.6%);
+`citation` is blank for 28,150 cases, concentrated in the 2020s where F.4th volumes
+were unassigned at build time; and `songer_gt_casenum` is not unique (two KH-update
+collisions), so key on `caseid`.
+
 ## Updating to a new release
 
 1. Download the new citation-organized CSVs (case- and justice-centered) for the
@@ -90,3 +136,19 @@ differ from common short names.
    rebuild so the derived tables pick up new labels.
 4. Re-check this file's quirks (e.g. whether undocumented codes got labels) and
    update the release table above and the SKILL.md header.
+
+For a new CCAD release:
+
+1. On a machine with R and the release's RData (the load needs ~6-8 GB of RAM),
+   run `Rscript scripts/coa_slice.R` from the folder holding it. It writes
+   `coa_columns.csv.gz` (all 809 columns documented), `coa_link.csv.gz` (every case,
+   the bundled columns) and `coa_scotus_bridge.csv.gz`.
+2. Run `python scripts/build_coa.py --coa coa_link.csv.gz`. It rebuilds both tables
+   and the manifest, and bundles whatever judge columns the slice carries, so
+   widening `want` in the R script is all it takes to add more.
+3. **Re-check the three code-scheme quirks above against the new data**, since they
+   are the codebook's own errors and may be fixed (or may move). The two
+   reproducible tests are in `coa.md`: the criminal-appeal disposition cross-tab for
+   direction, and the issue-area distribution of direction code 3.
+4. Re-run the validations in `coa.md` and update the tier table there if the recall
+   or false-positive figures move.

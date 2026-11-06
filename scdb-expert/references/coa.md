@@ -36,9 +36,15 @@ circuit. Panel medians correlate 0.49 with their circuit's median, and mean
 panel-minus-circuit gaps are under 0.2 in every circuit — about what random panel
 assignment implies, which is a useful check that the join is right.
 
-`author_*` is `<NA>` for per curiam opinions and where the majority author could not
-be matched to the FJC file (8.6% of cases); filter on
-`all_authors_matched == 1` when author identity has to be complete.
+`author_*` missingness differs by column and the obvious filter is the wrong one.
+Across all 512,263 cases: `author_id` 5.0% missing, `author_ghp` 8.6%,
+`author_name` and `author_dem` ~20%. The cause is per curiam opinions, 16.1% of the
+file. Filtering `is_percuriam != 1` leaves `author_id` and `author_name` **0.0%**
+missing (n = 408,315), with `author_ghp` still 3.1% missing for judges who have no
+GHP score. `all_authors_matched == 1` is *not* a substitute: it removes only 0.9% of
+cases and still leaves 18.6% of authors unnamed. Use `is_percuriam != 1` for
+author-level work, and add `all_judges_matched == 1` (2.2%) when the whole panel
+must be identified.
 
 Everything outside these 74 columns has to come from the full file — the per-judge
 FJC blocks beyond `j1`–`j3`, the DIME and JuDJIS ideology measures, the ~270

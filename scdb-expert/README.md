@@ -1,9 +1,16 @@
 # scdb-expert (Claude skill)
 
-Supreme Court Database expert with the combined data bundled
-(SCDB Legacy 07 + 2026_01, citation-organized, terms 1791–2025), plus Judicial
-Common Space ideology scores linked to it. Claude reads `SKILL.md`; this file is
-for humans.
+Federal courts expert with three databases bundled and cross-linked:
+
+- **Supreme Court Database** — SCDB Legacy 07 + 2026_01, citation-organized,
+  terms 1791–2025, case- and justice-centered
+- **Judicial Common Space** — justice-term scores OT1937–2022, 693 appeals judges,
+  Court/House/Senate/president/circuit medians 1924–2024
+- **Comprehensive Court of Appeals Database** — 512,263 published opinions
+  1880–2025 (74 of the CCAD's 809 columns, including panel rosters and ideology),
+  plus 8,265 CoA cases linked to the Supreme Court case that reviewed them
+
+Claude reads `SKILL.md`; this file is for humans.
 
 ## Install
 
@@ -19,7 +26,8 @@ To keep machines in sync, keep the folder in a git repo and symlink it:
 ln -s /path/to/repo/skills/scdb-expert ~/.claude/skills/scdb-expert
 ```
 
-The data files are ~6.4 MB gzipped, fine for GitHub.
+The data files are ~44 MB gzipped (37 MB of that is the courts of appeals
+case file), fine for GitHub.
 
 **Using the data outside Claude:** `data/*.csv.gz` are plain gzipped CSVs;
 `readr::read_csv()`, `data.table::fread()` (with R.utils), and `pandas.read_csv()`
@@ -65,6 +73,20 @@ python scripts/parse_codebook.py ~/Downloads/SCDB_YYYY_RR_codebook.pdf   # only 
 ```
 
 For a new Judicial Common Space release: `python scripts/build_jcs.py --src ../jcs-raw`.
+
+For a new Courts of Appeals release — the CCAD ships as a 5.85 GB uncompressed
+RData file, so this step needs R and ~6–8 GB of RAM, and cannot run inside the
+skill:
+
+```bash
+Rscript scripts/coa_slice.R                       # run where the RData lives
+python scripts/build_coa.py --coa coa_link.csv.gz
+```
+
+`coa_slice.R` pulls the 74 bundled columns out of the 809; widen its `want` vector
+to bundle more and `build_coa.py` picks them up automatically. Re-check the three
+CCAD code-scheme quirks in `references/data_notes.md` against the new data — they
+are errors in the CCAD codebook, so a new release may fix or move them.
 
 Then update the release facts in `SKILL.md` and `references/data_notes.md`, and
 re-upload / commit. Details in `references/data_notes.md`.
