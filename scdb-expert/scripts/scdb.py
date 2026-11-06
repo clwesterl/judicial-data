@@ -15,6 +15,8 @@ As a library (add the skill's scripts/ dir to sys.path first):
     scdb.merits_votes(votes)                  # vote in {1..5}
     scdb.agreement(votes_subset, names)       # pairwise agreement matrix
     scdb.best_cite(cases)                     # first available reporter cite
+    scdb.jcs("justice"|"coa"|"medians"|"circuit_medians"|"circuits")   # Judicial Common Space
+    scdb.add_jcs(votes); scdb.add_medians(cases); scdb.add_circuit_medians(cases)
 
 As a CLI:
     python scdb.py info                       # releases, row counts, term coverage
@@ -23,6 +25,7 @@ As a CLI:
     python scdb.py labels issueArea           # code -> label table for one variable
     python scdb.py justice scalia             # service dates & counts for a justice
     python scdb.py cite                       # citation strings for the releases in use
+    python scdb.py jcs kennedy                # Judicial Common Space scores (justices and CoA judges)
 
 Typing done by load(): coded variables -> pandas nullable Int64 (blank -> <NA>);
 dateDecision/dateArgument/dateRearg -> datetime64; IDs, citations, names, docket,
@@ -196,7 +199,171 @@ def citation():
             yr, rel = r.split("_")
             out.append(f"{AUTHORS}. {yr}. Supreme Court Database, Version {yr} Release {rel}. "
                        f"URL: https://scdb.psu.edu")
+    if os.path.isdir(os.path.join(DATA, "jcs")):
+        out += JCS_CITATIONS
+    if os.path.isdir(os.path.join(DATA, "coa")):
+        out += COA_CITATIONS
     return out
+
+
+# ---------------------------------------------------------------- Judicial Common Space
+JCS = os.path.join(DATA, "jcs")
+_JCS_FILES = {"justice": "jcs_justice_term.csv", "coa": "jcs_coa_judges.csv",
+              "medians": "jcs_medians.csv", "circuits": "circuits.csv"}
+JCS_CITATIONS = [
+    "Lee Epstein, Andrew D. Martin, Jeffrey A. Segal, and Chad Westerland. 2007. "
+    "\"The Judicial Common Space.\" Journal of Law, Economics, & Organization 23(2): 303-325.",
+]
+
+
+def jcs(which="justice"):
+    """Judicial Common Space tables.
+    'justice'         term, justice (SCDB id), justiceName, jcs      (OT1937-OT2022)
+    'coa'             courts of appeals judges: judge_key, name, circuit, scdb_caseSource, jcs
+    'medians'         by calendar year: president, house/senate/sc medians, circuit medians & SDs
+    'circuit_medians' medians reshaped long: year, term, circuit, circuit_name, scdb_caseSource, median, sd
+    'circuits'        JCS circuit number -> name -> SCDB caseSource code"""
+    if which == "circuit_medians":
+        m, circ = jcs("medians"), jcs("circuits")
+        rows = []
+        for c in circ.circuit:
+            rows.append(m[["year", "term"]].assign(circuit=c, median=m[f"circuit_median{c}"],
+                                                   sd=m[f"circuit_sd{c}"]))
+        out = pd.concat(rows, ignore_index=True).merge(circ[["circuit", "circuit_name", "scdb_caseSource"]],
+                                                       on="circuit")
+        # 1924 appears twice in the medians table (different president values, identical circuit
+        # values), so drop exact duplicates
+        out = out.dropna(subset=["median"]).drop_duplicates(["year", "circuit", "median", "sd"])
+        return out.reset_index(drop=True)
+    if which not in _JCS_FILES:
+        raise ValueError(f"which must be one of {sorted(_JCS_FILES) + ['circuit_medians']}")
+    df = pd.read_csv(os.path.join(JCS, _JCS_FILES[which]))
+    if "term" in df.columns:
+        df["term"] = df["term"].astype("Int64")
+    return df
+
+
+def add_jcs(v, col="jcs"):
+    """Attach each justice's JCS score for that term to justice-level SCDB rows (merge on justice, term).
+    Coverage is OT1937-OT2022; other rows get <NA>."""
+    j = jcs("justice")[["term", "justice", "jcs"]].rename(columns={"jcs": col})
+    j["justice"] = j["justice"].astype("Int64")
+    out = v.merge(j, on=["term", "justice"], how="left", validate="many_to_one")
+    return out
+
+
+def add_medians(df, cols=("sc_median", "president", "house_median", "senate_median")):
+    """Attach political-environment medians by SCDB term. The medians row for term t is
+    calendar year t+1 (the year most of the term's decisions come down)."""
+    m = jcs("medians").dropna(subset=["term"])[["term", *cols]]
+    return df.merge(m, on="term", how="left", validate="many_to_one")
+
+
+def add_circuit_medians(c, year_offset=0):
+    """For cases reviewing a federal court of appeals (caseSource in the 13 circuit codes), attach
+    the JCS median and SD of that circuit. Uses calendar year = term + 1 + year_offset; the
+    reviewed decision usually came 1-2 years earlier, so try year_offset=-1 or -2 as robustness."""
+    cm = jcs("circuit_medians")[["year", "scdb_caseSource", "median", "sd"]].rename(
+        columns={"median": "circuit_median", "sd": "circuit_sd", "scdb_caseSource": "caseSource"})
+    cm["caseSource"] = cm["caseSource"].astype("Int64")
+    out = c.assign(_year=(c["term"] + 1 + year_offset).astype("Int64"))
+    out = out.merge(cm.rename(columns={"year": "_year"}), on=["_year", "caseSource"], how="left",
+                    validate="many_to_one")
+    return out.drop(columns="_year")
+
+
+# ------------------------------------------- Courts of Appeals (CCAD)
+COA = os.path.join(DATA, "coa")
+_COA_FILES = {"cases": "coa_cases.csv.gz", "crosswalk": "crosswalk.csv.gz"}
+COA_CITATIONS = [
+    "Eitan Sapiro-Gheiler and Jonathan P. Kastellec. Comprehensive Court of Appeals "
+    "Database, Release 09-2026. Princeton University.",
+]
+
+# The CCAD's disposition columns are described as using \"the SCDB scheme\", but the
+# numbering differs: codes 1-8 sit one below SCDB's, and 9/0 wrap around. Verified
+# against the code lists in both codebooks and against 6,582 tier-A linked pairs.
+COA_DISPOSITION_TO_SCDB = {1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 1, 10: 10, 0: 11}
+# Every CCAD \"direction\" variable uses the Songer convention, not SCDB's.
+SONGER_DIRECTION_TO_SCDB = {1: 1, 3: 2, 0: 3, 2: 3}   # cons/lib/not-ascertained/mixed
+
+
+_COA_TEXT = {"caseid", "citation", "docket_number", "scdb_first_appellant_name",
+             "scdb_first_respondent_name", "caseId", "caseName", "usCite",
+             "coa_caseid", "coa_citation", "confidence"}
+_COA_DATES = {"decision_date", "coa_date", "scotus_date"}
+_COA_FLOAT = {"score", "name_score", "margin", "gap_z"}
+
+
+def coa(which="cases", parse=True):
+    """Comprehensive Court of Appeals Database tables.
+    'cases'     512,263 published CoA opinions 1880-2025 x 28 vars (one row per case)
+    'crosswalk' 8,265 CoA cases linked to an SCDB case, with a confidence tier
+
+    Circuit numbering here is the CCAD's: 0 = D.C., 1-11 by number, 12 = Federal.
+    `jcs(\"circuits\")` crosswalks it to the JCS and SCDB schemes. Coded variables
+    come back as Int64 and dates as datetime, matching `load()`."""
+    if which not in _COA_FILES:
+        raise ValueError(f"which must be one of {sorted(_COA_FILES)}")
+    df = pd.read_csv(os.path.join(COA, _COA_FILES[which]), dtype=str,
+                     keep_default_na=False, low_memory=False)
+    if not parse:
+        return df
+    for c in df.columns:
+        if c in _COA_TEXT:
+            df[c] = df[c].replace("", None)
+        elif c in _COA_DATES:
+            df[c] = pd.to_datetime(df[c].replace("", None), errors="coerce")
+        elif c in _COA_FLOAT:
+            df[c] = pd.to_numeric(df[c].replace("", None))
+        elif c == "mutual":
+            df[c] = df[c].map({"True": True, "False": False}).astype("boolean")
+        else:
+            df[c] = pd.to_numeric(df[c].replace("", None)).astype("Int64")
+    return df
+
+
+def add_coa(c, confidence=("A",), prefix="coa_"):
+    """Attach the reviewed courts-of-appeals case to SCDB case-level rows.
+
+    Links come from `coa(\"crosswalk\")`, which matches on circuit + decision-date
+    window + party-name similarity -- neither database carries the other's
+    citation. `confidence` selects which tiers to accept:
+        'A'  mutual best match, score >= 0.50   (~1.2% false-positive rate)
+        'B'  mutual best match, score >= 0.35   (~1.8% cumulative)
+        'C'  score >= 0.20                      (use only with inspection)
+    Unlinked SCDB cases get <NA>. See references/coa.md before using tier C."""
+    x = coa("crosswalk")
+    x = x[x.confidence.isin(confidence)]
+    cols = {"coa_caseid": f"{prefix}caseid", "coa_citation": f"{prefix}citation",
+            "coa_date": f"{prefix}date", "gap_days": f"{prefix}gap_days",
+            "score": f"{prefix}match_score", "confidence": f"{prefix}match_confidence"}
+    x = x[["caseId"] + list(cols)].rename(columns=cols)
+    return c.merge(x, on="caseId", how="left", validate="one_to_one")
+
+
+def add_scdb(d, confidence=("A",)):
+    """The reverse of add_coa: attach the reviewing SCDB case to CCAD rows.
+    Adds caseId, caseName, usCite, term, scotus_date and the match diagnostics;
+    CoA cases the Supreme Court never reviewed (the vast majority) get <NA>."""
+    x = coa("crosswalk")
+    x = x[x.confidence.isin(confidence)]
+    x = x[["coa_caseid", "caseId", "caseName", "usCite", "term", "scotus_date",
+           "gap_days", "score", "confidence"]].rename(
+        columns={"coa_caseid": "caseid", "score": "match_score",
+                 "confidence": "match_confidence"})
+    return d.merge(x, on="caseid", how="left", validate="one_to_one")
+
+
+def coa_disposition_to_scdb(s):
+    """Remap a CCAD disposition column to SCDB caseDisposition/lcDisposition codes."""
+    return pd.Series(s).map(COA_DISPOSITION_TO_SCDB).astype("Int64")
+
+
+def songer_direction_to_scdb(s):
+    """Remap a Songer-convention direction (0 n/a, 1 cons, 2 mixed, 3 lib) to SCDB's
+    (1 conservative, 2 liberal, 3 unspecifiable). Mixed collapses into 3."""
+    return pd.Series(s).map(SONGER_DIRECTION_TO_SCDB).astype("Int64")
 
 
 # ---------------------------------------------------------------- CLI
@@ -284,10 +451,52 @@ def main(argv):
         for k in ("case", "justice"):
             print(f"  {k:8s} {m[k]['file']:26s} rows={m[k]['rows']:>7,}  cases={m[k]['cases']:,}  "
                   f"terms {m[k]['terms'][0]}-{m[k]['terms'][1]}")
+        jm = os.path.join(JCS, "MANIFEST.json")
+        if os.path.exists(jm):
+            j = json.load(open(jm, encoding="utf-8"))
+            print(f"  JCS      justices {j['justice_term']['terms'][0]}-{j['justice_term']['terms'][1]} "
+                  f"({j['justice_term']['rows']} justice-terms), {j['coa_judges']['judges']} appeals judges, "
+                  f"medians {j['medians']['years'][0]}-{j['medians']['years'][1]}")
     elif cmd == "find":
         _print_hits(find(load("case"), arg))
     elif cmd == "case":
         _cli_case(arg)
+    elif cmd == "jcs":
+        q = arg.lower()
+        j = jcs("justice")
+        hit = j[j.justiceName.str.lower().str.contains(q, regex=False)]
+        for name, g in hit.groupby("justiceName"):
+            print(f"{name} (SCDB id {int(g.justice.iloc[0])}): JCS terms {g.term.min()}-{g.term.max()}, "
+                  f"mean {g.jcs.mean():+.3f}, range {g.jcs.min():+.3f} to {g.jcs.max():+.3f}")
+            print("   " + "  ".join(f"{t}:{x:+.3f}" for t, x in zip(g.term, g.jcs)))
+        c = jcs("coa")
+        hc = c[c["name"].map(_norm).str.contains(_norm(arg), regex=False)]
+        if len(hc):
+            print(hc[["name", "circuit_name", "jcs"]].to_string(index=False))
+        if hit.empty and hc.empty:
+            print("no justice or courts of appeals judge matches")
+    elif cmd == "coa":
+        d = coa("cases")
+        q = _norm(arg)
+        hit = d[(d.scdb_first_appellant_name.fillna("").map(_norm).str.contains(q, regex=False) |
+                 d.scdb_first_respondent_name.fillna("").map(_norm).str.contains(q, regex=False) |
+                 d.citation.fillna("").str.replace(" ", "", regex=False).str.contains(
+                     arg.replace(" ", ""), case=False, regex=False))]
+        if hit.empty:
+            print("no courts of appeals case matches"); return
+        circ = jcs("circuits").set_index("coa_circuit").circuit_name.to_dict()
+        link = coa("crosswalk").set_index("coa_caseid")
+        for _, r in hit.head(25).iterrows():
+            name = f"{r.scdb_first_appellant_name} v. {r.scdb_first_respondent_name}"
+            print(f"{r.citation or '(no cite)':>14}  {circ.get(r.circuit, '?'):<17} "
+                  f"{str(r.decision_date.date()) if pd.notna(r.decision_date) else '':<11} {name[:70]}")
+            if r.caseid in link.index:
+                l = link.loc[r.caseid]
+                l = l.iloc[0] if isinstance(l, pd.DataFrame) else l
+                print(f"{'':>14}  -> SCOTUS: {l.caseName[:60]} {l.usCite or ''} "
+                      f"(tier {l.confidence}, score {l.score:.2f})")
+        if len(hit) > 25:
+            print(f"... and {len(hit) - 25} more")
     elif cmd == "cite":
         print("\n".join(citation()))
     elif cmd == "labels":

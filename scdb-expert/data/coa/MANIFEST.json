@@ -1,0 +1,32 @@
+{
+  "source": "Comprehensive Court of Appeals Database, Release 09-2026 (Sapiro-Gheiler and Kastellec, Princeton University)",
+  "source_rows": 512263,
+  "source_cols": 809,
+  "coa_cases.csv.gz": {
+    "rows": 512263,
+    "cols": 28,
+    "sha256": "d0a35aeba489cb5a28b69f76bbeb62d68b2bbec8fb1fa8bf52ed5df9eddfcac9",
+    "bytes": 21341508
+  },
+  "crosswalk.csv.gz": {
+    "rows": 8265,
+    "cols": 17,
+    "sha256": "079d971ed08241dfbda042c613b444a9807589648ce3ab223f1e870fa4b73036",
+    "bytes": 454881
+  },
+  "crosswalk_tiers": {
+    "A": 6789,
+    "B": 861,
+    "C": 615
+  },
+  "matcher": {
+    "gap_floor": 0.6,
+    "w_pair": 0.75,
+    "gap_log_mu": 6.07,
+    "gap_log_sigma": 0.36,
+    "gap_window_days": [
+      30,
+      2600
+    ]
+  }
+}

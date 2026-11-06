@@ -1,0 +1,56 @@
+{
+  "built": "2026-09-19",
+  "builder": "scripts/build_jcs.py",
+  "sources": [
+    {
+      "path": "jcs_supreme_court_2024_long.csv",
+      "sha256": "b14aac08ff4f829e5d070ee684421a1fc2d5d0db0a71652ff9c897d885925c5b"
+    },
+    {
+      "path": "jcs_supreme_court_2024_wide.csv",
+      "sha256": "da410dfb25458f7efdfcaea644c9a1f6ee50167230ca1d8f1cb4fa99706d0487"
+    },
+    {
+      "path": "coa_judges_2024.csv",
+      "sha256": "c026a47edd47b52e94874e2143a9d4e4c4842744a14aeee012eb46096dbe8047"
+    },
+    {
+      "path": "jcs_medians.csv",
+      "sha256": "bb1c63718c9e9a193ac564081b5587d401f47e7f827966bd0c6bdfffc6c4555d"
+    }
+  ],
+  "justice_term": {
+    "rows": 782,
+    "justices": 49,
+    "terms": [
+      1937,
+      2022
+    ]
+  },
+  "coa_judges": {
+    "rows": 705,
+    "judges": 693
+  },
+  "medians": {
+    "rows": 102,
+    "years": [
+      1924,
+      2024
+    ]
+  },
+  "checks": {
+    "long_equals_wide": true,
+    "justices_unmatched_to_scdb": [],
+    "elevated_to_scotus": 21,
+    "judges_listed_on_two_circuits": 12,
+    "judges_missing_jcs": [
+      "Hutcheson, John Chappell, Jr.",
+      "Sibley, Samuel"
+    ],
+    "sc_median_equals_median_of_justice_scores": true,
+    "term_equals_year_minus_1": true,
+    "duplicate_years": [
+      1924
+    ]
+  }
+}

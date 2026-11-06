@@ -10,11 +10,14 @@
 #   cases$issueArea_f <- scdb_factor(cases$issueArea, "issueArea")    # labeled factor for models
 #   scdb_find(cases, "384 U.S. 436")
 #   mv <- scdb_merits_votes(scdb_formally_decided(votes))
+#   votes <- scdb_add_jcs(votes)                   # Judicial Common Space score by justice-term
+#   cases <- scdb_add_medians(cases)               # SC / House / Senate / president medians by term
+#   coa   <- scdb_jcs("coa")                       # courts of appeals judges' JCS scores
 
 scdb_dir <- function() {
   cands <- c(Sys.getenv("SCDB_SKILL_DIR"),
              file.path(path.expand("~"), ".claude", "skills", "scdb-expert"),
-             "/mnt/skills/user/scdb-expert")
+             "/mnt/skills/user/scdb-expert", "/mnt/skills/plugins/scdb-expert")
   for (d in cands) {
     if (nzchar(d) && file.exists(file.path(d, "data", "MANIFEST.json"))) return(d)
   }
@@ -92,4 +95,102 @@ scdb_find <- function(df, query) {
   if (any(hit)) return(df[hit, , drop = FALSE])
   nm <- tolower(gsub("[\u2018\u2019]", "'", df$caseName))
   df[grepl(tolower(q), nm, fixed = TRUE), , drop = FALSE]
+}
+
+# ---- Judicial Common Space (see references/jcs.md)
+scdb_jcs <- function(which = c("justice", "coa", "medians", "circuits", "circuit_medians"),
+                     dir = scdb_dir()) {
+  which <- match.arg(which)
+  rd <- function(f) utils::read.csv(file.path(dir, "data", "jcs", f), encoding = "UTF-8",
+                                    stringsAsFactors = FALSE)
+  if (which == "circuit_medians") {
+    m <- rd("jcs_medians.csv"); circ <- rd("circuits.csv")
+    out <- do.call(rbind, lapply(circ$circuit, function(k)
+      data.frame(year = m$year, term = m$term, circuit = k,
+                 median = m[[paste0("circuit_median", k)]], sd = m[[paste0("circuit_sd", k)]])))
+    out <- merge(out, circ[, c("circuit", "circuit_name", "scdb_caseSource")], by = "circuit")
+    out <- out[!is.na(out$median), ]
+    out <- out[!duplicated(out[, c("year", "circuit", "median", "sd")]), ]   # 1924 appears twice
+    return(out[order(out$circuit, out$year), ])
+  }
+  rd(switch(which, justice = "jcs_justice_term.csv", coa = "jcs_coa_judges.csv",
+            medians = "jcs_medians.csv", circuits = "circuits.csv"))
+}
+
+scdb_add_jcs <- function(v, dir = scdb_dir()) {
+  j <- scdb_jcs("justice", dir)[, c("term", "justice", "jcs")]
+  merge(v, j, by = c("term", "justice"), all.x = TRUE, sort = FALSE)
+}
+
+# medians row for term t is calendar year t + 1
+scdb_add_medians <- function(df, cols = c("sc_median", "president", "house_median", "senate_median"),
+                             dir = scdb_dir()) {
+  m <- scdb_jcs("medians", dir)
+  m <- m[!is.na(m$term), c("term", cols)]
+  merge(df, m, by = "term", all.x = TRUE, sort = FALSE)
+}
+
+# ---- Comprehensive Court of Appeals Database (see references/coa.md)
+# Circuit numbering in these tables is the CCAD's: 0 = D.C., 1-11 by number,
+# 12 = Federal. scdb_jcs("circuits") crosswalks it to the JCS and SCDB schemes.
+scdb_coa <- function(which = c("cases", "crosswalk"), dir = scdb_dir()) {
+  which <- match.arg(which)
+  f <- file.path(dir, "data", "coa",
+                 switch(which, cases = "coa_cases.csv.gz", crosswalk = "crosswalk.csv.gz"))
+  d <- if (requireNamespace("readr", quietly = TRUE)) {
+    as.data.frame(readr::read_csv(f, col_types = readr::cols(
+      caseid = readr::col_character(), coa_caseid = readr::col_character(),
+      citation = readr::col_character(), coa_citation = readr::col_character(),
+      docket_number = readr::col_character()), progress = FALSE))
+  } else {
+    utils::read.csv(gzfile(f), encoding = "UTF-8", stringsAsFactors = FALSE,
+                    colClasses = c(caseid = "character", coa_caseid = "character"))
+  }
+  for (k in intersect(c("decision_date", "coa_date", "scotus_date"), names(d)))
+    d[[k]] <- as.Date(d[[k]])
+  d
+}
+
+# Attach the reviewed courts-of-appeals case to SCDB case rows. Links are fuzzy --
+# neither database carries the other's citation -- so pick a confidence tier:
+#   "A" mutual best match, score >= 0.50  (~1.2% false-positive rate)
+#   "B" mutual best match, score >= 0.35  (~1.8% cumulative)
+#   "C" score >= 0.20                     (inspect before using)
+scdb_add_coa <- function(c, confidence = "A", dir = scdb_dir()) {
+  x <- scdb_coa("crosswalk", dir)
+  x <- x[x$confidence %in% confidence, ]
+  keep <- c("caseId", "coa_caseid", "coa_citation", "coa_date", "gap_days", "score", "confidence")
+  x <- x[, keep]
+  names(x) <- c("caseId", "coa_caseid", "coa_citation", "coa_date", "coa_gap_days",
+                "coa_match_score", "coa_match_confidence")
+  merge(c, x, by = "caseId", all.x = TRUE, sort = FALSE)
+}
+
+# The reverse: attach the reviewing Supreme Court case to CCAD rows.
+scdb_add_scdb <- function(d, confidence = "A", dir = scdb_dir()) {
+  x <- scdb_coa("crosswalk", dir)
+  x <- x[x$confidence %in% confidence,
+         c("coa_caseid", "caseId", "caseName", "usCite", "term", "scotus_date",
+           "gap_days", "score", "confidence")]
+  names(x)[1] <- "caseid"
+  names(x)[names(x) == "score"] <- "match_score"
+  names(x)[names(x) == "confidence"] <- "match_confidence"
+  merge(d, x, by = "caseid", all.x = TRUE, sort = FALSE)
+}
+
+# The CCAD's disposition columns are documented as using "the SCDB scheme", but the
+# numbering differs: codes 1-8 sit one below SCDB's and 9/0 wrap around. Remap before
+# comparing with SCDB caseDisposition / lcDisposition.
+scdb_coa_disposition <- function(x) {
+  m <- c(`0` = 11L, `1` = 2L, `2` = 3L, `3` = 4L, `4` = 5L,
+         `5` = 6L, `6` = 7L, `7` = 8L, `8` = 9L, `9` = 1L, `10` = 10L)
+  unname(m[as.character(x)])
+}
+
+# Every CCAD direction variable uses the Songer convention
+# (0 = not ascertained, 1 = conservative, 2 = mixed, 3 = liberal), not SCDB's
+# (1 = conservative, 2 = liberal, 3 = unspecifiable). Mixed collapses into 3.
+scdb_songer_direction <- function(x) {
+  m <- c(`0` = 3L, `1` = 1L, `2` = 3L, `3` = 2L)
+  unname(m[as.character(x)])
 }

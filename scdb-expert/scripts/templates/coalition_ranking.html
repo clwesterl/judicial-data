@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITLE__</title>
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    --bg:#f7f6f3; --panel:#ffffff; --ink:#1d1d1f; --muted:#6b6b70; --line:#e2e0da;
+    --lib:#2f6ea8; --con:#b2453a; --mix:#8a7fa8; --accent:#3b5b92; --grid:#eceae4;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9aa1; --line:#33363b;
+      --lib:#6fa6d8; --con:#d97b6e; --mix:#a99ec7; --accent:#8fa7cf; --grid:#26292d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9aa1; --line:#33363b;
+    --lib:#6fa6d8; --con:#d97b6e; --mix:#a99ec7; --accent:#8fa7cf; --grid:#26292d;
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+  header{padding:12px 18px 10px;border-bottom:1px solid var(--line)}
+  .row{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+  h1{margin:0;font-size:17px;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:13px;margin-top:3px}
+  .filters{display:flex;flex-direction:column;gap:6px;align-items:flex-end;max-width:660px}
+  .tabs{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+  .tabs button{font:inherit;font-size:12.5px;padding:4px 9px;border:1px solid var(--line);
+    background:var(--panel);color:var(--muted);border-radius:7px;cursor:pointer}
+  .tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .tabs button.implied{border-color:var(--accent);color:var(--ink);
+    background:color-mix(in srgb,var(--accent) 16%,transparent)}
+  .opts{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:7px 18px;
+    border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  label{display:flex;gap:6px;align-items:center;cursor:pointer}
+  select{font:inherit;font-size:12.5px;background:var(--panel);color:var(--ink);
+    border:1px solid var(--line);border-radius:5px;padding:1px 4px}
+  .wrap{display:flex;height:calc(100% - 150px);min-height:420px}
+  .chart{flex:1 1 auto;display:flex;flex-direction:column;min-width:0}
+  .axis{flex:0 0 auto;border-bottom:1px solid var(--line);background:var(--bg)}
+  .scroll{flex:1 1 auto;overflow-y:auto;overflow-x:hidden}
+  svg{display:block}
+  aside{flex:0 0 360px;border-left:1px solid var(--line);background:var(--panel);
+    overflow-y:auto;padding:16px}
+  .seat{stroke:var(--muted);stroke-width:.7px}
+  .band:hover rect.hit{fill:color-mix(in srgb,var(--accent) 9%,transparent)}
+  .band.sel rect.hit{fill:color-mix(in srgb,var(--accent) 16%,transparent)}
+  .band{cursor:pointer}
+  .rng{stroke:var(--muted);stroke-width:1.4px;opacity:.5}
+  .dot{stroke:var(--panel);stroke-width:1.2px}
+  .cmtick{stroke:var(--ink);stroke-width:1.6px;opacity:.55}
+  .zero{stroke:var(--ink);stroke-width:1.2px;opacity:.5}
+  .zero.faint{opacity:.22}
+  label.off{opacity:.4;cursor:default}
+  .nlab{font-size:11px;fill:var(--muted)}
+  .tick{font-size:11px;fill:var(--muted)}
+  .gridline{stroke:var(--grid);stroke-width:1px}
+  .cmline{stroke:var(--ink);stroke-width:1.2px;stroke-dasharray:3 3;opacity:.45}
+  h2{font-size:15px;margin:0 0 2px}
+  .meta{color:var(--muted);font-size:12.5px;margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 6px}
+  .chip{font-size:11.5px;padding:3px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+  .chip.in{background:var(--accent);border-color:var(--accent);color:#fff}
+  .case{border-top:1px solid var(--line);padding:10px 0}
+  .case .nm{font-weight:600;font-size:13.5px}
+  .case .det{color:var(--muted);font-size:12.5px;margin-top:3px}
+  .tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;
+    border:1px solid var(--line);margin-right:5px}
+  .tag.lib{color:var(--lib);border-color:var(--lib)}
+  .tag.con{color:var(--con);border-color:var(--con)}
+  .hint{color:var(--muted);font-size:13px}
+  footer{padding:8px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:11.5px}
+  @media (max-width:860px){
+    .wrap{flex-direction:column;height:auto}
+    .chart{height:62vh}
+    aside{flex:1 1 auto;border-left:none;border-top:1px solid var(--line)}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="row">
+    <div><h1>__HEADING__</h1><div class="sub" id="sub"></div></div>
+    <div class="filters">
+      <div class="tabs" id="chiefs"></div>
+      <div class="tabs" id="courts"></div>
+      <div class="tabs" id="terms"></div>
+    </div>
+  </div>
+</header>
+<div class="opts">
+  <label>x position
+    <select id="xMode">
+      <option value="abs">median ideology</option>
+      <option value="gap">distance from Court median</option>
+    </select></label>
+  <label>rank by
+    <select id="sortBy">
+      <option value="med">median ideology</option>
+      <option value="n">number of cases</option>
+    </select></label>
+  <label>min cases <select id="minN">
+      <option value="auto">auto</option><option>1</option><option>2</option>
+      <option>3</option><option>5</option><option>10</option><option>25</option>
+    </select></label>
+  <label><input type="checkbox" id="hideUnan"> hide unanimous</label>
+  <label><input type="checkbox" id="showRange" checked> show term-to-term spread</label>
+  <label id="cmLabel"><input type="checkbox" id="showCM"> mark Court median per row</label>
+  <span id="note"></span>
+</div>
+<div class="wrap">
+  <div class="chart">
+    <div class="axis"><svg id="axis"></svg></div>
+    <div class="scroll"><svg id="rows"></svg></div>
+  </div>
+  <aside id="panel"><p class="hint">Each row is a majority coalition, placed at the median ideology of the justices in it. Click a row for its cases.</p></aside>
+</div>
+<footer id="foot"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const DATA = __DATA__;
+const order = DATA.order, ALL = 'all';
+let chief = ALL, term = ALL, court = ALL, selectedId = null;
+const MIN_STEPS = [1, 2, 3, 5, 10, 25];
+const ROW = 22, PAD_L = 14, GAP = 14, NUM_W = 46;
+document.getElementById('foot').textContent = DATA.source;
+
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const colour = t => d3.scaleLinear().domain([0, .5, 1])
+  .range([css('--con'), css('--mix'), css('--lib')]).interpolate(d3.interpolateRgb)(t);
+const sign = v => (v === null || v === undefined) ? '' : (v >= 0 ? '+' : '') + v.toFixed(3);
+const chiefOf = n => DATA.chiefs.find(c => c.name === n);
+const courtOf = k => DATA.courts.find(c => c.code === k);
+
+// fixed x-domain over every case, so positions are comparable across filters
+DATA.cases.forEach(c => {
+  const m = DATA.courtMedian[c.term];
+  c.gap = (m === undefined) ? null : c.med - m;      // where the majority sat relative to the Court
+});
+const X_DOMAIN = (() => {                             // symmetric about 0, as GAP_DOMAIN is,
+  const e = d3.extent(DATA.cases, c => c.med),        // so equal distances read equal either way
+        a = Math.max(Math.abs(e[0]), Math.abs(e[1]));
+  return [-a * 1.06, a * 1.06];
+})();
+const GAP_DOMAIN = (() => {                           // symmetric, so 0 sits dead centre
+  const e = d3.extent(DATA.cases, c => c.gap), a = Math.max(Math.abs(e[0]), Math.abs(e[1]));
+  return [-a * 1.06, a * 1.06];
+})();
+const xMode = () => document.getElementById('xMode').value;
+
+function filtered(){
+  return DATA.cases.filter(c => (chief === ALL || c.chief === chief) &&
+                                (term === ALL || c.term === term) &&
+                                (court === ALL || c.court === court));
+}
+function activeSeats(){
+  const s = new Set();
+  filtered().forEach(c => { c.maj.forEach(j => s.add(j)); c.dis.forEach(j => s.add(j));
+                            c.absent.forEach(j => s.add(j)); });
+  return order.filter(j => s.has(j));
+}
+function coalitions(){
+  return Array.from(d3.group(filtered(), c => c.key), ([id, cs]) => {
+    const meds = cs.map(c => c.med).sort(d3.ascending);
+    const gaps = cs.map(c => c.gap).filter(v => v !== null).sort(d3.ascending);
+    const cms = cs.map(c => DATA.courtMedian[c.term]).filter(v => v !== undefined);
+    return { id, members: id.split('|'), n: cs.length,
+             med: d3.median(meds), lo: meds[0], hi: meds[meds.length - 1],
+             gap: gaps.length ? d3.median(gaps) : null,
+             gapLo: gaps.length ? gaps[0] : null, gapHi: gaps.length ? gaps[gaps.length - 1] : null,
+             cm: cms.length ? d3.mean(cms) : null,
+             liberal: cs.filter(c => c.direction === 'liberal').length,
+             conservative: cs.filter(c => c.direction === 'conservative').length,
+             unanimousOnly: cs.every(c => c.dis.length === 0),
+             byTerm: d3.rollup(cs, v => v.length, c => c.term),
+             cases: cs.slice().sort((a, b) => d3.ascending(a.sort, b.sort)) };
+  });
+}
+
+function drawTabs(){
+  d3.select('#chiefs').selectAll('button')
+    .data([{k: ALL, t: 'all chiefs'}].concat(DATA.chiefs.map(c => ({k: c.name, t: c.name}))), d => d.k)
+    .join('button').text(d => d.t)
+      .attr('title', d => { const c = chiefOf(d.k);
+        return c ? `OT${c.terms[0]}–OT${c.terms[c.terms.length - 1]} · ${c.n} cases` : 'every term in the data'; })
+      .on('click', (e, d) => { chief = d.k; court = ALL; term = ALL; selectedId = null; draw(); })
+      .classed('on', d => d.k === chief);
+
+  const cs = chief === ALL ? [] : DATA.courts.filter(c => c.chief === chief);
+  d3.select('#courts').style('display', cs.length ? null : 'none').selectAll('button')
+    .data(cs.length ? [{k: ALL, t: 'all courts'}].concat(cs.map(c => ({k: c.code, t: c.label}))) : [], d => d.k)
+    .join('button').text(d => d.t)
+      .attr('title', d => { const c = courtOf(d.k); return c ? c.roster.join(', ') + `  (${c.n} cases)` : ''; })
+      .on('click', (e, d) => { const c = courtOf(d.k);
+        if(term !== ALL && c && !c.terms.includes(term)) term = ALL;
+        court = d.k; selectedId = null; draw(); })
+      .classed('on', d => d.k === court)
+      .classed('implied', d => { if(d.k === ALL || court !== ALL || term === ALL) return false;
+        const c = courtOf(d.k); return !!c && c.terms.includes(term); });
+
+  let ts = court !== ALL ? courtOf(court).terms : (chief !== ALL ? chiefOf(chief).terms : []);
+  d3.select('#terms').style('display', ts.length ? null : 'none').selectAll('button')
+    .data(ts.length ? [{k: ALL, t: 'all terms'}].concat(ts.map(y => ({k: y, t: "'" + String(y).slice(2)}))) : [], d => d.k)
+    .join('button').text(d => d.t)
+      .on('click', (e, d) => { const c = courtOf(court);
+        if(d.k !== ALL && c && !c.terms.includes(d.k)) court = ALL;
+        term = d.k; selectedId = null; draw(); })
+      .classed('on', d => d.k === term)
+      .classed('implied', d => d.k !== ALL && term === ALL && court !== ALL && courtOf(court).terms.includes(d.k));
+}
+
+function draw(){
+  drawTabs();
+  const all = coalitions(), seats = activeSeats();
+  const sel = document.getElementById('minN').value;
+  const minN = sel === 'auto'
+    ? (MIN_STEPS.find(t => all.filter(d => d.n >= t).length <= 70) || 25) : +sel;
+  let rows = all.filter(d => d.n >= minN)
+                .filter(d => !(document.getElementById('hideUnan').checked && d.unanimousOnly));
+  const gapMode = xMode() === 'gap';
+  const vx = d => gapMode ? d.gap : d.med, vlo = d => gapMode ? d.gapLo : d.lo,
+        vhi = d => gapMode ? d.gapHi : d.hi;
+  if(gapMode) rows = rows.filter(d => d.gap !== null);
+  const by = document.getElementById('sortBy').value;
+  rows.sort(by === 'n' ? (a, b) => b.n - a.n || vx(a) - vx(b) : (a, b) => vx(a) - vx(b));
+  const cmOn = document.getElementById('showCM').checked && !gapMode;
+  document.getElementById('cmLabel').classList.toggle('off', gapMode);
+  document.getElementById('showCM').disabled = gapMode;
+
+  const scope = [chief === ALL ? `OT${DATA.terms[0]}–${String(DATA.terms[DATA.terms.length - 1]).slice(2)}`
+                               : (term === ALL ? chief + ' Court' : chief),
+                 term === ALL ? null : 'OT' + term,
+                 court === ALL ? null : (courtOf(court) || {}).label].filter(Boolean).join(' · ');
+  const nCases = d3.sum(all, d => d.n), shown = d3.sum(rows, d => d.n);
+  document.getElementById('sub').textContent = nCases === 0 ? scope + ' · no cases'
+    : `${scope} · ${nCases} cases · ${all.length} coalitions` +
+      (rows.length < all.length ? ` · showing ${rows.length} with ${minN}+ cases (${shown} cases)` : '');
+
+  const seatW = Math.max(4, Math.min(13, 150 / Math.max(seats.length, 1)));
+  const stripW = seats.length * seatW;
+  const total = document.querySelector('.chart').clientWidth || 900;
+  const x0 = PAD_L + stripW + GAP, x1 = Math.max(x0 + 120, total - NUM_W - 16);
+  const x = d3.scaleLinear().domain(gapMode ? GAP_DOMAIN : X_DOMAIN).range([x0, x1]);
+
+  // scope-average Court median, for reference
+  const terms = [...new Set(filtered().map(c => c.term))];
+  const cmVals = terms.map(t => DATA.courtMedian[t]).filter(v => v !== undefined);
+  const cm = cmVals.length ? d3.mean(cmVals) : null;
+  document.getElementById('note').textContent = gapMode
+    ? '0 = the Court median in each case\u2019s own term'
+    : (cm === null ? '' : `dashed line = Court median in scope (${cm >= 0 ? '+' : ''}${cm.toFixed(2)})`);
+
+  // ---- axis
+  const ax = d3.select('#axis').attr('width', total).attr('height', 36);
+  ax.selectAll('*').remove();
+  ax.append('text').attr('x', PAD_L).attr('y', 23).attr('class', 'tick')
+    .text(seats.length ? 'coalition' : '');
+  x.ticks(7).forEach(t => {
+    const v = Math.abs(t) < 1e-9 ? 0 : t;             // d3 can hand back -1e-17 for zero
+    ax.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', 26).attr('y2', 32).attr('class', 'gridline');
+    ax.append('text').attr('x', x(t)).attr('y', 20).attr('text-anchor', 'middle').attr('class', 'tick')
+      .text((v > 0 ? '+' : '') + v.toFixed(1));
+  });
+  ax.append('text').attr('x', x0).attr('y', 11).attr('class', 'tick')
+    .text(gapMode ? '\u2190 majority left of the Court' : '\u2190 liberal majority');
+  ax.append('text').attr('x', x1).attr('y', 11).attr('text-anchor', 'end').attr('class', 'tick')
+    .text(gapMode ? 'majority right of the Court \u2192' : 'conservative majority \u2192');
+
+  // ---- rows
+  const h = Math.max(rows.length * ROW + 10, 10);
+  const svg = d3.select('#rows').attr('width', total).attr('height', h);
+  svg.selectAll('*').remove();
+  x.ticks(7).forEach(t => svg.append('line').attr('class', 'gridline')
+    .attr('x1', x(t)).attr('x2', x(t)).attr('y1', 0).attr('y2', h));
+  svg.append('line').attr('class', gapMode ? 'zero' : 'zero faint')
+    .attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', h);
+  if(!gapMode && cm !== null) svg.append('line').attr('class', 'cmline')
+    .attr('x1', x(cm)).attr('x2', x(cm)).attr('y1', 0).attr('y2', h);
+
+  const R = d3.scaleSqrt().domain([1, d3.max(rows, d => d.n) || 1]).range([3.5, 9]);
+  const g = svg.selectAll('g.band').data(rows, d => d.id).join('g')
+    .attr('class', 'band').attr('transform', (d, i) => `translate(0,${i * ROW + 8})`)
+    .on('click', (e, d) => select(d));
+  g.classed('sel', d => d.id === selectedId);
+  g.append('rect').attr('class', 'hit').attr('x', 0).attr('y', -ROW / 2)
+    .attr('width', total).attr('height', ROW).attr('fill', 'transparent');
+  g.append('title').text(d => `${d.members.length} in the majority: ${d.members.join(', ')}\n` +
+    `median ideology ${sign(d.med)}` + (d.cm === null ? '' :
+      `  \u00b7  Court median ${sign(d.cm)}  \u00b7  gap ${sign(d.gap)}`) +
+    `\n${d.n} ${d.n === 1 ? 'case' : 'cases'}`);
+  g.each(function(d){
+    const row = d3.select(this);
+    seats.forEach((j, i) => row.append('rect').attr('class', 'seat')
+      .attr('x', PAD_L + i * seatW).attr('y', -4.5)
+      .attr('width', Math.max(seatW - 1.6, 2)).attr('height', 9).attr('rx', 1.5)
+      .attr('fill', d.members.includes(j) ? css('--ink') : 'none'));
+  });
+  if(document.getElementById('showRange').checked)
+    g.append('line').attr('class', 'rng').attr('y1', 0).attr('y2', 0)
+      .attr('x1', d => x(vlo(d))).attr('x2', d => x(vhi(d)));
+  if(cmOn) g.filter(d => d.cm !== null).append('line').attr('class', 'cmtick')
+    .attr('y1', -6).attr('y2', 6).attr('x1', d => x(d.cm)).attr('x2', d => x(d.cm));
+  g.append('circle').attr('class', 'dot').attr('cy', 0)
+    .attr('cx', d => x(vx(d))).attr('r', d => R(d.n))
+    .attr('fill', d => (d.liberal + d.conservative) ? colour(d.liberal / (d.liberal + d.conservative)) : css('--mix'));
+  g.append('text').attr('class', 'nlab').attr('x', total - 14).attr('y', 3.5)
+    .attr('text-anchor', 'end').text(d => d.n);
+
+  if(rows.length === 0){
+    selectedId = null;
+    document.getElementById('panel').innerHTML = '<p class="hint">No coalitions for this combination.</p>';
+  } else select(rows.find(d => d.id === selectedId) || rows[0]);
+}
+
+function select(d){
+  if(!d) return;
+  selectedId = d.id;
+  d3.selectAll('g.band').classed('sel', n => n.id === selectedId);
+  const seats = activeSeats();
+  const chips = seats.map(j => `<span class="chip ${d.members.includes(j) ? 'in' : ''}">${j}</span>`).join('');
+  const spread = DATA.terms.filter(y => d.byTerm.get(y)).map(y => `OT${y}: ${d.byTerm.get(y)}`).join(' · ');
+  const cases = d.cases.map(c => `
+    <div class="case">
+      <div class="nm">${c.name}</div>
+      <div class="det">${c.cite ? c.cite + ' · ' : ''}${c.date} · OT${c.term} · ${c.margin} · opinion by ${c.author}</div>
+      <div class="det" style="margin-top:5px">
+        <span class="tag ${c.direction === 'liberal' ? 'lib' : c.direction === 'conservative' ? 'con' : ''}">${c.direction}</span>
+        <span class="tag">${c.issue}</span>median ${sign(c.med)}
+      </div>
+      ${c.dis.length ? `<div class="det">dissenting: ${c.dis.join(', ')}</div>` : ''}
+      ${c.absent.length ? `<div class="det">not participating: ${c.absent.join(', ')}</div>` : ''}
+    </div>`).join('');
+  document.getElementById('panel').innerHTML =
+    `<h2>median ${sign(d.med)} &nbsp;\u00b7&nbsp; ${d.n} ${d.n === 1 ? 'case' : 'cases'}</h2>
+     <div class="meta">${d.cm === null ? '' : `Court median ${sign(d.cm)} \u2014 majority sat ` +
+       (Math.abs(d.gap) < .005 ? 'at the Court median'
+         : `${Math.abs(d.gap).toFixed(3)} to the ${d.gap < 0 ? 'left' : 'right'}`) + '<br>'}
+       ${d.members.length} in the majority · ${d.liberal} liberal, ${d.conservative} conservative
+       ${d.lo !== d.hi ? `· per-case medians ${sign(d.lo)} to ${sign(d.hi)}` : ''}</div>
+     <div class="chips">${chips}</div>
+     <div class="meta">${spread}</div>${cases}`;
+  document.getElementById('panel').scrollTop = 0;
+}
+
+['xMode', 'sortBy', 'minN', 'hideUnan', 'showRange', 'showCM'].forEach(id =>
+  document.getElementById(id).addEventListener('change', draw));
+window.addEventListener('resize', draw);
+draw();
+</script>
+</body>
+</html>

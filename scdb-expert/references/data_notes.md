@@ -19,6 +19,10 @@ The SCDB is now hosted by Penn State (scdb.psu.edu / scdb.la.psu.edu), formerly
 Washington University in St. Louis (scdb.wustl.edu). Modern releases usually
 appear each fall after the term ends; Legacy releases are infrequent.
 
+Judicial Common Space tables (`data/jcs/`) have their own provenance, checks, and
+quirks in `jcs.md` and `data/jcs/MANIFEST.json`; rebuild them with
+`python scripts/build_jcs.py --src <folder with the raw JCS CSVs>`.
+
 ## What the build changed (and didn't)
 
 The schema is identical to the official files (53 case columns; 61 justice

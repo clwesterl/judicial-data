@@ -1,8 +1,9 @@
 # scdb-expert (Claude skill)
 
 Supreme Court Database expert with the combined data bundled
-(SCDB Legacy 07 + 2026_01, citation-organized, terms 1791–2025). Claude reads
-`SKILL.md`; this file is for humans.
+(SCDB Legacy 07 + 2026_01, citation-organized, terms 1791–2025), plus Judicial
+Common Space ideology scores linked to it. Claude reads `SKILL.md`; this file is
+for humans.
 
 ## Install
 
@@ -24,6 +25,35 @@ The data files are ~6.4 MB gzipped, fine for GitHub.
 `readr::read_csv()`, `data.table::fread()` (with R.utils), and `pandas.read_csv()`
 read them directly. `scripts/scdb.R` and `scripts/scdb.py` add typing and labels.
 
+## Interactive coalition graph
+
+```bash
+python scripts/build_coalition_page.py --start 1946 --end 2025 --out ../docs/scotus_coalitions.html
+```
+
+Writes one self-contained HTML file: each node is a set of justices who formed a
+majority, sized by case count. Drill down chief justice → natural court → term, plus
+justice highlighting and a minimum-cases filter. Any range works (`--start 1953 --end
+1968`); the whole database (`--start 1791`) builds but is ~14 MB and slow to render.
+Needs internet on first open (d3 from a CDN).
+
+## Coalitions ranked by majority ideology
+
+```bash
+python scripts/build_coalition_ranking.py --start 1946 --end 2022 --out ../docs/scotus_coalition_ranking.html
+```
+
+Same coalitions as the graph above, but as a ranked dot plot: each row is a majority
+coalition placed at the median JCS score of the justices in it, with a membership
+strip, the term-to-term spread of its per-case medians, and its case count. End term
+is capped at OT2022, where JCS justice scores stop.
+
+Two ways to read the x-axis: `median ideology` places each coalition on the JCS scale
+with the scope's Court median as a dashed reference, and `distance from Court median`
+re-centres on zero so each dot is the gap between the majority and the Court median of
+that case's own term. In the first mode, `mark Court median per row` adds a tick at the
+Court median each coalition actually faced.
+
 ## Update to a new SCDB release
 
 In the judicial-data repo the original release files live in `../scdb-raw/`
@@ -33,6 +63,8 @@ In the judicial-data repo the original release files live in `../scdb-raw/`
 python scripts/build_combined.py --src ../scdb-raw   # or any folder with the 4 citation CSVs
 python scripts/parse_codebook.py ~/Downloads/SCDB_YYYY_RR_codebook.pdf   # only if codebook changed
 ```
+
+For a new Judicial Common Space release: `python scripts/build_jcs.py --src ../jcs-raw`.
 
 Then update the release facts in `SKILL.md` and `references/data_notes.md`, and
 re-upload / commit. Details in `references/data_notes.md`.

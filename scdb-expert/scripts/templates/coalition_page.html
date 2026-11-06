@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITLE__</title>
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    --bg:#f7f6f3; --panel:#ffffff; --ink:#1d1d1f; --muted:#6b6b70; --line:#e2e0da;
+    --lib:#2f6ea8; --con:#b2453a; --mix:#8a7fa8; --accent:#3b5b92;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9aa1; --line:#33363b;
+      --lib:#6fa6d8; --con:#d97b6e; --mix:#a99ec7; --accent:#8fa7cf;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17181a; --panel:#1f2124; --ink:#e9e8e4; --muted:#9a9aa1; --line:#33363b;
+    --lib:#6fa6d8; --con:#d97b6e; --mix:#a99ec7; --accent:#8fa7cf;
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+  header{padding:12px 18px 10px;border-bottom:1px solid var(--line)}
+  .row{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+  h1{margin:0;font-size:17px;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:13px;margin-top:3px}
+  .terms{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+  .filters{display:flex;flex-direction:column;gap:6px;align-items:flex-end;max-width:640px}
+  .terms .lbl{font-size:12px;color:var(--muted);align-self:center;margin-right:2px}
+  .terms button, .jchips button{font:inherit;font-size:12.5px;padding:4px 9px;border:1px solid var(--line);
+    background:var(--panel);color:var(--muted);border-radius:7px;cursor:pointer}
+  .terms button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .terms button.implied{border-color:var(--accent);color:var(--ink);
+    background:color-mix(in srgb,var(--accent) 16%,transparent)}
+  .jchips{display:flex;gap:4px;flex-wrap:wrap;margin-top:9px;align-items:center}
+  .jchips .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+  .jchips button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .wrap{display:flex;height:calc(100% - 132px);min-height:420px}
+  #graph{flex:1 1 auto;position:relative;overflow:hidden}
+  svg{width:100%;height:100%;display:block;touch-action:none}
+  aside{flex:0 0 372px;border-left:1px solid var(--line);background:var(--panel);overflow-y:auto;padding:16px}
+  .controls{position:absolute;left:12px;top:12px;display:flex;gap:13px;flex-wrap:wrap;align-items:center;
+    background:color-mix(in srgb,var(--panel) 88%,transparent);padding:7px 11px;border:1px solid var(--line);
+    border-radius:8px;font-size:12.5px}
+  label{display:flex;gap:6px;align-items:center;color:var(--muted);cursor:pointer}
+  select{font:inherit;font-size:12.5px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:5px;padding:1px 4px}
+  .legend{position:absolute;right:12px;bottom:12px;font-size:12px;color:var(--muted);text-align:right;line-height:1.7}
+  .swatch{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+  .node circle.body{cursor:pointer;stroke:var(--panel);stroke-width:1.5px}
+  .node.sel circle.body{stroke:var(--ink);stroke-width:2.5px}
+  .node.dim{opacity:.18}
+  .node text{pointer-events:none;font-size:11px;font-weight:600;fill:#fff;text-anchor:middle;dominant-baseline:central}
+  line.link{stroke:var(--line);stroke-width:1.2px}
+  h2{font-size:15px;margin:0 0 2px}
+  .meta{color:var(--muted);font-size:12.5px;margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 6px}
+  .chip{font-size:11.5px;padding:3px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+  .chip.in{background:var(--accent);border-color:var(--accent);color:#fff}
+  .byterm{color:var(--muted);font-size:12.5px;margin:8px 0 2px}
+  .case{border-top:1px solid var(--line);padding:10px 0}
+  .case .nm{font-weight:600;font-size:13.5px}
+  .case .det{color:var(--muted);font-size:12.5px;margin-top:3px}
+  .tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;border:1px solid var(--line);margin-right:5px}
+  .tag.lib{color:var(--lib);border-color:var(--lib)}
+  .tag.con{color:var(--con);border-color:var(--con)}
+  .hint{color:var(--muted);font-size:13px}
+  footer{padding:8px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:11.5px}
+  @media (max-width:860px){
+    .wrap{flex-direction:column;height:auto}
+    #graph{height:58vh}
+    aside{flex:1 1 auto;border-left:none;border-top:1px solid var(--line)}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="row">
+    <div>
+      <h1>__HEADING__</h1>
+      <div class="sub" id="sub"></div>
+    </div>
+    <div class="filters">
+      <div class="terms" id="chiefs"></div>
+      <div class="terms" id="courts"></div>
+      <div class="terms" id="terms"></div>
+    </div>
+  </div>
+  <div class="jchips" id="jchips"><span class="lbl">highlight coalitions containing:</span></div>
+</header>
+<div class="wrap">
+  <div id="graph">
+    <div class="controls">
+      <label><input type="checkbox" id="hideUnan"> hide unanimous</label>
+      <label><input type="checkbox" id="showLinks"> link coalitions differing by one justice</label>
+      <label><input type="checkbox" id="showSeats" checked> membership ring</label>
+      <label>min cases <select id="minN"><option value="auto">auto</option><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option><option>25</option></select></label>
+    </div>
+    <svg></svg>
+    <div class="legend">
+      <div><span class="swatch" style="background:var(--lib)"></span>mostly liberal outcomes</div>
+      <div><span class="swatch" style="background:var(--mix)"></span>mixed</div>
+      <div><span class="swatch" style="background:var(--con)"></span>mostly conservative outcomes</div>
+      <div>circle area &#8733; cases &#183; ring seats run liberal &#8594; conservative clockwise</div>
+    </div>
+  </div>
+  <aside id="panel"><p class="hint">Click a circle to list its cases. Drag to rearrange, scroll to zoom.</p></aside>
+</div>
+<footer id="foot"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const DATA = __DATA__;
+const order = DATA.order;
+const ALL = 'all';
+let chief = ALL, term = ALL, court = ALL, selectedId = null, sim = null, highlight = new Set();
+const MIN_STEPS = [1, 2, 3, 5, 10, 25];
+document.getElementById('foot').textContent = DATA.source +
+  '  \u2014  A coalition is the set of justices in the majority. A justice who did not participate, or a vacant seat, is simply not in it, so a 5-3 groups with 5-4s having the same five.';
+
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const colour = t => d3.scaleLinear().domain([0, 0.5, 1])
+  .range([css('--con'), css('--mix'), css('--lib')]).interpolate(d3.interpolateRgb)(t);
+
+function chiefOf(name){ return DATA.chiefs.find(c => c.name === name); }
+function courtOf(code){ return DATA.courts.find(c => c.code === code); }
+
+function drawTabs(){
+  // chief justices
+  d3.select('#chiefs').selectAll('button')
+    .data([{k: ALL, t: 'all chiefs'}].concat(DATA.chiefs.map(c => ({k: c.name, t: c.name}))), d => d.k)
+    .join('button')
+      .text(d => d.t)
+      .attr('title', d => { const c = chiefOf(d.k);
+        return c ? `OT${c.terms[0]}\u2013OT${c.terms[c.terms.length - 1]} \u00b7 ${c.n} cases` : 'every term in the data'; })
+      .on('click', (e, d) => { chief = d.k; court = ALL; term = ALL; selectedId = null; draw(); })
+      .classed('on', d => d.k === chief);
+
+  // natural courts within the selected chief
+  const courts = chief === ALL ? [] : DATA.courts.filter(c => c.chief === chief);
+  const courtRow = d3.select('#courts').style('display', courts.length ? null : 'none');
+  courtRow.selectAll('button')
+    .data(courts.length ? [{k: ALL, t: 'all courts'}].concat(courts.map(c => ({k: c.code, t: c.label}))) : [], d => d.k)
+    .join('button')
+      .text(d => d.t)
+      .attr('title', d => { const c = courtOf(d.k); return c ? c.roster.join(', ') + `  (${c.n} cases)` : 'every natural court under this chief'; })
+      .on('click', (e, d) => {
+        const c = courtOf(d.k);
+        if(term !== ALL && c && !c.terms.includes(term)) term = ALL;
+        court = d.k; selectedId = null; draw();
+      })
+      .classed('on', d => d.k === court)
+      .classed('implied', d => {
+        if(d.k === ALL || court !== ALL || term === ALL) return false;
+        const c = courtOf(d.k); return !!c && c.terms.includes(term);
+      });
+
+  // terms within the selected chief (or court)
+  let terms = [];
+  if(court !== ALL) terms = courtOf(court).terms;
+  else if(chief !== ALL) terms = chiefOf(chief).terms;
+  const termRow = d3.select('#terms').style('display', terms.length ? null : 'none');
+  termRow.selectAll('button')
+    .data(terms.length ? [{k: ALL, t: 'all terms'}].concat(terms.map(y => ({k: y, t: "'" + String(y).slice(2)}))) : [], d => d.k)
+    .join('button')
+      .text(d => d.t)
+      .on('click', (e, d) => {
+        const c = courtOf(court);
+        if(d.k !== ALL && c && !c.terms.includes(d.k)) court = ALL;
+        term = d.k; selectedId = null; draw();
+      })
+      .classed('on', d => d.k === term)
+      .classed('implied', d => {
+        if(d.k === ALL || term !== ALL || court === ALL) return false;
+        return courtOf(court).terms.includes(d.k);
+      });
+}
+
+function filtered(){
+  return DATA.cases.filter(c => (chief === ALL || c.chief === chief) &&
+                                (term === ALL || c.term === term) &&
+                                (court === ALL || c.court === court));
+}
+function activeSeats(){
+  const s = new Set();
+  filtered().forEach(c => { c.maj.forEach(j => s.add(j)); c.dis.forEach(j => s.add(j)); c.absent.forEach(j => s.add(j)); });
+  if(s.size === 0) (DATA.seats[term] || []).forEach(j => s.add(j));
+  return order.filter(j => s.has(j));
+}
+function coalitions(){
+  const cases = filtered();
+  return Array.from(d3.group(cases, c => c.key), ([id, cs]) => ({
+    id, members: id.split('|'), n: cs.length,
+    liberal: cs.filter(c => c.direction === 'liberal').length,
+    conservative: cs.filter(c => c.direction === 'conservative').length,
+    unanimousOnly: cs.every(c => c.dis.length === 0),
+    withAbsences: cs.filter(c => c.absent.length).length,
+    byTerm: d3.rollup(cs, v => v.length, c => c.term),
+    cases: cs.slice().sort((a, b) => d3.ascending(a.sort, b.sort))
+  })).sort((a, b) => b.n - a.n);
+}
+function differsByOne(a, b){
+  const A = new Set(a.members), B = new Set(b.members);
+  let d = 0;
+  A.forEach(m => { if(!B.has(m)) d++; });
+  B.forEach(m => { if(!A.has(m)) d++; });
+  return d === 1;
+}
+
+const svg = d3.select('svg');
+const root = svg.append('g');
+const linkG = root.append('g'), nodeG = root.append('g');
+svg.call(d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => root.attr('transform', e.transform)));
+const pos = new Map();
+
+function drawChips(){
+  const seats = activeSeats();
+  const room = seats.length <= 16;
+  d3.select('#jchips').style('display', room ? null : 'none');
+  if(!room){ highlight.clear(); return; }
+  const sel = d3.select('#jchips').selectAll('button').data(seats, d => d);
+  sel.exit().remove();
+  sel.enter().append('button').text(d => d)
+    .on('click', (e, d) => { highlight.has(d) ? highlight.delete(d) : highlight.add(d); drawChips(); applyHighlight(); })
+    .merge(sel).classed('on', d => highlight.has(d));
+}
+function applyHighlight(){
+  nodeG.selectAll('g.node').classed('dim', d =>
+    highlight.size > 0 && ![...highlight].every(j => d.members.includes(j)));
+}
+
+function draw(){
+  drawTabs();
+  [...highlight].forEach(j => { if(!activeSeats().includes(j)) highlight.delete(j); });
+  drawChips();
+  const all = coalitions();
+  const sel = document.getElementById('minN').value;
+  const minN = sel === 'auto'
+    ? (MIN_STEPS.find(t => all.filter(d => d.n >= t).length <= 150) || 25)
+    : +sel;
+  const nodes = all.filter(d => d.n >= minN)
+                   .filter(d => !(document.getElementById('hideUnan').checked && d.unanimousOnly));
+  const nCases = d3.sum(all, d => d.n), shown = d3.sum(nodes, d => d.n);
+  const span = chief === ALL
+    ? 'OT' + DATA.terms[0] + '\u2013' + String(DATA.terms[DATA.terms.length - 1]).slice(2)
+    : (term === ALL ? chief + ' Court' : chief);
+  const scope = [span, term === ALL ? null : 'OT' + term,
+                 court === ALL ? null : (courtOf(court) || {}).label].filter(Boolean).join(' \u00b7 ');
+  document.getElementById('sub').textContent = nCases === 0
+    ? scope + ' \u00b7 no argued cases in this combination'
+    : scope + ' \u00b7 ' + nCases + ' argued cases \u00b7 ' + all.length + ' distinct majority coalitions' +
+      (nodes.length < all.length
+        ? ' \u00b7 showing ' + nodes.length + ' with ' + minN + '+ cases (' + shown + ' cases)'
+        : '');
+
+  const R = d3.scaleSqrt().domain([1, d3.max(nodes, d => d.n) || 1]).range([12, 46]);
+  nodes.forEach(d => { const p = pos.get(d.id); if(p){ d.x = p.x; d.y = p.y; } });
+
+  const links = [];
+  if(document.getElementById('showLinks').checked)
+    for(let i = 0; i < nodes.length; i++)
+      for(let j = i + 1; j < nodes.length; j++)
+        if(differsByOne(nodes[i], nodes[j])) links.push({source: nodes[i], target: nodes[j]});
+
+  const box = document.getElementById('graph').getBoundingClientRect();
+  const w = box.width, h = box.height;
+  const seats = activeSeats();
+
+  linkG.selectAll('line').data(links, d => d.source.id + '>' + d.target.id)
+    .join(en => en.append('line').attr('class', 'link'));
+
+  const node = nodeG.selectAll('g.node').data(nodes, d => d.id)
+    .join(en => {
+      const g = en.append('g').attr('class', 'node').on('click', (e, d) => select(d));
+      g.append('circle').attr('class', 'body');
+      g.append('g').attr('class', 'seats');
+      g.append('text');
+      g.append('title');
+      return g;
+    });
+  node.select('circle.body').attr('r', d => R(d.n))
+      .attr('fill', d => (d.liberal + d.conservative) ? colour(d.liberal / (d.liberal + d.conservative)) : css('--mix'));
+  node.select('text').text(d => d.n).style('font-size', d => Math.min(15, 8 + R(d.n) / 4) + 'px');
+  node.select('title').text(d => d.members.length + ' in the majority: ' + d.members.join(', ') +
+      '\n' + d.n + (d.n === 1 ? ' case' : ' cases'));
+  const seatsOn = document.getElementById('showSeats').checked;
+  node.select('g.seats').attr('display', seatsOn ? null : 'none')
+    .selectAll('circle.seat')
+    .data(d => seats.map((j, i) => ({j, i, k: seats.length, inMaj: d.members.includes(j), r: R(d.n)})),
+          d => d.j)
+    .join(en => en.append('circle').attr('class', 'seat').attr('r', 2.5))
+      .attr('cx', d => (d.r + 7) * Math.cos(-Math.PI / 2 + d.i * 2 * Math.PI / d.k))
+      .attr('cy', d => (d.r + 7) * Math.sin(-Math.PI / 2 + d.i * 2 * Math.PI / d.k))
+      .attr('fill', d => d.inMaj ? css('--ink') : 'none')
+      .attr('stroke', css('--muted')).attr('stroke-width', 0.8);
+  applyHighlight();
+
+  if(sim) sim.stop();
+  sim = d3.forceSimulation(nodes)
+    .force('charge', d3.forceManyBody().strength(-230))
+    .force('center', d3.forceCenter(w / 2, h / 2))
+    .force('collide', d3.forceCollide(d => R(d.n) + 13))
+    .force('link', d3.forceLink(links).distance(d => R(d.source.n) + R(d.target.n) + 40).strength(0.2))
+    .force('x', d3.forceX(w / 2).strength(0.04))
+    .force('y', d3.forceY(h / 2).strength(0.06))
+    .on('tick', () => {
+      linkG.selectAll('line')
+        .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+      nodeG.selectAll('g.node').attr('transform', d => `translate(${d.x},${d.y})`);
+    })
+    .on('end', () => nodes.forEach(d => pos.set(d.id, {x: d.x, y: d.y})));
+
+  nodeG.selectAll('g.node').call(d3.drag()
+    .on('start', (e, d) => { if(!e.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
+    .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on('end', (e, d) => { if(!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; pos.set(d.id, {x: d.x, y: d.y}); }));
+
+  if(nodes.length === 0){
+    selectedId = null;
+    document.getElementById('panel').innerHTML =
+      '<p class="hint">No cases for this combination of term and natural court.</p>';
+  } else select(nodes.find(d => d.id === selectedId) || nodes[0]);
+}
+
+function select(d){
+  if(!d) return;
+  selectedId = d.id;
+  nodeG.selectAll('g.node').classed('sel', n => n.id === selectedId);
+  const seats = activeSeats();
+  const chips = seats.map(j => `<span class="chip ${d.members.includes(j) ? 'in' : ''}">${j}</span>`).join('');
+  const spread = DATA.terms.filter(y => d.byTerm.get(y)).map(y => `OT${y}: ${d.byTerm.get(y)}`).join(' \u00b7 ');
+  const cases = d.cases.map(c => `
+    <div class="case">
+      <div class="nm">${c.name}</div>
+      <div class="det">${c.cite ? c.cite + ' \u00b7 ' : ''}${c.date} \u00b7 OT${c.term} \u00b7 ${c.margin} \u00b7 opinion by ${c.author}</div>
+      <div class="det" style="margin-top:5px">
+        <span class="tag ${c.direction === 'liberal' ? 'lib' : c.direction === 'conservative' ? 'con' : ''}">${c.direction}</span>
+        <span class="tag">${c.issue}</span>${c.disposition}
+      </div>
+      ${c.dis.length ? `<div class="det">dissenting: ${c.dis.join(', ')}</div>` : ''}
+      ${c.absent.length ? `<div class="det">not participating: ${c.absent.join(', ')}</div>` : ''}
+    </div>`).join('');
+  document.getElementById('panel').innerHTML =
+    `<h2>${d.members.length} in the majority &nbsp;\u00b7&nbsp; ${d.n} ${d.n === 1 ? 'case' : 'cases'}</h2>
+     <div class="meta">${d.liberal} liberal \u00b7 ${d.conservative} conservative outcome${d.conservative === 1 ? '' : 's'}</div>
+     <div class="chips">${chips}</div>
+     <div class="byterm">${spread}${d.withAbsences ? ' \u00b7 ' + d.withAbsences + ' with a seat vacant or a recusal' : ''}</div>${cases}`;
+  document.getElementById('panel').scrollTop = 0;
+}
+
+['hideUnan', 'showLinks', 'showSeats', 'minN'].forEach(id =>
+  document.getElementById(id).addEventListener('change', draw));
+window.addEventListener('resize', draw);
+draw();
+</script>
+</body>
+</html>

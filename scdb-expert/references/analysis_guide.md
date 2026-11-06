@@ -185,9 +185,11 @@ direction) and the scale (standard-normal prior on ideal points). Dynamic models
 outcome, you inherit the direction-coding critiques in §3; coding by
 majority/dissent with estimated case polarity avoids that dependence.
 
-Published Martin–Quinn scores (by justice and term) are an alternative to
-estimating your own; their justice file uses SCDB-style justice identifiers — verify
-the join on a few names before trusting it.
+Judicial Common Space scores for justices (Martin–Quinn mapped into the Common
+Space, OT1937–OT2022) are bundled: `scdb.add_jcs(votes)`. See references/jcs.md,
+including the circularity caveat when the same votes are both outcome and input.
+Raw Martin–Quinn scores are not bundled; their justice file uses SCDB-style
+identifiers, but verify the join on a few names.
 
 ## 7. Merging with other data
 
@@ -202,6 +204,9 @@ the join on a few names before trusting it.
   courts; the U.S. Courts of Appeals Database is the usual complement for
   circuit-level work.
 - **Agencies:** `adminAction` (125 agency codes) plus federal-agency party codes.
+- **Ideology:** Judicial Common Space tables join by justice + term, by term (Court,
+  House, Senate, president medians), and by `caseSource` (circuit medians) — see
+  references/jcs.md.
 
 ## 8. Reporting checklist
 

@@ -1,0 +1,706 @@
+judge_key,name,last_name,first_middle,suffix,circuit,circuit_name,scdb_caseSource,scdb_justice,jcs
+abudu_nancy,"Abudu, Nancy",Abudu,Nancy,,11,Eleventh Circuit,31,,-0.423
+adams_arlin_m,"Adams, Arlin M.",Adams,Arlin M.,,3,Third Circuit,23,,0.0955
+agee_g_steven,"Agee, G. Steven",Agee,G. Steven,,4,Fourth Circuit,24,,0.262
+ainsworth_robert,"Ainsworth, Robert",Ainsworth,Robert,,5,Fifth Circuit,25,,-0.1345
+alarcon_arthur_l,"Alarcon, Arthur L.",Alarcon,Arthur L.,,9,Ninth Circuit,29,,-0.387
+aldisert_ruggero,"Aldisert, Ruggero",Aldisert,Ruggero,,3,Third Circuit,23,,-0.576
+aldrich_bailey,"Aldrich, Bailey",Aldrich,Bailey,,1,First Circuit,21,,0.175
+alito_samuel_a_jr,"Alito, Samuel A., Jr.",Alito,Samuel A.,Jr.,3,Third Circuit,23,112,0.557
+allen_florence,"Allen, Florence",Allen,Florence,,6,Sixth Circuit,26,,-0.242
+altimari_frank_x,"Altimari, Frank X.",Altimari,Frank X.,,2,Second Circuit,22,,0.182
+ambro_thomas,"Ambro, Thomas",Ambro,Thomas,,3,Third Circuit,23,,-0.314
+anderson_j_blaine,"Anderson, J. Blaine",Anderson,J. Blaine,,9,Ninth Circuit,29,,0.492
+anderson_r_lanier_iii,"Anderson, R. Lanier, III",Anderson,R. Lanier,III,5,Fifth Circuit,25,,-0.118
+anderson_r_lanier_iii,"Anderson, R. Lanier, III",Anderson,R. Lanier,III,11,Eleventh Circuit,31,,-0.118
+anderson_robert_p,"Anderson, Robert P.",Anderson,Robert P.,,2,Second Circuit,22,,-0.2645
+anderson_stephen_h,"Anderson, Stephen H.",Anderson,Stephen H.,,10,Tenth Circuit,30,,0.4385
+araujo_kahn_maria,"Araújo Kahn, Maria",Araújo Kahn,Maria,,2,Second Circuit,22,,-0.354
+arnold_morris_s,"Arnold, Morris S.",Arnold,Morris S.,,8,Eighth Circuit,28,,0.381
+arnold_richard_s,"Arnold, Richard S.",Arnold,Richard S.,,8,Eighth Circuit,28,,-0.342
+bacharach_robert,"Bacharach, Robert",Bacharach,Robert,,10,Tenth Circuit,30,,-0.358
+bade_bridget_shelton,"Bade, Bridget Shelton",Bade,Bridget Shelton,,9,Ninth Circuit,29,,0.345
+baldock_bobby_r,"Baldock, Bobby R.",Baldock,Bobby R.,,10,Tenth Circuit,30,,0.257
+barkett_rosemary,"Barkett, Rosemary",Barkett,Rosemary,,11,Eleventh Circuit,31,,-0.231
+barksdale_rhesa_h,"Barksdale, Rhesa H.",Barksdale,Rhesa H.,,5,Fifth Circuit,25,,0.3385
+barnes_stanley,"Barnes, Stanley",Barnes,Stanley,,9,Ninth Circuit,29,,0.1625
+barrett_james_e,"Barrett, James E.",Barrett,James E.,,10,Tenth Circuit,30,,0.489
+barron_david,"Barron, David",Barron,David,,1,First Circuit,21,,-0.5195
+barry_maryanne,"Barry, Maryanne",Barry,Maryanne,,3,Third Circuit,23,,-0.322
+bastian_walter_m,"Bastian, Walter M.",Bastian,Walter M.,,12,D.C. Circuit,32,,0.281
+batchelder_alice_m,"Batchelder, Alice M.",Batchelder,Alice M.,,6,Sixth Circuit,26,,0.557
+bauer_william_j,"Bauer, William J.",Bauer,William J.,,7,Seventh Circuit,27,,0.099
+bazelon_david,"Bazelon, David",Bazelon,David,,12,D.C. Circuit,32,,-0.374
+bea_carlos,"Bea, Carlos",Bea,Carlos,,9,Ninth Circuit,29,,0.693
+beam_clarence_a,"Beam, Clarence A.",Beam,Clarence A.,,8,Eighth Circuit,28,,0.345
+becker_edward_r,"Becker, Edward R.",Becker,Edward R.,,3,Third Circuit,23,,0.073
+beezer_robert_r,"Beezer, Robert R.",Beezer,Robert R.,,9,Ninth Circuit,29,,0.255
+bell_griffin,"Bell, Griffin",Bell,Griffin,,5,Fifth Circuit,25,,-0.043
+bell_jesse_s,"Bell, Jesse S.",Bell,Jesse S.,,4,Fourth Circuit,24,,-0.067
+benavides_fortunato_pedro,"Benavides, Fortunato Pedro",Benavides,Fortunato Pedro,,5,Fifth Circuit,25,,-0.117
+benjamin_deandrea,"Benjamin, DeAndrea",Benjamin,DeAndrea,,4,Fourth Circuit,24,,-0.32
+bennett_mark,"Bennett, Mark",Bennett,Mark,,9,Ninth Circuit,29,,0.403
+benton_william,"Benton, William",Benton,William,,8,Eighth Circuit,28,,0.337
+berzon_marsha,"Berzon, Marsha",Berzon,Marsha,,9,Ninth Circuit,29,,-0.359
+bianco_joseph,"Bianco, Joseph",Bianco,Joseph,,2,Second Circuit,22,,0.403
+bibas_stephanos,"Bibas, Stephanos",Bibas,Stephanos,,3,Third Circuit,23,,0.624
+biggs_john_jr,"Biggs, John Jr.",Biggs,John Jr.,,3,Third Circuit,23,,-0.611
+birch_stanley_f_jr,"Birch, Stanley F., Jr.",Birch,Stanley F.,Jr.,11,Eleventh Circuit,31,,0.557
+black_susan_h,"Black, Susan H.",Black,Susan H.,,11,Eleventh Circuit,31,,0.466
+blackmun_harry_andrew,"Blackmun, Harry Andrew",Blackmun,Harry Andrew,,8,Eighth Circuit,28,100,0.281
+bloomekatz_rachel,"Bloomekatz, Rachel",Bloomekatz,Rachel,,6,Sixth Circuit,26,,-0.426
+boggs_danny_j,"Boggs, Danny J.",Boggs,Danny J.,,6,Sixth Circuit,26,,0.404
+bone_homer,"Bone, Homer",Bone,Homer,,9,Ninth Circuit,29,,-0.268333
+boochever_robert,"Boochever, Robert",Boochever,Robert,,9,Ninth Circuit,29,,-0.284
+borah_wayne_g,"Borah, Wayne G.",Borah,Wayne G.,,5,Fifth Circuit,25,,-0.1345
+boreman_herbert_s,"Boreman, Herbert S.",Boreman,Herbert S.,,4,Fourth Circuit,24,,0.281
+bork_robert,"Bork, Robert",Bork,Robert,,12,D.C. Circuit,32,,0.692
+boudin_michael,"Boudin, Michael",Boudin,Michael,,1,First Circuit,21,,0.557
+bowman_pasco_m,"Bowman, Pasco M.",Bowman,Pasco M.,,8,Eighth Circuit,28,,0.196
+bownes_hugh,"Bownes, Hugh",Bownes,Hugh,,1,First Circuit,21,,-0.3545
+branch_elizabeth,"Branch, Elizabeth",Branch,Elizabeth,,11,Eleventh Circuit,31,,0.482
+brasher_andrew,"Brasher, Andrew",Brasher,Andrew,,11,Eleventh Circuit,31,,0.446
+bratton_sam_gilbert,"Bratton, Sam Gilbert",Bratton,Sam Gilbert,,10,Tenth Circuit,30,,-0.2045
+breitenstein_jean,"Breitenstein, Jean",Breitenstein,Jean,,10,Tenth Circuit,30,,0.308
+brennan_michael,"Brennan, Michael",Brennan,Michael,,7,Seventh Circuit,27,,0.636
+bress_daniel,"Bress, Daniel",Bress,Daniel,,9,Ninth Circuit,29,,0.403
+breyer_stephen_g,"Breyer, Stephen G.",Breyer,Stephen G.,,1,First Circuit,21,110,-0.413
+bright_myron,"Bright, Myron",Bright,Myron,,8,Eighth Circuit,28,,-0.371
+briscoe_mary,"Briscoe, Mary",Briscoe,Mary,,10,Tenth Circuit,30,,-0.438
+brooks_henry_l,"Brooks, Henry L.",Brooks,Henry L.,,6,Sixth Circuit,26,,0.103
+brorby_wade,"Brorby, Wade",Brorby,Wade,,10,Tenth Circuit,30,,0.4485
+brown_bailey,"Brown, Bailey",Brown,Bailey,,6,Sixth Circuit,26,,-0.355
+brown_janice_rogers,"Brown, Janice Rogers",Brown,Janice Rogers,,12,D.C. Circuit,32,,0.693
+brown_john_r,"Brown, John R.",Brown,John R.,,5,Fifth Circuit,25,,0.281
+browning_james_robert,"Browning, James Robert",Browning,James Robert,,9,Ninth Circuit,29,,-0.461
+brunetti_melvin_t,"Brunetti, Melvin T.",Brunetti,Melvin T.,,9,Ninth Circuit,29,,0.4905
+bryan_albert_v_i,"Bryan, Albert V., I",Bryan,Albert V.,I,4,Fourth Circuit,24,,0.133
+bryson_william_c,"Bryson, William C.",Bryson,William C.,,13,Federal Circuit,8,,-0.438
+buckley_james_l,"Buckley, James L.",Buckley,James L.,,12,D.C. Circuit,32,,0.692
+bumatay_patrick,"Bumatay, Patrick",Bumatay,Patrick,,9,Ninth Circuit,29,,0.403
+burger_warren_earl,"Burger, Warren Earl",Burger,Warren Earl,,12,D.C. Circuit,32,99,0.281
+bush_john,"Bush, John",Bush,John,,6,Sixth Circuit,26,,0.6475
+butzner_john,"Butzner, John",Butzner,John,,4,Fourth Circuit,24,,-0.047
+bybee_jay,"Bybee, Jay",Bybee,Jay,,9,Ninth Circuit,29,,0.693
+bye_kermit,"Bye, Kermit",Bye,Kermit,,8,Eighth Circuit,28,,-0.2815
+cabranes_jose_alberto,"Cabranes, Jose Alberto",Cabranes,Jose Alberto,,2,Second Circuit,22,,-0.2665
+calabresi_guido,"Calabresi, Guido",Calabresi,Guido,,2,Second Circuit,22,,-0.2665
+callahan_consuelo,"Callahan, Consuelo",Callahan,Consuelo,,9,Ninth Circuit,29,,0.693
+cameron_benjamin,"Cameron, Benjamin",Cameron,Benjamin,,5,Fifth Circuit,25,,0.281
+campbell_levin_h,"Campbell, Levin H.",Campbell,Levin H.,,1,First Circuit,21,,-0.1
+canby_william_c,"Canby, William C.",Canby,William C.,,9,Ninth Circuit,29,,-0.216
+cardamone_richard_j,"Cardamone, Richard J.",Cardamone,Richard J.,,2,Second Circuit,22,,0.182
+carnes_edward_e,"Carnes, Edward E.",Carnes,Edward E.,,11,Eleventh Circuit,31,,0.557
+carnes_julie,"Carnes, Julie",Carnes,Julie,,11,Eleventh Circuit,31,,-0.358
+carney_susan,"Carney, Susan",Carney,Susan,,2,Second Circuit,22,,-0.352
+carrillo_ramirez_irma,"Carrillo Ramirez, Irma",Carrillo Ramirez,Irma,,5,Fifth Circuit,25,,-0.32
+carson_joel,"Carson, Joel",Carson,Joel,,10,Tenth Circuit,30,,0.403
+carswell_george_h,"Carswell, George H.",Carswell,George H.,,5,Fifth Circuit,25,,0.306
+carter_james_m,"Carter, James M.",Carter,James M.,,9,Ninth Circuit,29,,-0.337
+castle_latham,"Castle, Latham",Castle,Latham,,7,Seventh Circuit,27,,0.317
+cecil_lester_l,"Cecil, Lester L.",Cecil,Lester L.,,6,Sixth Circuit,26,,0.281
+celebrezze_anthony,"Celebrezze, Anthony",Celebrezze,Anthony,,6,Sixth Circuit,26,,-0.069
+chagares_michael,"Chagares, Michael",Chagares,Michael,,3,Third Circuit,23,,0.693
+chambers_richard_h,"Chambers, Richard H.",Chambers,Richard H.,,9,Ninth Circuit,29,,0.641
+chapman_robert_f,"Chapman, Robert F.",Chapman,Robert F.,,4,Fourth Circuit,24,,0.391
+chase_harrie_b,"Chase, Harrie B.",Chase,Harrie B.,,2,Second Circuit,22,,0.513
+chen_raymond,"Chen, Raymond",Chen,Raymond,,13,Federal Circuit,8,,-0.358
+chertoff_michael,"Chertoff, Michael",Chertoff,Michael,,3,Third Circuit,23,,0.693
+childs_j_michelle,"Childs, J. Michelle",Childs,J. Michelle,,12,D.C. Circuit,32,,-0.32
+chin_denny,"Chin, Denny",Chin,Denny,,2,Second Circuit,22,,-0.397
+choy_herbert_y,"Choy, Herbert Y.",Choy,Herbert Y.,,9,Ninth Circuit,29,,0.165
+christen_morgan,"Christen, Morgan",Christen,Morgan,,9,Ninth Circuit,29,,-0.235
+chung_cindy,"Chung, Cindy",Chung,Cindy,,3,Third Circuit,23,,-0.3125
+clark_bennett_c,"Clark, Bennett C.",Clark,Bennett C.,,12,D.C. Circuit,32,,-0.368
+clark_charles,"Clark, Charles",Clark,Charles,,5,Fifth Circuit,25,,0.552
+clark_charles_edward,"Clark, Charles Edward",Clark,Charles Edward,,2,Second Circuit,22,,-0.156
+clark_thomas_a,"Clark, Thomas A.",Clark,Thomas A.,,5,Fifth Circuit,25,,-0.1965
+clark_thomas_a,"Clark, Thomas A.",Clark,Thomas A.,,11,Eleventh Circuit,31,,-0.1965
+clay_eric,"Clay, Eric",Clay,Eric,,6,Sixth Circuit,26,,-0.395
+clayton_claude,"Clayton, Claude",Clayton,Claude,,5,Fifth Circuit,25,,-0.016
+clement_edith_brown,"Clement, Edith Brown",Clement,Edith Brown,,5,Fifth Circuit,25,,0.693
+clevenger_raymond_c,"Clevenger, Raymond C.",Clevenger,Raymond C.,,13,Federal Circuit,8,,0.557
+clifton_richard_r,"Clifton, Richard R.",Clifton,Richard R.,,9,Ninth Circuit,29,,0.693
+coffey_john_l,"Coffey, John L.",Coffey,John L.,,7,Seventh Circuit,27,,0.261
+coffin_frank,"Coffin, Frank",Coffin,Frank,,1,First Circuit,21,,-0.379
+cole_ransey_guy,"Cole, Ransey Guy",Cole,Ransey Guy,,6,Sixth Circuit,26,,-0.262
+coleman_james_p,"Coleman, James P.",Coleman,James P.,,5,Fifth Circuit,25,,-0.016
+collet_john,"Collet, John",Collet,John,,8,Eighth Circuit,28,,-0.374
+collins_daniel,"Collins, Daniel",Collins,Daniel,,9,Ninth Circuit,29,,0.403
+colloton_steven,"Colloton, Steven",Colloton,Steven,,8,Eighth Circuit,28,,0.358
+combs_bert_t,"Combs, Bert T.",Combs,Bert T.,,6,Sixth Circuit,26,,-0.337
+coney_barrett_amy,"Coney Barrett, Amy",Coney Barrett,Amy,,7,Seventh Circuit,27,,0.445
+contie_leroy_j,"Contie, Leroy J.",Contie,Leroy J.,,6,Sixth Circuit,26,,0.692
+cook_deborah,"Cook, Deborah",Cook,Deborah,,6,Sixth Circuit,26,,0.264
+costa_gregg,"Costa, Gregg",Costa,Gregg,,5,Fifth Circuit,25,,-0.358
+cowen_robert_e,"Cowen, Robert E.",Cowen,Robert E.,,3,Third Circuit,23,,0.692
+cox_emmett_r,"Cox, Emmett R.",Cox,Emmett R.,,11,Eleventh Circuit,31,,0.692
+craven_james,"Craven, James",Craven,James,,4,Fourth Circuit,24,,-0.067
+cudahy_richard_d,"Cudahy, Richard D.",Cudahy,Richard D.,,7,Seventh Circuit,27,,-0.333
+cummings_walter,"Cummings, Walter",Cummings,Walter,,7,Seventh Circuit,27,,-0.58
+cunningham_tiffany,"Cunningham, Tiffany",Cunningham,Tiffany,,13,Federal Circuit,8,,-0.32
+cyr_conrad_f,"Cyr, Conrad F.",Cyr,Conrad F.,,1,First Circuit,21,,0.1
+danaher_john_a,"Danaher, John A.",Danaher,John A.,,12,D.C. Circuit,32,,0.281
+daughtrey_martha_craig,"Daughtrey, Martha Craig",Daughtrey,Martha Craig,,6,Sixth Circuit,26,,-0.3395
+davis_andre,"Davis, Andre",Davis,Andre,,4,Fourth Circuit,24,,-0.345
+davis_stephanie,"Davis, Stephanie",Davis,Stephanie,,6,Sixth Circuit,26,,-0.2945
+davis_w_eugene,"Davis, W. Eugene",Davis,W. Eugene,,5,Fifth Circuit,25,,0.692
+demoss_harold_r_jr,"DeMoss, Harold R., Jr.",DeMoss,Harold R.,Jr.,5,Fifth Circuit,25,,0.551
+denman_william,"Denman, William",Denman,William,,9,Ninth Circuit,29,,-0.179
+dennis_james,"Dennis, James",Dennis,James,,5,Fifth Circuit,25,,-0.1575
+desai_roopali,"Desai, Roopali",Desai,Roopali,,9,Ninth Circuit,29,,-0.1585
+diaz_albert,"Diaz, Albert",Diaz,Albert,,4,Fourth Circuit,24,,-0.202
+dobie_armistead,"Dobie, Armistead",Dobie,Armistead,,4,Fourth Circuit,24,,-0.058
+donald_bernice,"Donald, Bernice",Donald,Bernice,,6,Sixth Circuit,26,,-0.358
+douglas_dana,"Douglas, Dana",Douglas,Dana,,5,Fifth Circuit,25,,-0.32
+doyle_william_e,"Doyle, William E.",Doyle,William E.,,10,Tenth Circuit,30,,0.3385
+droney_christopher,"Droney, Christopher",Droney,Christopher,,2,Second Circuit,22,,-0.3205
+dubina_joel_f,"Dubina, Joel F.",Dubina,Joel F.,,11,Eleventh Circuit,31,,0.557
+duffy_francis_ryan,"Duffy, Francis Ryan",Duffy,Francis Ryan,,7,Seventh Circuit,27,,-0.374
+duhe_john_m,"Duhe, John M.",Duhe,John M.,,5,Fifth Circuit,25,,0.692
+duncan_allyson,"Duncan, Allyson",Duncan,Allyson,,4,Fourth Circuit,24,,0.363
+duncan_kyle,"Duncan, Kyle",Duncan,Kyle,,5,Fifth Circuit,25,,0.508
+duniway_benjamin,"Duniway, Benjamin",Duniway,Benjamin,,9,Ninth Circuit,29,,-0.219
+dyer_david_w,"Dyer, David W.",Dyer,David W.,,5,Fifth Circuit,25,,-0.067
+dyk_timothy_b,"Dyk, Timothy B.",Dyk,Timothy B.,,13,Federal Circuit,8,,-0.438
+easterbrook_frank_h,"Easterbrook, Frank H.",Easterbrook,Frank H.,,7,Seventh Circuit,27,,0.692
+ebel_david_m,"Ebel, David M.",Ebel,David M.,,10,Tenth Circuit,30,,0.508
+edgerton_henry_white,"Edgerton, Henry White",Edgerton,Henry White,,12,D.C. Circuit,32,,-0.368
+edmondson_james_l,"Edmondson, James L.",Edmondson,James L.,,11,Eleventh Circuit,31,,0.333
+edwards_george_c,"Edwards, George C.",Edwards,George C.,,6,Sixth Circuit,26,,-0.5215
+edwards_harry_t,"Edwards, Harry T.",Edwards,Harry T.,,12,D.C. Circuit,32,,-0.504
+eid_allison,"Eid, Allison",Eid,Allison,,10,Tenth Circuit,30,,0.444
+elrod_jennifer,"Elrod, Jennifer",Elrod,Jennifer,,5,Fifth Circuit,25,,0.4135
+ely_walter,"Ely, Walter",Ely,Walter,,9,Ninth Circuit,29,,-0.3405
+engel_albert_j,"Engel, Albert J.",Engel,Albert J.,,6,Sixth Circuit,26,,0.327
+engelhardt_kurt,"Engelhardt, Kurt",Engelhardt,Kurt,,5,Fifth Circuit,25,,0.508
+erickson_ralph,"Erickson, Ralph",Erickson,Ralph,,8,Eighth Circuit,28,,0.395
+ervin_samuel_j_iii,"Ervin, Samuel J., III",Ervin,Samuel J.,III,4,Fourth Circuit,24,,-0.237
+eschbach_jesse_e,"Eschbach, Jesse E.",Eschbach,Jesse E.,,7,Seventh Circuit,27,,0.401
+evans_terrance,"Evans, Terrance",Evans,Terrance,,7,Seventh Circuit,27,,-0.282
+fagg_george_b,"Fagg, George B.",Fagg,George B.,,8,Eighth Circuit,28,,0.3475
+fahy_charles,"Fahy, Charles",Fahy,Charles,,12,D.C. Circuit,32,,-0.374
+fairchild_thomas,"Fairchild, Thomas",Fairchild,Thomas,,7,Seventh Circuit,27,,-0.5825
+farris_joseph_jerome,"Farris, Joseph Jerome",Farris,Joseph Jerome,,9,Ninth Circuit,29,,-0.3105
+fay_peter_t,"Fay, Peter T.",Fay,Peter T.,,5,Fifth Circuit,25,,0.506
+fay_peter_t,"Fay, Peter T.",Fay,Peter T.,,11,Eleventh Circuit,31,,0.506
+federico_richard,"Federico, Richard",Federico,Richard,,10,Tenth Circuit,30,,-0.32
+fee_james_alger,"Fee, James Alger",Fee,James Alger,,9,Ninth Circuit,29,,0.225
+feinberg_wilfred,"Feinberg, Wilfred",Feinberg,Wilfred,,2,Second Circuit,22,,-0.472
+ferguson_warren_j,"Ferguson, Warren J.",Ferguson,Warren J.,,9,Ninth Circuit,29,,-0.387
+fernandez_ferdinand_f,"Fernandez, Ferdinand F.",Fernandez,Ferdinand F.,,9,Ninth Circuit,29,,0.352
+field_john_a,"Field, John A.",Field,John A.,,4,Fourth Circuit,24,,0.552
+finnegan_philip,"Finnegan, Philip",Finnegan,Philip,,7,Seventh Circuit,27,,-0.4465
+fisher_michael,"Fisher, Michael",Fisher,Michael,,3,Third Circuit,23,,0.203
+fisher_raymond,"Fisher, Raymond",Fisher,Raymond,,9,Ninth Circuit,29,,-0.359
+flaum_joel_m,"Flaum, Joel M.",Flaum,Joel M.,,7,Seventh Circuit,27,,0.099
+fletcher_betty_b,"Fletcher, Betty B.",Fletcher,Betty B.,,9,Ninth Circuit,29,,-0.3105
+fletcher_william,"Fletcher, William",Fletcher,William,,9,Ninth Circuit,29,,-0.359
+floyd_henry,"Floyd, Henry",Floyd,Henry,,4,Fourth Circuit,24,,-0.358
+forman_phillip,"Forman, Phillip",Forman,Phillip,,3,Third Circuit,23,,-0.108
+frank_jerome,"Frank, Jerome",Frank,Jerome,,2,Second Circuit,22,,-0.452
+freedman_abraham,"Freedman, Abraham",Freedman,Abraham,,3,Third Circuit,23,,-0.576
+freeman_arianna,"Freeman, Arianna",Freeman,Arianna,,3,Third Circuit,23,,-0.313
+friedland_michelle,"Friedland, Michelle",Friedland,Michelle,,9,Ninth Circuit,29,,-0.359
+friendly_henry,"Friendly, Henry",Friendly,Henry,,2,Second Circuit,22,,0.0035
+fuentes_julio_m,"Fuentes, Julio M.",Fuentes,Julio M.,,3,Third Circuit,23,,-0.322
+gajarsa_arthur,"Gajarsa, Arthur",Gajarsa,Arthur,,13,Federal Circuit,8,,-0.438
+ganey_j_cullen,"Ganey, J. Cullen",Ganey,J. Cullen,,3,Third Circuit,23,,-0.576
+garcia_brad,"Garcia, Brad",Garcia,Brad,,12,D.C. Circuit,32,,-0.32
+gardner_archibald,"Gardner, Archibald",Gardner,Archibald,,8,Eighth Circuit,28,,0.2225
+garland_merrick,"Garland, Merrick",Garland,Merrick,,12,D.C. Circuit,32,,-0.438
+garth_leonard_i,"Garth, Leonard I.",Garth,Leonard I.,,3,Third Circuit,23,,-0.108
+garwood_william_l,"Garwood, William L.",Garwood,William L.,,5,Fifth Circuit,25,,0.444
+garza_emilio_m,"Garza, Emilio M.",Garza,Emilio M.,,5,Fifth Circuit,25,,0.551
+garza_reynaldo,"Garza, Reynaldo",Garza,Reynaldo,,5,Fifth Circuit,25,,-0.163
+gee_thomas_g,"Gee, Thomas G.",Gee,Thomas G.,,5,Fifth Circuit,25,,0.444
+gelpi_gustavo,"Gelpi, Gustavo",Gelpi,Gustavo,,1,First Circuit,21,,-0.32
+gewin_walter_p,"Gewin, Walter P.",Gewin,Walter P.,,5,Fifth Circuit,25,,-0.2345
+gibbons_john_j,"Gibbons, John J.",Gibbons,John J.,,3,Third Circuit,23,,-0.108
+gibbons_julia_smith,"Gibbons, Julia Smith",Gibbons,Julia Smith,,6,Sixth Circuit,26,,0.3845
+gibson_floyd,"Gibson, Floyd",Gibson,Floyd,,8,Eighth Circuit,28,,-0.315
+gibson_john_r,"Gibson, John R.",Gibson,John R.,,8,Eighth Circuit,28,,0.196
+gilman_ronald_lee,"Gilman, Ronald Lee",Gilman,Ronald Lee,,6,Sixth Circuit,26,,-0.438
+ginsburg_douglas_h,"Ginsburg, Douglas, H.",Ginsburg,Douglas H.,,12,D.C. Circuit,32,,0.692
+ginsburg_ruth_bader,"Ginsburg, Ruth Bader",Ginsburg,Ruth Bader,,12,D.C. Circuit,32,109,-0.504
+godbold_john,"Godbold, John",Godbold,John,,5,Fifth Circuit,25,,-0.2345
+godbold_john,"Godbold, John",Godbold,John,,11,Eleventh Circuit,31,,-0.2345
+goldberg_irving,"Goldberg, Irving",Goldberg,Irving,,5,Fifth Circuit,25,,-0.416
+goodrich_herbert,"Goodrich, Herbert",Goodrich,Herbert,,3,Third Circuit,23,,-0.656
+goodwin_alfred_t,"Goodwin, Alfred T.",Goodwin,Alfred T.,,9,Ninth Circuit,29,,0.0955
+gorsuch_neil,"Gorsuch, Neil",Gorsuch,Neil,,10,Tenth Circuit,30,115,0.572
+gould_ronald,"Gould, Ronald",Gould,Ronald,,9,Ninth Circuit,29,,-0.352
+graber_susan,"Graber, Susan",Graber,Susan,,9,Ninth Circuit,29,,-0.33
+grant_britt,"Grant, Britt",Grant,Britt,,11,Eleventh Circuit,31,,0.482
+grasz_l_steven,"Grasz, L. Steven",Grasz,L. Steven,,8,Eighth Circuit,28,,0.567
+graves_james,"Graves, James",Graves,James,,5,Fifth Circuit,25,,-0.358
+greenaway_joseph,"Greenaway, Joseph",Greenaway,Joseph,,3,Third Circuit,23,,-0.374
+greenberg_morton_i,"Greenberg, Morton I.",Greenberg,Morton I.,,3,Third Circuit,23,,0.692
+gregory_roger_l,"Gregory, Roger L.",Gregory,Roger L.,,4,Fourth Circuit,24,,0.3355
+griffin_richard,"Griffin, Richard",Griffin,Richard,,6,Sixth Circuit,26,,0.693
+griffith_thomas,"Griffith, Thomas",Griffith,Thomas,,12,D.C. Circuit,32,,0.693
+gruender_raymond,"Gruender, Raymond",Gruender,Raymond,,8,Eighth Circuit,28,,0.337
+gurfein_murray_i,"Gurfein, Murray I.",Gurfein,Murray I.,,2,Second Circuit,22,,-0.124
+guy_ralph_b_jr,"Guy, Ralph B., Jr.",Guy,Ralph B.,Jr.,6,Sixth Circuit,26,,0.692
+hall_cynthia_h,"Hall, Cynthia H.",Hall,Cynthia H.,,9,Ninth Circuit,29,,0.352
+hall_kenneth_k,"Hall, Kenneth K.",Hall,Kenneth K.,,4,Fourth Circuit,24,,0.506
+hall_peter,"Hall, Peter",Hall,Peter,,2,Second Circuit,22,,0.693
+hamilton_clyde_h,"Hamilton, Clyde H.",Hamilton,Clyde H.,,4,Fourth Circuit,24,,0.391
+hamilton_david,"Hamilton, David",Hamilton,David,,7,Seventh Circuit,27,,-0.158
+hamley_frederick,"Hamley, Frederick",Hamley,Frederick,,9,Ninth Circuit,29,,0.281
+hamlin_oliver_d,"Hamlin, Oliver D.",Hamlin,Oliver D.,,9,Ninth Circuit,29,,0.1625
+hand_augustus,"Hand, Augustus",Hand,Augustus,,2,Second Circuit,22,,0.396
+hand_learned,"Hand, Learned",Hand,Learned,,2,Second Circuit,22,,0.434
+hansen_david_r,"Hansen, David R.",Hansen,David R.,,8,Eighth Circuit,28,,0.358
+hardiman_thomas,"Hardiman, Thomas",Hardiman,Thomas,,3,Third Circuit,23,,0.068
+harlan_john_marshall,"Harlan, John Marshall",Harlan,John Marshall,,2,Second Circuit,22,91,0.043
+harris_pamela,"Harris, Pamela",Harris,Pamela,,4,Fourth Circuit,24,,-0.358
+hartigan_john_p,"Hartigan, John P.",Hartigan,John P.,,1,First Circuit,21,,-0.299
+hartz_harris_l,"Hartz, Harris L.",Hartz,Harris L.,,10,Tenth Circuit,30,,0.257
+hastie_william_h,"Hastie, William H.",Hastie,William H.,,3,Third Circuit,23,,-0.374
+hastings_john,"Hastings, John",Hastings,John,,7,Seventh Circuit,27,,0.471
+hatchett_joseph_w,"Hatchett, Joseph W.",Hatchett,Joseph W.,,5,Fifth Circuit,25,,-0.1965
+hatchett_joseph_w,"Hatchett, Joseph W.",Hatchett,Joseph W.,,11,Eleventh Circuit,31,,-0.1965
+hawkins_michael_daly,"Hawkins, Michael Daly",Hawkins,Michael Daly,,9,Ninth Circuit,29,,-0.216
+haynes_catharina,"Haynes, Catharina",Haynes,Catharina,,5,Fifth Circuit,25,,0.4135
+haynsworth_clement,"Haynsworth, Clement",Haynsworth,Clement,,4,Fourth Circuit,24,,0.281
+hays_paul,"Hays, Paul",Hays,Paul,,2,Second Circuit,22,,-0.472
+healy_william,"Healy, William",Healy,William,,9,Ninth Circuit,29,,-0.15
+heaney_gerald,"Heaney, Gerald",Heaney,Gerald,,8,Eighth Circuit,28,,-0.436
+henderson_albert_j,"Henderson, Albert J.",Henderson,Albert J.,,5,Fifth Circuit,25,,-0.118
+henderson_albert_j,"Henderson, Albert J.",Henderson,Albert J.,,11,Eleventh Circuit,31,,-0.118
+henderson_karen_lecraft,"Henderson, Karen LeCraft",Henderson,Karen LeCraft,,12,D.C. Circuit,32,,0.391
+henley_jesse_smith,"Henley, Jesse Smith",Henley,Jesse Smith,,8,Eighth Circuit,28,,0.506
+henry_robert_harlan,"Henry, Robert Harlan",Henry,Robert Harlan,,10,Tenth Circuit,30,,-0.142
+heytens_toby,"Heytens, Toby",Heytens,Toby,,4,Fourth Circuit,24,,-0.2255
+hickey_john,"Hickey, John",Hickey,John,,10,Tenth Circuit,30,,-0.24
+hicks_xenophon,"Hicks, Xenophon",Hicks,Xenophon,,6,Sixth Circuit,26,,0.396
+higginbotham_aloyisus_leon,"Higginbotham, Aloyisus Leon",Higginbotham,Aloyisus Leon,,3,Third Circuit,23,,-0.504
+higginbotham_patrick_e,"Higginbotham, Patrick E.",Higginbotham,Patrick E.,,5,Fifth Circuit,25,,0.444
+higginson_stephen,"Higginson, Stephen",Higginson,Stephen,,5,Fifth Circuit,25,,-0.203
+hill_delmas,"Hill, Delmas",Hill,Delmas,,10,Tenth Circuit,30,,-0.472
+hill_james_c,"Hill, James C.",Hill,James C.,,5,Fifth Circuit,25,,0.506
+hill_james_c,"Hill, James C.",Hill,James C.,,11,Eleventh Circuit,31,,0.506
+hill_robert_m,"Hill, Robert M.",Hill,Robert M.,,5,Fifth Circuit,25,,0.444
+hincks_carroll,"Hincks, Carroll",Hincks,Carroll,,2,Second Circuit,22,,0.233
+ho_james,"Ho, James",Ho,James,,5,Fifth Circuit,25,,0.6305
+holloway_william,"Holloway, William",Holloway,William,,10,Tenth Circuit,30,,-0.332
+holmes_edwin,"Holmes, Edwin",Holmes,Edwin,,5,Fifth Circuit,25,,-0.327
+holmes_jerome,"Holmes, Jerome",Holmes,Jerome,,10,Tenth Circuit,30,,0.667
+howard_jeffrey_r,"Howard, Jeffrey R.",Howard,Jeffrey R.,,1,First Circuit,21,,0.526
+hufstedler_shirley,"Hufstedler, Shirley",Hufstedler,Shirley,,9,Ninth Circuit,29,,-0.337
+hug_procter_r,"Hug, Procter R.",Hug,Procter R.,,9,Ninth Circuit,29,,-0.211
+hughes_todd,"Hughes, Todd",Hughes,Todd,,13,Federal Circuit,8,,-0.358
+hull_frank_m,"Hull, Frank M.",Hull,Frank M.,,11,Eleventh Circuit,31,,-0.22
+hunsaker_danielle,"Hunsaker, Danielle",Hunsaker,Danielle,,9,Ninth Circuit,29,,0.403
+hunter_james_iii,"Hunter, James, III",Hunter,James,III,3,Third Circuit,23,,-0.108
+hurwitz_andrew,"Hurwitz, Andrew",Hurwitz,Andrew,,9,Ninth Circuit,29,,-0.358
+hutcheson_john_chappell_jr,"Hutcheson, John Chappell, Jr.",Hutcheson,John Chappell,Jr.,5,Fifth Circuit,25,,
+hutchinson_william_d,"Hutchinson, William D.",Hutchinson,William D.,,3,Third Circuit,23,,0.073
+huxman_walter,"Huxman, Walter",Huxman,Walter,,10,Tenth Circuit,30,,-0.368
+ikuta_sandra,"Ikuta, Sandra",Ikuta,Sandra,,9,Ninth Circuit,29,,0.693
+ingraham_joe_m,"Ingraham, Joe M.",Ingraham,Joe M.,,5,Fifth Circuit,25,,0.444
+jackson_ketanji_brown,"Jackson, Ketanji Brown",Jackson,Ketanji Brown,,12,D.C. Circuit,32,118,-0.32
+jackson_akiwumi_candace,"Jackson-Akiwumi, Candace",Jackson-Akiwumi,Candace,,7,Seventh Circuit,27,,-0.342
+jacobs_dennis_g,"Jacobs, Dennis G.",Jacobs,Dennis G.,,2,Second Circuit,22,,0.182
+jertberg_gilbert,"Jertberg, Gilbert",Jertberg,Gilbert,,9,Ninth Circuit,29,,0.1625
+johnsen_harvey,"Johnsen, Harvey",Johnsen,Harvey,,8,Eighth Circuit,28,,-0.086
+johnson_frank_m,"Johnson, Frank M.",Johnson,Frank M.,,5,Fifth Circuit,25,,-0.1995
+johnson_frank_m,"Johnson, Frank M.",Johnson,Frank M.,,11,Eleventh Circuit,31,,-0.1995
+johnson_sam_d,"Johnson, Sam D.",Johnson,Sam D.,,5,Fifth Circuit,25,,-0.163
+johnstone_anthony,"Johnstone, Anthony",Johnstone,Anthony,,9,Ninth Circuit,29,,-0.214
+jolly_e_grady,"Jolly, E. Grady",Jolly,E. Grady,,5,Fifth Circuit,25,,0.287
+jones_edith_h,"Jones, Edith H.",Jones,Edith H.,,5,Fifth Circuit,25,,0.551
+jones_nathaniel_r,"Jones, Nathaniel R.",Jones,Nathaniel R.,,6,Sixth Circuit,26,,-0.377
+jones_warren,"Jones, Warren",Jones,Warren,,5,Fifth Circuit,25,,0.281
+jordan_adalberto,"Jordan, Adalberto",Jordan,Adalberto,,11,Eleventh Circuit,31,,-0.193
+jordan_kent,"Jordan, Kent",Jordan,Kent,,3,Third Circuit,23,,0.693
+kalodner_harry_e,"Kalodner, Harry E.",Kalodner,Harry E.,,3,Third Circuit,23,,-0.551
+kanne_michael_s,"Kanne, Michael S.",Kanne,Michael S.,,7,Seventh Circuit,27,,0.401
+kastas_gregory,"Kastas, Gregory",Kastas,Gregory,,12,D.C. Circuit,32,,0.403
+katzmann_robert,"Katzmann, Robert",Katzmann,Robert,,2,Second Circuit,22,,-0.328
+kaufman_irving_r,"Kaufman, Irving R.",Kaufman,Irving R.,,2,Second Circuit,22,,-0.472
+kavanaugh_brett,"Kavanaugh, Brett",Kavanaugh,Brett,,12,D.C. Circuit,32,116,0.693
+kayatta_william,"Kayatta, William",Kayatta,William,,1,First Circuit,21,,-0.358
+kearse_amalya_lyle,"Kearse, Amalya Lyle",Kearse,Amalya Lyle,,2,Second Circuit,22,,-0.301
+keenan_barbara,"Keenan, Barbara",Keenan,Barbara,,4,Fourth Circuit,24,,-0.1875
+keith_damon_j,"Keith, Damon J.",Keith,Damon J.,,6,Sixth Circuit,26,,-0.426
+kelly_jane,"Kelly, Jane",Kelly,Jane,,8,Eighth Circuit,28,,-0.351
+kelly_john_david,"Kelly, John David",Kelly,John David,,8,Eighth Circuit,28,,-0.2815
+kelly_paul_j_jr,"Kelly, Paul J., Jr.",Kelly,Paul J.,Jr.,10,Tenth Circuit,30,,0.257
+kennedy_anthony_mccleod,"Kennedy, Anthony McCleod",Kennedy,Anthony McCleod,,9,Ninth Circuit,29,106,0.506
+kennedy_cornelia_groefsema,"Kennedy, Cornelia Groefsema",Kennedy,Cornelia Groefsema,,6,Sixth Circuit,26,,-0.4105
+kent_william_wallace,"Kent, William Wallace",Kent,William Wallace,,6,Sixth Circuit,26,,0.327
+kerner_otto_jr,"Kerner, Otto, Jr.",Kerner,Otto,Jr.,7,Seventh Circuit,27,,-0.337
+kethledge_raymond,"Kethledge, Raymond",Kethledge,Raymond,,6,Sixth Circuit,26,,0.693
+kiley_roger_j,"Kiley, Roger J.",Kiley,Roger J.,,7,Seventh Circuit,27,,-0.58
+kilkenny_john_francis,"Kilkenny, John Francis",Kilkenny,John Francis,,9,Ninth Circuit,29,,0.0955
+king_carolyn_dineen,"King, Carolyn Dineen",King,Carolyn Dineen,,5,Fifth Circuit,25,,-0.163
+king_robert_bruce,"King, Robert Bruce",King,Robert Bruce,,4,Fourth Circuit,24,,-0.3175
+kirsch_thomas,"Kirsch, Thomas",Kirsch,Thomas,,7,Seventh Circuit,27,,0.6225
+kleinfeld_andrew_j,"Kleinfeld, Andrew J.",Kleinfeld,Andrew J.,,9,Ninth Circuit,29,,0.2825
+knoch_win_g,"Knoch, Win G.",Knoch,Win G.,,7,Seventh Circuit,27,,0.317
+kobes_jonathan,"Kobes, Jonathan",Kobes,Jonathan,,8,Eighth Circuit,28,,0.389
+koelsch_montgomery_oliver,"Koelsch, Montgomery Oliver",Koelsch,Montgomery Oliver,,9,Ninth Circuit,29,,0.402
+koh_lucy,"Koh, Lucy",Koh,Lucy,,9,Ninth Circuit,29,,-0.454667
+kolar_joshua,"Kolar, Joshua",Kolar,Joshua,,7,Seventh Circuit,27,,-0.32
+kozinski_alex,"Kozinski, Alex",Kozinski,Alex,,9,Ninth Circuit,29,,0.352
+krause_cheryl,"Krause, Cheryl",Krause,Cheryl,,3,Third Circuit,23,,-0.313
+kravitch_phyllis_a,"Kravitch, Phyllis A.",Kravitch,Phyllis A.,,5,Fifth Circuit,25,,-0.118
+kravitch_phyllis_a,"Kravitch, Phyllis A.",Kravitch,Phyllis A.,,11,Eleventh Circuit,31,,-0.118
+krupansky_robert_b,"Krupansky, Robert B.",Krupansky,Robert B.,,6,Sixth Circuit,26,,0.692
+lagoa_barbara,"Lagoa, Barbara",Lagoa,Barbara,,11,Eleventh Circuit,31,,0.6475
+larsen_joan,"Larsen, Joan",Larsen,Joan,,6,Sixth Circuit,26,,0.403
+lay_donald,"Lay, Donald",Lay,Donald,,8,Eighth Circuit,28,,-0.337
+leavy_edward,"Leavy, Edward",Leavy,Edward,,9,Ninth Circuit,29,,0.0955
+lee_elmo,"Lee, Elmo",Lee,Elmo,,5,Fifth Circuit,25,,-0.071
+lee_eunice,"Lee, Eunice",Lee,Eunice,,2,Second Circuit,22,,-0.412
+lee_john,"Lee, John",Lee,John,,7,Seventh Circuit,27,,-0.342
+lee_kenneth,"Lee, Kenneth",Lee,Kenneth,,9,Ninth Circuit,29,,0.403
+lemmon_dal,"Lemmon, Dal",Lemmon,Dal,,9,Ninth Circuit,29,,0.1625
+leval_pierre_nelson,"Leval, Pierre Nelson",Leval,Pierre Nelson,,2,Second Circuit,22,,-0.301
+leventhal_harold,"Leventhal, Harold",Leventhal,Harold,,12,D.C. Circuit,32,,-0.337
+lewis_david_t,"Lewis, David T.",Lewis,David T.,,10,Tenth Circuit,30,,0.3795
+lewis_timothy_k,"Lewis, Timothy K.",Lewis,Timothy K.,,3,Third Circuit,23,,0.073
+lindley_walter,"Lindley, Walter",Lindley,Walter,,7,Seventh Circuit,27,,-0.4465
+linn_richard,"Linn, Richard",Linn,Richard,,13,Federal Circuit,8,,-0.438
+lipez_kermit,"Lipez, Kermit",Lipez,Kermit,,1,First Circuit,21,,-0.438
+lively_frederick_p,"Lively, Frederick P.",Lively,Frederick P.,,6,Sixth Circuit,26,,0.103
+livingston_debra,"Livingston, Debra",Livingston,Debra,,2,Second Circuit,22,,0.693
+logan_james_k,"Logan, James K.",Logan,James K.,,10,Tenth Circuit,30,,-0.504
+lohier_raymond,"Lohier, Raymond",Lohier,Raymond,,2,Second Circuit,22,,-0.397
+loken_james_b,"Loken, James B.",Loken,James B.,,8,Eighth Circuit,28,,0.195
+lourie_alan_d,"Lourie, Alan D.",Lourie,Alan D.,,13,Federal Circuit,8,,0.557
+lucero_carlos,"Lucero, Carlos",Lucero,Carlos,,10,Tenth Circuit,30,,-0.141
+luck_robert,"Luck, Robert",Luck,Robert,,11,Eleventh Circuit,31,,0.6475
+lumbard_joseph_e,"Lumbard, Joseph E.",Lumbard,Joseph E.,,2,Second Circuit,22,,0.043
+luttig_j_michael,"Luttig, J. Michael",Luttig,J. Michael,,4,Fourth Circuit,24,,0.262
+lynch_gerard,"Lynch, Gerard",Lynch,Gerard,,2,Second Circuit,22,,-0.397
+lynch_sandra,"Lynch, Sandra",Lynch,Sandra,,1,First Circuit,21,,-0.3975
+mackinnon_george_e,"MacKinnon, George E.",MacKinnon,George E.,,12,D.C. Circuit,32,,0.552
+magill_frank_j,"Magill, Frank J.",Magill,Frank J.,,8,Eighth Circuit,28,,0.087
+magruder_calvert,"Magruder, Calvert",Magruder,Calvert,,1,First Circuit,21,,-0.11
+mahoney_j_daniel,"Mahoney, J. Daniel",Mahoney,J. Daniel,,2,Second Circuit,22,,0.182
+mahoney_john,"Mahoney, John",Mahoney,John,,1,First Circuit,21,,-0.2645
+major_james,"Major, James",Major,James,,7,Seventh Circuit,27,,-0.4295
+manion_daniel_a,"Manion, Daniel A.",Manion,Daniel A.,,7,Seventh Circuit,27,,0.401
+mansfield_walter_r,"Mansfield, Walter R.",Mansfield,Walter R.,,2,Second Circuit,22,,-0.124
+mansmann_carol_los,"Mansmann, Carol Los",Mansmann,Carol Los,,3,Third Circuit,23,,0.073
+marcus_stanley,"Marcus, Stanley",Marcus,Stanley,,11,Eleventh Circuit,31,,-0.231
+maris_albert_b,"Maris, Albert B.",Maris,Albert B.,,3,Third Circuit,23,,-0.656
+markey_howard_t,"Markey, Howard T.",Markey,Howard T.,,13,Federal Circuit,8,,0.692
+marshall_thurgood,"Marshall, Thurgood",Marshall,Thurgood,,2,Second Circuit,22,98,-0.472
+martin_beverly,"Martin, Beverly",Martin,Beverly,,11,Eleventh Circuit,31,,-0.358
+martin_boyce_f_jr,"Martin, Boyce F., Jr.",Martin,Boyce F.,Jr.,6,Sixth Circuit,26,,-0.2955
+martin_john_d,"Martin, John D.",Martin,John D.,,6,Sixth Circuit,26,,-0.155
+matey_paul,"Matey, Paul",Matey,Paul,,3,Third Circuit,23,,0.403
+matheson_scott,"Matheson, Scott",Matheson,Scott,,10,Tenth Circuit,30,,-0.358
+mathews_clifton,"Mathews, Clifton",Mathews,Clifton,,9,Ninth Circuit,29,,-0.226
+mathis_andre,"Mathis, Andre",Mathis,Andre,,6,Sixth Circuit,26,,-0.32
+matthes_marion_c,"Matthes, Marion C.",Matthes,Marion C.,,8,Eighth Circuit,28,,0.281
+mayer_h_robert,"Mayer, H. Robert",Mayer,H. Robert,,13,Federal Circuit,8,,0.692
+mcallister_thomas,"McAllister, Thomas",McAllister,Thomas,,6,Sixth Circuit,26,,-0.324
+mcconnell_michael_w,"McConnell, Michael W.",McConnell,Michael W.,,10,Tenth Circuit,30,,0.3565
+mccord_leon,"McCord, Leon",McCord,Leon,,5,Fifth Circuit,25,,-0.336333
+mccree_wade_h,"McCree, Wade H.",McCree,Wade H.,,6,Sixth Circuit,26,,-0.5215
+mcentee_edward,"McEntee, Edward",McEntee,Edward,,1,First Circuit,21,,-0.294
+mcgowan_carl,"McGowan, Carl",McGowan,Carl,,12,D.C. Circuit,32,,-0.4045
+mchugh_carolyn,"McHugh, Carolyn",McHugh,Carolyn,,10,Tenth Circuit,30,,-0.358
+mckay_monroe_g,"McKay, Monroe G.",McKay,Monroe G.,,10,Tenth Circuit,30,,-0.504
+mckeauge_david,"McKeauge, David",McKeauge,David,,6,Sixth Circuit,26,,0.693
+mckee_theodore_alexander,"McKee, Theodore Alexander",McKee,Theodore Alexander,,3,Third Circuit,23,,-0.334
+mckeown_m_margaret,"McKeown, M. Margaret",McKeown,M. Margaret,,9,Ninth Circuit,29,,-0.352
+mclaughlin_gerald,"McLaughlin, Gerald",McLaughlin,Gerald,,3,Third Circuit,23,,-0.129
+mclaughlin_joseph_w,"McLaughlin, Joseph W.",McLaughlin,Joseph W.,,2,Second Circuit,22,,0.182
+mcmillian_theodore,"McMillian, Theodore",McMillian,Theodore,,8,Eighth Circuit,28,,-0.38
+mcwilliams_robert_h,"McWilliams, Robert H.",McWilliams,Robert H.,,10,Tenth Circuit,30,,0.3385
+medina_harold_r,"Medina, Harold R.",Medina,Harold R.,,2,Second Circuit,22,,-0.658
+mehaffy_pat,"Mehaffy, Pat",Mehaffy,Pat,,8,Eighth Circuit,28,,-0.1815
+melloy_michael_j,"Melloy, Michael J.",Melloy,Michael J.,,8,Eighth Circuit,28,,0.358
+menashi_steven,"Menashi, Steven",Menashi,Steven,,2,Second Circuit,22,,0.403
+mendoza_salvador,"Mendoza, Salvador",Mendoza,Salvador,,9,Ninth Circuit,29,,-0.3285
+merriam_sarah_a_l,"Merriam, Sarah A.L.",Merriam,Sarah A.L.,,2,Second Circuit,22,,-0.354
+merrill_charles,"Merrill, Charles",Merrill,Charles,,9,Ninth Circuit,29,,0.281
+merritt_gilbert_s,"Merritt, Gilbert S.",Merritt,Gilbert S.,,6,Sixth Circuit,26,,-0.355
+meskill_thomas_j,"Meskill, Thomas J.",Meskill,Thomas J.,,2,Second Circuit,22,,0.072
+michael_m_blane,"Michael, M. Blane",Michael,M. Blane,,4,Fourth Circuit,24,,-0.3175
+michel_paul_r,"Michel, Paul R.",Michel,Paul R.,,13,Federal Circuit,8,,0.692
+mikva_abner_j,"Mikva, Abner J.",Mikva,Abner J.,,12,D.C. Circuit,32,,-0.504
+milburn_h_ted,"Milburn, H. Ted",Milburn,H. Ted,,6,Sixth Circuit,26,,0.283
+miller_eric,"Miller, Eric",Miller,Eric,,9,Ninth Circuit,29,,0.403
+miller_shackelford,"Miller, Shackelford",Miller,Shackelford,,6,Sixth Circuit,26,,-0.281
+miller_wilbur_k_jr,"Miller, Wilbur K., Jr.",Miller,Wilbur K.,Jr.,12,D.C. Circuit,32,,-0.371
+miller_william_ernest,"Miller, William Ernest",Miller,William Ernest,,6,Sixth Circuit,26,,0.283
+millett_patricia,"Millett, Patricia",Millett,Patricia,,12,D.C. Circuit,32,,-0.358
+miner_roger_j,"Miner, Roger J.",Miner,Roger J.,,2,Second Circuit,22,,0.182
+minton_sherman,"Minton, Sherman",Minton,Sherman,,7,Seventh Circuit,27,89,-0.115
+montecalvo_lara,"Montecalvo, Lara",Montecalvo,Lara,,1,First Circuit,21,,-0.361
+montgomery_reeves_tamika,"Montgomery-Reeves, Tamika",Montgomery-Reeves,Tamika,,3,Third Circuit,23,,-0.2055
+moore_john_p,"Moore, John P.",Moore,John P.,,10,Tenth Circuit,30,,0.508
+moore_karen,"Moore, Karen",Moore,Karen,,6,Sixth Circuit,26,,-0.262
+moore_kimberly,"Moore, Kimberly",Moore,Kimberly,,13,Federal Circuit,8,,0.693
+moore_leonard_p,"Moore, Leonard P.",Moore,Leonard P.,,2,Second Circuit,22,,-0.0405
+morgan_lewis_render,"Morgan, Lewis Render",Morgan,Lewis Render,,5,Fifth Circuit,25,,-0.043
+moritz_nancy,"Moritz, Nancy",Moritz,Nancy,,10,Tenth Circuit,30,,-0.358
+motz_diana_gribbon,"Motz, Diana Gribbon",Motz,Diana Gribbon,,4,Fourth Circuit,24,,-0.4025
+mulligan_william_h,"Mulligan, William H.",Mulligan,William H.,,2,Second Circuit,22,,-0.124
+murguia_mary,"Murguia, Mary",Murguia,Mary,,9,Ninth Circuit,29,,-0.358
+murnaghan_francis_d,"Murnaghan, Francis D.",Murnaghan,Francis D.,,4,Fourth Circuit,24,,-0.435
+murphy_diana_e,"Murphy, Diana E.",Murphy,Diana E.,,8,Eighth Circuit,28,,-0.583
+murphy_eric,"Murphy, Eric",Murphy,Eric,,6,Sixth Circuit,26,,0.371
+murphy_michael,"Murphy, Michael",Murphy,Michael,,10,Tenth Circuit,30,,-0.438
+murrah_alfred,"Murrah, Alfred",Murrah,Alfred,,10,Tenth Circuit,30,,-0.1875
+nalbandian_john,"Nalbandian, John",Nalbandian,John,,6,Sixth Circuit,26,,0.6475
+nardini_william,"Nardini, William",Nardini,William,,2,Second Circuit,22,,0.403
+nathan_alison,"Nathan, Alison",Nathan,Alison,,2,Second Circuit,22,,-0.412
+neilson_susan,"Neilson, Susan",Neilson,Susan,,6,Sixth Circuit,26,,0.693
+nelson_david_a,"Nelson, David A.",Nelson,David A.,,6,Sixth Circuit,26,,0.692
+nelson_dorothy_wright,"Nelson, Dorothy Wright",Nelson,Dorothy Wright,,9,Ninth Circuit,29,,-0.387
+nelson_ryan,"Nelson, Ryan",Nelson,Ryan,,9,Ninth Circuit,29,,0.528
+nelson_thomas_g,"Nelson, Thomas G.",Nelson,Thomas G.,,9,Ninth Circuit,29,,0.5895
+newman_jon_o,"Newman, Jon O.",Newman,Jon O.,,2,Second Circuit,22,,-0.313
+newman_pauline,"Newman, Pauline",Newman,Pauline,,13,Federal Circuit,8,,0.692
+newsom_kevin,"Newsom, Kevin",Newsom,Kevin,,11,Eleventh Circuit,31,,0.518333
+nguyen_jacqueline,"Nguyen, Jacqueline",Nguyen,Jacqueline,,9,Ninth Circuit,29,,-0.359
+niemeyer_paul_v,"Niemeyer, Paul V.",Niemeyer,Paul V.,,4,Fourth Circuit,24,,0.557
+noonan_john_t,"Noonan, John T.",Noonan,John T.,,9,Ninth Circuit,29,,0.352
+norris_alan_e,"Norris, Alan E.",Norris,Alan E.,,6,Sixth Circuit,26,,0.692
+norris_william_albert,"Norris, William Albert",Norris,William Albert,,9,Ninth Circuit,29,,-0.387
+nygaard_richard_l,"Nygaard, Richard L.",Nygaard,Richard L.,,3,Third Circuit,23,,0.073
+o_brien_terrence_l,"O'Brien, Terrence L.",O'Brien,Terrence L.,,10,Tenth Circuit,30,,0.4955
+o_connell_john_j,"O'Connell, John J.",O'Connell,John J.,,3,Third Circuit,23,,-0.551
+o_malley_kathleen,"O'Malley, Kathleen",O'Malley,Kathleen,,13,Federal Circuit,8,,-0.358
+o_scannlain_diaruid_f,"O'Scannlain, Diaruid F.",O'Scannlain,Diaruid F.,,9,Ninth Circuit,29,,0.0955
+o_sullivan_clifford,"O'Sullivan, Clifford",O'Sullivan,Clifford,,6,Sixth Circuit,26,,0.281
+oakes_james_l,"Oakes, James L.",Oakes,James L.,,2,Second Circuit,22,,0.095667
+oldham_andy,"Oldham, Andy",Oldham,Andy,,5,Fifth Circuit,25,,0.6305
+orr_william_e,"Orr, William E.",Orr,William E.,,9,Ninth Circuit,29,,-0.095
+owen_priscilla,"Owen, Priscilla",Owen,Priscilla,,5,Fifth Circuit,25,,0.4135
+owens_john,"Owens, John",Owens,John,,9,Ninth Circuit,29,,-0.359
+paez_richard,"Paez, Richard",Paez,Richard,,9,Ninth Circuit,29,,-0.359
+pan_florence,"Pan, Florence",Pan,Florence,,12,D.C. Circuit,32,,-0.32
+park_michael,"Park, Michael",Park,Michael,,2,Second Circuit,22,,0.403
+parker_barrington_d,"Parker, Barrington D.",Parker,Barrington D.,,2,Second Circuit,22,,0.693
+parker_fred_irving,"Parker, Fred Irving",Parker,Fred Irving,,2,Second Circuit,22,,-0.36
+parker_robert_manley,"Parker, Robert Manley",Parker,Robert Manley,,5,Fifth Circuit,25,,-0.117
+parkinson_william_l,"Parkinson, William L.",Parkinson,William L.,,7,Seventh Circuit,27,,0.471
+peck_john_w,"Peck, John W.",Peck,John W.,,6,Sixth Circuit,26,,-0.069
+pell_wilbur_f,"Pell, Wilbur F.",Pell,Wilbur F.,,7,Seventh Circuit,27,,0.552
+perez_myrna,"Perez, Myrna",Perez,Myrna,,2,Second Circuit,22,,-0.412
+phillips_gregory,"Phillips, Gregory",Phillips,Gregory,,10,Tenth Circuit,30,,-0.358
+phillips_harry,"Phillips, Harry",Phillips,Harry,,6,Sixth Circuit,26,,-0.303333
+phillips_james_d,"Phillips, James D.",Phillips,James D.,,4,Fourth Circuit,24,,-0.237
+phillips_orie,"Phillips, Orie",Phillips,Orie,,10,Tenth Circuit,30,,0.227
+phipps_peter,"Phipps, Peter",Phipps,Peter,,3,Third Circuit,23,,0.624
+pickering_charles,"Pickering, Charles",Pickering,Charles,,5,Fifth Circuit,25,,0.3385
+pickett_john_c,"Pickett, John C.",Pickett,John C.,,10,Tenth Circuit,30,,-0.2005
+pierce_lawrence_w,"Pierce, Lawrence W.",Pierce,Lawrence W.,,2,Second Circuit,22,,0.182
+pillard_cornelia,"Pillard, Cornelia",Pillard,Cornelia,,12,D.C. Circuit,32,,-0.358
+plager_s_jay,"Plager, S. Jay",Plager,S. Jay,,13,Federal Circuit,8,,0.557
+politz_henry_a,"Politz, Henry A.",Politz,Henry A.,,5,Fifth Circuit,25,,-0.186
+poole_cecil_f,"Poole, Cecil F.",Poole,Cecil F.,,9,Ninth Circuit,29,,-0.387
+pooler_rosemary,"Pooler, Rosemary",Pooler,Rosemary,,2,Second Circuit,22,,-0.301
+pope_walter,"Pope, Walter",Pope,Walter,,9,Ninth Circuit,29,,-0.432
+porter_david_j,"Porter, David J.",Porter,David J.,,3,Third Circuit,23,,0.624
+posner_richard_a,"Posner, Richard A.",Posner,Richard A.,,7,Seventh Circuit,27,,0.099
+prado_edward,"Prado, Edward",Prado,Edward,,5,Fifth Circuit,25,,0.4135
+pratt_george_c,"Pratt, George C.",Pratt,George C.,,2,Second Circuit,22,,0.182
+pregerson_harry,"Pregerson, Harry",Pregerson,Harry,,9,Ninth Circuit,29,,-0.387
+prettyman_elijah_b,"Prettyman, Elijah B.",Prettyman,Elijah B.,,12,D.C. Circuit,32,,-0.371
+proctor_james_m,"Proctor, James M.",Proctor,James M.,,12,D.C. Circuit,32,,-0.374
+prost_sharon,"Prost, Sharon",Prost,Sharon,,13,Federal Circuit,8,,0.693
+pryor_doris,"Pryor, Doris",Pryor,Doris,,7,Seventh Circuit,27,,-0.32
+pryor_jill,"Pryor, Jill",Pryor,Jill,,11,Eleventh Circuit,31,,-0.358
+pryor_william,"Pryor, William",Pryor,William,,11,Eleventh Circuit,31,,0.4975
+quattlebaum_a_marvin,"Quattlebaum, A. Marvin",Quattlebaum,A. Marvin,,4,Fourth Circuit,24,,0.5
+rader_randall_r,"Rader, Randall R.",Rader,Randall R.,,13,Federal Circuit,8,,0.557
+raggi_reena,"Raggi, Reena",Raggi,Reena,,2,Second Circuit,22,,0.693
+randolph_a_raymond,"Randolph, A. Raymond",Randolph,A. Raymond,,12,D.C. Circuit,32,,0.557
+rao_naomi,"Rao, Naomi",Rao,Naomi,,12,D.C. Circuit,32,,0.403
+rawlinson_johnnie_b,"Rawlinson, Johnnie B.",Rawlinson,Johnnie B.,,9,Ninth Circuit,29,,-0.2585
+readler_chad,"Readler, Chad",Readler,Chad,,6,Sixth Circuit,26,,0.371
+reavley_thomas_m,"Reavley, Thomas M.",Reavley,Thomas M.,,5,Fifth Circuit,25,,-0.163
+reinhardt_stephen_r,"Reinhardt, Stephen R.",Reinhardt,Stephen R.,,9,Ninth Circuit,29,,-0.387
+rendell_marjorie,"Rendell, Marjorie",Rendell,Marjorie,,3,Third Circuit,23,,-0.438
+restrepo_l_felipe,"Restrepo, L. Felipe",Restrepo,L. Felipe,,3,Third Circuit,23,,-0.313
+reyna_jimmie,"Reyna, Jimmie",Reyna,Jimmie,,13,Federal Circuit,8,,-0.358
+rich_giles_sutherland,"Rich, Giles Sutherland",Rich,Giles Sutherland,,13,Federal Circuit,8,,0.692
+richardson_julius,"Richardson, Julius",Richardson,Julius,,4,Fourth Circuit,24,,0.5
+riddick_walter,"Riddick, Walter",Riddick,Walter,,8,Eighth Circuit,28,,-0.16
+ridge_albert,"Ridge, Albert",Ridge,Albert,,8,Eighth Circuit,28,,-0.315
+rikelman_julie,"Rikelman, Julie",Rikelman,Julie,,1,First Circuit,21,,-0.632
+riley_william_j,"Riley, William J.",Riley,William J.,,8,Eighth Circuit,28,,0.344
+ripple_kenneth_f,"Ripple, Kenneth F.",Ripple,Kenneth F.,,7,Seventh Circuit,27,,0.401
+rives_richard,"Rives, Richard",Rives,Richard,,5,Fifth Circuit,25,,-0.2345
+robb_roger,"Robb, Roger",Robb,Roger,,12,D.C. Circuit,32,,0.552
+roberts_john,"Roberts, John",Roberts,John,,12,D.C. Circuit,32,111,0.693
+robinson_beth,"Robinson, Beth",Robinson,Beth,,2,Second Circuit,22,,-0.36
+robinson_spottswood_w_iii,"Robinson, Spottswood W., III",Robinson,Spottswood W.,III,12,D.C. Circuit,32,,-0.337
+rogers_john_m,"Rogers, John M.",Rogers,John M.,,6,Sixth Circuit,26,,0.4625
+rogers_judith_ann_wilson,"Rogers, Judith Ann Wilson",Rogers,Judith Ann Wilson,,12,D.C. Circuit,32,,-0.438
+roney_paul_h,"Roney, Paul H.",Roney,Paul H.,,5,Fifth Circuit,25,,0.306
+roney_paul_h,"Roney, Paul H.",Roney,Paul H.,,11,Eleventh Circuit,31,,0.306
+rosen_james,"Rosen, James",Rosen,James,,3,Third Circuit,23,,-0.108
+rosenbaum_robin,"Rosenbaum, Robin",Rosenbaum,Robin,,11,Eleventh Circuit,31,,-0.193
+rosenn_max,"Rosenn, Max",Rosenn,Max,,3,Third Circuit,23,,0.0955
+ross_donald_roe,"Ross, Donald Roe",Ross,Donald Roe,,8,Eighth Circuit,28,,0.469
+rossman_veronica,"Rossman, Veronica",Rossman,Veronica,,10,Tenth Circuit,30,,-0.236
+roth_jane_r,"Roth, Jane R.",Roth,Jane R.,,3,Third Circuit,23,,0.272
+rovner_ilana_diamond,"Rovner, Ilana Diamond",Rovner,Ilana Diamond,,7,Seventh Circuit,27,,0.557
+rubin_alvin_b,"Rubin, Alvin B.",Rubin,Alvin B.,,5,Fifth Circuit,25,,-0.186
+rushing_allison,"Rushing, Allison",Rushing,Allison,,4,Fourth Circuit,24,,0.415
+russell_donald_stuart,"Russell, Donald Stuart",Russell,Donald Stuart,,4,Fourth Circuit,24,,0.391
+russell_robert_l,"Russell, Robert L.",Russell,Robert L.,,5,Fifth Circuit,25,,-0.0295
+ryan_james_l,"Ryan, James L.",Ryan,James L.,,6,Sixth Circuit,26,,0.692
+rymer_pamela_a,"Rymer, Pamela A.",Rymer,Pamela A.,,9,Ninth Circuit,29,,0.352
+sack_robert,"Sack, Robert",Sack,Robert,,2,Second Circuit,22,,-0.301
+sanborn_john_b,"Sanborn, John B.",Sanborn,John B.,,8,Eighth Circuit,28,,0.321
+sanchez_gabriel,"Sanchez, Gabriel",Sanchez,Gabriel,,9,Ninth Circuit,29,,-0.454667
+sarokin_haddon_lee,"Sarokin, Haddon Lee",Sarokin,Haddon Lee,,3,Third Circuit,23,,-0.3475
+scalia_antonin,"Scalia, Antonin",Scalia,Antonin,,12,D.C. Circuit,32,105,0.692
+schall_alvin_a,"Schall, Alvin A.",Schall,Alvin A.,,13,Federal Circuit,8,,0.557
+schnackenberg_elmer,"Schnackenberg, Elmer",Schnackenberg,Elmer,,7,Seventh Circuit,27,,0.317
+schroeder_mary_murphy,"Schroeder, Mary Murphy",Schroeder,Mary Murphy,,9,Ninth Circuit,29,,-0.216
+scirica_anthony_j,"Scirica, Anthony J.",Scirica,Anthony J.,,3,Third Circuit,23,,0.073
+scudder_michael,"Scudder, Michael",Scudder,Michael,,7,Seventh Circuit,27,,0.403
+seitz_collins_j,"Seitz, Collins J.",Seitz,Collins J.,,3,Third Circuit,23,,-0.337
+selya_bruce_m,"Selya, Bruce M.",Selya,Bruce M.,,1,First Circuit,21,,0.084
+sentelle_david_b,"Sentelle, David B.",Sentelle,David B.,,12,D.C. Circuit,32,,0.692
+seth_oliver,"Seth, Oliver",Seth,Oliver,,10,Tenth Circuit,30,,-0.2035
+seymour_stephanie_kulp,"Seymour, Stephanie Kulp",Seymour,Stephanie Kulp,,10,Tenth Circuit,30,,-0.142
+shedd_dennis_w,"Shedd, Dennis W.",Shedd,Dennis W.,,4,Fourth Circuit,24,,0.391
+shepard_bobby,"Shepard, Bobby",Shepard,Bobby,,8,Eighth Circuit,28,,0.693
+shwartz_patty,"Shwartz, Patty",Shwartz,Patty,,3,Third Circuit,23,,-0.442667
+sibley_samuel,"Sibley, Samuel",Sibley,Samuel,,5,Fifth Circuit,25,,
+silberman_laurence_h,"Silberman, Laurence H.",Silberman,Laurence H.,,12,D.C. Circuit,32,,0.692
+siler_eugene_e_jr,"Siler, Eugene E., Jr.",Siler,Eugene E.,Jr.,6,Sixth Circuit,26,,0.404
+silverman_barry_g,"Silverman, Barry G.",Silverman,Barry G.,,9,Ninth Circuit,29,,-0.438
+simons_charles_caspar,"Simons, Charles Caspar",Simons,Charles Caspar,,6,Sixth Circuit,26,,0.182
+simpson_john_milton_bryan,"Simpson, John Milton Bryan",Simpson,John Milton Bryan,,5,Fifth Circuit,25,,-0.067
+skopil_otto_r,"Skopil, Otto R.",Skopil,Otto R.,,9,Ninth Circuit,29,,-0.504
+sloviter_dolores_k,"Sloviter, Dolores K.",Sloviter,Dolores K.,,3,Third Circuit,23,,-0.504
+smith_d_brooks,"Smith, D. Brooks",Smith,D. Brooks,,3,Third Circuit,23,,0.203
+smith_j_joseph,"Smith, J. Joseph",Smith,J. Joseph,,2,Second Circuit,22,,0.28
+smith_jerry,"Smith, Jerry",Smith,Jerry,,5,Fifth Circuit,25,,0.551
+smith_lavenski_r,"Smith, Lavenski R.",Smith,Lavenski R.,,8,Eighth Circuit,28,,0.419
+smith_milan_dale,"Smith, Milan Dale",Smith,Milan Dale,,9,Ninth Circuit,29,,0.693
+smith_n_randy,"Smith, N. Randy",Smith,N. Randy,,9,Ninth Circuit,29,,0.499
+smith_william_f,"Smith, William F.",Smith,William F.,,3,Third Circuit,23,,-0.344
+sneed_joseph_t,"Sneed, Joseph T.",Sneed,Joseph T.,,9,Ninth Circuit,29,,0.552
+sneeden_emory,"Sneeden, Emory",Sneeden,Emory,,4,Fourth Circuit,24,,0.391
+sobeloff_simon,"Sobeloff, Simon",Sobeloff,Simon,,4,Fourth Circuit,24,,0.272
+soper_morris_a,"Soper, Morris A.",Soper,Morris A.,,4,Fourth Circuit,24,,0.472
+sotomayor_sonia,"Sotomayor, Sonia",Sotomayor,Sonia,,2,Second Circuit,22,113,-0.301
+souter_david_h,"Souter, David H.",Souter,David H.,,1,First Circuit,21,107,0.445
+southwick_leslie,"Southwick, Leslie",Southwick,Leslie,,5,Fifth Circuit,25,,0.351
+sparks_william_m,"Sparks, William M.",Sparks,William M.,,7,Seventh Circuit,27,,0.4845
+sprecher_robert_a,"Sprecher, Robert A.",Sprecher,Robert A.,,7,Seventh Circuit,27,,0.099
+sprouse_james_m,"Sprouse, James M.",Sprouse,James M.,,4,Fourth Circuit,24,,-0.278
+srinivasan_srikanth,"Srinivasan, Srikanth",Srinivasan,Srikanth,,12,D.C. Circuit,32,,-0.358
+st_eve_amy,"St. Eve, Amy",St. Eve,Amy,,7,Seventh Circuit,27,,0.403
+stahl_david,"Stahl, David",Stahl,David,,3,Third Circuit,23,,-0.576
+stahl_norman_h,"Stahl, Norman H.",Stahl,Norman H.,,1,First Circuit,21,,0.462
+staley_austin,"Staley, Austin",Staley,Austin,,3,Third Circuit,23,,-0.446
+stapleton_walter_k,"Stapleton, Walter K.",Stapleton,Walter K.,,3,Third Circuit,23,,0.272
+stark_leonard,"Stark, Leonard",Stark,Leonard,,12,D.C. Circuit,32,,-0.32
+starr_kenneth_w,"Starr, Kenneth W.",Starr,Kenneth W.,,12,D.C. Circuit,32,,0.692
+stephens_albert_lee_sr,"Stephens, Albert Lee, Sr.",Stephens,Albert Lee,Sr.,9,Ninth Circuit,29,,-0.179
+stephens_harold_m,"Stephens, Harold M.",Stephens,Harold M.,,12,D.C. Circuit,32,,-0.374
+stephenson_roy_l,"Stephenson, Roy L.",Stephenson,Roy L.,,8,Eighth Circuit,28,,0.326
+stevens_john_paul,"Stevens, John Paul",Stevens,John Paul,,7,Seventh Circuit,27,103,0.220333
+stewart_carl_edmond,"Stewart, Carl Edmond",Stewart,Carl Edmond,,5,Fifth Circuit,25,,-0.1575
+stewart_potter,"Stewart, Potter",Stewart,Potter,,6,Sixth Circuit,26,94,0.446
+stoll_kara,"Stoll, Kara",Stoll,Kara,,13,Federal Circuit,8,,-0.358
+stranch_jane,"Stranch, Jane",Stranch,Jane,,6,Sixth Circuit,26,,-0.358
+stras_david,"Stras, David",Stras,David,,8,Eighth Circuit,28,,0.403
+straub_chester,"Straub, Chester",Straub,Chester,,2,Second Circuit,22,,-0.301
+strum_louie,"Strum, Louie",Strum,Louie,,5,Fifth Circuit,25,,-0.2065
+suhrheinrich_richard_f,"Suhrheinrich, Richard F.",Suhrheinrich,Richard F.,,6,Sixth Circuit,26,,0.557
+sullivan_richard,"Sullivan, Richard",Sullivan,Richard,,2,Second Circuit,22,,0.403
+sung_jennifer,"Sung, Jennifer",Sung,Jennifer,,9,Ninth Circuit,29,,-0.3875
+sutton_jeffrey,"Sutton, Jeffrey",Sutton,Jeffrey,,6,Sixth Circuit,26,,0.264
+swaim_h_nathan,"Swaim, H. Nathan",Swaim,H. Nathan,,7,Seventh Circuit,27,,-0.4465
+swan_thomas_w,"Swan, Thomas W.",Swan,Thomas W.,,2,Second Circuit,22,,0.4045
+swygert_luther,"Swygert, Luther",Swygert,Luther,,7,Seventh Circuit,27,,-0.58
+sykes_diane,"Sykes, Diane",Sykes,Diane,,7,Seventh Circuit,27,,0.693
+tacha_deanell_r,"Tacha, Deanell R.",Tacha,Deanell R.,,10,Tenth Circuit,30,,0.261
+tallman_richard_c,"Tallman, Richard C.",Tallman,Richard C.,,9,Ninth Circuit,29,,-0.352
+tamm_edward,"Tamm, Edward",Tamm,Edward,,12,D.C. Circuit,32,,-0.337
+tang_thomas,"Tang, Thomas",Tang,Thomas,,9,Ninth Circuit,29,,-0.216
+taranto_richard,"Taranto, Richard",Taranto,Richard,,13,Federal Circuit,8,,-0.358
+tashima_atsushi_wallace,"Tashima, Atsushi Wallace",Tashima,Atsushi Wallace,,9,Ninth Circuit,29,,-0.359
+tate_albert_jr,"Tate, Albert, Jr.",Tate,Albert,Jr.,5,Fifth Circuit,25,,-0.186
+tatel_david_stephen,"Tatel, David Stephen",Tatel,David Stephen,,12,D.C. Circuit,32,,-0.4025
+thacker_stephanie,"Thacker, Stephanie",Thacker,Stephanie,,4,Fourth Circuit,24,,-0.1915
+thapar_amul,"Thapar, Amul",Thapar,Amul,,6,Sixth Circuit,26,,0.6475
+thomas_clarence,"Thomas, Clarence",Thomas,Clarence,,12,D.C. Circuit,32,108,0.557
+thomas_holly,"Thomas, Holly",Thomas,Holly,,9,Ninth Circuit,29,,-0.454667
+thomas_seth,"Thomas, Seth",Thomas,Seth,,8,Eighth Circuit,28,,-0.1095
+thomas_sidney,"Thomas, Sidney",Thomas,Sidney,,9,Ninth Circuit,29,,-0.212
+thompson_david_r,"Thompson, David R.",Thompson,David R.,,9,Ninth Circuit,29,,0.352
+thompson_ojetta,"Thompson, Ojetta",Thompson,Ojetta,,1,First Circuit,21,,-0.361
+thornberry_william_homer,"Thornberry, William Homer",Thornberry,William Homer,,5,Fifth Circuit,25,,-0.416
+timbers_william_h,"Timbers, William H.",Timbers,William H.,,2,Second Circuit,22,,0.072
+tinder_john,"Tinder, John",Tinder,John,,7,Seventh Circuit,27,,0.304
+tjoflat_gerald_b,"Tjoflat, Gerald B.",Tjoflat,Gerald B.,,5,Fifth Circuit,25,,0.506
+tjoflat_gerald_b,"Tjoflat, Gerald B.",Tjoflat,Gerald B.,,11,Eleventh Circuit,31,,0.506
+tone_philip_w,"Tone, Philip W.",Tone,Philip W.,,7,Seventh Circuit,27,,0.099
+torruella_del_valle_juan_r,"Torruella del Valle, Juan R.",Torruella del Valle,Juan R.,,1,First Circuit,21,,0.692
+trask_ozell_m,"Trask, Ozell M.",Trask,Ozell M.,,9,Ninth Circuit,29,,0.5765
+traxler_william_byrd,"Traxler, William Byrd",Traxler,William Byrd,,4,Fourth Circuit,24,,-0.293
+trott_stephen_s,"Trott, Stephen S.",Trott,Stephen S.,,9,Ninth Circuit,29,,0.5895
+tuttle_elbert_p,"Tuttle, Elbert P.",Tuttle,Elbert P.,,5,Fifth Circuit,25,,0.281
+tymkovich_timothy,"Tymkovich, Timothy",Tymkovich,Timothy,,10,Tenth Circuit,30,,0.401
+van_antwerpen_franklin,"Van Antwerpen, Franklin",Van Antwerpen,Franklin,,3,Third Circuit,23,,0.203
+van_dusen_francis,"Van Dusen, Francis",Van Dusen,Francis,,3,Third Circuit,23,,-0.576
+van_graafeiland_ellsworth_a,"Van Graafeiland, Ellsworth A.",Van Graafeiland,Ellsworth A.,,2,Second Circuit,22,,-0.124
+van_osterhout_martin_d,"Van Osterhout, Martin D.",Van Osterhout,Martin D.,,8,Eighth Circuit,28,,0.372
+vandyke_lawrence,"VanDyke, Lawrence",VanDyke,Lawrence,,9,Ninth Circuit,29,,0.403
+vanaskie_thomas,"Vanaskie, Thomas",Vanaskie,Thomas,,3,Third Circuit,23,,-0.317
+vance_robert_s,"Vance, Robert S.",Vance,Robert S.,,5,Fifth Circuit,25,,-0.02
+vance_robert_s,"Vance, Robert S.",Vance,Robert S.,,11,Eleventh Circuit,31,,-0.02
+vinson_frederic_moore,"Vinson, Frederic Moore",Vinson,Frederic Moore,,12,D.C. Circuit,32,87,-0.368
+vogel_charles_j,"Vogel, Charles J.",Vogel,Charles J.,,8,Eighth Circuit,28,,0.0975
+wald_patricia_m,"Wald, Patricia M.",Wald,Patricia M.,,12,D.C. Circuit,32,,-0.504
+walker_john_m_jr,"Walker, John M., Jr.",Walker,John M.,Jr.,2,Second Circuit,22,,0.182
+walker_justin,"Walker, Justin",Walker,Justin,,12,D.C. Circuit,32,,0.403
+wallace_j_clifford,"Wallace, J. Clifford",Wallace,J. Clifford,,9,Ninth Circuit,29,,0.552
+wallach_evan,"Wallach, Evan",Wallach,Evan,,13,Federal Circuit,8,,-0.358
+waller_curtis,"Waller, Curtis",Waller,Curtis,,5,Fifth Circuit,25,,-0.2865
+wardlaw_kim,"Wardlaw, Kim",Wardlaw,Kim,,9,Ninth Circuit,29,,-0.359
+washington_george_t,"Washington, George T.",Washington,George T.,,12,D.C. Circuit,32,,-0.374
+waterman_sterry,"Waterman, Sterry",Waterman,Sterry,,2,Second Circuit,22,,0.1185
+watford_paul,"Watford, Paul",Watford,Paul,,9,Ninth Circuit,29,,-0.359
+webster_william_h,"Webster, William H.",Webster,William H.,,8,Eighth Circuit,28,,0.552
+weick_paul,"Weick, Paul",Weick,Paul,,6,Sixth Circuit,26,,0.281
+weis_joseph_f,"Weis, Joseph F.",Weis,Joseph F.,,3,Third Circuit,23,,0.0955
+wellford_harry_w,"Wellford, Harry W.",Wellford,Harry W.,,6,Sixth Circuit,26,,0.283
+wesley_richard,"Wesley, Richard",Wesley,Richard,,2,Second Circuit,22,,0.693
+white_helene,"White, Helene",White,Helene,,6,Sixth Circuit,26,,0.693
+whittaker_charles_evans,"Whittaker, Charles Evans",Whittaker,Charles Evans,,8,Eighth Circuit,28,93,0.281
+widener_hiram_emory_jr,"Widener, Hiram Emory, Jr.",Widener,Hiram Emory,Jr.,4,Fourth Circuit,24,,0.552
+wiener_jacques_l_jr,"Wiener, Jacques L., Jr.",Wiener,Jacques L.,Jr.,5,Fifth Circuit,25,,0.557
+wiggins_charles_e,"Wiggins, Charles E.",Wiggins,Charles E.,,9,Ninth Circuit,29,,0.352
+wilkey_malcolm_r,"Wilkey, Malcolm R.",Wilkey,Malcolm R.,,12,D.C. Circuit,32,,0.552
+wilkins_robert,"Wilkins, Robert",Wilkins,Robert,,12,D.C. Circuit,32,,-0.358
+wilkins_william_w,"Wilkins, William W.",Wilkins,William W.,,4,Fourth Circuit,24,,0.391
+wilkinson_j_harvie_iii,"Wilkinson, J. Harvie, III",Wilkinson,J. Harvie,III,4,Fourth Circuit,24,,0.2625
+willett_don,"Willett, Don",Willett,Don,,5,Fifth Circuit,25,,0.6305
+williams_ann,"Williams, Ann",Williams,Ann,,7,Seventh Circuit,27,,-0.348
+williams_jerre_s,"Williams, Jerre S.",Williams,Jerre S.,,5,Fifth Circuit,25,,-0.163
+williams_karen_j,"Williams, Karen J.",Williams,Karen J.,,4,Fourth Circuit,24,,0.391
+williams_stephen_f,"Williams, Stephen F.",Williams,Stephen F.,,12,D.C. Circuit,32,,0.692
+wilson_charles,"Wilson, Charles",Wilson,Charles,,11,Eleventh Circuit,31,,-0.231
+wilson_cory,"Wilson, Cory",Wilson,Cory,,5,Fifth Circuit,25,,0.4135
+winter_harrison,"Winter, Harrison",Winter,Harrison,,4,Fourth Circuit,24,,-0.3055
+winter_ralph_k,"Winter, Ralph K.",Winter,Ralph K.,,2,Second Circuit,22,,0.072
+wisdom_john,"Wisdom, John",Wisdom,John,,5,Fifth Circuit,25,,0.281
+wollman_roger_l,"Wollman, Roger L.",Wollman,Roger L.,,8,Eighth Circuit,28,,0.227
+wood_diane_p,"Wood, Diane P.",Wood,Diane P.,,7,Seventh Circuit,27,,-0.366
+wood_harlington_jr,"Wood, Harlington, Jr.",Wood,Harlington,Jr.,7,Seventh Circuit,27,,0.099
+woodbury_peter,"Woodbury, Peter",Woodbury,Peter,,1,First Circuit,21,,-0.368
+woodrough_joseph_w,"Woodrough, Joseph W.",Woodrough,Joseph W.,,8,Eighth Circuit,28,,-0.306
+wright_eugene_a,"Wright, Eugene A.",Wright,Eugene A.,,9,Ninth Circuit,29,,0.552
+wright_james_skelly,"Wright, James Skelly",Wright,James Skelly,,12,D.C. Circuit,32,,-0.472
+wynn_james,"Wynn, James",Wynn,James,,4,Fourth Circuit,24,,-0.202
+de_alba_ana,"de Alba, Ana",de Alba,Ana,,9,Ninth Circuit,29,,-0.391333

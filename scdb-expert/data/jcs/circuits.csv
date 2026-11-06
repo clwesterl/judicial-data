@@ -1,0 +1,14 @@
+circuit,circuit_name,scdb_caseSource,coa_circuit,first_year_with_median
+1,First Circuit,21,1,1939
+2,Second Circuit,22,2,1924
+3,Third Circuit,23,3,1937
+4,Fourth Circuit,24,4,1932
+5,Fifth Circuit,25,5,1965
+6,Sixth Circuit,26,6,1928
+7,Seventh Circuit,27,7,1929
+8,Eighth Circuit,28,8,1929
+9,Ninth Circuit,29,9,1935
+10,Tenth Circuit,30,10,1929
+11,Eleventh Circuit,31,11,1981
+12,D.C. Circuit,32,0,1937
+13,Federal Circuit,8,12,1982
