@@ -3,6 +3,16 @@ all_authors_matched,0,no,varFlag
 all_authors_matched,1,yes,varFlag
 all_judges_matched,0,no,varFlag
 all_judges_matched,1,yes,varFlag
+author_dem,0,appointed by a Republican president,varAppointingParty
+author_dem,1,appointed by a Democratic president,varAppointingParty
+author_fem,0,male,varJudgeAttr
+author_fem,1,female,varJudgeAttr
+author_is_appellate,0,sitting by designation from another court (district or other),varJudgeAttr
+author_is_appellate,1,a judge of the deciding court of appeals,varJudgeAttr
+author_nonwhite,0,coded white,varJudgeAttr
+author_nonwhite,1,coded nonwhite,varJudgeAttr
+author_senior,0,in active service when the opinion issued,varJudgeAttr
+author_senior,1,on senior status when the opinion issued,varJudgeAttr
 circuit,0,D.C. Circuit,varCircuit
 circuit,1,First Circuit,varCircuit
 circuit,2,Second Circuit,varCircuit
@@ -16,12 +26,24 @@ circuit,9,Ninth Circuit,varCircuit
 circuit,10,Tenth Circuit,varCircuit
 circuit,11,Eleventh Circuit,varCircuit
 circuit,12,Federal Circuit,varCircuit
+conc1_dem,0,appointed by a Republican president,varAppointingParty
+conc1_dem,1,appointed by a Democratic president,varAppointingParty
+dis1_dem,0,appointed by a Republican president,varAppointingParty
+dis1_dem,1,appointed by a Democratic president,varAppointingParty
 idb_present,0,no,varFlag
 idb_present,1,yes,varFlag
 is_enbanc,0,no,varFlag
 is_enbanc,1,yes,varFlag
 is_percuriam,0,no,varFlag
 is_percuriam,1,yes,varFlag
+j1_dem,0,appointed by a Republican president,varAppointingParty
+j1_dem,1,appointed by a Democratic president,varAppointingParty
+j2_dem,0,appointed by a Republican president,varAppointingParty
+j2_dem,1,appointed by a Democratic president,varAppointingParty
+j3_dem,0,appointed by a Republican president,varAppointingParty
+j3_dem,1,appointed by a Democratic president,varAppointingParty
+mixed_panel,0,all appointees from one party,varPanel
+mixed_panel,1,panel mixes Democratic and Republican appointees,varPanel
 scdb_first_appealed,1,"original-trial plaintiff (or equivalent, e.g. Title VII complainant or habeas petitioner)",varAppealed
 scdb_first_appealed,2,"original-trial defendant (or equivalent, e.g. the employer in a Title VII suit, or the criminal accused)",varAppealed
 scdb_first_appealed,3,federal government on behalf of the original plaintiff,varAppealed

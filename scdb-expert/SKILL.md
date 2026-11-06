@@ -24,7 +24,7 @@ The data work offline — no download needed.
 | `data/justice_citation.csv.gz` | 256,469 rows × 61 vars (one row per sitting justice per case) |
 | `data/MANIFEST.json` | source releases, row counts, checksums |
 | `data/jcs/` | Judicial Common Space: justice-term scores (OT1937–2022), 693 appeals judges, medians by year 1924–2024, circuit↔SCDB crosswalk |
-| `data/coa/` | Courts of Appeals: 512,263 published opinions 1880–2025 (30 of the CCAD's 809 vars), plus 8,265 CoA↔SCDB links with confidence tiers |
+| `data/coa/` | Courts of Appeals: 512,263 published opinions 1880–2025 (74 of the CCAD's 809 vars, incl. panel rosters and GHP ideology), plus 8,265 CoA↔SCDB links with confidence tiers |
 | `scripts/scdb.py` | Python loader/labeler/search + CLI (pandas) |
 | `scripts/scdb.R` | same API for R (`scdb_load`, `scdb_label`, `scdb_factor`, `scdb_find`) |
 | `scripts/build_combined.py`, `scripts/parse_codebook.py`, `scripts/build_jcs.py`, `scripts/build_coa.py`, `scripts/coa_slice.R` | rebuild from new SCDB / JCS / CCAD releases |
@@ -38,7 +38,7 @@ The data work offline — no download needed.
 | `references/codebook_text.md` | full codebook narrative (§1–63), grep by `## 37. Decision Direction` etc. |
 | `references/jcs.md` | **read for any ideology/JCS question**: what the scores are, SCDB links, caveats, quirks, citations |
 | `references/coa.md` | **read for any courts-of-appeals or SCOTUS-review question**: what's bundled, how the crosswalk was built and validated, the code-scheme corrections, coverage limits |
-| `references/coa_value_labels.csv` | all 360 CCAD codes: `variable, code, label, table` |
+| `references/coa_value_labels.csv` | all 382 CCAD codes: `variable, code, label, table` |
 
 ## Workflow
 
@@ -112,6 +112,7 @@ scdb.coa("cases")              # 512,263 CoA opinions 1880-2025
 scdb.coa("crosswalk")          # 8,265 CoA<->SCDB links, confidence A/B/C
 c = scdb.add_coa(c)            # SCDB + the reviewed CoA case (tier A; confidence=("A","B") to widen)
 d = scdb.add_scdb(scdb.coa("cases"))            # CoA + the reviewing SCOTUS case
+d = scdb.add_coa_circuit_medians(d)            # + the circuit's JCS median that year
 scdb.coa_labels("scdb_first_broad_area"); scdb.label_coa(d)   # code -> label
 scdb.coa_disposition_to_scdb(d.scdb_first_disposition)   # CCAD codes are NOT SCDB codes
 scdb.songer_direction_to_scdb(x)                # for songer_gt_* fields ONLY
@@ -131,6 +132,8 @@ votes <- scdb_add_jcs(votes); cases <- scdb_add_medians(cases); coa <- scdb_jcs(
 appeals <- scdb_coa("cases"); link <- scdb_coa("crosswalk")
 cases <- scdb_add_coa(cases)                      # + the reviewed CoA case (tier A)
 appeals <- scdb_add_scdb(appeals)                 # + the reviewing SCOTUS case
+appeals <- scdb_add_coa_circuit_medians(appeals)  # + the circuit's JCS median that year
+appeals <- scdb_coa_label(appeals)                # adds <var>_label columns
 appeals$disp_scdb <- scdb_coa_disposition(appeals$scdb_first_disposition)
 ```
 
@@ -183,10 +186,13 @@ appeals$disp_scdb <- scdb_coa_disposition(appeals$scdb_first_disposition)
     `scdb_first_broad_area` and `scdb_second_sub_area` reuse SCDB's `issueArea` /
     `issue` code lists exactly; the party-category scale does not.
   - Clean panels: `judge_count == 3 & all_judges_matched == 1 & all_authors_matched == 1`.
-  - **Judge names and ideology are not bundled by default.** `author` is a panel-slot
-    index (1/2/3), not a judge id. For author/panel identity, GHP ideology scores,
-    appointing president and the panel aggregates, rerun `scripts/coa_slice.R` (it
-    requests them) and `build_coa.py` will pick them up.
+  - **Judges**: `author` is a panel-slot index (1/2/3), not a judge id — use
+    `author_id` / `author_name`. `author_ghp` and the `ghp_*` panel aggregates are
+    Giles–Hettinger–Peppers scores, the same measure behind the JCS appeals-judge
+    scores, so panels and circuits sit on one scale; `add_coa_circuit_medians()`
+    attaches the circuit's JCS median so `ghp_med - circuit_median` is how far a
+    panel sat from its circuit. `author_*` is <NA> for per curiam opinions and
+    unmatched authors (8.6% of cases).
 
 ## When the user wants to update the data
 

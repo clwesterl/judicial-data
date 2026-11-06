@@ -372,6 +372,30 @@ def add_scdb(d, confidence=("A",)):
     return d.merge(x, on="caseid", how="left", validate="one_to_one")
 
 
+def add_coa_circuit_medians(d, year_col="year"):
+    """Attach the deciding circuit's JCS median and SD for the year of the decision.
+
+    Lets a panel be compared with its circuit: `ghp_med - circuit_median` is how far
+    the panel sat from the circuit as a whole. The panel scores (`author_ghp`,
+    `ghp_*`) are Giles-Hettinger-Peppers scores, the same measure behind the JCS
+    appeals-judge scores, so the two are on one scale (about -1 liberal to
+    +1 conservative). Circuit medians run 1924-2024; cases outside that get <NA>."""
+    cm = jcs("circuit_medians")[["year", "coa_circuit", "median", "sd"]].rename(
+        columns={"median": "circuit_median", "sd": "circuit_sd"}) \
+        if "coa_circuit" in jcs("circuit_medians").columns else None
+    if cm is None:                      # older circuits.csv without CCAD numbering
+        xw = jcs("circuits")[["scdb_caseSource", "coa_circuit"]]
+        cm = jcs("circuit_medians")[["year", "scdb_caseSource", "median", "sd"]].merge(
+            xw, on="scdb_caseSource", how="left").rename(
+            columns={"median": "circuit_median", "sd": "circuit_sd"})
+        cm = cm[["year", "coa_circuit", "circuit_median", "circuit_sd"]]
+    cm["coa_circuit"] = cm["coa_circuit"].astype("Int64")
+    out = d.assign(_y=d[year_col].astype("Int64"), _c=d["circuit"].astype("Int64"))
+    out = out.merge(cm.rename(columns={"year": "_y", "coa_circuit": "_c"}),
+                    on=["_y", "_c"], how="left", validate="many_to_one")
+    return out.drop(columns=["_y", "_c"])
+
+
 def coa_labels(variable):
     """Code -> label for a CCAD variable, mirroring labels() on the SCDB side.
     `scdb_first_broad_area` and `scdb_second_sub_area` reuse the SCDB issueArea /

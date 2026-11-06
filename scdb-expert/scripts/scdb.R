@@ -226,3 +226,18 @@ scdb_coa_factor <- function(x, variable, dir = scdb_dir()) {
   m <- scdb_coa_labels(variable, dir)
   factor(unname(m[as.character(x)]), levels = unname(m))
 }
+
+# Attach the deciding circuit's JCS median and SD for the year of the decision, so a
+# panel can be compared with its circuit (ghp_med - circuit_median). The panel scores
+# (author_ghp, ghp_*) are Giles-Hettinger-Peppers scores, the same measure behind the
+# JCS appeals-judge scores, so the two share one scale. Medians run 1924-2024.
+scdb_add_coa_circuit_medians <- function(d, year_col = "year", dir = scdb_dir()) {
+  cm <- scdb_jcs("circuit_medians", dir)
+  if (!"coa_circuit" %in% names(cm)) {
+    xw <- scdb_jcs("circuits", dir)[, c("scdb_caseSource", "coa_circuit")]
+    cm <- merge(cm, xw, by = "scdb_caseSource", all.x = TRUE)
+  }
+  cm <- cm[, c("year", "coa_circuit", "median", "sd")]
+  names(cm) <- c(year_col, "circuit", "circuit_median", "circuit_sd")
+  merge(d, cm, by = c(year_col, "circuit"), all.x = TRUE, sort = FALSE)
+}

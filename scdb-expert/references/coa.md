@@ -7,19 +7,45 @@ review of a circuit decision, or about merging the two databases.
 
 | table | rows | contents |
 |---|---|---|
-| `coa("cases")` | 512,263 | published U.S. Courts of Appeals opinions, 1880–2025, 28 variables |
+| `coa("cases")` | 512,263 | published U.S. Courts of Appeals opinions, 1880–2025, 74 variables |
 | `coa("crosswalk")` | 8,265 | CoA cases linked to an SCDB case, with a confidence tier |
 
 Source: the **Comprehensive Court of Appeals Database** (CCAD), Release 09-2026,
 by Eitan Sapiro-Gheiler and Jonathan P. Kastellec (Princeton). The full release is
-512,263 rows × **809** columns in a 5.85 GB uncompressed RData file. Only 28
-columns are bundled here — the identifiers, panel structure, and the LLM-coded
-SCDB-track party/issue/disposition variables needed for linking and for basic
-case-level work. Anything else (the per-judge FJC blocks, panel ideology
-aggregates, the ~270 `songer_gt_*` hand-coded ground-truth fields, the ~70
-`idb_*` administrative fields, the LLM justification text) has to come from the
-full file. `scripts/coa_slice.R` extracts a slice; widen its `want` vector and
-rerun `scripts/build_coa.py` to bundle more.
+512,263 rows x **809** columns in a 5.85 GB uncompressed RData file. **74** columns
+are bundled here, in four groups:
+
+- **case identity and structure** — `caseid`, `citation`, `circuit`, `year`,
+  `decision_date`, `docket_number`, `judge_count`, `is_enbanc`, `is_percuriam`,
+  the `n_*` opinion counts, and the two `all_*_matched` quality flags
+- **LLM-coded substance** (`scdb_*`) — party names and categories, who appealed,
+  disposition, issue area and sub-area, and two direction variables
+- **judges** — `author_*` (identity, appointing president, GHP ideology, age,
+  tenure, senior status, sex, race, whether sitting by designation), the first
+  dissenter and first concurrer (`dis1_*`, `conc1_*`), the panel roster
+  (`j1_*`–`j3_*`), and the en banc roster
+- **panel aggregates** — `num_dems`, `num_women`, `num_nonwhite`, `mixed_panel`,
+  and `ghp_min` / `ghp_max` / `ghp_med` / `ghp_mean`, `age_med`, `tenure_med`
+
+`author_ghp` and the `ghp_*` aggregates are **Giles–Hettinger–Peppers** scores —
+the same measure behind the JCS appeals-judge scores in `jcs("coa")`, on the same
+roughly -1 (liberal) to +1 (conservative) scale. So panels, judges and circuits are
+directly comparable: `add_coa_circuit_medians()` attaches the deciding circuit's JCS
+median for the year, and `ghp_med - circuit_median` is how far a panel sat from its
+circuit. Panel medians correlate 0.49 with their circuit's median, and mean
+panel-minus-circuit gaps are under 0.2 in every circuit — about what random panel
+assignment implies, which is a useful check that the join is right.
+
+`author_*` is `<NA>` for per curiam opinions and where the majority author could not
+be matched to the FJC file (8.6% of cases); filter on
+`all_authors_matched == 1` when author identity has to be complete.
+
+Everything outside these 74 columns has to come from the full file — the per-judge
+FJC blocks beyond `j1`–`j3`, the DIME and JuDJIS ideology measures, the ~270
+`songer_gt_*` hand-coded ground-truth fields, the ~70 `idb_*` administrative
+fields, and the LLM justification text. `scripts/coa_slice.R` extracts a slice;
+widen its `want` vector and rerun `scripts/build_coa.py`, which bundles whatever
+judge columns the slice happens to carry.
 
 ## Three circuit numbering schemes — do not mix them
 
