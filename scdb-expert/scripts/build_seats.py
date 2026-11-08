@@ -97,7 +97,21 @@ def load_fjc(path):
                          kind="stable").reset_index(drop=True)
 
 
-def load_master(path):
+def load_scores(path=None):
+    """Judge-level JCS scores, as (frame, year_tol).
+
+    With no path, the skill's own bundled `jcs("coa")` table is used: 705 rows,
+    703 scored, already public and identical to the research master on every
+    judge checked. It carries no confirmation year, so matching falls back to
+    name plus circuit (`year_tol=None`), and no home state, so `state` comes
+    back empty. Pass a Stata master with YearConfirm, jcs_2024 and state_abbrev
+    to use that instead and get both back."""
+    if path is None:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import scdb
+        d = scdb.jcs("coa")[["name", "circuit", "jcs"]].copy()
+        d["state"] = pd.Series([np.nan] * len(d), dtype="object")
+        return d.reset_index(drop=True), None
     d = pd.read_stata(path, convert_categoricals=False)
     # Rows without a circuit are Supreme Court justices, who hold no CoA seat.
     d = d[d.circuit.notna()].copy()
@@ -106,7 +120,7 @@ def load_master(path):
     # ZUSA is the master's code for no home state: the D.C. and Federal Circuits
     # are nationwide courts whose seats are not tied to a state.
     d["state"] = d.state_abbrev.replace({"": np.nan, "ZUSA": np.nan})
-    return d.reset_index(drop=True)      # matchjcs returns labels into this frame
+    return d.reset_index(drop=True), 2    # matchjcs returns labels into this frame
 
 
 def occupancy_bounds(a):
@@ -158,16 +172,21 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fjc", required=True,
                     help="FJC Federal Judicial Service export (CSV)")
-    ap.add_argument("--master", required=True,
-                    help="judge master file with JCS scores (Stata .dta)")
+    ap.add_argument("--master", default=None,
+                    help="optional Stata master with JCS scores and home states; "
+                         "omit to use the skill's bundled jcs(\"coa\") table")
     ap.add_argument("--out", default=".", help="output directory")
-    ap.add_argument("--year-tol", type=int, default=2,
-                    help="confirmation-year tolerance when matching names")
+    ap.add_argument("--year-tol", type=int, default=None,
+                    help="override the confirmation-year tolerance for name matching")
     a = ap.parse_args()
 
     fjc = load_fjc(a.fjc)
-    master = load_master(a.master)
-    midx, method = matchjcs.match(fjc, master, year_tol=a.year_tol)
+    master, default_tol = load_scores(a.master)
+    tol = a.year_tol if a.year_tol is not None else default_tol
+    print(f"scores: {'bundled jcs(\"coa\")' if a.master is None else a.master}"
+          f"   {len(master)} judges, year guard "
+          f"{'off' if tol is None else chr(177) + str(tol)}")
+    midx, method = matchjcs.match(fjc, master, year_tol=tol)
     fjc["jcs_match"] = method.values
     ok = midx.notna()
     fjc["jcs"] = np.nan

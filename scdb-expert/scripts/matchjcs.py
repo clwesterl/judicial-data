@@ -50,25 +50,42 @@ def name_tokens(name):
     return sur, giv
 
 
+def _tok_ok(x, y):
+    """One given-name token agrees, a single letter standing for an initial."""
+    return x == y or (len(x) == 1 and y.startswith(x)) or (len(y) == 1 and x.startswith(y))
+
+
 def _given_ok(a, b):
-    """True if any given name agrees, treating a single letter as an initial."""
-    for x in a:
-        for y in b:
-            if x == y or (len(x) == 1 and y.startswith(x)) or (len(y) == 1 and x.startswith(y)):
-                return True
-    return False
+    """True if any given name agrees. Deliberately loose: a judge who goes by a
+    middle name ('Duncan, Kyle' for Stuart Kyle Duncan) matches on that name."""
+    return any(_tok_ok(x, y) for x in a for y in b)
+
+
+def first_given(name):
+    """The first given name, for breaking ties the loose rule leaves behind."""
+    toks = name_tokens(name)[1]
+    s = re.sub(r"[\[\]]", "", _fold(name))
+    s = re.sub(r"[^a-z, ]", " ", s)
+    after = s.partition(",")[2].split()
+    for t in after:
+        if t in toks:
+            return t
+    return None
 
 
 def match(fjc, master, year_tol=2):
     """Match appointments to master judges.
 
     `fjc` needs columns judge_name, circuit, start; `master` needs name,
-    circuit, YearConfirm, and a RangeIndex (call reset_index first). Returns
+    circuit and a RangeIndex (call reset_index first). Pass `year_tol=None`
+    when the master has no YearConfirm — the bundled `jcs("coa")` table does
+    not — and matching falls back to name plus circuit alone. Returns
     (master_index, method), both aligned to `fjc`: master_index holds the
     matched row's label in `master` or <NA>, and method records why, so a join
     can be audited."""
     m = master.reset_index(drop=True).copy()
     m["tok"] = [name_tokens(n) for n in m.name]
+    m["fgiven"] = [first_given(n) for n in m.name]
     by_circuit = {c: g for c, g in m.groupby("circuit")}
 
     idx, method = [], []
@@ -84,7 +101,7 @@ def match(fjc, master, year_tol=2):
             qsur, qgiv = q.tok
             if not (sur & qsur) or not _given_ok(giv, qgiv):
                 continue
-            if abs(int(q.YearConfirm) - int(r.start)) > year_tol:
+            if year_tol is not None and abs(int(q.YearConfirm) - int(r.start)) > year_tol:
                 continue
             hits.append(q)
         if len(hits) == 1:
@@ -96,6 +113,15 @@ def match(fjc, master, year_tol=2):
             if len({q.name for q in hits}) == 1:
                 idx.append(hits[0].Index)
                 method.append("matched (two master spells)")
+                continue
+            # The loose given-name rule can tie siblings together -- Morris S.
+            # and Richard S. Arnold, both Eighth Circuit, share a middle
+            # initial. Break the tie on the first given name.
+            fg = first_given(r.judge_name)
+            strict = [q for q in hits if fg and q.fgiven and _tok_ok(fg, q.fgiven)]
+            if len({q.name for q in strict}) == 1:
+                idx.append(strict[0].Index)
+                method.append("matched (first name broke a tie)")
             else:
                 idx.append(pd.NA)
                 method.append(f"ambiguous ({len(hits)})")
