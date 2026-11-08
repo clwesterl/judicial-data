@@ -28,6 +28,7 @@ The data work offline — no download needed.
 | `scripts/scdb.py` | Python loader/labeler/search + CLI (pandas) |
 | `scripts/scdb.R` | same API for R (`scdb_load`, `scdb_label`, `scdb_factor`, `scdb_find`) |
 | `scripts/build_combined.py`, `scripts/parse_codebook.py`, `scripts/build_jcs.py`, `scripts/build_coa.py`, `scripts/coa_slice.R` | rebuild from new SCDB / JCS / CCAD releases |
+| `scripts/build_seats.py`, `scripts/matchjcs.py` | build the courts-of-appeals **seat** panel (judgeship succession) from the FJC directory + a judge master file; not bundled, see `coa_seats.md` |
 | `scripts/build_coalition_page.py` | one-file interactive page: majority coalitions as a graph, filterable by term, natural court and justice |
 | `references/variables.md` | **read first for any variable question**: every variable, codes, missingness, gotchas |
 | `references/analysis_guide.md` | sample definition, Legacy vs Modern, direction-coding critiques, vote analysis, IRT, merging |
@@ -39,6 +40,7 @@ The data work offline — no download needed.
 | `references/jcs.md` | **read for any ideology/JCS question**: what the scores are, SCDB links, caveats, quirks, citations |
 | `references/coa.md` | **read for any courts-of-appeals or SCOTUS-review question**: what's bundled, how the crosswalk was built and validated, the code-scheme corrections, coverage limits |
 | `references/coa_value_labels.csv` | all 382 CCAD codes: `variable, code, label, table` |
+| `references/coa_seats.md` | **read for judgeship succession**: what a seat is, FJC Seat IDs, why occupancy ends at senior status, validation against 28 U.S.C. §44 |
 
 ## Workflow
 
@@ -51,6 +53,10 @@ The data work offline — no download needed.
    - *Courts of appeals* (circuit decisions, panels, en banc, which circuit a case came
      from, Supreme Court review of a circuit decision, merging CoA and SCDB data) →
      `coa.md` **first** (it carries two mandatory code remaps), then the CoA helpers below.
+   - *Judgeship succession* (who held or holds a seat, who replaced whom, how a
+     circuit's seats turned over, seat-level ideology over time) → `coa_seats.md`.
+     The seat data are **not bundled** — they are built locally from the FJC
+     directory plus a judge master file; say so and give the build command.
    - *Research design / methods* → `analysis_guide.md`.
    - *New release / rebuild* → `data_notes.md` "Updating".
 2. **Define the sample explicitly** before computing (see analysis_guide.md §1).

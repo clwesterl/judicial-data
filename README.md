@@ -82,6 +82,20 @@ decisions vanish into "mixed"); and `songer_gt_supct == 0` does not mean the
 Supreme Court never reviewed the case. All three are documented with the evidence
 and with remap helpers.
 
+## Judgeship seats
+
+`scdb-expert/scripts/build_seats.py` builds a seat-level panel of the courts of
+appeals — 203 judgeships, 868 occupancies, 12,565 seat-years, 1891 to present —
+where a *seat* is an authorized judgeship and the data track who held it, who
+replaced whom, and the statute that created it. Succession comes from the FJC
+directory's official Seat IDs rather than being inferred. Occupied seats in 2025
+reconcile exactly to the 179 judgeships authorized by 28 U.S.C. §44, in all
+thirteen circuits.
+
+The inputs — the FJC export and a judge master file with JCS scores — stay local,
+so this one is built on demand rather than bundled. See
+`scdb-expert/references/coa_seats.md`.
+
 ## Interactive pages
 
 `docs/` holds two self-contained pages built from the data:

@@ -62,7 +62,8 @@ judge columns the slice happens to carry.
 | **SCDB** (`caseSource`, `caseOrigin`) | 32 | 21–31 | 8 |
 
 `jcs("circuits")` carries all three (`circuit`, `coa_circuit`, `scdb_caseSource`).
-Always crosswalk through it rather than assuming. CCAD `circuit` is missing for
+Always crosswalk through it rather than assuming. The seat data in `coa_seats.md`
+use the **JCS** numbering, not the CCAD's. CCAD `circuit` is missing for
 59,266 cases, nearly all pre-1891 (the courts of appeals were created that year;
 earlier rows are the old circuit courts).
 
