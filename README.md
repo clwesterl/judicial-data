@@ -55,6 +55,7 @@ cases  = scdb.load("case")          # 29,270 cases x 53 vars
 votes  = scdb.load("justice")       # 256,469 justice-votes x 61 vars
 votes  = scdb.add_jcs(votes)        # + each justice's JCS score that term
 cases  = scdb.add_coa(cases)        # + the courts of appeals case reviewed
+scdb.find_judge("calabresi")        # a CoA judge's seat, tenure and predecessor
 appeals = scdb.coa("cases")         # 512,263 CoA opinions x 74 vars
 appeals = scdb.add_coa_circuit_medians(appeals)   # + that circuit's JCS median
 appeals = scdb.label_coa(appeals)   # adds <var>_label for 28 coded variables
@@ -92,9 +93,9 @@ directory's official Seat IDs rather than being inferred. Occupied seats in 2025
 reconcile exactly to the 179 judgeships authorized by 28 U.S.C. §44, in all
 thirteen circuits.
 
-The inputs — the FJC export and a judge master file with JCS scores — stay local,
-so this one is built on demand rather than bundled. See
-`scdb-expert/references/coa_seats.md`.
+Scores come from the Judicial Common Space table already in the repo, and the
+FJC export is vendored under `fjc-raw/`, so the tables rebuild from the
+repository alone. See `scdb-expert/references/coa_seats.md`.
 
 ## Interactive pages
 

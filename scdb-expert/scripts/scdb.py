@@ -511,12 +511,22 @@ def seat_panel(start=None, end=None):
 
 
 def find_judge(query, circuit=None):
-    """Occupancies whose judge matches `query` (substring, case- and
-    accent-insensitive). The courts-of-appeals analogue of `justice()`."""
+    """Occupancies whose judge matches `query`, case- and accent-insensitively.
+
+    Every word of the query must appear in the name, in any order, so
+    "coney barrett" finds "Barrett, Amy Coney" and "gelpi" finds "Gelpí".
+    The courts-of-appeals analogue of `justice()`."""
     import matchjcs
     sp = seats("spells")
-    q = matchjcs._fold(query)
-    hit = sp[sp.judge_name.fillna("").map(lambda n: q in matchjcs._fold(n))]
+    words = [w for w in re.split(r"[^\w]+", matchjcs._fold(query)) if w]
+    if not words:
+        return sp.iloc[0:0]
+
+    def hits(name):
+        n = matchjcs._fold(name)
+        return all(w in n for w in words)
+
+    hit = sp[sp.judge_name.fillna("").map(hits)]
     if circuit is not None:
         hit = hit[hit.circuit == circuit]
     return hit.sort_values(["judge_name", "occ_start"]).reset_index(drop=True)

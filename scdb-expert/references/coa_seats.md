@@ -88,11 +88,11 @@ Occupancy over time tracks the statutory growth: 28 seats in 1900, 43 in 1930,
 
 ## Contents
 
-| file | rows | one row per |
+| table | rows | one row per |
 |---|---|---|
-| `coa_seats.csv` | 203 | seat: creating statute, span, occupant count, filled now |
-| `coa_seat_spells.csv` | 868 | occupancy: predecessor, ideology shift, vacancy length, why they left |
-| `coa_seat_years.csv` | 12,565 | seat-year: occupant, ideology, appointing president |
+| `seats()` | 203 | seat: creating statute, span, occupant count, filled now |
+| `seats("spells")` | 868 | occupancy: predecessor, ideology shift, vacancy length, why they left |
+| `seat_panel()` | 12,565 | seat-year: occupant, ideology, appointing president — **derived**, not stored |
 
 A vacant seat-year is simply absent from the panel, so a gap is a vacancy. Spells
 on a seat never overlap: an occupancy is closed at the next occupant's arrival

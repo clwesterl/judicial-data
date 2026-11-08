@@ -1,0 +1,22 @@
+{
+  "source": "FJC Biographical Directory of Article III Federal Judges, Federal Judicial Service export",
+  "scores": "bundled jcs(\"coa\")",
+  "appointments": 868,
+  "seats": 203,
+  "senior_transfers_excluded": 10,
+  "jcs_joined": 690,
+  "year_guard": null,
+  "last_year": 2026,
+  "coa_seats.csv.gz": {
+    "rows": 203,
+    "cols": 9,
+    "bytes": 1901,
+    "sha256": "a1a5e6fb6b71381538ed8d25251735e9740af87ee66542a819601af770c70a4b"
+  },
+  "coa_seat_spells.csv.gz": {
+    "rows": 868,
+    "cols": 24,
+    "bytes": 31709,
+    "sha256": "594f60d984dd7468651af6c3965a4746b727c3ce97f695b3dbbd9df69aee098f"
+  }
+}

@@ -16,10 +16,14 @@ ideology is a step function and sometimes does not step at all -- two judges
 appointed by the same president from the same state score identically.
 Occupancy is the spine; ideology is an attached, nullable attribute.
 
-Outputs, written to --out:
-    coa_seats.csv        one row per seat: creating statute, span, occupant count
-    coa_seat_spells.csv  one row per occupancy, with predecessor and ideology shift
-    coa_seat_years.csv   circuit x seat x year panel
+Outputs, written to --out as deterministic gzip (mtime 0), so an unchanged
+input rebuilds byte-identically:
+    coa_seats.csv.gz        one row per seat: creating statute, span, occupants
+    coa_seat_spells.csv.gz  one row per occupancy, predecessor, ideology shift
+    SEATS_MANIFEST.json     row counts, digests and the score source used
+
+The circuit x seat x year panel is not written: `scdb.seat_panel()` derives it
+from the spells, so it cannot drift away from them.
 
 Usage:
     python build_seats.py --fjc federal-judicial-service.csv \
@@ -27,6 +31,9 @@ Usage:
                           --out data/coa
 """
 import argparse
+import gzip
+import hashlib
+import json
 import os
 import sys
 
@@ -199,9 +206,23 @@ def main():
     registry = seat_registry(sp)
 
     os.makedirs(a.out, exist_ok=True)
-    registry.to_csv(os.path.join(a.out, "coa_seats.csv"), index=False)
-    sp[SPELL_COLS].to_csv(os.path.join(a.out, "coa_seat_spells.csv"), index=False)
-    panel.to_csv(os.path.join(a.out, "coa_seat_years.csv"), index=False)
+    meta = {"source": "FJC Biographical Directory of Article III Federal Judges, "
+                      "Federal Judicial Service export",
+            "scores": "bundled jcs(\"coa\")" if a.master is None else os.path.basename(a.master),
+            "appointments": int(len(fjc)), "seats": int(fjc.seat_id.nunique()),
+            "senior_transfers_excluded": fjc.attrs["senior_transfers_dropped"],
+            "jcs_joined": int(fjc.jcs.notna().sum()),
+            "year_guard": tol, "last_year": LAST_YEAR}
+    for name, frame in [("coa_seats.csv.gz", registry),
+                        ("coa_seat_spells.csv.gz", sp[SPELL_COLS])]:
+        path = os.path.join(a.out, name)
+        with gzip.GzipFile(path, "wb", mtime=0) as g:
+            frame.to_csv(g, index=False)
+        meta[name] = {"rows": int(len(frame)), "cols": int(frame.shape[1]),
+                      "bytes": os.path.getsize(path),
+                      "sha256": hashlib.sha256(open(path, "rb").read()).hexdigest()}
+    with open(os.path.join(a.out, "SEATS_MANIFEST.json"), "w") as fh:
+        json.dump(meta, fh, indent=2)
 
     print(f"appointments: {len(fjc)}   seats: {fjc.seat_id.nunique()}   "
           f"seat-years: {len(panel)}")
@@ -226,7 +247,8 @@ def main():
     print(f"  {'TOTAL':<10}{fjc.seat_id.nunique():>11}{tot:>6}"
           f"{sum(STATUTORY.values()):>12}{tot - sum(STATUTORY.values()):>+6}")
     print()
-    print(f"wrote coa_seats.csv, coa_seat_spells.csv, coa_seat_years.csv to {a.out}")
+    print(f"wrote coa_seats.csv.gz, coa_seat_spells.csv.gz, "
+          f"SEATS_MANIFEST.json to {a.out}  ({len(panel):,} seat-years derivable)")
 
 
 if __name__ == "__main__":

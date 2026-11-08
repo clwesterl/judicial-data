@@ -28,7 +28,7 @@ The data work offline — no download needed.
 | `scripts/scdb.py` | Python loader/labeler/search + CLI (pandas) |
 | `scripts/scdb.R` | same API for R (`scdb_load`, `scdb_label`, `scdb_factor`, `scdb_find`) |
 | `scripts/build_combined.py`, `scripts/parse_codebook.py`, `scripts/build_jcs.py`, `scripts/build_coa.py`, `scripts/coa_slice.R` | rebuild from new SCDB / JCS / CCAD releases |
-| `scripts/build_seats.py`, `scripts/matchjcs.py` | build the courts-of-appeals **seat** panel (judgeship succession) from the FJC directory + a judge master file; not bundled, see `coa_seats.md` |
+| `scripts/build_seats.py`, `scripts/matchjcs.py` | rebuild the seat tables from `fjc-raw/` + the bundled JCS scores |
 | `scripts/build_coalition_page.py` | one-file interactive page: majority coalitions as a graph, filterable by term, natural court and justice |
 | `references/variables.md` | **read first for any variable question**: every variable, codes, missingness, gotchas |
 | `references/analysis_guide.md` | sample definition, Legacy vs Modern, direction-coding critiques, vote analysis, IRT, merging |
