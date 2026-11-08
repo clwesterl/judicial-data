@@ -443,6 +443,98 @@ def songer_direction_to_scdb(s):
     return pd.Series(s).map(SONGER_DIRECTION_TO_SCDB).astype("Int64")
 
 
+# ------------------------------------------- Courts of Appeals seats
+_SEAT_FILES = {"seats": "coa_seats.csv.gz", "spells": "coa_seat_spells.csv.gz"}
+_SEAT_TEXT = {"seat_id", "circuit_name", "judge_name", "predecessor", "state",
+              "president", "pres_party", "left_because", "creating_statute",
+              "jcs_match", "created_by"}
+_SEAT_FLOAT = {"jcs", "pred_jcs", "jcs_shift", "vacancy_years"}
+_SEAT_BOOL = {"sitting", "filled_now"}
+SEAT_LAST_YEAR = 2026
+
+
+def seats(which="seats", parse=True):
+    """Courts-of-appeals judgeships and who has held them.
+
+    'seats'   203 judgeships: the statute that created each, its span, how many
+              judges have held it, whether it is filled now
+    'spells'  868 occupancies: judge, dates, predecessor, ideology and the shift
+              from the previous occupant, how the seat came open
+
+    A *seat* is an authorized judgeship. Succession comes from the FJC's
+    official Seat IDs, so it is looked up rather than inferred. Occupancy ends
+    at senior status, which vacates the judgeship. Circuit numbering is the JCS
+    scheme (12 = D.C., 13 = Federal), as in `jcs("circuits")` -- not the CCAD's.
+    See references/coa_seats.md."""
+    if which not in _SEAT_FILES:
+        raise ValueError(f"which must be one of {sorted(_SEAT_FILES)}")
+    path = os.path.join(COA, _SEAT_FILES[which])
+    if not os.path.exists(path):
+        raise FileNotFoundError(
+            f"{path} is not bundled. Build it with:\n"
+            "  python scripts/build_seats.py --fjc fjc-raw/federal-judicial-service.csv.gz"
+            " --out data/coa\nSee references/coa_seats.md.")
+    df = pd.read_csv(path, dtype=str, keep_default_na=False)
+    if not parse:
+        return df
+    for c in df.columns:
+        if c in _SEAT_TEXT:
+            df[c] = df[c].replace("", None)
+        elif c in _SEAT_FLOAT:
+            df[c] = pd.to_numeric(df[c].replace("", None))
+        elif c in _SEAT_BOOL:
+            df[c] = df[c].map({"True": True, "False": False}).astype("boolean")
+        else:
+            df[c] = pd.to_numeric(df[c].replace("", None)).astype("Int64")
+    return df
+
+
+def seat_panel(start=None, end=None):
+    """Derive the circuit x seat x year panel from the occupancy spells.
+
+    One row per seat-year, so a vacant seat-year is simply absent and a gap in
+    a seat's rows is a real vacancy. Derived rather than stored, so it cannot
+    drift away from `seats("spells")`."""
+    sp = seats("spells")
+    lo = int(start) if start is not None else int(sp.occ_start.min())
+    hi = int(end) if end is not None else SEAT_LAST_YEAR
+    sp = sp[(sp.occ_end >= lo) & (sp.occ_start <= hi)].copy()
+    sp["a"] = sp.occ_start.clip(lower=lo)
+    sp["b"] = sp.occ_end.clip(upper=hi)
+    out = sp.loc[sp.index.repeat((sp.b - sp.a + 1).astype(int))].copy()
+    out["year"] = out.a + out.groupby(level=0).cumcount()
+    cols = ["circuit", "circuit_name", "seat_no", "seat_id", "year", "judge_name",
+            "state", "jcs", "pres_party", "president", "occupancy", "creating_statute"]
+    return (out[[c for c in cols if c in out.columns]]
+            .sort_values(["circuit", "seat_no", "year"], kind="stable")
+            .reset_index(drop=True))
+
+
+def find_judge(query, circuit=None):
+    """Occupancies whose judge matches `query` (substring, case- and
+    accent-insensitive). The courts-of-appeals analogue of `justice()`."""
+    import matchjcs
+    sp = seats("spells")
+    q = matchjcs._fold(query)
+    hit = sp[sp.judge_name.fillna("").map(lambda n: q in matchjcs._fold(n))]
+    if circuit is not None:
+        hit = hit[hit.circuit == circuit]
+    return hit.sort_values(["judge_name", "occ_start"]).reset_index(drop=True)
+
+
+def seat_history(circuit, seat_no):
+    """Every judge who has held one judgeship, in order."""
+    sp = seats("spells")
+    return (sp[(sp.circuit == circuit) & (sp.seat_no == seat_no)]
+            .sort_values("occupancy").reset_index(drop=True))
+
+
+def court_composition(circuit, year):
+    """Who sat on one circuit in one year, one row per filled seat."""
+    p = seat_panel(year, year)
+    return p[p.circuit == circuit].sort_values("seat_no").reset_index(drop=True)
+
+
 # ---------------------------------------------------------------- CLI
 CASE_FIELDS = ["caseName", "usCite", "sctCite", "ledCite", "lexisCite", "docket", "term",
                "dateArgument", "dateRearg", "dateDecision", "chief", "naturalCourt", "petitioner",
@@ -574,6 +666,28 @@ def main(argv):
                       f"(tier {l.confidence}, score {l.score:.2f})")
         if len(hit) > 25:
             print(f"... and {len(hit) - 25} more")
+    elif cmd == "seat":
+        try:
+            hit = find_judge(arg)
+        except FileNotFoundError as e:
+            print(e); return
+        if hit.empty:
+            print("no courts of appeals judge matches"); return
+        for _, r in hit.iterrows():
+            end = "present" if pd.isna(r.end) else int(r.end)
+            j = "   .  " if pd.isna(r.jcs) else f"{r.jcs:+.3f}"
+            print(f"{r.judge_name}  [{r.circuit_name}, seat {r.seat_no}, "
+                  f"occupant {r.occupancy}]")
+            print(f"    {int(r.occ_start)}-{end}   JCS {j}"
+                  f"   left by {r.left_because or 'still sitting'}")
+            if pd.notna(r.predecessor):
+                sh = "" if pd.isna(r.jcs_shift) else f", shift {r.jcs_shift:+.3f}"
+                print(f"    replaced {r.predecessor}{sh}")
+            hist = seat_history(int(r.circuit), int(r.seat_no))
+            chain = " -> ".join(n.split(",")[0] for n in hist.judge_name)
+            print(f"    seat created by {hist.iloc[0].creating_statute or '(pre-1891)'}: "
+                  f"{chain}")
+            print()
     elif cmd == "cite":
         print("\n".join(citation()))
     elif cmd == "labels":

@@ -98,10 +98,32 @@ A vacant seat-year is simply absent from the panel, so a gap is a vacancy. Spell
 on a seat never overlap: an occupancy is closed at the next occupant's arrival
 when a departure and an appointment fall in the same year.
 
+## Using it
+
+```python
+import scdb
+scdb.seats()                      # 203 judgeships
+scdb.seats("spells")              # 868 occupancies
+scdb.seat_panel(1950, 2026)       # circuit x seat x year, derived from the spells
+scdb.find_judge("reinhardt")      # a judge's seats, the CoA analogue of justice()
+scdb.seat_history(1, 3)           # everyone who has held First Circuit seat 3
+scdb.court_composition(9, 1995)   # who sat on the Ninth in 1995
+```
+
+```r
+source("scripts/scdb.R")
+scdb_seats(); scdb_seats("spells")
+scdb_seat_panel(1950); scdb_seat_history(1, 3); scdb_court_composition(9, 1995)
+```
+
+The year panel is **derived, not stored**, so it cannot drift away from the
+spells. A vacant seat-year is simply absent from it, so a gap in a seat's rows
+is a real vacancy.
+
 ## Ideology is a step function that sometimes doesn't step
 
-JCS scores join from the judge master file and are **appointment-based and
-time-invariant** — one score per judge for their whole career. So a seat's
+JCS scores join from the skill's own `jcs("coa")` table and are
+**appointment-based and time-invariant** — one score per judge for their whole career. So a seat's
 ideology changes only at turnover, and not always then: two judges appointed by
 the same president from the same state score identically. On the First Circuit,
 Thompson → Montecalvo shows a shift of exactly 0.000. Thirty transitions in the
@@ -109,49 +131,62 @@ dataset are flat for this reason. Occupancy is the reliable signal; treat
 `jcs_shift` as informative about direction, not magnitude, and do not read a
 zero as "no change in the seat."
 
-Coverage: 690 of 868 appointments (79.5%) carry a score — 95.9% for 1950–89 and
-92.1% for 1990–2026, but only 31% before 1950, because the master file begins in
-1924. The `jcs_match` column records how each join was made (or why it failed),
-so the pre-1950 era can be filtered rather than silently averaged over. Name
-matching is non-trivial and documented in `scripts/matchjcs.py`: the sources
-disagree on accents (`Gelpí`), two-word surnames (`Coney Barrett, Amy` vs
-`Barrett, Amy Coney`) and middle-name usage (`Duncan, Kyle` vs `Duncan, Stuart
-Kyle`), so matching is on surname-token and given-name-token overlap guarded by
-circuit and confirmation year, accepted only when exactly one master judge
-qualifies. Zero ambiguous matches result.
+Coverage runs out in the early decades: the JCS appeals-judge table starts in
+the 1920s, so appointments before roughly 1939 carry no score at all, and the
+most recent appointees have none yet. The `jcs_match` column records how each
+join was made, or why it failed, so that era can be filtered rather than
+silently averaged over.
 
-The 26 post-1950 misses are mostly the Federal Circuit's 1982 founding cohort,
-who transferred in from the Court of Claims and the CCPA rather than being
-appointed to a circuit in the ordinary way.
+Name matching is non-trivial and documented in `scripts/matchjcs.py`. The two
+sources disagree on accents (`Gelpí`), on two-word surnames (`Coney Barrett,
+Amy` against `Barrett, Amy Coney`) and on judges who go by a middle name
+(`Duncan, Kyle` against `Duncan, Stuart Kyle`), so a candidate must share a
+surname token, share a given-name token (an initial standing for the name it
+abbreviates) and sit on the same circuit, and is accepted only when exactly one
+judge qualifies. The loose given-name rule ties exactly one pair together in
+705 judges — **Morris S. and Richard S. Arnold**, brothers who both sat on the
+Eighth Circuit and share a middle initial — and that tie breaks on the first
+given name, separating them correctly. Zero ambiguous matches remain.
 
-## Building it
+The bundled table carries no home state, so `state` is empty unless the build
+is given a research master that has one. Since circuit judgeships are
+informally state-tied, that is a real gap for seat-level work; pass `--master`
+when you have such a file.
 
-The data are **not bundled**: they derive from the judge master file, which is
-unpublished research material, and from an FJC export that is better downloaded
-fresh. Both inputs stay local, as with the CCAD.
+## Rebuilding it
+
+Both inputs live in the repo — the FJC export under `fjc-raw/`, the scores in
+`data/jcs/` — so the build needs nothing local:
 
 ```bash
-# 1. the FJC export (public).  fjc.gov blocks automated clients, so fetch it
-#    in a browser or from your own machine:
-curl -LO https://www.fjc.gov/sites/default/files/history/federal-judicial-service.csv
-#    or use the download links at
-#    https://www.fjc.gov/history/judges/biographical-directory-article-iii-federal-judges-export
-
-# 2. build
-python scripts/build_seats.py \
-    --fjc federal-judicial-service.csv \
-    --master "judge master base 2026 with jcs.dta" \
-    --out data/coa
+python scripts/build_seats.py --fjc fjc-raw/federal-judicial-service.csv.gz \
+                              --out data/coa
 ```
+
+Add `--master <file.dta>` to score from a research master instead of the
+bundled table; that is also the only way to populate home states.
+
+To refresh the FJC export (fjc.gov blocks automated clients, so fetch it in a
+browser or from your own machine):
+
+```bash
+curl -LO https://www.fjc.gov/sites/default/files/history/federal-judicial-service.csv
+gzip -9 -c federal-judicial-service.csv > fjc-raw/federal-judicial-service.csv.gz
+```
+or use the download links at
+<https://www.fjc.gov/history/judges/biographical-directory-article-iii-federal-judges-export>.
 
 The build prints the validation table above; if the 2025 column stops matching
 §44, either the FJC release changed its Seat ID scheme or `STATUTORY` in
 `build_seats.py` needs updating for a new judgeship act.
 
-The master file must supply `name`, `circuit` (1–11, 12 = D.C., 13 = Federal),
-`YearConfirm`, `jcs_2024` and `state_abbrev`. Rows with no circuit are treated as
-Supreme Court justices and dropped; `state_abbrev == "ZUSA"` means no home state,
-which is correct for the D.C. and Federal Circuits.
+A research master, if supplied, must have `name`, `circuit` (1–11, 12 = D.C.,
+13 = Federal), `YearConfirm`, `jcs_2024` and `state_abbrev`. Rows with no
+circuit are treated as Supreme Court justices and dropped; `state_abbrev ==
+"ZUSA"` means no home state, which is correct for the D.C. and Federal
+Circuits. Verified against the bundled table on the First Circuit: 25 of 25
+judges matched with every score identical, and the same 12 occupancies unscored
+either way.
 
 ## Cross-references
 

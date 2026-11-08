@@ -24,7 +24,7 @@ The data work offline — no download needed.
 | `data/justice_citation.csv.gz` | 256,469 rows × 61 vars (one row per sitting justice per case) |
 | `data/MANIFEST.json` | source releases, row counts, checksums |
 | `data/jcs/` | Judicial Common Space: justice-term scores (OT1937–2022), 693 appeals judges, medians by year 1924–2024, circuit↔SCDB crosswalk |
-| `data/coa/` | Courts of Appeals: 512,263 published opinions 1880–2025 (74 of the CCAD's 809 vars, incl. panel rosters and GHP ideology), plus 8,265 CoA↔SCDB links with confidence tiers |
+| `data/coa/` | Courts of Appeals: 512,263 published opinions 1880–2025 (74 of the CCAD's 809 vars, incl. panel rosters and GHP ideology); 8,265 CoA↔SCDB links with confidence tiers; 203 judgeships and 868 occupancies, 1891–present |
 | `scripts/scdb.py` | Python loader/labeler/search + CLI (pandas) |
 | `scripts/scdb.R` | same API for R (`scdb_load`, `scdb_label`, `scdb_factor`, `scdb_find`) |
 | `scripts/build_combined.py`, `scripts/parse_codebook.py`, `scripts/build_jcs.py`, `scripts/build_coa.py`, `scripts/coa_slice.R` | rebuild from new SCDB / JCS / CCAD releases |
@@ -53,10 +53,10 @@ The data work offline — no download needed.
    - *Courts of appeals* (circuit decisions, panels, en banc, which circuit a case came
      from, Supreme Court review of a circuit decision, merging CoA and SCDB data) →
      `coa.md` **first** (it carries two mandatory code remaps), then the CoA helpers below.
-   - *Judgeship succession* (who held or holds a seat, who replaced whom, how a
-     circuit's seats turned over, seat-level ideology over time) → `coa_seats.md`.
-     The seat data are **not bundled** — they are built locally from the FJC
-     directory plus a judge master file; say so and give the build command.
+   - *Judgeship succession and individual CoA judges* (who held or holds a seat,
+     who replaced whom, a judge's tenure and ideology, how a circuit's seats
+     turned over, who sat on a circuit in a given year) → `coa_seats.md`, then
+     the seat helpers below.
    - *Research design / methods* → `analysis_guide.md`.
    - *New release / rebuild* → `data_notes.md` "Updating".
 2. **Define the sample explicitly** before computing (see analysis_guide.md §1).
@@ -83,6 +83,7 @@ python SKILL_DIR/scripts/scdb.py case 1965-122        # labeled record + each ju
 python SKILL_DIR/scripts/scdb.py labels issueArea     # code table for a variable
 python SKILL_DIR/scripts/scdb.py justice kennedy      # service dates, votes, dissents, opinions
 python SKILL_DIR/scripts/scdb.py jcs kennedy          # JCS scores: justice by term + appeals judges
+python SKILL_DIR/scripts/scdb.py seat reinhardt       # a CoA judge's seat, tenure, predecessor, chain
 python SKILL_DIR/scripts/scdb.py cite                 # how to cite the releases (SCDB + JCS)
 python SKILL_DIR/scripts/build_coalition_page.py --start 2005 --end 2025 --out coalitions.html
 ```
@@ -119,6 +120,14 @@ scdb.coa("crosswalk")          # 8,265 CoA<->SCDB links, confidence A/B/C
 c = scdb.add_coa(c)            # SCDB + the reviewed CoA case (tier A; confidence=("A","B") to widen)
 d = scdb.add_scdb(scdb.coa("cases"))            # CoA + the reviewing SCOTUS case
 d = scdb.add_coa_circuit_medians(d)            # + the circuit's JCS median that year
+# Judgeships and who held them (see references/coa_seats.md)
+scdb.seats()                   # 203 judgeships: creating statute, span, occupants
+scdb.seats("spells")           # 868 occupancies: predecessor, ideology shift, exit
+scdb.seat_panel(1950, 2026)    # circuit x seat x year, derived from the spells
+scdb.find_judge("reinhardt")   # a judge's seats -- the CoA analogue of justice()
+scdb.seat_history(1, 3)        # everyone who has held First Circuit seat 3
+scdb.court_composition(9, 1995)  # who sat on the Ninth in 1995, by seat
+
 scdb.coa_labels("scdb_first_broad_area"); scdb.label_coa(d)   # code -> label
 scdb.coa_disposition_to_scdb(d.scdb_first_disposition)   # CCAD codes are NOT SCDB codes
 scdb.songer_direction_to_scdb(x)                # for songer_gt_* fields ONLY
@@ -141,6 +150,8 @@ appeals <- scdb_add_scdb(appeals)                 # + the reviewing SCOTUS case
 appeals <- scdb_add_coa_circuit_medians(appeals)  # + the circuit's JCS median that year
 appeals <- scdb_coa_label(appeals)                # adds <var>_label columns
 appeals$disp_scdb <- scdb_coa_disposition(appeals$scdb_first_disposition)
+judgeships <- scdb_seats(); occupancies <- scdb_seats("spells")
+panel <- scdb_seat_panel(1950); scdb_seat_history(1, 3); scdb_court_composition(9, 1995)
 ```
 
 ## Essentials to keep in mind

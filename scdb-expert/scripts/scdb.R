@@ -241,3 +241,53 @@ scdb_add_coa_circuit_medians <- function(d, year_col = "year", dir = scdb_dir())
   names(cm) <- c(year_col, "circuit", "circuit_median", "circuit_sd")
   merge(d, cm, by = c(year_col, "circuit"), all.x = TRUE, sort = FALSE)
 }
+
+# ---- Courts of appeals seats (see references/coa_seats.md)
+# A seat is an authorized judgeship; succession comes from the FJC's official
+# Seat IDs. Occupancy ends at senior status, which vacates the judgeship.
+# Circuit numbering is the JCS scheme (12 = D.C., 13 = Federal).
+scdb_seats <- function(which = c("seats", "spells"), dir = scdb_dir()) {
+  which <- match.arg(which)
+  f <- file.path(dir, "data", "coa",
+                 switch(which, seats = "coa_seats.csv.gz", spells = "coa_seat_spells.csv.gz"))
+  if (!file.exists(f))
+    stop(f, " is not bundled. Build it with:\n",
+         "  python scripts/build_seats.py --fjc fjc-raw/federal-judicial-service.csv.gz",
+         " --out data/coa\nSee references/coa_seats.md.")
+  if (requireNamespace("readr", quietly = TRUE)) {
+    as.data.frame(readr::read_csv(f, show_col_types = FALSE, progress = FALSE))
+  } else {
+    utils::read.csv(gzfile(f), encoding = "UTF-8", stringsAsFactors = FALSE)
+  }
+}
+
+# Circuit x seat x year panel, derived from the spells so it cannot drift.
+# A vacant seat-year is absent, so a gap in a seat's rows is a real vacancy.
+scdb_seat_panel <- function(start = NULL, end = 2026, dir = scdb_dir()) {
+  sp <- scdb_seats("spells", dir)
+  lo <- if (is.null(start)) min(sp$occ_start) else start
+  sp <- sp[sp$occ_end >= lo & sp$occ_start <= end, ]
+  a <- pmax(sp$occ_start, lo); b <- pmin(sp$occ_end, end)
+  i <- rep(seq_len(nrow(sp)), b - a + 1L)
+  out <- sp[i, ]
+  out$year <- unlist(mapply(seq, a, b, SIMPLIFY = FALSE), use.names = FALSE)
+  keep <- intersect(c("circuit", "circuit_name", "seat_no", "seat_id", "year",
+                      "judge_name", "state", "jcs", "pres_party", "president",
+                      "occupancy", "creating_statute"), names(out))
+  out <- out[, keep]
+  out[order(out$circuit, out$seat_no, out$year), ]
+}
+
+# Every judge who has held one judgeship, in order.
+scdb_seat_history <- function(circuit, seat_no, dir = scdb_dir()) {
+  sp <- scdb_seats("spells", dir)
+  sp <- sp[sp$circuit == circuit & sp$seat_no == seat_no, ]
+  sp[order(sp$occupancy), ]
+}
+
+# Who sat on one circuit in one year, one row per filled seat.
+scdb_court_composition <- function(circuit, year, dir = scdb_dir()) {
+  p <- scdb_seat_panel(year, year, dir)
+  p <- p[p$circuit == circuit, ]
+  p[order(p$seat_no), ]
+}
