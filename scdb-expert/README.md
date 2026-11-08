@@ -39,6 +39,15 @@ in your shell profile. Both loaders check the skill's own `data/` first, then
 that directory at the same relative path, so everything works unchanged; without
 it only `coa("cases")` is unavailable, and it says so explicitly.
 
+Build either zip with:
+
+```bash
+scripts/package_skill.sh          # full, ~43 MB
+scripts/package_skill.sh --slim   # ~7 MB, no CoA case file
+```
+
+The zips are build artifacts and are not committed; rebuild after any change.
+
 **Using the data outside Claude:** `data/*.csv.gz` are plain gzipped CSVs;
 `readr::read_csv()`, `data.table::fread()` (with R.utils), and `pandas.read_csv()`
 read them directly. `scripts/scdb.R` and `scripts/scdb.py` add typing and labels.
