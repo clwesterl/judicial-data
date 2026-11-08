@@ -198,6 +198,12 @@ panel <- scdb_seat_panel(1950); scdb_seat_history(1, 3); scdb_court_composition(
   - **`songer_gt_supct == 0` does not mean "never reviewed"** — confirmed
     counterexamples are in `coa.md`. Use it for recall, not as a negative.
   - CCAD substantive variables are **LLM-coded from opinion text**, not hand-coded.
+  - **The CoA case file may live outside the skill.** `coa_cases.csv.gz` is 37 of
+    the bundle's 43 MB, so an upload may ship without it. `coa("cases")` then
+    looks under `$SCDB_DATA_EXTRA` at the same relative path and, failing that,
+    raises an error naming both paths. If that happens, tell the user to set
+    `SCDB_DATA_EXTRA` to a `data/` directory holding the file (their clone of
+    the judicial-data repo) — everything else, seats included, still works.
   - Coded CCAD variables have labels: `coa_labels(v)`, `label_coa(df)`, and
     `coa_labelled_vars()` — the CoA analogue of `labels()` / `label()`.
     `scdb_first_broad_area` and `scdb_second_sub_area` reuse SCDB's `issueArea` /

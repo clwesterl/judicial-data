@@ -24,6 +24,26 @@ scdb_dir <- function() {
   stop("Can't locate the scdb-expert skill folder; set Sys.setenv(SCDB_SKILL_DIR = '...')")
 }
 
+# Locate a data file, allowing large tables to live outside the skill: looked
+# for under the skill's own data/, then under SCDB_DATA_EXTRA at the same
+# relative path. A slim upload (no coa/coa_cases.csv.gz, 37 of the bundle's
+# 43 MB) then works on a machine that keeps the big file locally:
+#   Sys.setenv(SCDB_DATA_EXTRA = "~/judicial-data/scdb-expert/data")
+scdb_data_path <- function(rel, dir = scdb_dir()) {
+  p <- file.path(dir, "data", rel)
+  if (file.exists(p)) return(p)
+  extra <- Sys.getenv("SCDB_DATA_EXTRA")
+  if (nzchar(extra)) {
+    q <- file.path(path.expand(extra), rel)
+    if (file.exists(q)) return(q)
+    stop(rel, " is not available.\n  not in the skill: ", p,
+         "\n  not under SCDB_DATA_EXTRA: ", q)
+  }
+  stop(rel, " is not available.\n  not in the skill: ", p,
+       "\n  SCDB_DATA_EXTRA is unset; point it at a data/ directory holding it, e.g.",
+       "\n  Sys.setenv(SCDB_DATA_EXTRA = \"~/judicial-data/scdb-expert/data\")")
+}
+
 .scdb_text  <- c("caseId", "docketId", "caseIssuesId", "voteId", "usCite", "sctCite", "ledCite",
                  "lexisCite", "chief", "docket", "caseName", "lawMinor", "justiceName")
 .scdb_dates <- c("dateDecision", "dateArgument", "dateRearg")
@@ -135,8 +155,8 @@ scdb_add_medians <- function(df, cols = c("sc_median", "president", "house_media
 # 12 = Federal. scdb_jcs("circuits") crosswalks it to the JCS and SCDB schemes.
 scdb_coa <- function(which = c("cases", "crosswalk"), dir = scdb_dir()) {
   which <- match.arg(which)
-  f <- file.path(dir, "data", "coa",
-                 switch(which, cases = "coa_cases.csv.gz", crosswalk = "crosswalk.csv.gz"))
+  f <- scdb_data_path(file.path("coa",
+         switch(which, cases = "coa_cases.csv.gz", crosswalk = "crosswalk.csv.gz")), dir)
   d <- if (requireNamespace("readr", quietly = TRUE)) {
     as.data.frame(readr::read_csv(f, col_types = readr::cols(
       caseid = readr::col_character(), coa_caseid = readr::col_character(),
@@ -248,12 +268,8 @@ scdb_add_coa_circuit_medians <- function(d, year_col = "year", dir = scdb_dir())
 # Circuit numbering is the JCS scheme (12 = D.C., 13 = Federal).
 scdb_seats <- function(which = c("seats", "spells"), dir = scdb_dir()) {
   which <- match.arg(which)
-  f <- file.path(dir, "data", "coa",
-                 switch(which, seats = "coa_seats.csv.gz", spells = "coa_seat_spells.csv.gz"))
-  if (!file.exists(f))
-    stop(f, " is not bundled. Build it with:\n",
-         "  python scripts/build_seats.py --fjc fjc-raw/federal-judicial-service.csv.gz",
-         " --out data/coa\nSee references/coa_seats.md.")
+  f <- scdb_data_path(file.path("coa",
+         switch(which, seats = "coa_seats.csv.gz", spells = "coa_seat_spells.csv.gz")), dir)
   if (requireNamespace("readr", quietly = TRUE)) {
     as.data.frame(readr::read_csv(f, show_col_types = FALSE, progress = FALSE))
   } else {

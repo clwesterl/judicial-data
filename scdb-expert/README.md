@@ -26,8 +26,18 @@ To keep machines in sync, keep the folder in a git repo and symlink it:
 ln -s /path/to/repo/skills/scdb-expert ~/.claude/skills/scdb-expert
 ```
 
-The data files are ~44 MB gzipped (37 MB of that is the courts of appeals
-case file), fine for GitHub.
+The data files are ~43 MB gzipped, 37 MB of which is the courts of appeals case
+file — fine for GitHub, but possibly too large to upload as a skill. To upload a
+slim copy, delete `data/coa/coa_cases.csv.gz` from the zip (it drops to ~7 MB)
+and keep the full file on each machine, with
+
+```bash
+export SCDB_DATA_EXTRA=~/judicial-data/scdb-expert/data
+```
+
+in your shell profile. Both loaders check the skill's own `data/` first, then
+that directory at the same relative path, so everything works unchanged; without
+it only `coa("cases")` is unavailable, and it says so explicitly.
 
 **Using the data outside Claude:** `data/*.csv.gz` are plain gzipped CSVs;
 `readr::read_csv()`, `data.table::fread()` (with R.utils), and `pandas.read_csv()`

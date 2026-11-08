@@ -39,6 +39,35 @@ import pandas as pd
 SKILL_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(SKILL_DIR, "data")
 REF = os.path.join(SKILL_DIR, "references")
+
+
+def data_path(rel, what=None):
+    """Locate a data file, allowing large tables to live outside the skill.
+
+    Looked for first under the skill's own `data/`, then under the directory in
+    $SCDB_DATA_EXTRA, keeping the same relative path. That lets a slim upload --
+    one without `coa/coa_cases.csv.gz`, which is 37 of the bundle's 43 MB -- work
+    on a machine that keeps the big file locally:
+
+        export SCDB_DATA_EXTRA=~/judicial-data/scdb-expert/data
+
+    Raises with both paths named rather than failing obscurely."""
+    p = os.path.join(DATA, rel)
+    if os.path.exists(p):
+        return p
+    extra = os.environ.get("SCDB_DATA_EXTRA")
+    if extra:
+        q = os.path.join(os.path.expanduser(extra), rel)
+        if os.path.exists(q):
+            return q
+    msg = [f"{what or rel} is not available.", f"  not in the skill: {p}"]
+    if extra:
+        msg.append(f"  not under SCDB_DATA_EXTRA: {q}")
+    else:
+        msg.append("  $SCDB_DATA_EXTRA is unset; point it at a data/ directory"
+                   " that has this file,")
+        msg.append("  e.g. export SCDB_DATA_EXTRA=~/judicial-data/scdb-expert/data")
+    raise FileNotFoundError("\n".join(msg))
 FILES = {"case": "case_citation.csv.gz", "justice": "justice_citation.csv.gz"}
 
 TEXT_COLS = {"caseId", "docketId", "caseIssuesId", "voteId", "usCite", "sctCite", "ledCite",
@@ -322,7 +351,8 @@ def coa(which="cases", parse=True):
     come back as Int64 and dates as datetime, matching `load()`."""
     if which not in _COA_FILES:
         raise ValueError(f"which must be one of {sorted(_COA_FILES)}")
-    df = pd.read_csv(os.path.join(COA, _COA_FILES[which]), dtype=str,
+    df = pd.read_csv(data_path(os.path.join("coa", _COA_FILES[which]),
+                               f'coa("{which}")'), dtype=str,
                      keep_default_na=False, low_memory=False)
     if not parse:
         return df
@@ -468,12 +498,13 @@ def seats(which="seats", parse=True):
     See references/coa_seats.md."""
     if which not in _SEAT_FILES:
         raise ValueError(f"which must be one of {sorted(_SEAT_FILES)}")
-    path = os.path.join(COA, _SEAT_FILES[which])
-    if not os.path.exists(path):
+    try:
+        path = data_path(os.path.join("coa", _SEAT_FILES[which]), f'seats("{which}")')
+    except FileNotFoundError as e:
         raise FileNotFoundError(
-            f"{path} is not bundled. Build it with:\n"
-            "  python scripts/build_seats.py --fjc fjc-raw/federal-judicial-service.csv.gz"
-            " --out data/coa\nSee references/coa_seats.md.")
+            f"{e}\n  or rebuild: python scripts/build_seats.py "
+            "--fjc fjc-raw/federal-judicial-service.csv.gz --out data/coa\n"
+            "  see references/coa_seats.md") from None
     df = pd.read_csv(path, dtype=str, keep_default_na=False)
     if not parse:
         return df

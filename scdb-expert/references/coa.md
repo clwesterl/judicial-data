@@ -53,6 +53,10 @@ fields, and the LLM justification text. `scripts/coa_slice.R` extracts a slice;
 widen its `want` vector and rerun `scripts/build_coa.py`, which bundles whatever
 judge columns the slice happens to carry.
 
+`coa_cases.csv.gz` is large enough (37 MB) that a skill upload may omit it. It
+is then looked for under `$SCDB_DATA_EXTRA` at the same relative path — see the
+skill README — and `coa("crosswalk")` and all the seat tables work either way.
+
 ## Three circuit numbering schemes — do not mix them
 
 | | D.C. | 1st–11th | Federal |
