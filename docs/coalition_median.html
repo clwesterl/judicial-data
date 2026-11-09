@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root {
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+body { margin: 0; font: 14px system-ui, -apple-system, sans-serif; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Median of the Majority</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single wide connected-scatter panel, scroll-contained, with a
+   stacked legend above and a toggleable data table below. */
+:root {
+  --surface:        #fcfcfb;
+  --surface-sunk:   #f4f3f0;
+  --ink:            #0b0b0b;
+  --ink-2:          #52514e;
+  --ink-3:          #84837c;
+  --rule:           #e1e0da;
+  --grid:           #ebeae4;
+  --left:           #256abf;   /* coalition median left of the JCS zero point */
+  --right:          #c22f2e;   /* coalition median right of it */
+  --line:           #4a4945;
+  --court:          #a8a7a0;
+  --font-display:   "Spectral", "Iowan Old Style", Georgia, serif;
+  --font-body:      "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono:      "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface:      #1a1a19;
+    --surface-sunk: #232321;
+    --ink:          #f0efec;
+    --ink-2:        #c3c2b7;
+    --ink-3:        #8d8c84;
+    --rule:         #343431;
+    --grid:         #2b2b29;
+    --left:         #3987e5;
+    --right:        #e66767;
+    --line:         #b4b3aa;
+    --court:        #6b6a64;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface:      #1a1a19;
+  --surface-sunk: #232321;
+  --ink:          #f0efec;
+  --ink-2:        #c3c2b7;
+  --ink-3:        #8d8c84;
+  --rule:         #343431;
+  --grid:         #2b2b29;
+  --left:         #3987e5;
+  --right:        #e66767;
+  --line:         #b4b3aa;
+  --court:        #6b6a64;
+}
+
+body { background: var(--surface); color: var(--ink); font-family: var(--font-body); }
+.wrap {
+  max-width: 1240px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 48px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(1.7rem, 4.2vw, 2.5rem);
+  line-height: 1.12; letter-spacing: -0.012em; margin: 0; text-wrap: balance;
+}
+.standfirst {
+  font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.1rem); line-height: 1.55;
+  color: var(--ink-2); margin: 0; max-width: 65ch;
+}
+.standfirst em { font-style: italic; color: var(--ink); }
+
+.legend { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.key { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--ink-2); }
+.key .dot { width: 11px; height: 11px; border-radius: 50%; flex: none;
+  box-shadow: 0 0 0 2px var(--surface); }
+.key .seg { width: 22px; height: 0; flex: none; border-top: 2px solid var(--line); }
+.key .seg.dash { border-top-style: dashed; border-color: var(--court); }
+.key .size { display: flex; align-items: flex-end; gap: 3px; flex: none; }
+.key .size i { display: block; border-radius: 50%; background: var(--ink-3); }
+
+.panel {
+  border: 1px solid var(--rule); border-radius: 3px; background: var(--surface);
+  overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+}
+.panel > svg { display: block; }
+.scrollnote { font-size: 0.74rem; color: var(--ink-3); margin: 0; }
+@media (min-width: 1240px) { .scrollnote { display: none; } }
+
+text { font-family: var(--font-body); }
+.tick { font-family: var(--font-mono); font-size: 10.5px; fill: var(--ink-3); }
+.axname { font-size: 10.5px; fill: var(--ink-3); letter-spacing: 0.07em; text-transform: uppercase; }
+.elabel { font-size: 11px; fill: var(--ink); font-weight: 500; }
+.elabel.sub { fill: var(--ink-2); font-weight: 400; }
+.leader { stroke: var(--ink-3); stroke-width: 1; opacity: 0.5; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.zeroline { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; }
+.band { fill: var(--surface-sunk); }
+.pt { stroke: var(--surface); stroke-width: 2; }
+.hit { fill: transparent; cursor: pointer; }
+.hit:focus-visible { outline: 2px solid var(--left); outline-offset: 2px; }
+.cross { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0; }
+
+.tip {
+  position: absolute; pointer-events: none; opacity: 0; transition: opacity 90ms;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+  padding: 9px 11px; min-width: 182px; box-shadow: 0 3px 14px rgba(0,0,0,0.13);
+  font-size: 0.78rem; line-height: 1.45; z-index: 5;
+}
+.tip .t-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; }
+.tip .t-term { font-family: var(--font-mono); color: var(--ink-3); font-size: 0.72rem; }
+.tip dl { display: grid; grid-template-columns: auto auto; gap: 1px 12px; margin: 7px 0 0; }
+.tip dt { color: var(--ink-2); }
+.tip dd { margin: 0; text-align: right; font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums; }
+.host { position: relative; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+button {
+  font-family: var(--font-body); font-size: 0.78rem; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+  padding: 6px 12px; cursor: pointer;
+}
+button:hover { border-color: var(--ink-3); }
+button[aria-pressed="true"] { background: var(--surface-sunk); border-color: var(--ink-3); }
+
+table { border-collapse: collapse; font-size: 0.78rem; width: 100%; }
+caption { text-align: left; color: var(--ink-2); font-size: 0.78rem; padding-bottom: 8px; }
+th, td { padding: 4px 10px 4px 0; text-align: left; border-bottom: 1px solid var(--grid); }
+th { font-weight: 600; font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--ink-3); }
+td.n { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+.tablewrap { overflow-x: auto; max-height: 420px; overflow-y: auto; }
+
+.notes { font-size: 0.82rem; line-height: 1.6; color: var(--ink-2); max-width: 70ch;
+  display: flex; flex-direction: column; gap: 9px; }
+.notes b { color: var(--ink); font-weight: 600; }
+.notes code { font-family: var(--font-mono); font-size: 0.92em; background: var(--surface-sunk);
+  padding: 1px 4px; border-radius: 2px; }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <h1>Median of the Majority</h1>
+    <p class="standfirst">For each term, the justice who most often held the median
+      position <em>inside the winning coalition</em> — and where that justice sat on the
+      Judicial Common Space scale. Not the Court median, which the grey line tracks for
+      comparison: the two coincide only when the Court is unanimous.</p>
+  </header>
+
+  <div class="legend">
+    <span class="key"><span class="dot" style="background:var(--left)"></span>left of the JCS zero point</span>
+    <span class="key"><span class="dot" style="background:var(--right)"></span>right of it</span>
+    <span class="key"><span class="seg"></span>coalition median</span>
+    <span class="key"><span class="seg dash"></span>Court median</span>
+    <span class="key"><span class="size"><i style="width:8px;height:8px"></i><i style="width:13px;height:13px"></i><i style="width:17px;height:17px"></i></span>share of the term's cases (32–63%)</span>
+  </div>
+
+  <div class="host">
+    <div class="panel" id="panel"></div>
+    <div class="tip" id="tip" role="status" aria-live="polite"></div>
+  </div>
+  <p class="scrollnote">Scroll the panel sideways to follow the whole series.</p>
+
+  <div class="controls">
+    <button id="toggle" aria-pressed="false" aria-controls="tablesec">Show the 86-term table</button>
+  </div>
+  <section id="tablesec" hidden></section>
+
+  <div class="notes">
+    <p><b>How the median is found.</b> Within each formally decided merits case, the
+      justices who voted with the majority (<code>majority == 2</code>) are ranked by their
+      JCS score for that term; the middle justice takes one credit, or the two middle
+      justices take half each when the coalition is even-sized. A term's label is whichever
+      justice collected the most credit that term, and the point is plotted at
+      <em>that justice's own score in that term</em>.</p>
+    <p><b>What the sample leaves out.</b> 9,401 of 27,714 formally decided merits cases:
+      a case drops out when any member of its winning coalition has no JCS score for that
+      term, which also ends the series at OT2022, where JCS justice-term scores stop.
+      Attrition is heaviest in the earliest terms, so the 1937–40 points rest on thin data.</p>
+    <p>Sources: Supreme Court Database (Legacy 07 + 2026_01); Judicial Common Space
+      justice-term scores. Replication: <code>scdb-expert/scripts/coalition_median.R</code>
+      in <code>clwesterl/judicial-data</code>.</p>
+  </div>
+</div>
+
+<script>
+const DATA = [{"term":1937,"name":"Hughes","code":"CEHughes2","jcs":-0.014,"w":103.0,"cases":164,"share":63,"court":-0.061},{"term":1938,"name":"Hughes","code":"CEHughes2","jcs":0.056,"w":53.0,"cases":146,"share":36,"court":-0.125},{"term":1939,"name":"Reed","code":"SFReed","jcs":-0.265,"w":74.0,"cases":141,"share":52,"court":-0.265},{"term":1940,"name":"Frankfurter","code":"FFrankfurter","jcs":-0.152,"w":86.5,"cases":166,"share":52,"court":-0.152},{"term":1941,"name":"Byrnes","code":"JFByrnes","jcs":0.05,"w":85.0,"cases":159,"share":53,"court":0.05},{"term":1942,"name":"Reed","code":"SFReed","jcs":0.179,"w":70.0,"cases":160,"share":44,"court":0.179},{"term":1943,"name":"Jackson","code":"RHJackson","jcs":0.173,"w":59.0,"cases":131,"share":45,"court":0.173},{"term":1944,"name":"Reed","code":"SFReed","jcs":0.094,"w":85.5,"cases":160,"share":53,"court":0.094},{"term":1945,"name":"Reed","code":"SFReed","jcs":0.151,"w":52.5,"cases":134,"share":39,"court":0.151},{"term":1946,"name":"Reed","code":"SFReed","jcs":0.228,"w":69.0,"cases":141,"share":49,"court":0.228},{"term":1947,"name":"Reed","code":"SFReed","jcs":0.304,"w":48.0,"cases":114,"share":42,"court":0.304},{"term":1948,"name":"Frankfurter","code":"FFrankfurter","jcs":0.336,"w":40.5,"cases":120,"share":34,"court":0.336},{"term":1949,"name":"Clark","code":"TCClark","jcs":0.445,"w":39.5,"cases":95,"share":42,"court":0.418},{"term":1950,"name":"Burton","code":"HHBurton","jcs":0.425,"w":47.0,"cases":97,"share":48,"court":0.425},{"term":1951,"name":"Burton","code":"HHBurton","jcs":0.416,"w":36.5,"cases":91,"share":40,"court":0.416},{"term":1952,"name":"Burton","code":"HHBurton","jcs":0.489,"w":42.5,"cases":106,"share":40,"court":0.468},{"term":1953,"name":"Clark","code":"TCClark","jcs":0.327,"w":40.5,"cases":83,"share":49,"court":0.327},{"term":1954,"name":"Frankfurter","code":"FFrankfurter","jcs":0.236,"w":36.5,"cases":93,"share":39,"court":0.236},{"term":1955,"name":"Frankfurter","code":"FFrankfurter","jcs":0.321,"w":44.5,"cases":98,"share":45,"court":0.321},{"term":1956,"name":"Clark","code":"TCClark","jcs":0.182,"w":42.0,"cases":121,"share":35,"court":0.379},{"term":1957,"name":"Clark","code":"TCClark","jcs":0.32,"w":44.5,"cases":127,"share":35,"court":0.32},{"term":1958,"name":"Clark","code":"TCClark","jcs":0.304,"w":50.5,"cases":118,"share":43,"court":0.346},{"term":1959,"name":"Clark","code":"TCClark","jcs":0.246,"w":42.0,"cases":115,"share":37,"court":0.246},{"term":1960,"name":"Stewart","code":"PStewart","jcs":0.279,"w":49.5,"cases":128,"share":39,"court":0.279},{"term":1961,"name":"Brennan","code":"WJBrennan","jcs":-0.195,"w":36.0,"cases":101,"share":36,"court":0.107},{"term":1962,"name":"Goldberg","code":"AJGoldberg","jcs":-0.296,"w":60.5,"cases":125,"share":48,"court":-0.296},{"term":1963,"name":"Brennan","code":"WJBrennan","jcs":-0.316,"w":69.5,"cases":130,"share":53,"court":-0.316},{"term":1964,"name":"Goldberg","code":"AJGoldberg","jcs":-0.173,"w":56.0,"cases":106,"share":53,"court":-0.173},{"term":1965,"name":"Black","code":"HLBlack","jcs":-0.091,"w":45.0,"cases":101,"share":45,"court":-0.091},{"term":1966,"name":"Black","code":"HLBlack","jcs":-0.034,"w":46.0,"cases":112,"share":41,"court":-0.034},{"term":1967,"name":"Brennan","code":"WJBrennan","jcs":-0.324,"w":45.0,"cases":122,"share":37,"court":-0.299},{"term":1968,"name":"Brennan","code":"WJBrennan","jcs":-0.27,"w":57.0,"cases":111,"share":51,"court":-0.27},{"term":1969,"name":"White","code":"BRWhite","jcs":0.171,"w":41.0,"cases":107,"share":38,"court":0.171},{"term":1970,"name":"White","code":"BRWhite","jcs":0.279,"w":54.0,"cases":124,"share":44,"court":0.279},{"term":1971,"name":"White","code":"BRWhite","jcs":0.335,"w":46.5,"cases":147,"share":32,"court":0.335},{"term":1972,"name":"White","code":"BRWhite","jcs":0.422,"w":55.0,"cases":153,"share":36,"court":0.422},{"term":1973,"name":"White","code":"BRWhite","jcs":0.312,"w":57.0,"cases":148,"share":39,"court":0.312},{"term":1974,"name":"White","code":"BRWhite","jcs":0.325,"w":67.5,"cases":139,"share":49,"court":0.325},{"term":1975,"name":"White","code":"BRWhite","jcs":0.293,"w":60.0,"cases":151,"share":40,"court":0.292},{"term":1976,"name":"Stewart","code":"PStewart","jcs":0.286,"w":58.0,"cases":143,"share":41,"court":0.286},{"term":1977,"name":"Stewart","code":"PStewart","jcs":0.235,"w":59.5,"cases":135,"share":44,"court":0.235},{"term":1978,"name":"Blackmun","code":"HABlackmun","jcs":0.176,"w":58.0,"cases":134,"share":43,"court":0.176},{"term":1979,"name":"White","code":"BRWhite","jcs":0.21,"w":50.5,"cases":142,"share":36,"court":0.21},{"term":1980,"name":"White","code":"BRWhite","jcs":0.202,"w":55.5,"cases":127,"share":44,"court":0.202},{"term":1981,"name":"White","code":"BRWhite","jcs":0.217,"w":63.0,"cases":148,"share":43,"court":0.217},{"term":1982,"name":"White","code":"BRWhite","jcs":0.345,"w":74.5,"cases":155,"share":48,"court":0.345},{"term":1983,"name":"White","code":"BRWhite","jcs":0.405,"w":83.5,"cases":155,"share":54,"court":0.405},{"term":1984,"name":"Powell","code":"LFPowell","jcs":0.393,"w":46.0,"cases":142,"share":32,"court":0.393},{"term":1985,"name":"Powell","code":"LFPowell","jcs":0.415,"w":66.0,"cases":154,"share":43,"court":0.415},{"term":1986,"name":"Powell","code":"LFPowell","jcs":0.401,"w":57.0,"cases":153,"share":37,"court":0.401},{"term":1987,"name":"White","code":"BRWhite","jcs":0.436,"w":57.5,"cases":144,"share":40,"court":0.436},{"term":1988,"name":"White","code":"BRWhite","jcs":0.455,"w":63.0,"cases":141,"share":45,"court":0.455},{"term":1989,"name":"White","code":"BRWhite","jcs":0.4,"w":55.0,"cases":131,"share":42,"court":0.4},{"term":1990,"name":"Souter","code":"DHSouter","jcs":0.422,"w":45.0,"cases":114,"share":39,"court":0.422},{"term":1991,"name":"O'Connor","code":"SDOConnor","jcs":0.353,"w":51.0,"cases":110,"share":46,"court":0.353},{"term":1992,"name":"O'Connor","code":"SDOConnor","jcs":0.394,"w":64.5,"cases":112,"share":58,"court":0.394},{"term":1993,"name":"Kennedy","code":"AMKennedy","jcs":0.399,"w":46.5,"cases":89,"share":52,"court":0.399},{"term":1994,"name":"O'Connor","code":"SDOConnor","jcs":0.389,"w":39.5,"cases":85,"share":46,"court":0.389},{"term":1995,"name":"Kennedy","code":"AMKennedy","jcs":0.364,"w":42.5,"cases":76,"share":56,"court":0.364},{"term":1996,"name":"Kennedy","code":"AMKennedy","jcs":0.389,"w":47.0,"cases":83,"share":57,"court":0.389},{"term":1997,"name":"Kennedy","code":"AMKennedy","jcs":0.386,"w":56.0,"cases":94,"share":60,"court":0.386},{"term":1998,"name":"Kennedy","code":"AMKennedy","jcs":0.418,"w":39.5,"cases":78,"share":51,"court":0.418},{"term":1999,"name":"O'Connor","code":"SDOConnor","jcs":0.403,"w":33.5,"cases":75,"share":45,"court":0.403},{"term":2000,"name":"O'Connor","code":"SDOConnor","jcs":0.324,"w":38.5,"cases":81,"share":48,"court":0.324},{"term":2001,"name":"O'Connor","code":"SDOConnor","jcs":0.253,"w":30.5,"cases":78,"share":39,"court":0.253},{"term":2002,"name":"O'Connor","code":"SDOConnor","jcs":0.217,"w":36.5,"cases":75,"share":49,"court":0.217},{"term":2003,"name":"O'Connor","code":"SDOConnor","jcs":0.204,"w":35.0,"cases":74,"share":47,"court":0.204},{"term":2004,"name":"O'Connor","code":"SDOConnor","jcs":0.165,"w":33.0,"cases":76,"share":43,"court":0.165},{"term":2005,"name":"Kennedy","code":"AMKennedy","jcs":0.294,"w":24.0,"cases":74,"share":32,"court":0.222},{"term":2006,"name":"Kennedy","code":"AMKennedy","jcs":0.28,"w":31.5,"cases":71,"share":44,"court":0.28},{"term":2007,"name":"Kennedy","code":"AMKennedy","jcs":0.266,"w":26.5,"cases":68,"share":39,"court":0.266},{"term":2008,"name":"Kennedy","code":"AMKennedy","jcs":0.316,"w":30.0,"cases":77,"share":39,"court":0.316},{"term":2009,"name":"Kennedy","code":"AMKennedy","jcs":0.298,"w":39.5,"cases":78,"share":51,"court":0.298},{"term":2010,"name":"Kennedy","code":"AMKennedy","jcs":0.316,"w":34.5,"cases":76,"share":45,"court":0.316},{"term":2011,"name":"Kennedy","code":"AMKennedy","jcs":0.226,"w":31.5,"cases":67,"share":47,"court":0.226},{"term":2012,"name":"Kennedy","code":"AMKennedy","jcs":0.208,"w":35.5,"cases":74,"share":48,"court":0.208},{"term":2013,"name":"Kennedy","code":"AMKennedy","jcs":0.146,"w":43.5,"cases":69,"share":63,"court":0.146},{"term":2014,"name":"Kennedy","code":"AMKennedy","jcs":0.035,"w":29.5,"cases":66,"share":45,"court":0.035},{"term":2015,"name":"Kennedy","code":"AMKennedy","jcs":0.017,"w":26.0,"cases":64,"share":41,"court":0.017},{"term":2016,"name":"Kennedy","code":"AMKennedy","jcs":0.1,"w":25.5,"cases":62,"share":41,"court":0.1},{"term":2017,"name":"Kennedy","code":"AMKennedy","jcs":0.256,"w":26.5,"cases":64,"share":41,"court":0.256},{"term":2018,"name":"Roberts","code":"JGRoberts","jcs":0.267,"w":30.5,"cases":68,"share":45,"court":0.267},{"term":2019,"name":"Roberts","code":"JGRoberts","jcs":0.24,"w":25.0,"cases":58,"share":43,"court":0.24},{"term":2020,"name":"Kavanaugh","code":"BMKavanaugh","jcs":0.315,"w":29.0,"cases":57,"share":51,"court":0.315},{"term":2021,"name":"Kavanaugh","code":"BMKavanaugh","jcs":0.331,"w":23.0,"cases":62,"share":37,"court":0.331},{"term":2022,"name":"Kavanaugh","code":"BMKavanaugh","jcs":0.278,"w":32.5,"cases":57,"share":57,"court":0.278}];
+
+/* --- eras: runs of consecutive terms held by the same justice --- */
+const eras = [];
+for (const d of DATA) {
+  const last = eras[eras.length - 1];
+  if (last && last.name === d.name) { last.to = d.term; last.pts.push(d); }
+  else eras.push({ name: d.name, from: d.term, to: d.term, pts: [d] });
+}
+
+/* --- geometry --- */
+const W = 1190, H = 540;
+const M = { t: 70, r: 26, b: 52, l: 58 };
+const IW = W - M.l - M.r, IH = H - M.t - M.b;
+const T0 = DATA[0].term, T1 = DATA[DATA.length - 1].term;
+const Y0 = -0.37, Y1 = 0.53;
+const x = t => M.l + (t - T0) / (T1 - T0) * IW;
+const y = v => M.t + (Y1 - v) / (Y1 - Y0) * IH;
+const rOf = s => 4 + 4 * Math.min(1, Math.max(0, (s - 32) / 31));
+const f2 = v => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(2);
+const f3 = v => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(3);
+
+const SVGNS = "http://www.w3.org/2000/svg";
+const el = (n, a = {}) => { const e = document.createElementNS(SVGNS, n);
+  for (const k in a) e.setAttribute(k, a[k]); return e; };
+
+const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`,
+  role: "img", "aria-label":
+  "Connected scatter of the modal majority-coalition median's Judicial Common Space score, by term, OT1937 to OT2022." });
+
+/* era bands, alternating, behind everything */
+eras.forEach((e, i) => {
+  if (i % 2) return;
+  const a = x(e.from) - (e.from === T0 ? 0 : 6.4), b = x(e.to) + 6.4;
+  svg.appendChild(el("rect", { class: "band", x: a, y: M.t,
+    width: Math.min(b, M.l + IW) - a, height: IH }));
+});
+
+/* grid + y axis */
+for (let v = -0.3; v <= 0.401; v += 0.1) {
+  const vv = Math.round(v * 10) / 10;
+  if (Math.abs(vv) < 1e-9) continue;
+  svg.appendChild(el("line", { class: "gridline", x1: M.l, x2: M.l + IW, y1: y(vv), y2: y(vv) }));
+  const tx = el("text", { class: "tick", x: M.l - 8, y: y(vv) + 3.5, "text-anchor": "end" });
+  tx.textContent = f2(vv); svg.appendChild(tx);
+}
+svg.appendChild(el("line", { class: "zeroline", x1: M.l, x2: M.l + IW, y1: y(0), y2: y(0) }));
+const z = el("text", { class: "tick", x: M.l - 8, y: y(0) + 3.5, "text-anchor": "end" });
+z.textContent = "0.00"; svg.appendChild(z);
+const yname = el("text", { class: "axname", x: M.l - 8, y: M.t - 14, "text-anchor": "end" });
+yname.textContent = "JCS"; svg.appendChild(yname);
+
+/* x axis */
+svg.appendChild(el("line", { class: "gridline", x1: M.l, x2: M.l + IW,
+  y1: M.t + IH, y2: M.t + IH }));
+for (let t = 1940; t <= 2020; t += 10) {
+  svg.appendChild(el("line", { class: "gridline", x1: x(t), x2: x(t),
+    y1: M.t + IH, y2: M.t + IH + 5 }));
+  const tx = el("text", { class: "tick", x: x(t), y: M.t + IH + 18, "text-anchor": "middle" });
+  tx.textContent = "OT" + t; svg.appendChild(tx);
+}
+const xn = el("text", { class: "axname", x: M.l + IW, y: M.t + IH + 38, "text-anchor": "end" });
+xn.textContent = "term"; svg.appendChild(xn);
+
+/* Court median reference line */
+const cpath = DATA.map((d, i) => (i ? "L" : "M") + x(d.term) + " " + y(d.court)).join(" ");
+svg.appendChild(el("path", { d: cpath, fill: "none", stroke: "var(--court)",
+  "stroke-width": 2, "stroke-dasharray": "5 4", "stroke-linejoin": "round" }));
+
+/* coalition median line */
+const mpath = DATA.map((d, i) => (i ? "L" : "M") + x(d.term) + " " + y(d.jcs)).join(" ");
+svg.appendChild(el("path", { d: mpath, fill: "none", stroke: "var(--line)",
+  "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+/* points */
+const ptLayer = el("g");
+DATA.forEach(d => {
+  d._x = x(d.term); d._y = y(d.jcs); d._r = rOf(d.share);
+  ptLayer.appendChild(el("circle", { class: "pt", cx: d._x, cy: d._y, r: d._r,
+    fill: d.jcs < 0 ? "var(--left)" : "var(--right)" }));
+});
+svg.appendChild(ptLayer);
+
+/* era labels, greedily stacked upward to avoid collisions */
+const cv = document.createElement("canvas").getContext("2d");
+cv.font = '500 11px "IBM Plex Sans", system-ui, sans-serif';
+/* obstacles: every plotted point, so a label never lands on a mark */
+const obstacles = DATA.map(d => ({ x0: d._x - d._r - 3, x1: d._x + d._r + 3,
+  y0: d._y - d._r - 2, y1: d._y + d._r + 2 }));
+const hits2 = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+
+const labels = el("g");
+eras.forEach(e => {
+  const anchor = e.pts[0];
+  const span = e.from === e.to ? "" : " " + (e.to - e.from + 1);
+  const text = e.name + span;
+  const w = cv.measureText(text).width + 6;
+  let lx = Math.max(M.l + w / 2, Math.min(M.l + IW - w / 2, anchor._x));
+  let ly = anchor._y - anchor._r - 8;
+  const box = () => ({ x0: lx - w / 2, x1: lx + w / 2, y0: ly - 9, y1: ly + 3 });
+  let guard = 0;
+  while (guard++ < 60 && obstacles.some(o => hits2(box(), o))) ly -= 13;
+  ly = Math.max(16, ly);
+  obstacles.push(box());
+  if (anchor._y - anchor._r - ly > 13)
+    labels.appendChild(el("line", { class: "leader", x1: anchor._x, y1: ly + 4,
+      x2: anchor._x, y2: anchor._y - anchor._r - 3 }));
+  const tx = el("text", { class: "elabel", x: lx, y: ly, "text-anchor": "middle" });
+  tx.textContent = e.name;
+  if (span) {
+    const s = el("tspan", { class: "sub" }); s.textContent = span; tx.appendChild(s);
+  }
+  labels.appendChild(tx);
+});
+svg.appendChild(labels);
+
+/* crosshair + hit targets */
+const cross = el("line", { class: "cross", y1: M.t, y2: M.t + IH });
+svg.appendChild(cross);
+const tip = document.getElementById("tip");
+const host = document.querySelector(".host");
+const panel = document.getElementById("panel");
+
+function show(d) {
+  cross.setAttribute("x1", d._x); cross.setAttribute("x2", d._x);
+  cross.style.opacity = 1;
+  const gap = d.jcs - d.court;
+  tip.innerHTML =
+    `<div class="t-name">${d.name}</div><div class="t-term">OT${d.term}</div>` +
+    `<dl><dt>JCS score</dt><dd>${f3(d.jcs)}</dd>` +
+    `<dt>Court median</dt><dd>${f3(d.court)}</dd>` +
+    `<dt>gap</dt><dd>${f3(gap)}</dd>` +
+    `<dt>median in</dt><dd>${d.w} of ${d.cases}</dd>` +
+    `<dt>share</dt><dd>${d.share}%</dd></dl>`;
+  tip.style.opacity = 1;
+  const hb = host.getBoundingClientRect();
+  const left = d._x - panel.scrollLeft + panel.getBoundingClientRect().left - hb.left;
+  const tw = tip.offsetWidth;
+  tip.style.left = Math.max(0, Math.min(hb.width - tw, left - tw / 2)) + "px";
+  tip.style.top = Math.max(0, d._y - tip.offsetHeight - 14) + "px";
+}
+function hide() { tip.style.opacity = 0; cross.style.opacity = 0; }
+
+const hits = el("g");
+DATA.forEach(d => {
+  const h = el("rect", { class: "hit", x: d._x - 6.4, y: M.t, width: 12.8, height: IH,
+    tabindex: "0", role: "button",
+    "aria-label": `OT${d.term}, ${d.name}, JCS ${f3(d.jcs)}, median in ${d.share} percent of ${d.cases} cases` });
+  h.addEventListener("pointerenter", () => show(d));
+  h.addEventListener("focus", () => show(d));
+  h.addEventListener("blur", hide);
+  hits.appendChild(h);
+});
+svg.appendChild(hits);
+panel.addEventListener("pointerleave", hide);
+panel.appendChild(svg);
+if (panel.scrollWidth > panel.clientWidth) panel.scrollLeft = 0;
+
+/* table view — the relief rule for sub-3:1 marks, and the accessible fallback */
+const sec = document.getElementById("tablesec");
+const btn = document.getElementById("toggle");
+let built = false;
+btn.addEventListener("click", () => {
+  const open = btn.getAttribute("aria-pressed") === "true";
+  btn.setAttribute("aria-pressed", String(!open));
+  btn.textContent = open ? "Show the 86-term table" : "Hide the table";
+  sec.hidden = open;
+  if (!built) {
+    built = true;
+    const rows = DATA.map(d => `<tr><td class="n">${d.term}</td><td>${d.name}</td>` +
+      `<td class="n">${f3(d.jcs)}</td><td class="n">${f3(d.court)}</td>` +
+      `<td class="n">${f3(d.jcs - d.court)}</td><td class="n">${d.w}</td>` +
+      `<td class="n">${d.cases}</td><td class="n">${d.share}%</td></tr>`).join("");
+    sec.innerHTML = `<div class="tablewrap"><table>
+      <caption>Modal majority-coalition median by term. Credits are fractional because
+      even-sized coalitions split the median between their two middle justices.</caption>
+      <thead><tr><th>Term</th><th>Justice</th><th>JCS</th><th>Court median</th>
+      <th>Gap</th><th>Credit</th><th>Cases</th><th>Share</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+  }
+});
+</script>
+</body>
+</html>

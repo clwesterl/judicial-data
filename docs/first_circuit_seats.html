@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root {
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+body { margin: 0; font: 14px system-ui, -apple-system, sans-serif; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>First Circuit Seats</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: six seat lanes on one shared 1891-2026 time axis, then a full table.
+   Ideology uses a validated diverging ramp: blue = liberal, red = conservative,
+   binned at |0.15| / |0.30| / |0.50|. */
+:root {
+  --surface: #fcfcfb;
+  --plane: #f9f9f7;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --hair: rgba(11, 11, 11, 0.10);
+
+  --lib-1: #86b6ef; --lib-1-ink: #0b0b0b;
+  --lib-2: #5598e7; --lib-2-ink: #0b0b0b;
+  --lib-3: #256abf; --lib-3-ink: #ffffff;
+  --lib-4: #104281; --lib-4-ink: #ffffff;
+  --con-1: #ef9796; --con-1-ink: #0b0b0b;
+  --con-2: #e86b6a; --con-2-ink: #0b0b0b;
+  --con-3: #c22f2e; --con-3-ink: #ffffff;
+  --con-4: #8f2222; --con-4-ink: #ffffff;
+  --none: #e8e7e2; --none-ink: #52514e; --none-edge: #b5b3ab;
+
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface: #1a1a19;
+    --plane: #0d0d0d;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --hair: rgba(255, 255, 255, 0.10);
+
+    --lib-1: #1c5cab; --lib-1-ink: #ffffff;
+    --lib-2: #2a78d6; --lib-2-ink: #ffffff;
+    --lib-3: #5598e7; --lib-3-ink: #0b0b0b;
+    --lib-4: #9ec5f4; --lib-4-ink: #0b0b0b;
+    --con-1: #8f2222; --con-1-ink: #ffffff;
+    --con-2: #c22f2e; --con-2-ink: #ffffff;
+    --con-3: #e34948; --con-3-ink: #ffffff;
+    --con-4: #f4a3a2; --con-4-ink: #0b0b0b;
+    --none: #3f3f3c; --none-ink: #c3c2b7; --none-edge: #5c5b56;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #1a1a19;
+  --plane: #0d0d0d;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --hair: rgba(255, 255, 255, 0.10);
+
+  --lib-1: #1c5cab; --lib-1-ink: #ffffff;
+  --lib-2: #2a78d6; --lib-2-ink: #ffffff;
+  --lib-3: #5598e7; --lib-3-ink: #0b0b0b;
+  --lib-4: #9ec5f4; --lib-4-ink: #0b0b0b;
+  --con-1: #8f2222; --con-1-ink: #ffffff;
+  --con-2: #c22f2e; --con-2-ink: #ffffff;
+  --con-3: #e34948; --con-3-ink: #ffffff;
+  --con-4: #f4a3a2; --con-4-ink: #0b0b0b;
+  --none: #3f3f3c; --none-ink: #c3c2b7; --none-edge: #5c5b56;
+}
+
+body {
+  margin: 0;
+  background: var(--plane);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 5vw, 38px);
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  margin: 0;
+  text-wrap: balance;
+}
+.standfirst {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 19px;
+  margin: 0 0 2px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---- legend ---- */
+.legend { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
+.ramp { display: flex; flex-direction: column; gap: 5px; }
+.ramp-swatches { display: flex; }
+.ramp-swatches span {
+  width: 30px; height: 13px;
+  border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair);
+}
+.ramp-scale {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.key { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--ink-2); }
+.key i {
+  width: 16px; height: 13px; display: inline-block; border-radius: 2px;
+  background: var(--none); border: 1px dashed var(--none-edge);
+}
+
+/* ---- timeline ---- */
+.scroller { overflow-x: auto; }
+.chart { min-width: 860px; }
+.axis-top, .axis-bot {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.ticks { position: relative; height: 16px; }
+.ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.lanes { display: flex; flex-direction: column; gap: 7px; margin: 5px 0; }
+.lane { display: grid; grid-template-columns: 148px 1fr; align-items: stretch; gap: 10px; }
+.lane-label { display: flex; flex-direction: column; justify-content: center; gap: 1px; }
+.lane-label b { font-size: 13px; font-weight: 600; }
+.lane-label small { font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.track {
+  position: relative;
+  height: 38px;
+  background:
+    repeating-linear-gradient(to right, var(--grid) 0 1px, transparent 1px var(--decade));
+  border-left: 1px solid var(--axis);
+  border-bottom: 1px solid var(--grid);
+  min-width: 0;
+}
+/* masks the years before the judgeship existed, so a lane starts at its statute */
+.premask { position: absolute; top: 0; bottom: 0; left: 0; background: var(--surface); }
+.bar {
+  position: absolute; top: 3px; bottom: 3px;
+  border: none; padding: 0 6px;
+  border-radius: 3px;
+  font: inherit; font-size: 11.5px;
+  display: flex; align-items: center; gap: 5px;
+  overflow: hidden; white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px var(--surface);
+  text-align: left;
+}
+.bar:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; z-index: 5; }
+.bar .nm { font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+.bar .sc { font-variant-numeric: tabular-nums; opacity: 0.82; }
+.bar.ongoing { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.l1 { background: var(--lib-1); color: var(--lib-1-ink) }
+.l2 { background: var(--lib-2); color: var(--lib-2-ink) }
+.l3 { background: var(--lib-3); color: var(--lib-3-ink) }
+.l4 { background: var(--lib-4); color: var(--lib-4-ink) }
+.c1 { background: var(--con-1); color: var(--con-1-ink) }
+.c2 { background: var(--con-2); color: var(--con-2-ink) }
+.c3 { background: var(--con-3); color: var(--con-3-ink) }
+.c4 { background: var(--con-4); color: var(--con-4-ink) }
+.n0 {
+  background: var(--none); color: var(--none-ink);
+  border: 1px dashed var(--none-edge);
+  padding: 0 5px;
+}
+
+/* ---- tooltip ---- */
+#tip {
+  position: fixed; z-index: 20; pointer-events: none;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--hair);
+  border-radius: 6px; padding: 9px 11px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  font-size: 12px; max-width: 270px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+#tip b { font-size: 13px; }
+#tip .row { color: var(--ink-2); }
+#tip .row span { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ---- table ---- */
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 12.5px; }
+caption { text-align: left; color: var(--muted); font-size: 11.5px; padding-bottom: 8px; }
+th, td { padding: 6px 10px 6px 0; text-align: left; vertical-align: top; }
+th { font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--axis); }
+td { border-bottom: 1px solid var(--grid); }
+.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 14px; }
+tbody tr:hover td { background: var(--plane); }
+.seatcell { font-weight: 600; }
+footer { color: var(--muted); font-size: 12px; max-width: 70ch; }
+footer p { margin: 0 0 6px; }
+@media (max-width: 560px) {
+  .axis-top, .axis-bot, .lane { grid-template-columns: 112px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <div class="eyebrow">U.S. Court of Appeals for the First Circuit</div>
+    <h1>Six judgeships, 1891 to 2026</h1>
+    <p class="standfirst">Every seat on the court and everyone who has held it. A seat is an
+    authorized judgeship, so a judge leaves it on taking senior status, not on leaving the
+    bench. Fill shows the occupant's Judicial Common Space score.</p>
+  </header>
+
+  <section class="card">
+    <div class="legend">
+      <div class="ramp">
+        <div class="eyebrow">Judicial Common Space score</div>
+        <div class="ramp-swatches">
+          <span style="background:var(--lib-4);border-left:1px solid var(--hair);border-radius:3px 0 0 3px"></span>
+          <span style="background:var(--lib-3)"></span>
+          <span style="background:var(--lib-2)"></span>
+          <span style="background:var(--lib-1)"></span>
+          <span style="background:var(--con-1)"></span>
+          <span style="background:var(--con-2)"></span>
+          <span style="background:var(--con-3)"></span>
+          <span style="background:var(--con-4);border-right:1px solid var(--hair);border-radius:0 3px 3px 0"></span>
+        </div>
+        <div class="ramp-scale" style="width:240px">
+          <span>&minus;0.70 liberal</span><span>0</span><span>conservative +0.70</span>
+        </div>
+      </div>
+      <div class="key"><i></i> no score (appointed before 1924, or too recent)</div>
+    </div>
+
+    <div class="scroller">
+      <div class="chart" id="chart"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Every occupancy</h2>
+    <div class="scroller">
+      <table id="tbl">
+        <caption>37 occupancies. Scores are Judicial Common Space, time-invariant per judge.</caption>
+        <thead>
+          <tr>
+            <th>Seat</th><th>#</th><th>Judge</th><th>State</th>
+            <th class="num">JCS</th><th class="num">From</th><th class="num">To</th><th>Left by</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Seat 2</b> shows David Souter for a single year, 1990, leaving by &ldquo;appointment to
+    another judicial position&rdquo; &mdash; the Supreme Court. Norman Stahl filled the same seat two
+    years later.</p>
+    <p><b>Seats 4, 5 and 6</b> begin mid-century because Congress created them: one in the 1978
+    Omnibus Judgeship Act, two in 1984. The court ran on three judgeships for its first
+    eighty-seven years.</p>
+    <p>Succession comes from the Federal Judicial Center&rsquo;s official seat identifiers.
+    Scores are unavailable before 1939 and for the two most recent appointees.</p>
+  </footer>
+</div>
+
+<div id="tip" hidden></div>
+
+<script>
+const Y0 = 1891, Y1 = 2026, SPAN = Y1 - Y0 + 1;
+
+// seat -> creating statute; occupancies in order
+const SEATS = [
+  { no: 1, statute: "26 Stat. 826", year: 1891, occ: [
+    ["Colt, LeBaron Bradford", "", null, 1891, 1912, "Resignation"],
+    ["Bingham, George Hutchins", "", null, 1913, 1938, "Death"],
+    ["Magruder, Calvert", "MA", -0.1100, 1939, 1958, "Death"],
+    ["Aldrich, Bailey", "MA", 0.1750, 1959, 1971, "Death"],
+    ["Campbell, Levin Hicks", "MA", -0.1000, 1972, 1991, "Senior status"],
+    ["Boudin, Michael", "MA", 0.5570, 1992, 2013, "Retirement"],
+    ["Barron, David Jeremiah", "MA", -0.5195, 2014, 2026, ""],
+  ]},
+  { no: 2, statute: "26 Stat. 826", year: 1892, occ: [
+    ["Putnam, William LeBaron", "", null, 1892, 1916, "Retirement"],
+    ["Johnson, Charles Fletcher", "", null, 1917, 1928, "Death"],
+    ["Wilson, Scott", "", null, 1929, 1940, "Death"],
+    ["Woodbury, Peter", "NH", -0.3680, 1941, 1964, "Death"],
+    ["McEntee, Edward Matthew", "RI", -0.2940, 1965, 1976, "Death"],
+    ["Bownes, Hugh Henry", "NH", -0.3545, 1977, 1989, "Death"],
+    ["Souter, David Hackett", "NH", 0.4450, 1990, 1990, "Appointment to Another Judicial Position"],
+    ["Stahl, Norman H.", "NH", 0.4620, 1992, 2001, "Death"],
+    ["Howard, Jeffrey R.", "NH", 0.5260, 2002, 2022, "Senior status"],
+    ["Aframe, Seth Robert", "MA", null, 2024, 2026, ""],
+  ]},
+  { no: 3, statute: "33 Stat. 611", year: 1905, occ: [
+    ["Lowell, Francis Cabot", "", null, 1905, 1910, "Death"],
+    ["Schofield, William", "", null, 1911, 1911, "Death"],
+    ["Dodge, Frederic", "", null, 1912, 1917, "Resignation"],
+    ["Anderson, George Weston", "", null, 1918, 1931, "Death"],
+    ["Morton, James Madison, Jr.", "", null, 1932, 1939, "Death"],
+    ["Mahoney, John Christopher", "RI", -0.2645, 1940, 1950, "Death"],
+    ["Hartigan, John Patrick", "RI", -0.2990, 1951, 1964, "Death"],
+    ["Coffin, Frank Morey", "ME", -0.3790, 1965, 1988, "Death"],
+    ["Cyr, Conrad Keefe", "ME", 0.1000, 1989, 1997, "Death"],
+    ["Lipez, Kermit Victor", "ME", -0.4380, 1998, 2011, "Senior status"],
+    ["Kayatta, William Joseph, Jr.", "ME", -0.3580, 2013, 2024, "Senior status"],
+    ["Dunlap, Joshua Dale", "ME", null, 2025, 2026, ""],
+  ]},
+  { no: 4, statute: "92 Stat. 1629", year: 1980, occ: [
+    ["Breyer, Stephen Gerald", "MA", -0.4130, 1980, 1994, "Appointment to Another Judicial Position"],
+    ["Lynch, Sandra Lea", "MA", -0.3975, 1995, 2022, "Senior status"],
+    ["Rikelman, Julie", "MA", -0.6320, 2023, 2026, ""],
+  ]},
+  { no: 5, statute: "98 Stat. 333", year: 1984, occ: [
+    ["Torruella, Juan R.", "", 0.6920, 1984, 2020, "Death"],
+    ["Gelpí, Gustavo Antonio, Jr.", "", -0.3200, 2021, 2026, ""],
+  ]},
+  { no: 6, statute: "98 Stat. 333", year: 1986, occ: [
+    ["Selya, Bruce Marshall", "RI", 0.0840, 1986, 2006, "Senior status"],
+    ["Thompson, Ojetta Rogeriee", "RI", -0.3610, 2010, 2021, "Senior status"],
+    ["Montecalvo, Lara Elizabeth", "RI", -0.3610, 2022, 2026, ""],
+  ]},
+];
+
+const bin = (v) => {
+  if (v === null) return "n0";
+  const a = Math.abs(v), arm = v < 0 ? "l" : "c";
+  return arm + (a > 0.50 ? 4 : a > 0.30 ? 3 : a > 0.15 ? 2 : 1);
+};
+const surname = (n) => n.split(",")[0];
+const pct = (y) => ((y - Y0) / SPAN) * 100;
+const fmt = (v) => (v === null ? "—" : (v > 0 ? "+" : "−") + Math.abs(v).toFixed(3));
+
+function ticks() {
+  let h = '<div class="ticks">';
+  for (let y = 1900; y <= 2020; y += 20) h += `<span style="left:${pct(y)}%">${y}</span>`;
+  return h + "</div>";
+}
+
+const chart = document.getElementById("chart");
+let html = `<div class="axis-top"><div></div>${ticks()}</div><div class="lanes">`;
+for (const s of SEATS) {
+  html += `<div class="lane"><div class="lane-label"><b>Seat ${s.no}</b>`
+        + `<small>${s.statute} · ${s.year}</small></div>`
+        + `<div class="track" style="--decade:${(10 / SPAN) * 100}%">`
+        + `<div class="premask" style="width:${pct(s.year)}%"></div>`;
+  for (const [name, st, jcs, a, b, why] of s.occ) {
+    const ongoing = b >= Y1 && why === "";
+    const w = ((b - a + 1) / SPAN) * 100;
+    const label = w > 3.6
+      ? `<span class="nm">${surname(name)}</span>`
+        + (w > 7 && jcs !== null ? `<span class="sc">${fmt(jcs)}</span>` : "")
+      : "";
+    html += `<button class="bar ${bin(jcs)}${ongoing ? " ongoing" : ""}"`
+          + ` style="left:${pct(a)}%;width:${w}%"`
+          + ` data-n="${name}" data-s="${st}" data-j="${jcs === null ? "" : jcs}"`
+          + ` data-a="${a}" data-b="${ongoing ? "present" : b}" data-w="${why}"`
+          + ` aria-label="${surname(name)}, seat ${s.no}, ${a} to ${ongoing ? "present" : b}">`
+          + `${label}</button>`;
+  }
+  html += "</div></div>";
+}
+html += `</div><div class="axis-bot"><div></div>${ticks()}</div>`;
+chart.innerHTML = html;
+
+const tbody = document.querySelector("#tbl tbody");
+let rows = "";
+for (const s of SEATS) {
+  s.occ.forEach(([name, st, jcs, a, b, why], i) => {
+    const ongoing = b >= Y1 && why === "";
+    rows += `<tr><td class="seatcell">${i === 0 ? "Seat " + s.no : ""}</td>`
+          + `<td class="num">${i + 1}</td><td>${name}</td><td>${st || "—"}</td>`
+          + `<td class="num">${fmt(jcs)}</td><td class="num">${a}</td>`
+          + `<td class="num">${ongoing ? "present" : b}</td><td>${why || "—"}</td></tr>`;
+  });
+}
+tbody.innerHTML = rows;
+
+const tip = document.getElementById("tip");
+function show(el) {
+  const d = el.dataset;
+  tip.innerHTML = `<b>${d.n}</b>`
+    + `<div class="row">Years <span>${d.a}–${d.b}</span></div>`
+    + `<div class="row">JCS <span>${d.j === "" ? "no score" : fmt(parseFloat(d.j))}</span></div>`
+    + (d.s ? `<div class="row">Home state <span>${d.s}</span></div>` : "")
+    + (d.w ? `<div class="row">Left by <span>${d.w}</span></div>` : "");
+  tip.hidden = false;
+  const r = el.getBoundingClientRect(), t = tip.getBoundingClientRect();
+  let x = r.left + r.width / 2 - t.width / 2;
+  x = Math.max(8, Math.min(x, window.innerWidth - t.width - 8));
+  let y = r.top - t.height - 8;
+  if (y < 8) y = r.bottom + 8;
+  tip.style.left = x + "px";
+  tip.style.top = y + "px";
+}
+const hide = () => { tip.hidden = true; };
+for (const b of chart.querySelectorAll(".bar")) {
+  b.addEventListener("pointerenter", () => show(b));
+  b.addEventListener("focus", () => show(b));
+  b.addEventListener("pointerleave", hide);
+  b.addEventListener("blur", hide);
+  b.addEventListener("click", () => show(b));
+}
+document.addEventListener("scroll", hide, true);
+</script>
+</body>
+</html>

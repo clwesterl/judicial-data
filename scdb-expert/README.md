@@ -52,6 +52,20 @@ The zips are build artifacts and are not committed; rebuild after any change.
 `readr::read_csv()`, `data.table::fread()` (with R.utils), and `pandas.read_csv()`
 read them directly. `scripts/scdb.R` and `scripts/scdb.py` add typing and labels.
 
+## Publishing a page to `../docs/`
+
+Pages written as Claude artifacts have no document skeleton — the publisher adds
+the doctype, charset, viewport, and reset at publish time. Served from GitHub
+Pages they would render in quirks mode, so wrap them first:
+
+```bash
+python scripts/wrap_artifact.py page.html ../docs/page_name.html
+```
+
+Re-running is safe; a file that already has a doctype is copied unchanged. Then
+add the page to `../docs/index.html`, which is the site's table of contents.
+Pages built by the two scripts below are already standalone and skip this step.
+
 ## Interactive coalition graph
 
 ```bash
