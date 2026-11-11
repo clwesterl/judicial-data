@@ -152,3 +152,57 @@ For a new CCAD release:
    direction, and the issue-area distribution of direction code 3.
 4. Re-run the validations in `coa.md` and update the tier table there if the recall
    or false-positive figures move.
+
+## Open threads and working constraints
+
+Not about the data itself, but about working on it. Written down because these
+otherwise live only in whichever conversation discovered them.
+
+### Deferred: the per-circuit seat charts
+
+`../docs/first_circuit_seats.html` is one of thirteen. The rest follow the same
+path: `scdb.seat_panel()` / `scdb_seat_panel()` for the lanes, then
+`scripts/wrap_artifact.py` to add the document skeleton before committing to
+`../docs/`, then an entry in `../docs/index.html`. Keep the palette and the
+|0.15| / |0.30| / |0.50| bins identical across circuits so the thirteen stay
+comparable to each other.
+
+### `state` is empty in the seat tables
+
+The bundled public JCS appeals-judge table carries no home state, so
+`data/coa/coa_seats.csv.gz` has the column but no values.
+`build_seats.py --master <judge master .dta>` is the only way to fill it, and that
+master file is not in the repo.
+
+### R cannot be executed in the Claude container
+
+There is no R in it, and the CRAN and apt mirrors are off the sandbox allowlist,
+so changes to `scdb.R` or `coalition_median.R` written there ship unverified. The
+workaround used so far is to port the logic to Python against the same data and
+check the outputs agree — for `coalition_median.R`, 9,401 cases and an identical
+per-term winner list. Run R changes locally before trusting them.
+
+### Chart conventions
+
+Both chart pages share one validated diverging palette: poles `#256abf` / `#c22f2e`
+in light, `#3987e5` / `#e66767` in dark, with a near-neutral midpoint and bins at
+|0.15| / |0.30| / |0.50|. A per-judge or per-justice *categorical* palette is not
+an option — past about three series a scatter cannot clear colorblind separation
+floors — so identity goes on direct labels and colour carries polarity only. Reuse
+the same palette for the remaining circuits.
+
+### Getting raw files into the container
+
+Staging files off the iMac through the device bridge has returned HTTP 401, and the
+device shell has no GitHub access either. The repo routes around both: the FJC
+export lives in `../fjc-raw/`, so no transfer is needed to rebuild the seat tables.
+If another raw file is ever needed, pushing it to the repo from the Mac is the
+path that works.
+
+### Deliverable convention
+
+Analyses built from this repo come with R code that reproduces them. How the
+numbers get computed along the way doesn't matter; what gets handed over does.
+`scripts/coalition_median.R` is the pattern — the method stated in the header,
+base R, no dependencies beyond `scdb.R`, and the sample size and caveats printed
+by the script itself rather than left in a chat.
