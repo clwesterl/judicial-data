@@ -17,6 +17,9 @@ As a library (add the skill's scripts/ dir to sys.path first):
     scdb.best_cite(cases)                     # first available reporter cite
     scdb.jcs("justice"|"coa"|"medians"|"circuit_medians"|"circuits")   # Judicial Common Space
     scdb.add_jcs(votes); scdb.add_medians(cases); scdb.add_circuit_medians(cases)
+    scdb.state_elections("elections"|"seats"|"retention"|"selection"|"states"|"fixes")
+    scdb.state_candidates(); scdb.find_state_judge("durham"); scdb.state_selection("AZ", 1970)
+    scdb.add_state_selection(cases)           # how the reviewed state court was chosen
 
 As a CLI:
     python scdb.py info                       # releases, row counts, term coverage
@@ -26,6 +29,8 @@ As a CLI:
     python scdb.py justice scalia             # service dates & counts for a justice
     python scdb.py cite                       # citation strings for the releases in use
     python scdb.py jcs kennedy                # Judicial Common Space scores (justices and CoA judges)
+    python scdb.py state UT                   # a state's selection history and election counts
+    python scdb.py state durham               # every election a state justice stood in
 
 Typing done by load(): coded variables -> pandas nullable Int64 (blank -> <NA>);
 dateDecision/dateArgument/dateRearg -> datetime64; IDs, citations, names, docket,
@@ -232,6 +237,8 @@ def citation():
         out += JCS_CITATIONS
     if os.path.isdir(os.path.join(DATA, "coa")):
         out += COA_CITATIONS
+    if os.path.isdir(os.path.join(DATA, "state")):
+        out += STATE_CITATIONS
     return out
 
 
@@ -576,8 +583,223 @@ def court_composition(circuit, year):
     return p[p.circuit == circuit].sort_values("seat_no").reset_index(drop=True)
 
 
+# ------------------------------------------- State supreme court elections (Kritzer)
+STATE = os.path.join(DATA, "state")
+_STATE_FILES = {"elections": "elections.csv.gz", "seats": "seats.csv.gz",
+                "retention": "retention.csv.gz", "selection": "selection.csv",
+                "states": "states.csv", "fixes": "fixes.csv"}
+_STATE_TEXT = {"state", "state2", "state_name", "district", "District", "CourtType",
+               "Candidates", "incumbent", "uncontested", "Primary", "circuit", "name",
+               "PartyApptGov", "notes", "Notes", "MiscVotes", "DateAppointed", "court",
+               "method", "table", "column", "old", "new", "reason"}
+_STATE_FLOAT = {"pct_yes", "correlation", "VoteRatio", "VotePrimary", "VoteRunOff",
+                "VoteGeneral", "PctPrimary", "PctRunoff", "PctGeneral"}
+STATE_CITATIONS = [
+    "Herbert M. Kritzer. State Supreme Court Election Archive (updated February 9, 2024). "
+    "University of Minnesota Law School. Harvard Dataverse [add DOI].",
+    "Herbert M. Kritzer. 2015. Justices on the Ballot: Continuity and Change in State "
+    "Supreme Court Elections. New York: Cambridge University Press.",
+]
+STATE_SELECTION_END = 2023          # last election year in the archive
+
+
+def state_elections(which="elections", parse=True):
+    """State supreme court election tables (Kritzer's archive, 1936-2023).
+
+    'elections'  2,672 contested primaries, run-offs and generals (plus unopposed
+                 generals), 1946-2023; candidates in wide form CandName1..24 --
+                 see state_candidates() for one row per candidate
+    'seats'      2,302 seats up for election with competitiveness measures
+                 (Pct* are percentages, 0-100)
+    'retention'  896 retention-type elections, 1936-2022
+    'selection'  derived: selection-method spans by state and court
+    'states'     Kritzer stateid <-> postal code <-> SCDB caseSourceState
+    'fixes'      the corrections this build applied to the archive
+
+    Columns keep the archive's names. Keys: `seatid` (state number x 1000 + seat
+    sequence) and `electid` (seatid x 100 + electtype). The three tables name the
+    state differently: `state` (postal) in elections/seats, `state2` (postal) in
+    retention, where `state` is a 1-20 sequence. `stateid` (1 Alabama .. 50
+    Wyoming) is common to all three. See references/state_elections.md."""
+    if which not in _STATE_FILES:
+        raise ValueError(f"which must be one of {sorted(_STATE_FILES)}")
+    path = data_path(os.path.join("state", _STATE_FILES[which]), f'state_elections("{which}")')
+    df = pd.read_csv(path, dtype=str, keep_default_na=False)
+    if not parse:
+        return df
+    for c in df.columns:
+        if c in _STATE_TEXT or (which == "elections" and c.startswith("CandName")):
+            df[c] = df[c].replace("", None)
+        elif c == "in_archive":
+            df[c] = df[c].map({"True": True, "False": False}).astype("boolean")
+        else:
+            x = pd.to_numeric(df[c].replace("", None), errors="coerce")
+            if c not in _STATE_FLOAT and (x.dropna() % 1 == 0).all():
+                x = x.astype("Int64")
+            df[c] = x
+    return df
+
+
+def state_candidates(elections=None):
+    """One row per candidate per election, derived from the wide Election table.
+
+    Columns: electid, seatid1, stateid, state, year, CourtType, CJ, district,
+    numseats, electtype, cand (0 = unopposed, else 1-24), name, votes, share
+    (votes / TotalVoteCount), rank (by votes within the election), CandType,
+    IncumType, YrAppointed, Party. Unopposed candidates have no vote count.
+    Winners are not coded in the archive: in a general election the top
+    `numseats` vote-getters win, but primaries advance a varying number."""
+    e = state_elections("elections") if elections is None else elections
+    keep = ["electid", "seatid1", "stateid", "state", "year", "CourtType", "CJ", "district",
+            "numseats", "electtype", "TotalVoteCount"]
+    parts = []
+    for k in range(25):
+        name = e[f"CandName{k}"]
+        sub = e.loc[name.notna(), keep].copy()
+        sub["cand"] = k
+        sub["name"] = name[name.notna()].str.strip()
+        sub["votes"] = e.loc[name.notna(), f"votes{k}"] if k else pd.NA
+        for v in ("CandType", "IncumType", "YrAppointed", "Party"):
+            col = f"{v}{k}"
+            sub[v] = e.loc[name.notna(), col] if col in e else pd.NA
+        parts.append(sub)
+    out = pd.concat(parts, ignore_index=True)
+    out["votes"] = pd.to_numeric(out["votes"]).astype("Int64")
+    out["share"] = (out.votes / out.TotalVoteCount).astype("Float64")
+    out["rank"] = out.groupby("electid").votes.rank(ascending=False, method="min").astype("Int64")
+    return (out.drop(columns="TotalVoteCount")
+            .sort_values(["stateid", "year", "electid", "cand"]).reset_index(drop=True))
+
+
+def state_labels(variable, table=None):
+    """Code -> label for a state-election variable. CandType, IncumType and Party
+    cover their numbered series (CandType0..24 etc.)."""
+    import re as _re
+    base = _re.sub(r"\d+$", "", variable)
+    out = {}
+    with open(os.path.join(REF, "state_value_labels.csv"), encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if r["variable"] == base and (table is None or r["table"] == table):
+                k = r["code"]
+                out[int(k) if k.lstrip("-").isdigit() else k] = r["label"]
+    if not out:
+        raise KeyError(f"no state-election labels for {variable!r}")
+    return out
+
+
+def label_state(df, variables=None, table=None):
+    """Add <var>_label columns for the coded state-election variables present.
+    Pass table= ("elections", "seats", "retention") where a name is shared --
+    `electtype` and `CourtType` are coded differently across the tables."""
+    with open(os.path.join(REF, "state_value_labels.csv"), encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    have = {r["variable"] for r in rows if table is None or r["table"] == table}
+    import re as _re
+    cols = variables or [c for c in df.columns if _re.sub(r"\d+$", "", c) in have]
+    out = df.copy()
+    for v in cols:
+        out[f"{v}_label"] = out[v].map(state_labels(v, table))
+    return out
+
+
+def state_selection(state=None, year=None, court="sc"):
+    """How a state chose its high court in a year, from the derived spans.
+
+    With no year, returns that state's spans (or all states' with no state).
+    With a year, returns the list of methods in use -- usually one; two where
+    winners of partisan elections later stand for retention (IL, PA, NM) --
+    [] for a state with no elections that year (one outside the archive, or
+    New York after 1974), and None where the archive cannot say (before 1946
+    or a state's first observed election). Spans ending in the archive's last
+    year are treated as still in force. court: "sc", or "cr" for the Texas and
+    Oklahoma Courts of Criminal Appeals."""
+    sel = state_elections("selection")
+    if state is None:
+        return sel
+    st = state.upper()
+    g = sel[(sel.state == st) & (sel.court == court)]
+    if year is None:
+        return g.reset_index(drop=True)
+    y = int(year)
+    if g.empty:
+        known = state_elections("states").set_index("state").in_archive
+        if st not in known.index:
+            raise KeyError(f"unknown state {state!r}")
+        return [] if 1946 <= y else None
+    end = g.end.where(g.end < STATE_SELECTION_END, 10**4)
+    hit = g[(g.start <= y) & (end >= y)]
+    if not hit.empty:
+        return sorted(hit.method)
+    return [] if y > g.end.max() else None
+
+
+def add_state_selection(c, sources=(300,), year_col="term"):
+    """Attach the reviewed state court's selection method to SCDB case rows.
+
+    For cases whose `caseSource` is a state court (300 = state supreme court by
+    default; add 301/302 for intermediate and trial courts), adds
+      source_state      postal code, from caseSourceState
+      state_selection   e.g. "partisan", "nonpartisan", "retention",
+                        "partisan+retention", "none" (justices not elected),
+                        <NA> where the archive cannot say (mostly pre-1946)
+    keyed on `term` by default. SCDB's 300 does not separate Texas's and
+    Oklahoma's two high courts; their methods agree in every year, so this uses
+    the supreme court's. Other rows get <NA>."""
+    st = state_elections("states")
+    code_to_state = dict(zip(st.scdb_state, st.state))
+    sel = state_elections("selection")
+    sel = sel[sel.court == "sc"]
+    in_arch = set(st[st.in_archive].state)
+    rows = []
+    for s_, g in sel.groupby("state"):
+        lo, hi = int(g.start.min()), int(g.end.max())
+        open_end = hi >= STATE_SELECTION_END
+        for y in range(lo, max(hi, 2030 if open_end else hi) + 1):
+            end = g.end.where(g.end < STATE_SELECTION_END, 10**4)
+            m = sorted(g[(g.start <= y) & (end >= y)].method)
+            rows.append((s_, y, "+".join(m) if m else "none"))
+        if not open_end:
+            rows += [(s_, y, "none") for y in range(hi + 1, 2031)]
+    for s_ in set(st.state) - in_arch:
+        rows += [(s_, y, "none") for y in range(1946, 2031)]
+    lut = pd.DataFrame(rows, columns=["source_state", "_y", "state_selection"])
+    out = c.copy()
+    is_state = out["caseSource"].isin(list(sources))
+    out["source_state"] = out["caseSourceState"].map(code_to_state).where(is_state)
+    out["_y"] = out[year_col].astype("Int64")
+    out = out.merge(lut, on=["source_state", "_y"], how="left", validate="many_to_one")
+    out["state_selection"] = out["state_selection"].astype("string")
+    return out.drop(columns="_y")
+
+
+def find_state_judge(query, state=None):
+    """Every election a judge stood in -- contested, unopposed, or retention --
+    matched case- and accent-insensitively on all words of the query, in any
+    order. Names are spelled as in the archive, which varies ("Jim Rice",
+    "James A. Rice"), so search on a surname and check the hits."""
+    import unicodedata
+
+    def fold(s):
+        s = unicodedata.normalize("NFKD", str(s))
+        return "".join(ch for ch in s if not unicodedata.combining(ch)).lower()
+    words = [w for w in re.split(r"[^\w]+", fold(query)) if w]
+    hit = lambda n: n is not None and all(w in fold(n) for w in words)
+    cand = state_candidates()
+    cand = cand[cand.name.map(hit)].assign(kind="election")
+    r = state_elections("retention")
+    r = r[r.name.map(hit)].rename(columns={"state2": "state_"})
+    r = r.drop(columns="state").rename(columns={"state_": "state"}).assign(kind="retention")
+    cols = ["kind", "state", "year", "electid", "electtype", "name", "votes", "share",
+            "rank", "CandType", "yes", "no", "pct_yes", "circuit", "district"]
+    out = pd.concat([cand, r], ignore_index=True)
+    if state:
+        out = out[out.state == state.upper()]
+    return (out[[c for c in cols if c in out.columns]]
+            .sort_values(["state", "year", "electid"]).reset_index(drop=True))
+
+
 # ---------------------------------------------------------------- CLI
-CASE_FIELDS = ["caseName", "usCite", "sctCite", "ledCite", "lexisCite", "docket", "term",
+CASE_FIELDS =["caseName", "usCite", "sctCite", "ledCite", "lexisCite", "docket", "term",
                "dateArgument", "dateRearg", "dateDecision", "chief", "naturalCourt", "petitioner",
                "petitionerState", "respondent", "respondentState", "jurisdiction", "certReason",
                "adminAction", "caseOrigin", "caseSource", "lcDisagreement", "lcDisposition",
@@ -651,6 +873,52 @@ def _print_hits(h):
         print(h[cols].to_string(index=False))
 
 
+def _cli_state(arg):
+    """`state UT` -> selection history and election counts; `state durham` -> a judge."""
+    st = state_elections("states")
+    if arg.upper() in set(st.state):
+        ab = arg.upper()
+        row = st[st.state == ab].iloc[0]
+        print(f"{row.state_name} (stateid {row.stateid}, SCDB caseSourceState {row.scdb_state})")
+        sel = state_elections("selection")
+        sel = sel[sel.state == ab]
+        if sel.empty:
+            print("  no supreme court elections 1946-2023 (justices not elected)")
+            return
+        for _, r in sel.iterrows():
+            court = "" if r.court == "sc" else " [Court of Criminal Appeals]"
+            end = "present" if r.end >= STATE_SELECTION_END else r.end
+            print(f"  {r.start}-{end:<8} {r.method:<12} {r.n_obs:>4} elections observed "
+                  f"{r.first_obs}-{r.last_obs}{court}")
+        e = state_elections("elections")
+        e = e[e.state == ab]
+        r = state_elections("retention")
+        r = r[r.state2 == ab]
+        lab = state_labels("electtype", "elections")
+        if len(e):
+            print(f"  election records: {len(e)} ({e.year.min()}-{e.year.max()})")
+            for k, n in e.electtype.value_counts().sort_index().items():
+                print(f"    {n:>4}  {lab[int(k)]}")
+        if len(r):
+            print(f"  retention records: {len(r)} ({r.year.min()}-{r.year.max()}), "
+                  f"{int((r.pct_yes < 0.5).sum())} under 50% yes")
+        return
+    hit = find_state_judge(arg)
+    if hit.empty:
+        print("no state supreme court candidate matches"); return
+    lab = state_labels("electtype", "elections")
+    for _, r in hit.iterrows():
+        what = lab.get(int(r.electtype), str(r.electtype))
+        if r.kind == "retention":
+            res = f"yes {r.yes:,} / no {r.no:,} ({r.pct_yes:.1%} yes)"
+        elif pd.isna(r.votes):
+            res = "unopposed"
+        else:
+            sh = "" if pd.isna(r.share) else f", {r.share:.1%}"
+            res = f"{r.votes:,} votes{sh}, placed {r['rank']}"
+        print(f"{r.state} {r.year}  {r['name']:<28} {what:<40} {res}")
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__); return
@@ -667,6 +935,14 @@ def main(argv):
             print(f"  JCS      justices {j['justice_term']['terms'][0]}-{j['justice_term']['terms'][1]} "
                   f"({j['justice_term']['rows']} justice-terms), {j['coa_judges']['judges']} appeals judges, "
                   f"medians {j['medians']['years'][0]}-{j['medians']['years'][1]}")
+        sm = os.path.join(STATE, "MANIFEST.json")
+        if os.path.exists(sm):
+            j = json.load(open(sm, encoding="utf-8"))
+            print(f"  state    elections {j['elections.csv.gz']['rows']:,} "
+                  f"({j['elections.csv.gz']['years'][0]}-{j['elections.csv.gz']['years'][1]}), "
+                  f"seats {j['seats.csv.gz']['rows']:,}, retention {j['retention.csv.gz']['rows']:,} "
+                  f"({j['retention.csv.gz']['years'][0]}-{j['retention.csv.gz']['years'][1]}); "
+                  f"{j['fixes']} corrections to the archive")
     elif cmd == "find":
         _print_hits(find(load("case"), arg))
     elif cmd == "case":
@@ -729,6 +1005,8 @@ def main(argv):
             print(f"    seat created by {hist.iloc[0].creating_statute or '(pre-1891)'}: "
                   f"{chain}")
             print()
+    elif cmd == "state":
+        _cli_state(arg)
     elif cmd == "cite":
         print("\n".join(citation()))
     elif cmd == "labels":

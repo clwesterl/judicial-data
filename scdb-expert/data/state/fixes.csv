@@ -1,0 +1,77 @@
+table,electid,year,column,old,new,reason,seatid
+elections,4401614.0,1970,electtype,14,11,undocumented code 14; codebook code for an uncontested nonpartisan election that reverted to retention is 11,
+elections,4401714.0,1972,electtype,14,11,undocumented code 14; codebook code for an uncontested nonpartisan election that reverted to retention is 11,
+elections,4402014.0,1980,electtype,14,11,undocumented code 14; codebook code for an uncontested nonpartisan election that reverted to retention is 11,
+elections,4402114.0,1982,electtype,14,11,undocumented code 14; codebook code for an uncontested nonpartisan election that reverted to retention is 11,
+elections,4402214.0,1982,electtype,14,11,undocumented code 14; codebook code for an uncontested nonpartisan election that reverted to retention is 11,
+elections,4402314.0,1984,electtype,14,11,undocumented code 14; codebook code for an uncontested nonpartisan election that reverted to retention is 11,
+elections,4401614.0,1970,electid,4401614,4401611,electid = seatid + electtype; follows the electtype correction and makes the Election and Retention records share one electid as the codebook says,
+elections,4401714.0,1972,electid,4401714,4401711,electid = seatid + electtype; follows the electtype correction and makes the Election and Retention records share one electid as the codebook says,
+elections,4402014.0,1980,electid,4402014,4402011,electid = seatid + electtype; follows the electtype correction and makes the Election and Retention records share one electid as the codebook says,
+elections,4402114.0,1982,electid,4402114,4402111,electid = seatid + electtype; follows the electtype correction and makes the Election and Retention records share one electid as the codebook says,
+elections,4402214.0,1982,electid,4402214,4402211,electid = seatid + electtype; follows the electtype correction and makes the Election and Retention records share one electid as the codebook says,
+elections,4402314.0,1984,electid,4402314,4402311,electid = seatid + electtype; follows the electtype correction and makes the Election and Retention records share one electid as the codebook says,
+elections,4402011.0,1980,year,1980,1982,Durham was appointed in 1982; SeatsDataset and RetentionDataset both put seat 44020 in 1982,
+elections,4450101.0,1978,electtype,1,11,1978 Utah uncontested incumbent; SeatsDataset codes it R (reverted to retention) and the Notes field says so,
+elections,4450201.0,1978,electtype,1,11,1978 Utah uncontested incumbent; SeatsDataset codes it R (reverted to retention) and the Notes field says so,
+elections,4450101.0,1978,electid,4450101,4450111,electid follows the electtype correction,
+elections,4450201.0,1978,electid,4450201,4450211,electid follows the electtype correction,
+retention,4402020.0,1982,electtype,20,11,SeatsDataset codes these Utah elections R (uncontested nonpartisan reverted to retention); the codebook dates that practice to 1968-1984,44020.0
+retention,4402120.0,1982,electtype,20,11,SeatsDataset codes these Utah elections R (uncontested nonpartisan reverted to retention); the codebook dates that practice to 1968-1984,44021.0
+retention,4402220.0,1982,electtype,20,11,SeatsDataset codes these Utah elections R (uncontested nonpartisan reverted to retention); the codebook dates that practice to 1968-1984,44022.0
+retention,4402320.0,1984,electtype,20,11,SeatsDataset codes these Utah elections R (uncontested nonpartisan reverted to retention); the codebook dates that practice to 1968-1984,44023.0
+retention,4450120.0,1978,electtype,20,11,SeatsDataset codes these Utah elections R (uncontested nonpartisan reverted to retention); the codebook dates that practice to 1968-1984,44501.0
+retention,4450220.0,1978,electtype,20,11,SeatsDataset codes these Utah elections R (uncontested nonpartisan reverted to retention); the codebook dates that practice to 1968-1984,44502.0
+retention,4402020.0,1982,electid,4402020,4402011,electid follows the electtype correction; now matches the Election record,44020.0
+retention,4402120.0,1982,electid,4402120,4402111,electid follows the electtype correction; now matches the Election record,44021.0
+retention,4402220.0,1982,electid,4402220,4402211,electid follows the electtype correction; now matches the Election record,44022.0
+retention,4402320.0,1984,electid,4402320,4402311,electid follows the electtype correction; now matches the Election record,44023.0
+retention,4450120.0,1978,electid,4450120,4450111,electid follows the electtype correction; now matches the Election record,44501.0
+retention,4450220.0,1978,electid,4450220,4450211,electid follows the electtype correction; now matches the Election record,44502.0
+elections,2607501.0,2022,year,2022,2020,seat 26075 is 2020 in SeatsDataset and RetentionDataset; Shea's term ran to January 2021,
+elections,2607501.0,2020,electtype,1,11,"SeatsDataset codes the seat R (uncontested, reverted to retention), as for every other unopposed Montana incumbent",
+elections,2607501.0,2020,electid,2607501,2607511,electid follows the electtype correction,
+elections,2607111.0,2016,(row),present,dropped,"duplicate of 2607011 (Shea, 2016) placed on seat 26071, which is the Sandefur v. Juras open seat; no Seats or Retention record matches it",
+retention,2607311.0,2020,electid,2607311,2607511,"duplicate key: 2607311 is Beth Baker's 2018 election; Shea 2020 is seat 26075, so electid 2607511",26075.0
+retention,306520.0,2022,yes,1865552,1305293,"2022 row carried the 2020 count; Ballotpedia, Arizona Supreme Court elections (statewide canvass totals; its 2020 Arizona figures match the archive exactly)",3065.0
+retention,306520.0,2022,no,617429,545434,"2022 row carried the 2020 count; Ballotpedia, Arizona Supreme Court elections (statewide canvass totals; its 2020 Arizona figures match the archive exactly)",3065.0
+retention,306520.0,2022,pct_yes,0.7513355921773063,0.705287,recomputed from corrected counts,3065.0
+retention,306520.0,2022,correlation,-0.8491734561094928,,2022 row carried the 2020 correlation; the archive has no 2022 county returns,3065.0
+retention,306520.0,2022,seatid,3065,3068,duplicate key: reused the 2020 seatid; next unused,3065.0
+retention,306520.0,2022,electid,306520,306820,duplicate key: follows the new seatid,3068.0
+retention,306620.0,2022,yes,1683460,1042134,"2022 row carried the 2020 count; Ballotpedia, Arizona Supreme Court elections (statewide canvass totals; its 2020 Arizona figures match the archive exactly)",3066.0
+retention,306620.0,2022,no,790095,834653,"2022 row carried the 2020 count; Ballotpedia, Arizona Supreme Court elections (statewide canvass totals; its 2020 Arizona figures match the archive exactly)",3066.0
+retention,306620.0,2022,pct_yes,0.6805832091867777,0.555276,recomputed from corrected counts,3066.0
+retention,306620.0,2022,correlation,-0.7827486897954786,,2022 row carried the 2020 correlation; the archive has no 2022 county returns,3066.0
+retention,306620.0,2022,seatid,3066,3069,duplicate key: reused the 2020 seatid; next unused,3066.0
+retention,306620.0,2022,electid,306620,306920,duplicate key: follows the new seatid,3069.0
+retention,306720.0,2022,yes,1806530,1301858,"2022 row carried the 2020 count; Ballotpedia, Arizona Supreme Court elections (statewide canvass totals; its 2020 Arizona figures match the archive exactly)",3067.0
+retention,306720.0,2022,no,679989,529551,"2022 row carried the 2020 count; Ballotpedia, Arizona Supreme Court elections (statewide canvass totals; its 2020 Arizona figures match the archive exactly)",3067.0
+retention,306720.0,2022,pct_yes,0.7265297389643915,0.71085,recomputed from corrected counts,3067.0
+retention,306720.0,2022,correlation,-0.7653437360567199,,2022 row carried the 2020 correlation; the archive has no 2022 county returns,3067.0
+retention,306720.0,2022,seatid,3067,3070,duplicate key: reused the 2020 seatid; next unused,3067.0
+retention,306720.0,2022,electid,306720,307020,duplicate key: follows the new seatid,3070.0
+retention,306520.0,2020,name,Robnert Brutinel,Robert Brutinel,typo,3065.0
+retention,508020.0,2022,YearTookOffice,202-,2020,truncated entry; DateAppointed is 2020-12-04,5080.0
+elections,1205701.0,2014,state,AR,ID,"Warren Jones, Idaho 2014; seatid 12057 and stateid 12 are Idaho",
+elections,1630202.0,2022,seatid1,16302,13063,"O'Brien v. Burke is Illinois 2022, SeatsDataset seat 13063; the IDs used Kansas's prefix 16",
+elections,1630202.0,2022,stateid,16,13,"O'Brien v. Burke is Illinois 2022, SeatsDataset seat 13063; the IDs used Kansas's prefix 16",
+elections,1630202.0,2022,electid,1630202,1306302,"O'Brien v. Burke is Illinois 2022, SeatsDataset seat 13063; the IDs used Kansas's prefix 16",
+elections,2087005.0,2018,seatid1,20870,28070,Aberusturi v. Cadish is the 2018 Nevada primary for SeatsDataset seat 28070 (Cadish v. Tao); the IDs used Maryland's prefix 20,
+elections,2087005.0,2018,stateid,20,28,Aberusturi v. Cadish is the 2018 Nevada primary for SeatsDataset seat 28070 (Cadish v. Tao); the IDs used Maryland's prefix 20,
+elections,2087005.0,2018,electid,2087005,2807005,Aberusturi v. Cadish is the 2018 Nevada primary for SeatsDataset seat 28070 (Cadish v. Tao); the IDs used Maryland's prefix 20,
+elections,2087101.0,2018,(row),present,dropped,"duplicate of 2807101 (Abbi Silver, Nevada 2018) under Maryland's prefix",
+elections,2807305.0,2020,state,NM,NV,Pickering v. Rodriguez is the 2020 Nevada primary (seat 28073); its IDs were already Nevada's,
+elections,3508701.0,2016,seatid1,35087,37087,"Lynn Nakamoto, Oregon 2016, SeatsDataset seat 37087; the IDs used Ohio's prefix 35",
+elections,3508701.0,2016,stateid,35,37,"Lynn Nakamoto, Oregon 2016, SeatsDataset seat 37087; the IDs used Ohio's prefix 35",
+elections,3508701.0,2016,electid,3508701,3708701,"Lynn Nakamoto, Oregon 2016, SeatsDataset seat 37087; the IDs used Ohio's prefix 35",
+elections,401802.0,1962,seatid1,4018,6018,"Carpenter v. Pringle, Colorado 1962, is SeatsDataset seat 6018; seatid 4018 is an Arkansas seat",
+elections,401802.0,1962,electid,401802,601802,"Carpenter v. Pringle, Colorado 1962, is SeatsDataset seat 6018; seatid 4018 is an Arkansas seat",
+elections,2404601.0,1998,seatid1,24046,28046,"Leavitt v. Power, Nevada 1998, is SeatsDataset seat 28046; seatid 24046 is a Mississippi seat",
+elections,2404601.0,1998,electid,2404601,2804601,"Leavitt v. Power, Nevada 1998, is SeatsDataset seat 28046; seatid 24046 is a Mississippi seat",
+elections,2807501.0,2012,seatid1,28075,28065,seat IDs swapped: SeatsDataset has Saitta on 28065 (2012) and Bell on 28075 (2022),
+elections,2807501.0,2012,electid,2807501,2806501,seat IDs swapped: SeatsDataset has Saitta on 28065 (2012) and Bell on 28075 (2022),
+elections,2806501.0,2022,seatid1,28065,28075,seat IDs swapped: SeatsDataset has Saitta on 28065 (2012) and Bell on 28075 (2022),
+elections,2806501.0,2022,electid,2806501,2807501,seat IDs swapped: SeatsDataset has Saitta on 28065 (2012) and Bell on 28075 (2022),
+seats,,1970,seatid,9501,9502,duplicate key: 9501 is the 1952 Roberts-Lewis seat; the corrected Election file puts Dekle v. Foster 1970 on seat 9502 (electid 950207),9501.0
+seats,,2022,Candidates,Gufsafson v. Brown,Gustafson v. Brown,typo,26077.0

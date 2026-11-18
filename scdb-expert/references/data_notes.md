@@ -46,6 +46,24 @@ release. The CCAD redistributes the Songer Courts of Appeals Database and the FJ
 Integrated Database, so cite those separately when using `songer_gt_*` or `idb_*`
 fields.
 
+State supreme court election tables (`data/state/`) come from Herbert M.
+Kritzer's State Supreme Court Election Archive (updated February 9, 2024),
+vendored unmodified as `.7z` files in `state-elections-raw/`:
+
+| table | rows | source file |
+|---|---|---|
+| `elections.csv.gz` | 2,672 | `ElectionDataset.7z` (saved 2024-03-07; corrects the copy in `AllFiles.7z`) |
+| `seats.csv.gz` | 2,302 | `AllFiles.7z` → `SeatsDataset.xlsx` |
+| `retention.csv.gz` | 896 | `RetentionDataset.7z` (identical to the AllFiles copy) |
+| `selection.csv`, `states.csv` | 68, 50 | derived here |
+
+`scripts/build_state_elections.py` makes 76 logged corrections (`fixes.csv`):
+duplicate keys, rows filed under the wrong state, Montana/Utah election-type
+coding, and Arizona's 2022 retention counts, which repeated 2020's. It
+converts the archive's `-9` missing-value code to blank. `state_elections.md`
+documents the corrections, the quirks left uncorrected, and how the
+selection spans are derived.
+
 ## What the build changed (and didn't)
 
 The schema is identical to the official files (53 case columns; 61 justice

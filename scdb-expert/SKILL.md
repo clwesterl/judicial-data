@@ -1,13 +1,14 @@
 ---
 name: "scdb-expert"
-description: Expert on the U.S. Supreme Court Database (SCDB), the Judicial Common Space (JCS), and the Comprehensive Court of Appeals Database (CCAD), data bundled and cross-linked - every Supreme Court case 1791-2025 (SCDB Legacy 07 + 2026_01), case- and justice-centered; JCS ideology scores for justices, appeals judges, and Court/House/Senate/president/circuit medians; and 512,263 published courts of appeals opinions 1880-2025 with a validated crosswalk to the SCDB. Use whenever the user asks about SCDB variables or codes (issueArea, decisionDirection, decisionType, majVotes, vote, majority, naturalCourt, etc.); counts, trends, or statistics on Supreme Court decisions or justices (voting, agreement, dissents, unanimity, 5-4 cases, authorship, reversal rates, laws struck down, overruled precedents); or judicial ideology (JCS or Martin-Quinn-type scores, the Court median, distance between the Court and Congress, the president, or a circuit, appeals judges' ideology, IRT models) - even if neither database is named. Also for case coding lookups, circuit decisions and Supreme Court review of them (courts of appeals cases, panels, en banc, circuit reversal rates, which circuit a case came from, linking a CoA case to the SCOTUS case that reviewed it); case coding lookups, merging with other data, and rebuilding from new releases.
+description: Expert on judicial politics data, bundled and cross-linked: the U.S. Supreme Court Database (SCDB, every case 1791-2025), Judicial Common Space ideology scores (justices, appeals judges, Court/House/Senate/president/circuit medians), the Comprehensive Court of Appeals Database (512,263 opinions 1880-2025, linked to the SCDB; judgeship succession), and Kritzer's state supreme court election archive (1936-2023). Use whenever the user asks about SCDB variables or codes (issueArea, decisionDirection, vote, naturalCourt); counts or trends in Supreme Court decisions and votes (agreement, dissents, 5-4 cases, reversals, laws struck down, overrulings); judicial ideology (JCS, Martin-Quinn, the Court median vs Congress or president, circuit medians, IRT); circuit decisions, panels and their Supreme Court review; who held a judgeship; or state judicial elections (partisan, nonpartisan, retention, vote shares, defeats, how a state picks its high court), even if no database is named. Also case lookups, merges, rebuilds.
 ---
 
-# Supreme Court Database (SCDB) + Judicial Common Space expert
+# Supreme Court Database (SCDB) + Judicial Common Space + courts of appeals + state elections expert
 
 This skill bundles the complete SCDB (organized by citation), the Judicial Common
-Space (JCS) ideology scores, and a slice of the Comprehensive Court of Appeals
-Database (CCAD), all linked to each other, plus the knowledge to use them well.
+Space (JCS) ideology scores, a slice of the Comprehensive Court of Appeals
+Database (CCAD), and Kritzer's State Supreme Court Election Archive, all linked
+to each other, plus the knowledge to use them well.
 Answer questions by **computing from the bundled data**, not from memory, and say
 how the sample was defined.
 
@@ -25,10 +26,12 @@ The data work offline — no download needed.
 | `data/MANIFEST.json` | source releases, row counts, checksums |
 | `data/jcs/` | Judicial Common Space: justice-term scores (OT1937–2022), 693 appeals judges, medians by year 1924–2024, circuit↔SCDB crosswalk |
 | `data/coa/` | Courts of Appeals: 512,263 published opinions 1880–2025 (74 of the CCAD's 809 vars, incl. panel rosters and GHP ideology); 8,265 CoA↔SCDB links with confidence tiers; 203 judgeships and 868 occupancies, 1891–present |
+| `data/state/` | State supreme court elections (Kritzer): 2,672 contested and general elections 1946–2023, 2,302 seats, 896 retention votes 1936–2022; derived selection-method spans by state; state ↔ SCDB `caseSourceState` crosswalk; log of 76 corrections |
 | `scripts/scdb.py` | Python loader/labeler/search + CLI (pandas) |
 | `scripts/scdb.R` | same API for R (`scdb_load`, `scdb_label`, `scdb_factor`, `scdb_find`) |
 | `scripts/build_combined.py`, `scripts/parse_codebook.py`, `scripts/build_jcs.py`, `scripts/build_coa.py`, `scripts/coa_slice.R` | rebuild from new SCDB / JCS / CCAD releases |
 | `scripts/build_seats.py`, `scripts/matchjcs.py` | rebuild the seat tables from `fjc-raw/` + the bundled JCS scores |
+| `scripts/build_state_elections.py`, `scripts/un7z.py` | rebuild the state tables from `state-elections-raw/` (Kritzer's `.7z` files; `un7z.py` reads 7z with the standard library) |
 | `scripts/build_coalition_page.py` | one-file interactive page: majority coalitions as a graph, filterable by term, natural court and justice |
 | `references/variables.md` | **read first for any variable question**: every variable, codes, missingness, gotchas |
 | `references/analysis_guide.md` | sample definition, Legacy vs Modern, direction-coding critiques, vote analysis, IRT, merging |
@@ -41,6 +44,8 @@ The data work offline — no download needed.
 | `references/coa.md` | **read for any courts-of-appeals or SCOTUS-review question**: what's bundled, how the crosswalk was built and validated, the code-scheme corrections, coverage limits |
 | `references/coa_value_labels.csv` | all 382 CCAD codes: `variable, code, label, table` |
 | `references/coa_seats.md` | **read for judgeship succession**: what a seat is, FJC Seat IDs, why occupancy ends at senior status, validation against 28 U.S.C. §44 |
+| `references/state_elections.md` | **read for any state judicial election question**: tables and keys, election types, the partisan correlation, what the build corrected, known quirks, how selection spans are derived, linking to the SCDB |
+| `references/state_value_labels.csv` | all state-election codes: `table, variable, code, label` |
 
 ## Workflow
 
@@ -57,6 +62,10 @@ The data work offline — no download needed.
      who replaced whom, a judge's tenure and ideology, how a circuit's seats
      turned over, who sat on a circuit in a given year) → `coa_seats.md`, then
      the seat helpers below.
+   - *State supreme court elections* (a state justice's elections or retention
+     votes, contested vs uncontested races, defeats, partisan vs nonpartisan vs
+     retention systems, when a state switched, whether a Supreme Court case came
+     from an elected state court) → `state_elections.md`, then the state helpers below.
    - *Research design / methods* → `analysis_guide.md`.
    - *New release / rebuild* → `data_notes.md` "Updating".
 2. **Define the sample explicitly** before computing (see analysis_guide.md §1).
@@ -84,7 +93,9 @@ python SKILL_DIR/scripts/scdb.py labels issueArea     # code table for a variabl
 python SKILL_DIR/scripts/scdb.py justice kennedy      # service dates, votes, dissents, opinions
 python SKILL_DIR/scripts/scdb.py jcs kennedy          # JCS scores: justice by term + appeals judges
 python SKILL_DIR/scripts/scdb.py seat reinhardt       # a CoA judge's seat, tenure, predecessor, chain
-python SKILL_DIR/scripts/scdb.py cite                 # how to cite the releases (SCDB + JCS)
+python SKILL_DIR/scripts/scdb.py state AZ             # a state's selection history + election counts
+python SKILL_DIR/scripts/scdb.py state "rose bird"    # every election a state justice stood in
+python SKILL_DIR/scripts/scdb.py cite                 # how to cite every bundled source
 python SKILL_DIR/scripts/build_coalition_page.py --start 2005 --end 2025 --out coalitions.html
 ```
 
@@ -128,6 +139,14 @@ scdb.find_judge("reinhardt")   # a judge's seats -- the CoA analogue of justice(
 scdb.seat_history(1, 3)        # everyone who has held First Circuit seat 3
 scdb.court_composition(9, 1995)  # who sat on the Ninth in 1995, by seat
 
+# State supreme court elections (see references/state_elections.md)
+scdb.state_elections("elections")   # also "seats", "retention", "selection", "states", "fixes"
+scdb.state_candidates()             # one row per candidate: votes, share, rank, party, incumbency
+scdb.find_state_judge("durham")     # every election (contested, unopposed, retention) by name
+scdb.state_selection("NC", 2010)    # ['nonpartisan']; [] = not elected; None = archive can't say
+c = scdb.add_state_selection(c)     # + source_state, state_selection for caseSource == 300
+scdb.label_state(df, table="seats") # <var>_label columns; scdb.state_labels("Party")
+
 scdb.coa_labels("scdb_first_broad_area"); scdb.label_coa(d)   # code -> label
 scdb.coa_disposition_to_scdb(d.scdb_first_disposition)   # CCAD codes are NOT SCDB codes
 scdb.songer_direction_to_scdb(x)                # for songer_gt_* fields ONLY
@@ -152,6 +171,8 @@ appeals <- scdb_coa_label(appeals)                # adds <var>_label columns
 appeals$disp_scdb <- scdb_coa_disposition(appeals$scdb_first_disposition)
 judgeships <- scdb_seats(); occupancies <- scdb_seats("spells")
 panel <- scdb_seat_panel(1950); scdb_seat_history(1, 3); scdb_court_composition(9, 1995)
+elect <- scdb_state("elections"); ret <- scdb_state("retention"); cand <- scdb_state_candidates()
+cases <- scdb_add_state_selection(cases); scdb_state_labels("electtype", "elections")
 ```
 
 ## Essentials to keep in mind
@@ -220,6 +241,35 @@ panel <- scdb_seat_panel(1950); scdb_seat_history(1, 3); scdb_court_composition(
     still leaves 18.6% of authors unnamed. `author_ghp` is missing for a further
     3.1%, judges with no GHP score.
 
+- **State elections** (read `state_elections.md`):
+  - **Three tables, three units**: Elections has one row per contest (a seat can
+    have primaries, run-offs and a general), Seats one per seat, Retention one per
+    yes/no vote. Montana and Utah's unopposed incumbents who faced a yes/no vote
+    (`electtype` 11, 28 elections) are in all three. Decide whether to count them
+    once or twice.
+  - **State naming differs**: `state` is the postal code in Elections and Seats;
+    in Retention it is a 1–20 sequence and `state2` is the postal code.
+    `stateid` (1–50) is common to all three.
+  - **No person IDs.** Names are free text and spelled inconsistently; match on
+    surnames with `find_state_judge()` and check the hits.
+  - **Nonpartisan `correlation`s are absolute values**, not signed. Seats `Pct*`
+    are 0–100; Retention `pct_yes` is 0–1.
+  - **Retention defeats are in `notes`**, not `pct_yes < .5`: Illinois requires
+    60% yes and New Mexico 57%.
+  - The build corrected 76 archive errors (`fixes.csv`), including Arizona's
+    2022 retention counts, which were copied from 2020. 16 retention rows with
+    inconsistent `pct_yes` and 23 Election/Seats year mismatches are left as is
+    and listed in the manifest.
+  - **`selection.csv` and `add_state_selection()` are derived** from the elections
+    observed, not taken from the archive. The switch years are approximate (the
+    first election under the new system), and `"none"` merges every
+    non-elective system. State court cases reach the SCDB as `caseSource` 300
+    plus `caseSourceState`. The method describes how the *court* was chosen,
+    not the justices who decided the case.
+  - County-level returns and the justice lists are in the raw state workbooks
+    (`state-elections-raw/AllFiles.7z`), not in the tables. `un7z.read()` opens
+    them.
+
 ## When the user wants to update the data
 
 New SCDB releases (scdb.psu.edu) appear most falls. Follow `data_notes.md` →
@@ -230,3 +280,9 @@ New SCDB releases (scdb.psu.edu) appear most falls. Follow `data_notes.md` →
 New CCAD releases: run `coa_slice.R` on a machine with R and the RData (the full
 file is 5.85 GB and needs ~6–8 GB of RAM), then
 `python scripts/build_coa.py --coa coa_link.csv.gz`. See `coa.md` → "Rebuilding".
+
+New Kritzer releases: put the `.7z` files in `state-elections-raw/` and run
+`python scripts/build_state_elections.py --raw ../state-elections-raw --out data/state`.
+A correction the new release already made stops the build with "found X,
+expected Y"; delete that entry from `FIXES`. See `state_elections.md` →
+"Rebuilding".

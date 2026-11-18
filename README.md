@@ -3,7 +3,7 @@
 Judicial politics data, harmonized and cross-linked, plus a Claude skill that
 knows how to use it.
 
-Three databases are combined here, each kept in its original form alongside a
+Four databases are combined here, each kept in its original form alongside a
 cleaned, linked build:
 
 | database | coverage | unit |
@@ -11,12 +11,19 @@ cleaned, linked build:
 | **Supreme Court Database** (SCDB) | every case, 1791–2025 | case and justice-vote |
 | **Judicial Common Space** (JCS) | justices OT1937–2022, 693 appeals judges, institutional medians 1924–2024 | judge-term |
 | **Comprehensive Court of Appeals Database** (CCAD) | 512,263 published opinions, 1880–2025 | case |
+| **State Supreme Court Election Archive** (Kritzer) | 2,672 elections 1946–2023, 2,302 seats, 896 retention votes 1936–2022, 39 states | election, seat |
 
 The three are linked. JCS scores attach to SCDB justice-votes and to the circuit a
 case came from. 8,265 courts of appeals cases are matched to the Supreme Court case
 that reviewed them. And because the CCAD's judge ideology scores are
 Giles–Hettinger–Peppers — the same measure behind the JCS appeals-judge scores —
 individual judges, three-judge panels and whole circuits sit on one common scale.
+
+State supreme court elections link to the SCDB through the court a case came
+from. `add_state_selection()` tags every Supreme Court case from a state supreme
+court with how that court was chosen that year (partisan, nonpartisan, retention,
+or not elected), using selection-method spans derived from the elections
+themselves.
 
 ## Layout
 
@@ -26,6 +33,7 @@ scdb-expert/          the Claude skill: data, loaders (Python + R), reference do
   scripts/            scdb.py, scdb.R, rebuild scripts, page builders
   references/         variables, analysis guide, JCS notes, CoA notes, codebook text
 scdb-raw/             the original SCDB releases (Legacy 07, 2026_01) + codebook
+state-elections-raw/  Kritzer's State Supreme Court Election Archive, as distributed (.7z + codebook)
 docs/                 interactive pages, viewable on GitHub Pages
 ```
 
@@ -59,6 +67,9 @@ scdb.find_judge("calabresi")        # a CoA judge's seat, tenure and predecessor
 appeals = scdb.coa("cases")         # 512,263 CoA opinions x 74 vars
 appeals = scdb.add_coa_circuit_medians(appeals)   # + that circuit's JCS median
 appeals = scdb.label_coa(appeals)   # adds <var>_label for 28 coded variables
+elect  = scdb.state_elections()     # 2,672 state supreme court elections
+cases  = scdb.add_state_selection(cases)   # + how the reviewed state court was chosen
+scdb.find_state_judge("rose bird")  # every election a state justice stood in
 ```
 
 R:
@@ -125,6 +136,19 @@ python scdb-expert/scripts/build_jcs.py --src <folder with the JCS CSVs>
 Rscript scdb-expert/scripts/coa_slice.R
 python scdb-expert/scripts/build_coa.py --coa coa_link.csv.gz
 ```
+
+```bash
+# State Supreme Court Election Archive (Kritzer's .7z files; no 7-Zip needed)
+python scdb-expert/scripts/build_state_elections.py --raw state-elections-raw \
+       --out scdb-expert/data/state
+```
+
+The state build corrects 76 errors in the archive, among them duplicate keys,
+rows filed under the wrong state, and Arizona's 2022 retention counts, which
+had been copied from 2020. Every correction is logged in
+`data/state/fixes.csv`, and each one checks the value it replaces, so a fixed
+upstream release stops the build instead of being corrected twice. See
+`scdb-expert/references/state_elections.md`.
 
 Every build writes deterministic gzip (mtime 0) and a `MANIFEST.json` with row
 counts and SHA-256 digests, so an unchanged source rebuilds byte-identically.
