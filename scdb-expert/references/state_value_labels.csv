@@ -1,0 +1,97 @@
+table,variable,code,label
+elections,electtype,1,"general election, nonpartisan"
+elections,electtype,2,"general election, partisan"
+elections,electtype,3,"general election, hybrid"
+elections,electtype,4,"general election, run-off (Louisiana after a blanket primary at the general)"
+elections,electtype,5,"primary, nonpartisan"
+elections,electtype,6,"primary, open or blanket"
+elections,electtype,7,"primary, Democratic"
+elections,electtype,8,"primary run-off, Democratic"
+elections,electtype,9,"primary, Republican"
+elections,electtype,10,"primary run-off, Republican"
+elections,electtype,11,"general election, uncontested nonpartisan reverted to retention (MT, UT)"
+elections,electtype,20,retention election
+elections,electtype,21,retention-type election without an incumbent (California confirmation)
+elections,CourtType,1,Supreme Court
+elections,CourtType,2,"Court of Criminal Appeals (TX, OK)"
+elections,CJ,1,chief justice seat
+elections,CJ,2,not a chief justice seat
+elections,CandType,1,open seat
+elections,CandType,2,incumbent
+elections,CandType,3,challenger
+elections,CandType,4,challenger who defeated the incumbent in the primary
+elections,CandType,5,appointed incumbent chief justice who was formerly an associate justice
+elections,CandType,6,associate justice running for an open chief justice position
+elections,CandType,7,associate justice challenging a sitting chief justice
+elections,CandType,8,challenger who defeated the incumbent at the party convention
+elections,IncumType,1,elected
+elections,IncumType,2,appointed
+elections,Party,1,Democrat
+elections,Party,2,Republican
+elections,Party,3,Libertarian
+elections,Party,4,American Independent
+elections,Party,5,Constitution
+elections,Party,6,Conservative
+elections,Party,7,Consumer
+elections,Party,8,Free Liberal
+elections,Party,9,Green
+elections,Party,10,Human Rights
+elections,Party,11,Labor
+elections,Party,12,Liberal
+elections,Party,13,Natural Law
+elections,Party,14,Patriot
+elections,Party,15,Progressive
+elections,Party,16,Prohibition
+elections,Party,17,Socialist
+elections,Party,18,U.S. Taxpayers
+elections,Party,20,Independent
+elections,Party,21,not identified / unclear / other
+elections,Party,22,write-in
+elections,Party,23,none of the above
+retention,electtype,11,"general election, uncontested nonpartisan reverted to retention (MT, UT)"
+retention,electtype,20,retention election
+retention,electtype,21,retention-type election without an incumbent (California confirmation)
+seats,BallotFormat,1,partisan
+seats,BallotFormat,2,"hybrid (party nomination, nonpartisan general ballot)"
+seats,BallotFormat,3,nonpartisan
+seats,CourtType,sc,Supreme Court
+seats,CourtType,cr,"Court of Criminal Appeals (TX, OK)"
+seats,incumbent,A,unopposed appointed incumbent
+seats,incumbent,AL,appointed incumbent lost
+seats,incumbent,ALP,appointed incumbent lost in primary
+seats,incumbent,AT,appointed incumbent won facing only third-party candidate(s)
+seats,incumbent,AW,appointed incumbent won
+seats,incumbent,C,unopposed appointed chief justice who had been an associate justice
+seats,incumbent,CL,appointed chief justice who had been an associate justice lost
+seats,incumbent,CW,appointed chief justice who had been an associate justice won
+seats,incumbent,E,previously elected incumbent unopposed
+seats,incumbent,EL,previously elected incumbent lost
+seats,incumbent,ELC,previously elected incumbent denied nomination at party convention
+seats,incumbent,ELP,previously elected incumbent lost primary
+seats,incumbent,ET,previously elected incumbent won facing only third-party candidate(s)
+seats,incumbent,EW,previously elected incumbent won
+seats,incumbent,EW/O(U),elected incumbent won Democratic primary then died; primary loser ran unopposed in the general (Texas 1982)
+seats,incumbent,O,open election
+seats,incumbent,OT,"open election, one main-party candidate and third-party candidate(s)"
+seats,incumbent,write-ins,all candidates write-in
+seats,uncontested,R,"uncontested nonpartisan reverted to retention (MT, UT)"
+seats,uncontested,U,uncontested
+seats,Primary,@P,"nonpartisan primary won with >50%, so no general election"
+seats,Primary,DC,contested Democratic convention where the incumbent lost
+seats,Primary,DP,Democratic primary
+seats,Primary,DP&RP,Democratic and Republican primaries
+seats,Primary,DP&RP-RO,"both primaries, Republican run-off"
+seats,Primary,DP-RO,Democratic primary followed by run-off
+seats,Primary,DP-RO&RP,"both primaries, Democratic run-off"
+seats,Primary,DP-RO&RP-RO,"both primaries, both run-offs"
+seats,Primary,G-RO,"nonpartisan primary at the general, December run-off (GA, MS)"
+seats,Primary,OP,open primary at the general (Louisiana)
+seats,Primary,OP-RO,"open primary at the general, December run-off (Louisiana)"
+seats,Primary,P,nonpartisan primary
+seats,Primary,P-RO,nonpartisan primary followed by run-off
+seats,Primary,RP,Republican primary
+seats,Primary,RP-RO,Republican primary followed by run-off
+selection,method,partisan,partisan election
+selection,method,hybrid,"party nomination, nonpartisan general ballot (AZ to 1974, MI, OH to 2020)"
+selection,method,nonpartisan,nonpartisan election
+selection,method,retention,retention election (usually after appointment)

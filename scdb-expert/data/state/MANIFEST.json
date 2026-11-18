@@ -1,0 +1,119 @@
+{
+  "source": "Herbert M. Kritzer, State Supreme Court Election Archive, updated February 9, 2024 (University of Minnesota Law School)",
+  "inputs": {
+    "AllFiles.7z": "e6c79274012e657cce4275369aa62303d780923b3109f6bb2580f498efd24521",
+    "ElectionDataset.7z": "36570845fcfb11214e4483b4fd4fd95bea9ec48c9be6d98f85d2a16c4e384a8a",
+    "RetentionDataset.7z": "ea01b68f81443b727de1132d5511fc89bc1abbbdabe8be3fdef84142f594fe90"
+  },
+  "source_tables": {
+    "elections": "ElectionDataset.7z (saved 2024-03-07)",
+    "seats": "AllFiles.7z / SeatsDataset.xlsx (2024-02-10)",
+    "retention": "RetentionDataset.7z"
+  },
+  "source_rows": {
+    "elections": 2674,
+    "seats": 2302,
+    "retention": 896
+  },
+  "fixes": 76,
+  "flagged_pct_yes": [
+    1350920,
+    2003620,
+    2003720,
+    2003820,
+    2003920,
+    2004020,
+    2004120,
+    2004220,
+    2004320,
+    2502220,
+    2502520,
+    2502620,
+    3610920,
+    3611520,
+    3611620,
+    3613520
+  ],
+  "elections_without_seat_year": [
+    106507,
+    406202,
+    903802,
+    1050105,
+    1311202,
+    1365309,
+    1700402,
+    1805006,
+    2403002,
+    2403102,
+    2405802,
+    3303002,
+    3504807,
+    3801407,
+    3802909,
+    4303202,
+    4303907,
+    4308802,
+    4313507,
+    4315309,
+    4701601,
+    4902505,
+    4905405
+  ],
+  "selection": {
+    "span_gap": 12,
+    "data_end": 2023,
+    "rows": 68
+  },
+  "elections.csv.gz": {
+    "rows": 2672,
+    "cols": 167,
+    "sha256": "4d194ef75cc36ee7e5b5846ebc20dfd5bb4ede38a967b031c0bb1823c625b5fe",
+    "bytes": 136156,
+    "years": [
+      1946,
+      2023
+    ]
+  },
+  "seats.csv.gz": {
+    "rows": 2302,
+    "cols": 21,
+    "sha256": "6e33cf8dc0504c76356cf26d080353157fe031f40a5eacdcb95dbd1869d88de5",
+    "bytes": 94552,
+    "years": [
+      1945,
+      2023
+    ]
+  },
+  "retention.csv.gz": {
+    "rows": 896,
+    "cols": 19,
+    "sha256": "94c1b0dc63b4844084cd8e6367ebc7ed0b468a124f296cc4d0269417b4ea5cb9",
+    "bytes": 41053,
+    "years": [
+      1936,
+      2022
+    ]
+  },
+  "selection.csv": {
+    "rows": 68,
+    "cols": 8,
+    "sha256": "4b238eee4b5af8b15e5a5958ec719267dd3933ead8d4f6d5f1c691ee5e60f0a6",
+    "bytes": 2706
+  },
+  "states.csv": {
+    "rows": 50,
+    "cols": 5,
+    "sha256": "8c2a44fd4f8617078c2b0572e9936871777fa6dcd4d625a071ab0f8beef2ddf3",
+    "bytes": 1213
+  },
+  "fixes.csv": {
+    "rows": 76,
+    "cols": 8,
+    "sha256": "0250cccf0014844816d4e43dfbb2125ea4baa9d11664ae7877502abeafa4ef5a",
+    "bytes": 11126,
+    "years": [
+      1962,
+      2022
+    ]
+  }
+}

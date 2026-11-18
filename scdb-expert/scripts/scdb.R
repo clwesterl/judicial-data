@@ -13,6 +13,8 @@
 #   votes <- scdb_add_jcs(votes)                   # Judicial Common Space score by justice-term
 #   cases <- scdb_add_medians(cases)               # SC / House / Senate / president medians by term
 #   coa   <- scdb_jcs("coa")                       # courts of appeals judges' JCS scores
+#   elect <- scdb_state("elections")               # state supreme court elections (Kritzer)
+#   cases <- scdb_add_state_selection(cases)       # + how the reviewed state court was chosen
 
 scdb_dir <- function() {
   cands <- c(Sys.getenv("SCDB_SKILL_DIR"),
@@ -306,4 +308,92 @@ scdb_court_composition <- function(circuit, year, dir = scdb_dir()) {
   p <- scdb_seat_panel(year, year, dir)
   p <- p[p$circuit == circuit, ]
   p[order(p$seat_no), ]
+}
+
+# ---- State supreme court elections (Kritzer's archive; see references/state_elections.md)
+# Columns keep the archive's names. Keys: seatid (stateid x 1000 + seat) and
+# electid (seatid x 100 + electtype). The state is `state` (postal) in elections and
+# seats but `state2` in retention, where `state` is a 1-20 sequence; `stateid`
+# (1 Alabama .. 50 Wyoming) is common to all three.
+scdb_state <- function(which = c("elections", "seats", "retention", "selection",
+                                 "states", "fixes"), dir = scdb_dir()) {
+  which <- match.arg(which)
+  f <- scdb_data_path(file.path("state", switch(which,
+         elections = "elections.csv.gz", seats = "seats.csv.gz",
+         retention = "retention.csv.gz", selection = "selection.csv",
+         states = "states.csv", fixes = "fixes.csv")), dir)
+  if (requireNamespace("readr", quietly = TRUE)) {
+    as.data.frame(readr::read_csv(f, show_col_types = FALSE, progress = FALSE,
+                                  guess_max = 1e5))
+  } else {
+    utils::read.csv(if (grepl("\\.gz$", f)) gzfile(f) else f, encoding = "UTF-8",
+                    stringsAsFactors = FALSE, na.strings = "")
+  }
+}
+
+# One row per candidate per election, from the wide CandName0..24 / votes1..24 columns.
+# cand 0 is an unopposed candidate (no vote count). Winners are not coded: in a
+# general election the top `numseats` vote-getters win.
+scdb_state_candidates <- function(e = scdb_state("elections")) {
+  keep <- c("electid", "seatid1", "stateid", "state", "year", "CourtType", "CJ",
+            "district", "numseats", "electtype", "TotalVoteCount")
+  parts <- lapply(0:24, function(k) {
+    nm <- e[[paste0("CandName", k)]]
+    i <- which(!is.na(nm))
+    if (!length(i)) return(NULL)
+    get <- function(v) { col <- paste0(v, k); if (col %in% names(e)) e[[col]][i] else NA }
+    d <- e[i, keep]
+    d$cand <- k; d$name <- trimws(nm[i])
+    d$votes <- if (k == 0) NA_real_ else e[[paste0("votes", k)]][i]
+    d$CandType <- get("CandType"); d$IncumType <- get("IncumType")
+    d$YrAppointed <- get("YrAppointed"); d$Party <- get("Party")
+    d
+  })
+  out <- do.call(rbind, parts)
+  out$share <- out$votes / out$TotalVoteCount
+  out$rank <- ave(-out$votes, out$electid,
+                  FUN = function(v) rank(v, ties.method = "min", na.last = "keep"))
+  out$TotalVoteCount <- NULL
+  out[order(out$stateid, out$year, out$electid, out$cand), ]
+}
+
+# Code -> label for a state-election variable; CandType/IncumType/Party cover the
+# numbered series. Pass table= where a name is shared (electtype, CourtType).
+scdb_state_labels <- function(variable, table = NULL, dir = scdb_dir()) {
+  lab <- utils::read.csv(file.path(dir, "references", "state_value_labels.csv"),
+                         colClasses = "character", encoding = "UTF-8")
+  base <- sub("[0-9]+$", "", variable)
+  lab <- lab[lab$variable == base & (is.null(table) | lab$table %in% table), ]
+  stats::setNames(lab$label, lab$code)
+}
+
+# Attach how the reviewed state court was chosen to SCDB case rows whose caseSource
+# is a state court (300 = state supreme court). state_selection is e.g. "partisan",
+# "partisan+retention", "none" (justices not elected), NA where the archive cannot say.
+# Spans ending in the archive's last year (2023) are treated as still in force.
+scdb_add_state_selection <- function(c, sources = 300, year_col = "term", dir = scdb_dir()) {
+  st <- scdb_state("states", dir); sel <- scdb_state("selection", dir)
+  st$in_archive <- toupper(as.character(st$in_archive)) == "TRUE"   # written as True/False
+  sel <- sel[sel$court == "sc", ]
+  last <- 2023
+  rows <- list()
+  for (s in unique(sel$state)) {
+    g <- sel[sel$state == s, ]
+    end <- ifelse(g$end >= last, 9999, g$end)
+    for (y in min(g$start):2030) {
+      m <- sort(g$method[g$start <= y & end >= y])
+      rows[[length(rows) + 1]] <- data.frame(source_state = s, .y = y,
+        state_selection = if (length(m)) paste(m, collapse = "+") else "none")
+    }
+  }
+  for (s in st$state[!st$in_archive])
+    rows[[length(rows) + 1]] <- data.frame(source_state = s, .y = 1946:2030,
+                                           state_selection = "none")
+  lut <- do.call(rbind, rows)
+  c$source_state <- ifelse(as.integer(c$caseSource) %in% sources,
+                           st$state[match(as.integer(c$caseSourceState), st$scdb_state)], NA)
+  c$.y <- as.integer(c[[year_col]])
+  out <- merge(c, lut, by = c("source_state", ".y"), all.x = TRUE, sort = FALSE)
+  out$.y <- NULL
+  out
 }
